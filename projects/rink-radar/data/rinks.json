@@ -31,6 +31,11 @@
           "activity_hints": ["public_skate"]
         },
         {
+          "url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+          "kind": "pdf",
+          "activity_hints": ["public_skate"]
+        },
+        {
           "url": "http://www.dover.nh.gov/government/city-operations/recreation/arena/adult-programs/",
           "kind": "html",
           "activity_hints": ["adult_hockey"]
@@ -38,7 +43,7 @@
       ],
       "adapter": "dover-pdf",
       "status": "pilot",
-      "notes": "Monthly PDF links on public skate page; call to confirm. Annual maintenance closure typically late spring."
+      "notes": "Public skate calendar is a monthly PDF (update schedule_sources PDF url each month or scrape from public-skate page). Call to confirm times. Annual maintenance closure typically late spring."
     },
     {
       "id": "rochester-arena",
