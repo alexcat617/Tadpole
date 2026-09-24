@@ -28,6 +28,7 @@ Statuses below are **documentation only** — confirm URLs before scraping.
 | id | Venue | City | Notes |
 | --- | --- | --- | --- |
 | `dover-arena` | Dover Ice Arena | Dover NH | City site + monthly PDFs; adult programs on separate pages |
+| `churchill-rink-durham` | Churchill Rink | Durham NH | SportsEngine live public skate + hockey schedule page |
 | `rochester-arena` | Rochester Arena | Rochester NH | RecDesk public skate; separate from Rochester Ice Center |
 | `rochester-ice-center` | Rochester Ice Center | Rochester NH | Distinct facility; RecTimes / site embed |
 | `exeter-rinks` | The Rinks at Exeter | Exeter NH | Verify current branding/URLs |

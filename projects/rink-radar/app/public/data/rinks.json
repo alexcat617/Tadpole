@@ -28,19 +28,26 @@
         {
           "url": "http://dover.nh.gov/government/city-operations/recreation/arena/public-skate/",
           "kind": "html",
-          "activity_hints": ["public_skate"],
+          "activity_hints": [
+            "public_skate"
+          ],
           "role": "pdf_discovery"
         },
         {
           "url": "http://dover.nh.gov/government/city-operations/recreation/arena/stick-practice/",
           "kind": "html",
-          "activity_hints": ["stick_puck", "adult_hockey"],
+          "activity_hints": [
+            "stick_puck",
+            "adult_hockey"
+          ],
           "role": "pdf_discovery"
         },
         {
           "url": "http://dover.nh.gov/government/city-operations/recreation/arena/adult-programs-leagues/",
           "kind": "html",
-          "activity_hints": ["adult_hockey"]
+          "activity_hints": [
+            "adult_hockey"
+          ]
         }
       ],
       "adapter": "dover-pdf",
@@ -64,12 +71,17 @@
         {
           "url": "https://www.churchillrink.org/page/show/1430862-live-public-skating-hockey-schedule",
           "kind": "html",
-          "activity_hints": ["public_skate"]
+          "activity_hints": [
+            "public_skate"
+          ]
         },
         {
           "url": "https://www.churchillrink.org/page/show/1439831-public-hockey-sessions-stick-and-puck-pond-hockey",
           "kind": "html",
-          "activity_hints": ["adult_hockey", "stick_puck"]
+          "activity_hints": [
+            "adult_hockey",
+            "stick_puck"
+          ]
         }
       ],
       "adapter": "sportsengine",
@@ -93,7 +105,9 @@
         {
           "url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
           "kind": "recdesk",
-          "activity_hints": ["public_skate"],
+          "activity_hints": [
+            "public_skate"
+          ],
           "recdesk_program_id": 2479,
           "recdesk_program_name": "Public Ice Skating"
         }
@@ -119,12 +133,17 @@
         {
           "url": "https://www.rochestericecenter.com/publicskate",
           "kind": "html",
-          "activity_hints": ["public_skate"]
+          "activity_hints": [
+            "public_skate"
+          ]
         },
         {
           "url": "https://www.rochestericecenter.com/",
           "kind": "html",
-          "activity_hints": ["stick_puck", "public_skate"]
+          "activity_hints": [
+            "stick_puck",
+            "public_skate"
+          ]
         }
       ],
       "adapter": "generic-html",
@@ -148,7 +167,10 @@
         {
           "url": "https://www.therinksatexeter.com/",
           "kind": "html",
-          "activity_hints": ["public_skate", "adult_hockey"]
+          "activity_hints": [
+            "public_skate",
+            "adult_hockey"
+          ]
         }
       ],
       "adapter": "generic-html",
@@ -190,7 +212,10 @@
         {
           "url": "https://www.yorkicearena.com/",
           "kind": "html",
-          "activity_hints": ["public_skate", "adult_hockey"]
+          "activity_hints": [
+            "public_skate",
+            "adult_hockey"
+          ]
         }
       ],
       "adapter": "generic-html",
