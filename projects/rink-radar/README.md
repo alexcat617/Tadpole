@@ -8,9 +8,9 @@ Find **public skates** and **adult hockey** near you without calling every rink 
 
 | Phase | State |
 | --- | --- |
-| Discovery & docs | In progress |
-| Manual `sessions.json` + UI | Not started |
-| Scrapers + GitHub Actions | Not started |
+| Discovery & docs | Done |
+| Web app + scrapers | MVP |
+| GitHub Pages deploy | Via `.github/workflows/rink-radar.yml` |
 
 ## Repository layout
 
@@ -36,15 +36,15 @@ projects/rink-radar/
 | [Roadmap](./docs/roadmap.md) | Phases & acceptance criteria |
 | [Open questions](./docs/open-questions.md) | Decisions still to make |
 
-## Run locally (future)
-
-Once the app scaffold exists:
+## Run locally
 
 ```bash
-cd projects/rink-radar/app   # TBD
-npm install && npm run dev
+cd projects/rink-radar/scraper && npm ci && npm run scrape
+cd ../app && npm ci && npm run dev
 ```
 
-## Live site (future)
+Dover monthly PDFs are discovered from the city public-skate and stick-practice HTML pages.
 
-GitHub Pages / Cloudflare Pages URL will be linked here after first deploy.
+## Live site
+
+Enable GitHub Pages (source: GitHub Actions). URL: `https://<user>.github.io/Tadpole/`

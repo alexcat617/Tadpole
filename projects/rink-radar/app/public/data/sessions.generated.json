@@ -1,0 +1,2418 @@
+{
+  "generated_at": "2026-09-24T12:40:26.423-04:00",
+  "region_label": "Seacoast NH / southern ME (Dover pilot)",
+  "sessions": [
+    {
+      "id": "dover-arena-2026-09-02T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-02T10:00:00.000-04:00",
+      "ends_at": "2026-09-02T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-02T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-02T13:30:00.000-04:00",
+      "ends_at": "2026-09-02T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-03T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-03T10:00:00.000-04:00",
+      "ends_at": "2026-09-03T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-03T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-03T13:30:00.000-04:00",
+      "ends_at": "2026-09-03T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-09T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-09T10:00:00.000-04:00",
+      "ends_at": "2026-09-09T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-09T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-09T13:30:00.000-04:00",
+      "ends_at": "2026-09-09T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-10T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-10T10:00:00.000-04:00",
+      "ends_at": "2026-09-10T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-10T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-10T13:30:00.000-04:00",
+      "ends_at": "2026-09-10T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-11T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-11T10:00:00.000-04:00",
+      "ends_at": "2026-09-11T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-11T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-11T13:30:00.000-04:00",
+      "ends_at": "2026-09-11T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-14T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-14T10:00:00.000-04:00",
+      "ends_at": "2026-09-14T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-14T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-14T13:30:00.000-04:00",
+      "ends_at": "2026-09-14T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-15T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-15T10:00:00.000-04:00",
+      "ends_at": "2026-09-15T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-15T12:00:00.000-04:00",
+      "ends_at": "2026-09-15T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-15T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-15T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-15T13:30:00.000-04:00",
+      "ends_at": "2026-09-15T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-16T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-16T10:00:00.000-04:00",
+      "ends_at": "2026-09-16T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-16T12:00:00.000-04:00",
+      "ends_at": "2026-09-16T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-16T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-16T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-16T13:30:00.000-04:00",
+      "ends_at": "2026-09-16T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-17T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-17T10:00:00.000-04:00",
+      "ends_at": "2026-09-17T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-17T12:00:00.000-04:00",
+      "ends_at": "2026-09-17T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-17T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-17T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-17T13:30:00.000-04:00",
+      "ends_at": "2026-09-17T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-18T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-18T10:00:00.000-04:00",
+      "ends_at": "2026-09-18T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-18T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-18T13:30:00.000-04:00",
+      "ends_at": "2026-09-18T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-19T12:00:00.000-04:00",
+      "ends_at": "2026-09-19T13:15:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-19T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-20T15:30:00.000-04:00",
+      "ends_at": "2026-09-20T16:45:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-20T153000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-21T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-21T10:00:00.000-04:00",
+      "ends_at": "2026-09-21T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-21T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-21T13:30:00.000-04:00",
+      "ends_at": "2026-09-21T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-22T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-22T10:00:00.000-04:00",
+      "ends_at": "2026-09-22T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-22T12:00:00.000-04:00",
+      "ends_at": "2026-09-22T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-22T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-22T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-22T13:30:00.000-04:00",
+      "ends_at": "2026-09-22T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-23T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-23T10:00:00.000-04:00",
+      "ends_at": "2026-09-23T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-23T12:00:00.000-04:00",
+      "ends_at": "2026-09-23T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-23T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-23T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-23T13:30:00.000-04:00",
+      "ends_at": "2026-09-23T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-24T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-24T10:00:00.000-04:00",
+      "ends_at": "2026-09-24T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-24T12:00:00.000-04:00",
+      "ends_at": "2026-09-24T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-24T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-24T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-24T13:30:00.000-04:00",
+      "ends_at": "2026-09-24T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-25T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-25T10:00:00.000-04:00",
+      "ends_at": "2026-09-25T11:20:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-25T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-25T13:30:00.000-04:00",
+      "ends_at": "2026-09-25T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-26T12:00:00.000-04:00",
+      "ends_at": "2026-09-26T13:15:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-26T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-27T133000000-0400-public_skate-recreational",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-27T13:30:00.000-04:00",
+      "ends_at": "2026-09-27T14:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50pm",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-27T15:30:00.000-04:00",
+      "ends_at": "2026-09-27T16:45:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-27T153000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-28T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-28T10:00:00.000-04:00",
+      "ends_at": "2026-09-28T11:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:50am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "id": "dover-arena-2026-09-29T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-29T10:00:00.000-04:00",
+      "ends_at": "2026-09-29T11:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:50am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-29T12:00:00.000-04:00",
+      "ends_at": "2026-09-29T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-29T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "id": "dover-arena-2026-09-30T100000000-0400-public_skate-instructional",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-30T10:00:00.000-04:00",
+      "ends_at": "2026-09-30T11:50:00.000-04:00",
+      "price": {
+        "summary": "Non-res adult $12 / youth $9 (see rink)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:50am",
+      "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00",
+      "confidence": "high"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-30T12:00:00.000-04:00",
+      "ends_at": "2026-09-30T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-09-30T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-01T12:00:00.000-04:00",
+      "ends_at": "2026-10-01T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-01T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-03T12:00:00.000-04:00",
+      "ends_at": "2026-10-03T13:15:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-03T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-04T15:30:00.000-04:00",
+      "ends_at": "2026-10-04T16:45:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-04T153000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-06T12:00:00.000-04:00",
+      "ends_at": "2026-10-06T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-06T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-07T12:00:00.000-04:00",
+      "ends_at": "2026-10-07T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-07T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-08T12:00:00.000-04:00",
+      "ends_at": "2026-10-08T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-08T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-10T12:00:00.000-04:00",
+      "ends_at": "2026-10-10T13:15:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-10T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-11T15:30:00.000-04:00",
+      "ends_at": "2026-10-11T16:45:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-11T153000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-13T12:00:00.000-04:00",
+      "ends_at": "2026-10-13T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-13T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-14T12:00:00.000-04:00",
+      "ends_at": "2026-10-14T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-14T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-15T12:00:00.000-04:00",
+      "ends_at": "2026-10-15T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-15T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-17T12:00:00.000-04:00",
+      "ends_at": "2026-10-17T13:15:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-17T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-20T12:00:00.000-04:00",
+      "ends_at": "2026-10-20T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-20T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-21T12:00:00.000-04:00",
+      "ends_at": "2026-10-21T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-21T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-22T12:00:00.000-04:00",
+      "ends_at": "2026-10-22T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-22T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-24T12:00:00.000-04:00",
+      "ends_at": "2026-10-24T13:15:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-24T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-25T15:30:00.000-04:00",
+      "ends_at": "2026-10-25T16:45:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-25T153000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-27T12:00:00.000-04:00",
+      "ends_at": "2026-10-27T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-27T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-28T12:00:00.000-04:00",
+      "ends_at": "2026-10-28T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-28T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-29T12:00:00.000-04:00",
+      "ends_at": "2026-10-29T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-29T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-10-31T12:00:00.000-04:00",
+      "ends_at": "2026-10-31T13:15:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-10-31T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-01T15:30:00.000-05:00",
+      "ends_at": "2026-11-01T16:45:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-01T153000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-03T12:00:00.000-05:00",
+      "ends_at": "2026-11-03T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-03T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-04T12:00:00.000-05:00",
+      "ends_at": "2026-11-04T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-04T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-05T12:00:00.000-05:00",
+      "ends_at": "2026-11-05T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-05T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-08T15:30:00.000-05:00",
+      "ends_at": "2026-11-08T16:45:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-08T153000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-10T12:00:00.000-05:00",
+      "ends_at": "2026-11-10T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-10T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-11T12:00:00.000-05:00",
+      "ends_at": "2026-11-11T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-11T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-12T12:00:00.000-05:00",
+      "ends_at": "2026-11-12T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-12T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-14T18:00:00.000-05:00",
+      "ends_at": "2026-11-14T19:15:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-14T180000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-15T15:30:00.000-05:00",
+      "ends_at": "2026-11-15T16:45:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-15T153000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-17T12:00:00.000-05:00",
+      "ends_at": "2026-11-17T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-17T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-18T12:00:00.000-05:00",
+      "ends_at": "2026-11-18T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-18T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-19T12:00:00.000-05:00",
+      "ends_at": "2026-11-19T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-19T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-21T18:00:00.000-05:00",
+      "ends_at": "2026-11-21T19:15:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-21T180000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-22T15:30:00.000-05:00",
+      "ends_at": "2026-11-22T16:45:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-22T153000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-24T12:00:00.000-05:00",
+      "ends_at": "2026-11-24T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-24T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-25T12:00:00.000-05:00",
+      "ends_at": "2026-11-25T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-25T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-28T18:00:00.000-05:00",
+      "ends_at": "2026-11-28T19:15:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-28T180000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-11-29T15:30:00.000-05:00",
+      "ends_at": "2026-11-29T16:45:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-11-29T153000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-01T12:00:00.000-05:00",
+      "ends_at": "2026-12-01T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-01T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-02T12:00:00.000-05:00",
+      "ends_at": "2026-12-02T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-02T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-03T12:00:00.000-05:00",
+      "ends_at": "2026-12-03T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-03T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-08T12:00:00.000-05:00",
+      "ends_at": "2026-12-08T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-08T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-09T12:00:00.000-05:00",
+      "ends_at": "2026-12-09T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-09T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-10T12:00:00.000-05:00",
+      "ends_at": "2026-12-10T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-10T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-15T12:00:00.000-05:00",
+      "ends_at": "2026-12-15T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-15T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-16T12:00:00.000-05:00",
+      "ends_at": "2026-12-16T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-16T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-17T12:00:00.000-05:00",
+      "ends_at": "2026-12-17T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-17T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-22T12:00:00.000-05:00",
+      "ends_at": "2026-12-22T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-22T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-23T12:00:00.000-05:00",
+      "ends_at": "2026-12-23T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-23T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-24T12:00:00.000-05:00",
+      "ends_at": "2026-12-24T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-24T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-29T12:00:00.000-05:00",
+      "ends_at": "2026-12-29T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-29T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-30T12:00:00.000-05:00",
+      "ends_at": "2026-12-30T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-30T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-12-31T12:00:00.000-05:00",
+      "ends_at": "2026-12-31T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2026-12-31T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-05T12:00:00.000-05:00",
+      "ends_at": "2027-01-05T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-05T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-06T12:00:00.000-05:00",
+      "ends_at": "2027-01-06T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-06T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-07T12:00:00.000-05:00",
+      "ends_at": "2027-01-07T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-07T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-12T12:00:00.000-05:00",
+      "ends_at": "2027-01-12T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-12T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-13T12:00:00.000-05:00",
+      "ends_at": "2027-01-13T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-13T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-14T12:00:00.000-05:00",
+      "ends_at": "2027-01-14T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-14T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-19T12:00:00.000-05:00",
+      "ends_at": "2027-01-19T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-19T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-20T12:00:00.000-05:00",
+      "ends_at": "2027-01-20T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-20T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-21T12:00:00.000-05:00",
+      "ends_at": "2027-01-21T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-21T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-26T12:00:00.000-05:00",
+      "ends_at": "2027-01-26T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-26T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-27T12:00:00.000-05:00",
+      "ends_at": "2027-01-27T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-27T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-01-28T12:00:00.000-05:00",
+      "ends_at": "2027-01-28T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-01-28T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-02T12:00:00.000-05:00",
+      "ends_at": "2027-02-02T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-02T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-03T12:00:00.000-05:00",
+      "ends_at": "2027-02-03T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-03T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-04T12:00:00.000-05:00",
+      "ends_at": "2027-02-04T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-04T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-09T12:00:00.000-05:00",
+      "ends_at": "2027-02-09T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-09T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-10T12:00:00.000-05:00",
+      "ends_at": "2027-02-10T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-10T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-11T12:00:00.000-05:00",
+      "ends_at": "2027-02-11T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-11T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-16T12:00:00.000-05:00",
+      "ends_at": "2027-02-16T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-16T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-17T12:00:00.000-05:00",
+      "ends_at": "2027-02-17T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-17T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-18T12:00:00.000-05:00",
+      "ends_at": "2027-02-18T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-18T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-23T12:00:00.000-05:00",
+      "ends_at": "2027-02-23T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-23T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-24T12:00:00.000-05:00",
+      "ends_at": "2027-02-24T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-24T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-02-25T12:00:00.000-05:00",
+      "ends_at": "2027-02-25T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-02-25T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-02T12:00:00.000-05:00",
+      "ends_at": "2027-03-02T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-02T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-03T12:00:00.000-05:00",
+      "ends_at": "2027-03-03T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-03T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-04T12:00:00.000-05:00",
+      "ends_at": "2027-03-04T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-04T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-09T12:00:00.000-05:00",
+      "ends_at": "2027-03-09T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-09T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-10T12:00:00.000-05:00",
+      "ends_at": "2027-03-10T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-10T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-11T12:00:00.000-05:00",
+      "ends_at": "2027-03-11T13:20:00.000-05:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-11T120000000-0500-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-16T12:00:00.000-04:00",
+      "ends_at": "2027-03-16T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-16T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-17T12:00:00.000-04:00",
+      "ends_at": "2027-03-17T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-17T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    },
+    {
+      "rink_id": "rochester-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2027-03-18T12:00:00.000-04:00",
+      "ends_at": "2027-03-18T13:20:00.000-04:00",
+      "price": {
+        "summary": "$7 admission (see RecDesk)",
+        "amount_cents": 700,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Public Ice Skating",
+      "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
+      "confidence": "high",
+      "id": "rochester-arena-2027-03-18T120000000-0400-public_skate-recreational",
+      "fetched_at": "2026-09-24T12:40:26.423-04:00"
+    }
+  ]
+}

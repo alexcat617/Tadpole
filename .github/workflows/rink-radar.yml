@@ -1,0 +1,70 @@
+name: Rink Radar
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'projects/rink-radar/**'
+      - '.github/workflows/rink-radar.yml'
+  schedule:
+    - cron: '0 12 * * 1,3,5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: rink-radar-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: |
+            projects/rink-radar/scraper/package-lock.json
+            projects/rink-radar/app/package-lock.json
+
+      - name: Scrape schedules
+        run: |
+          cd projects/rink-radar/scraper
+          npm ci
+          npm run scrape
+
+      - name: Build app
+        env:
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+        run: |
+          cd projects/rink-radar/app
+          npm ci
+          npm run build
+
+      - name: Commit refreshed session data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add projects/rink-radar/data/sessions.generated.json projects/rink-radar/data/health.json projects/rink-radar/app/public/data || true
+          git diff --staged --quiet || git commit -m "chore(rink-radar): refresh scraped schedules [skip ci]"
+          git push || true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: projects/rink-radar/app/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
