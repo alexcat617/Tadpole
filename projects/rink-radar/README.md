@@ -35,6 +35,8 @@ projects/rink-radar/
 | [Scraping policy](./docs/scraping-policy.md) | Fetch rules, attribution |
 | [Roadmap](./docs/roadmap.md) | Phases & acceptance criteria |
 | [Open questions](./docs/open-questions.md) | Decisions still to make |
+| [UX principles](./docs/ux-principles.md) | Usability guardrails (Shneiderman + NN/g) |
+| [UI patterns](./docs/ui-patterns.md) | Components, responsive layout, agent checklist |
 
 ## Run locally
 
