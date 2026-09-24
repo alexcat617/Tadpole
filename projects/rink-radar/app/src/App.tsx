@@ -539,8 +539,8 @@ export default function App() {
             <p>Searching schedules…</p>
           </div>
         ) : !hasSearched ? (
-          <div className="empty">
-            <p className="muted">Use Find next session or Search by date.</p>
+          <div className="empty empty--prompt">
+            <p>Use Find next session or Search by date.</p>
           </div>
         ) : (
           <>
@@ -653,7 +653,9 @@ export default function App() {
         )}
       </section>
 
-      <p className="disclaimer">Schedules change — confirm with the rink before you go.</p>
+      {hasSearched && rows.length > 0 ? (
+        <p className="disclaimer">Schedules change — confirm with the rink before you go.</p>
+      ) : null}
       </main>
       {rinksDrawer}
     </div>

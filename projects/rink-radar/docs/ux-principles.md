@@ -24,7 +24,7 @@ These reflect the current app behavior. The PRD still describes geolocation, rad
 | Deferred UI | **Within** (radius) and **Use my location** hidden until designed (fixed 40 km + Dover anchor). |
 | Session detail | Inline **accordion** on the card (not a modal). |
 | Card summary | Time, distance, rink name, activity/price line—no city/state on collapsed card. |
-| Trust | Persistent disclaimer: confirm with the rink; every session links to official source. |
+| Trust | Disclaimer when session results are shown; every session links to official source. |
 
 ## Unified guardrails
 

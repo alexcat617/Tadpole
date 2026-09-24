@@ -900,6 +900,19 @@
   border-radius: 0.65rem;
 }
 
+.empty--prompt {
+  padding: 1rem 1.15rem;
+  background: transparent;
+  box-shadow: none;
+}
+
+.empty--prompt p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--rr-muted);
+}
+
 .muted {
   color: #64748b;
 }
