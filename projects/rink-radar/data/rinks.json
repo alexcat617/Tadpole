@@ -31,14 +31,53 @@
           "activity_hints": ["public_skate"]
         },
         {
-          "url": "http://www.dover.nh.gov/government/city-operations/recreation/arena/adult-programs/",
+          "url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
+          "kind": "pdf",
+          "activity_hints": ["public_skate"]
+        },
+        {
+          "url": "http://dover.nh.gov/government/city-operations/recreation/arena/adult-programs-leagues/",
           "kind": "html",
           "activity_hints": ["adult_hockey"]
+        },
+        {
+          "url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Stick-26.pdf",
+          "kind": "pdf",
+          "activity_hints": ["stick_puck", "adult_hockey"]
         }
       ],
       "adapter": "dover-pdf",
       "status": "pilot",
-      "notes": "Monthly PDF links on public skate page; call to confirm. Annual maintenance closure typically late spring."
+      "notes": "Monthly PDFs for public skate and stick practice (update PDF urls each month or scrape from city pages). Adult leagues on adult-programs-leagues page. Call to confirm times. Annual maintenance closure typically late spring."
+    },
+    {
+      "id": "churchill-rink-durham",
+      "name": "Churchill Rink at Jackson's Landing",
+      "address": "10 Old Piscataqua Rd",
+      "city": "Durham",
+      "region": "NH",
+      "postal_code": "03824",
+      "country": "US",
+      "lat": 43.1192,
+      "lng": -70.9398,
+      "timezone": "America/New_York",
+      "phone": "603-868-3907",
+      "website": "https://www.churchillrink.org/",
+      "schedule_sources": [
+        {
+          "url": "https://www.churchillrink.org/page/show/1430862-live-public-skating-hockey-schedule",
+          "kind": "html",
+          "activity_hints": ["public_skate"]
+        },
+        {
+          "url": "https://www.churchillrink.org/page/show/1439831-public-hockey-sessions-stick-and-puck-pond-hockey",
+          "kind": "html",
+          "activity_hints": ["adult_hockey", "stick_puck"]
+        }
+      ],
+      "adapter": "sportsengine",
+      "status": "pilot",
+      "notes": "SportsEngine site. Public skate: live schedule page. Hockey: separate page for public hockey, stick & puck, pond hockey."
     },
     {
       "id": "rochester-arena",
@@ -55,14 +94,16 @@
       "website": "https://www.rochesternh.gov/rochester-recreation-arena",
       "schedule_sources": [
         {
-          "url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=1776",
+          "url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
           "kind": "recdesk",
-          "activity_hints": ["public_skate"]
+          "activity_hints": ["public_skate"],
+          "recdesk_program_id": 2479,
+          "recdesk_program_name": "Public Ice Skating"
         }
       ],
       "adapter": "recdesk",
       "status": "pilot",
-      "notes": "Public skate via RecDesk; adult hockey/leagues may be separate — add sources when known."
+      "notes": "RecDesk Public Ice Skating (programId 2479). Same URL has Details / Fees / Schedule tabs — parser reads Schedule tab table. $7 admission, $7 rentals. Adult hockey/leagues: add separate program URL when known."
     },
     {
       "id": "rochester-ice-center",
