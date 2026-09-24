@@ -9,3 +9,4 @@ Agent skills from [cuellarfr/design-skills](https://github.com/cuellarfr/design-
 | Project | Status |
 | --- | --- |
 | [my-first-project](./projects/my-first-project/) | Design / notes (no app scaffold yet) |
+| [rink-radar](./projects/rink-radar/) | Docs + data model (Dover NH pilot); app TBD |

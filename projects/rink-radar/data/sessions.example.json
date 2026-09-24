@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-09-24T08:00:00-04:00",
+  "region_label": "Seacoast NH (Dover pilot)",
+  "sessions": [
+    {
+      "id": "dover-arena-2026-09-24T1330-recreational-public",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "recreational",
+      "starts_at": "2026-09-24T13:30:00-04:00",
+      "ends_at": "2026-09-24T14:50:00-04:00",
+      "price": {
+        "summary": "Adult $12 / youth $9 non-resident (see rink site)",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Rec Public Skate 1:30-2:50P",
+      "source_url": "http://dover.nh.gov/government/city-operations/recreation/arena/public-skate/",
+      "fetched_at": "2026-09-24T08:00:00-04:00",
+      "confidence": "medium"
+    },
+    {
+      "id": "dover-arena-2026-09-24T1000-instructional-public",
+      "rink_id": "dover-arena",
+      "activity": "public_skate",
+      "subtype": "instructional",
+      "starts_at": "2026-09-24T10:00:00-04:00",
+      "ends_at": "2026-09-24T11:20:00-04:00",
+      "price": {
+        "summary": "Same as public skate admission",
+        "amount_cents": 1200,
+        "currency": "USD",
+        "is_free": false
+      },
+      "raw_label": "Instructional PS 10-11:20am",
+      "source_url": "http://dover.nh.gov/government/city-operations/recreation/arena/public-skate/",
+      "fetched_at": "2026-09-24T08:00:00-04:00",
+      "confidence": "medium"
+    }
+  ]
+}

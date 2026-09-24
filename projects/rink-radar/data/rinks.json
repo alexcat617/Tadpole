@@ -1,0 +1,163 @@
+{
+  "region": {
+    "label": "Seacoast NH / southern ME (Dover pilot)",
+    "anchor": {
+      "city": "Dover",
+      "region": "NH",
+      "postal_code": "03820",
+      "lat": 43.1979,
+      "lng": -70.8737
+    },
+    "default_radius_km": 25
+  },
+  "rinks": [
+    {
+      "id": "dover-arena",
+      "name": "Dover Ice Arena",
+      "address": "110 Portland Ave",
+      "city": "Dover",
+      "region": "NH",
+      "postal_code": "03820",
+      "country": "US",
+      "lat": 43.1865,
+      "lng": -70.8859,
+      "timezone": "America/New_York",
+      "phone": "603-516-6060",
+      "website": "https://www.dover.nh.gov/government/city-operations/recreation/arena/",
+      "schedule_sources": [
+        {
+          "url": "http://dover.nh.gov/government/city-operations/recreation/arena/public-skate/",
+          "kind": "html",
+          "activity_hints": ["public_skate"]
+        },
+        {
+          "url": "http://www.dover.nh.gov/government/city-operations/recreation/arena/adult-programs/",
+          "kind": "html",
+          "activity_hints": ["adult_hockey"]
+        }
+      ],
+      "adapter": "dover-pdf",
+      "status": "pilot",
+      "notes": "Monthly PDF links on public skate page; call to confirm. Annual maintenance closure typically late spring."
+    },
+    {
+      "id": "rochester-arena",
+      "name": "Rochester Arena",
+      "address": "45 Lowell St",
+      "city": "Rochester",
+      "region": "NH",
+      "postal_code": "03867",
+      "country": "US",
+      "lat": 43.2989,
+      "lng": -70.9784,
+      "timezone": "America/New_York",
+      "phone": "603-335-6749",
+      "website": "https://www.rochesternh.gov/rochester-recreation-arena",
+      "schedule_sources": [
+        {
+          "url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=1776",
+          "kind": "recdesk",
+          "activity_hints": ["public_skate"]
+        }
+      ],
+      "adapter": "recdesk",
+      "status": "pilot",
+      "notes": "Public skate via RecDesk; adult hockey/leagues may be separate — add sources when known."
+    },
+    {
+      "id": "rochester-ice-center",
+      "name": "Rochester Ice Center",
+      "address": "63 Lowell St",
+      "city": "Rochester",
+      "region": "NH",
+      "postal_code": "03867",
+      "country": "US",
+      "lat": 43.2962,
+      "lng": -70.9812,
+      "timezone": "America/New_York",
+      "phone": "603-332-2130",
+      "website": "https://www.rochestericecenter.com/",
+      "schedule_sources": [
+        {
+          "url": "https://www.rochestericecenter.com/publicskate",
+          "kind": "html",
+          "activity_hints": ["public_skate"]
+        },
+        {
+          "url": "https://www.rochestericecenter.com/",
+          "kind": "html",
+          "activity_hints": ["stick_puck", "public_skate"]
+        }
+      ],
+      "adapter": "generic-html",
+      "status": "pilot",
+      "notes": "Not the same building as Rochester Arena. Verify skate & shoot URL."
+    },
+    {
+      "id": "exeter-rinks",
+      "name": "The Rinks at Exeter",
+      "address": "40 Industrial Dr",
+      "city": "Exeter",
+      "region": "NH",
+      "postal_code": "03833",
+      "country": "US",
+      "lat": 42.9675,
+      "lng": -70.9456,
+      "timezone": "America/New_York",
+      "phone": "603-775-2255",
+      "website": "https://www.therinksatexeter.com/",
+      "schedule_sources": [
+        {
+          "url": "https://www.therinksatexeter.com/",
+          "kind": "html",
+          "activity_hints": ["public_skate", "adult_hockey"]
+        }
+      ],
+      "adapter": "generic-html",
+      "status": "pilot",
+      "notes": "Confirm public skate vs Hammond sheet URLs — update schedule_sources."
+    },
+    {
+      "id": "sanford-ice-arena",
+      "name": "Sanford Ice Arena",
+      "address": "550 Main St",
+      "city": "Sanford",
+      "region": "ME",
+      "postal_code": "04073",
+      "country": "US",
+      "lat": 43.4392,
+      "lng": -70.7742,
+      "timezone": "America/New_York",
+      "phone": "207-324-9276",
+      "website": "https://www.sanfordmaine.org/",
+      "schedule_sources": [],
+      "adapter": "manual",
+      "status": "paused",
+      "notes": "USER: add official schedule URL when you have it."
+    },
+    {
+      "id": "york-ice-arena",
+      "name": "York Ice Arena",
+      "address": "7 Alumni Dr",
+      "city": "York",
+      "region": "ME",
+      "postal_code": "03909",
+      "country": "US",
+      "lat": 43.1418,
+      "lng": -70.6512,
+      "timezone": "America/New_York",
+      "phone": "207-363-8877",
+      "website": "https://www.yorkicearena.com/",
+      "schedule_sources": [
+        {
+          "url": "https://www.yorkicearena.com/",
+          "kind": "html",
+          "activity_hints": ["public_skate", "adult_hockey"]
+        }
+      ],
+      "adapter": "generic-html",
+      "status": "paused",
+      "notes": "Verify lat/address and schedule page path."
+    }
+  ]
+}
