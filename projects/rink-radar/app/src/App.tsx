@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { Activity, BruinsScheduleFile, HealthFile, Rink, Session, RinksFile, SessionsFile } from './types';
+import type { Activity, BruinsScheduleFile, HealthFile, ProgramsFile, Rink, Session, RinksFile, SessionsFile } from './types';
 import {
   activityLabel,
   bruinsMatchupLabel,
   buildScheduleCoverage,
   doverStickPracticeFeesLine,
+  filterProgramsByRinkIds,
   findNextSession,
   formatBruinsGameDateTime,
   formatBruinsTvLine,
@@ -15,6 +16,8 @@ import {
   haversineKm,
   isBruinsGamePast,
   priceSummaryForCard,
+  programKindLabel,
+  programTeaser,
   rinkListStatus,
   sessionDateInZone,
   sessionScanBadge,
@@ -23,9 +26,11 @@ import './App.css';
 
 const DATA_BASE = `${import.meta.env.BASE_URL}data`;
 
-type ActivityFilter = 'public_skate' | 'adult_hockey' | 'stick_puck';
+type ActivityFilter = 'public_skate' | 'stick_puck';
 
-const ACTIVITY_FILTERS: ActivityFilter[] = ['public_skate', 'adult_hockey', 'stick_puck'];
+const ACTIVITY_FILTERS: ActivityFilter[] = ['public_skate', 'stick_puck'];
+
+type AppView = 'sessions' | 'programs';
 
 function todayInZone(): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
@@ -33,8 +38,7 @@ function todayInZone(): string {
 
 function sessionMatchesFilter(session: Session, filter: ActivityFilter): boolean {
   if (filter === 'public_skate') return session.activity === 'public_skate';
-  if (filter === 'stick_puck') return session.activity === 'stick_puck';
-  return session.activity === 'adult_hockey';
+  return session.activity === 'stick_puck';
 }
 
 export default function App() {
@@ -55,6 +59,9 @@ export default function App() {
   const [rinksSearchOpen, setRinksSearchOpen] = useState(false);
   const [bruinsScheduleOpen, setBruinsScheduleOpen] = useState(false);
   const [bruinsScheduleFile, setBruinsScheduleFile] = useState<BruinsScheduleFile | null>(null);
+  const [programsFile, setProgramsFile] = useState<ProgramsFile | null>(null);
+  const [appView, setAppView] = useState<AppView>('sessions');
+  const [expandedProgramId, setExpandedProgramId] = useState<string | null>(null);
   const [shareNotice, setShareNotice] = useState<string | null>(null);
 
   useEffect(() => {
@@ -120,6 +127,16 @@ export default function App() {
         if (schedule.games?.length) setBruinsScheduleFile(schedule);
       })
       .catch(() => {});
+
+    fetch(`${DATA_BASE}/programs.json`)
+      .then((r) => {
+        if (!r.ok) throw new Error('programs');
+        return r.json();
+      })
+      .then((programs: ProgramsFile) => {
+        if (programs.programs?.length) setProgramsFile(programs);
+      })
+      .catch(() => {});
   }, []);
 
   const runSearch = useCallback(async () => {
@@ -172,6 +189,31 @@ export default function App() {
       .filter(({ distance_km }) => distance_km <= radiusKm)
       .sort((a, b) => a.distance_km - b.distance_km);
   }, [activeRinks, radiusKm, userLat, userLng]);
+
+  const searchRinkIds = useMemo(
+    () => new Set(rinksInSearch.map(({ rink }) => rink.id)),
+    [rinksInSearch],
+  );
+
+  const visiblePrograms = useMemo(() => {
+    if (!programsFile) return [];
+    return filterProgramsByRinkIds(programsFile.programs, searchRinkIds);
+  }, [programsFile, searchRinkIds]);
+
+  const showProgramsNav = (programsFile?.programs.length ?? 0) > 0;
+
+  const openProgramsView = useCallback(() => {
+    setAppView('programs');
+    setExpandedProgramId(null);
+    setDateSearchOpen(false);
+    setRinksSearchOpen(false);
+    setBruinsScheduleOpen(false);
+  }, []);
+
+  const openSessionsView = useCallback(() => {
+    setAppView('sessions');
+    setExpandedProgramId(null);
+  }, []);
 
   const pausedRinkCount = useMemo(
     () => (rinksFile?.rinks ?? []).filter((r) => r.status === 'paused').length,
@@ -519,7 +561,19 @@ export default function App() {
           )}
         </div>
         <div className="header-actions">
-          {rinksFile && (
+          {showProgramsNav ? (
+            <button
+              type="button"
+              className={`header-rinks-btn${appView === 'programs' ? ' header-rinks-btn--current' : ''}`}
+              aria-current={appView === 'programs' ? 'page' : undefined}
+              onClick={() => {
+                if (appView !== 'programs') openProgramsView();
+              }}
+            >
+              Programs
+            </button>
+          ) : null}
+          {rinksFile ? (
             <button
               type="button"
               className="header-rinks-btn"
@@ -528,9 +582,9 @@ export default function App() {
               aria-label={`My rinks, ${rinksInSearch.length} in search`}
               onClick={toggleRinksPanel}
             >
-              My rinks · {rinksInSearch.length}
+              My rinks
             </button>
-          )}
+          ) : null}
         </div>
       </div>
     </header>
@@ -568,6 +622,119 @@ export default function App() {
     <div className={shellClassName}>
       {topBar}
       <main className="app">
+      {appView === 'programs' && programsFile ? (
+        <section className="programs-section" aria-label="Arena programs">
+          <header className="programs-intro">
+            <div className="programs-intro-header">
+              <h2 className="programs-heading">Programs</h2>
+              <button
+                type="button"
+                className="programs-close"
+                aria-label="Close programs"
+                onClick={openSessionsView}
+              >
+                ×
+              </button>
+            </div>
+            <p className="muted small programs-lede">
+              Leagues and drop-ins from rinks in your search area. Confirm times and registration with the
+              arena.
+            </p>
+          </header>
+          {visiblePrograms.length === 0 ? (
+            <div className="empty programs-empty">
+              <p>No programs for rinks in your search area.</p>
+              <p className="muted">Open My rinks — include a rink that offers adult programs.</p>
+            </div>
+          ) : (
+            <ul className="program-list">
+              {visiblePrograms.map((program) => {
+                const rink = rinkMap.get(program.rink_id);
+                const isExpanded = expandedProgramId === program.id;
+                const detailsId = `program-details-${program.id}`;
+                return (
+                  <li
+                    key={program.id}
+                    className={isExpanded ? 'program-item expanded' : 'program-item'}
+                  >
+                    <button
+                      type="button"
+                      className="program-card-toggle"
+                      aria-expanded={isExpanded}
+                      aria-controls={detailsId}
+                      onClick={() => setExpandedProgramId(isExpanded ? null : program.id)}
+                    >
+                      <span className="program-card-title">{program.title}</span>
+                      {rink ? <span className="program-card-rink muted small">{rink.name}</span> : null}
+                      <span className="program-meta">
+                        <span className={`program-kind-badge program-kind-badge--${program.kind}`}>
+                          {programKindLabel(program.kind)}
+                        </span>
+                        <span className="program-teaser muted small">{programTeaser(program)}</span>
+                      </span>
+                      <span className="program-chevron" aria-hidden="true" />
+                    </button>
+                    {isExpanded ? (
+                      <div className="program-details" id={detailsId}>
+                        {program.description.split('\n\n').map((para, i) => (
+                          <p key={i}>{para}</p>
+                        ))}
+                        <ul className="program-offerings">
+                          {program.offerings.map((offering) => (
+                            <li key={`${program.id}-${offering.label}`} className="program-offering">
+                              <h3 className="program-offering-label">{offering.label}</h3>
+                              <p>
+                                <strong>When:</strong> {offering.schedule_text}
+                              </p>
+                              {offering.exceptions && offering.exceptions.length > 0 ? (
+                                <p className="muted small">
+                                  <strong>Off:</strong> {offering.exceptions.join('; ')}
+                                </p>
+                              ) : null}
+                              <p>
+                                <strong>Times:</strong> {offering.times_text}
+                              </p>
+                              <p>
+                                <strong>Cost:</strong> {offering.cost_text}
+                              </p>
+                              <p>
+                                <strong>Registration:</strong> {offering.registration_text}
+                              </p>
+                            </li>
+                          ))}
+                        </ul>
+                        {program.links && program.links.length > 0 ? (
+                          <ul className="program-links">
+                            {program.links.map((link) => (
+                              <li key={link.url}>
+                                <a href={link.url} target="_blank" rel="noreferrer">
+                                  {link.label}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
+                        {rink?.phone ? (
+                          <p>
+                            <a href={`tel:${rink.phone.replace(/[^\d+]/g, '')}`}>{rink.phone}</a>
+                          </p>
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+          <p className="programs-footer muted small">
+            Not affiliated with host facilities.{' '}
+            <a href={programsFile.source_url} target="_blank" rel="noreferrer">
+              Official program listings
+            </a>
+          </p>
+        </section>
+      ) : (
+        <>
       <section className="controls" aria-label="Find sessions">
         <div className="controls-group controls-group--types">
           <p className="controls-label" id="activity-label">
@@ -577,7 +744,12 @@ export default function App() {
             className="activity-segmented"
             role="tablist"
             aria-labelledby="activity-label"
-            style={{ '--segment-index': ACTIVITY_FILTERS.indexOf(filter) } as React.CSSProperties}
+            style={
+              {
+                '--segment-index': ACTIVITY_FILTERS.indexOf(filter),
+                '--segment-count': ACTIVITY_FILTERS.length,
+              } as React.CSSProperties
+            }
           >
             <span className="activity-segmented-thumb" aria-hidden="true" />
             {ACTIVITY_FILTERS.map((a) => (
@@ -798,6 +970,8 @@ export default function App() {
       {hasSearched && rows.length > 0 ? (
         <p className="disclaimer">Schedules change — confirm with the rink before you go.</p>
       ) : null}
+        </>
+      )}
       </main>
       {rinksDrawer}
       {bruinsDrawer}

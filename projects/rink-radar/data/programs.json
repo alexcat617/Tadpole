@@ -1,0 +1,169 @@
+{
+  "generated_at": "2026-09-24T18:35:00.000-04:00",
+  "source_url": "https://www.dover.nh.gov/government/city-operations/recreation/arena/adult-programs-leagues/",
+  "programs": [
+    {
+      "id": "dover-chix-with-stix",
+      "rink_id": "dover-arena",
+      "title": "Women's Hockey / Chix With Stix",
+      "kind": "drop_in",
+      "description": "Fun pick-up skate for adult women, ages 18 and older, with basic skating skills. This is a drop-in weekly skate. Advance sign-up required. Please bring a dark and light jersey to the skate.",
+      "offerings": [
+        {
+          "label": "Fall/Winter Session",
+          "schedule_text": "September 13, 2026 – December 6, 2026, Sundays",
+          "exceptions": ["None: 11/8", "11/29"],
+          "times_text": "6:00pm – 7:30pm",
+          "cost_text": "$12/skate",
+          "registration_text": "Sign-ups open Wednesday at 8 a.m. for the following week's skate by calling the front desk 603-516-6060."
+        },
+        {
+          "label": "Winter/Spring Session",
+          "schedule_text": "January 11, 2026 – May 10, 2026, Sundays",
+          "exceptions": ["None: 3/1"],
+          "times_text": "6:00pm – 7:20pm",
+          "cost_text": "$12/skate",
+          "registration_text": "Sign-ups open Mondays at 8:00 a.m. for the following week's skate by calling the front desk (603) 516-6060. Must sign up in advance."
+        },
+        {
+          "label": "Summer Session",
+          "schedule_text": "July 7, 2026 – September 1, 2026, Tuesdays (9 weeks)",
+          "exceptions": [],
+          "times_text": "8:00pm – 9:20pm",
+          "cost_text": "$12/skate",
+          "registration_text": "Sign-ups open Wednesday at 8:00 a.m. for the following Tuesday's skate by calling the front desk (603) 516-6060. Must sign up in advance."
+        }
+      ]
+    },
+    {
+      "id": "dover-coed-league",
+      "rink_id": "dover-arena",
+      "title": "Dover Arena Co-Ed Hockey League",
+      "kind": "league",
+      "description": "League focused on the intermediate hockey player, 18 and over, CO-ED. Eight-team league; players register individually and arena staff adjust rosters. Focus on fun, teamwork, and skill improvement. Strict discipline and tough play rules. Full equipment required. Non-contact, no slap shots. Registrations are limited and this program fills quickly.",
+      "offerings": [
+        {
+          "label": "Fall Session",
+          "schedule_text": "September 28, 2026 – December 14, 2026, Mondays",
+          "exceptions": [],
+          "times_text": "Game times vary – see schedule",
+          "cost_text": "$350 for 12 week season",
+          "registration_text": "Current players have until Wednesday, September 16 to sign up before registration opens. Email Mike (mike.young@dover.nh.gov) for online registration information or mail a printed registration form with a check."
+        },
+        {
+          "label": "Winter/Spring Session",
+          "schedule_text": "TBD",
+          "exceptions": [],
+          "times_text": "Game times vary – see schedule",
+          "cost_text": "$225 for 9 week season",
+          "registration_text": "Current players have until Tuesday, December 16 to sign up before registration opens. Email Mike (mike.young@dover.nh.gov) for online registration information or mail a printed registration form with a check."
+        },
+        {
+          "label": "Spring Session",
+          "schedule_text": "TBD",
+          "exceptions": [],
+          "times_text": "Game times vary – see schedule",
+          "cost_text": "$225 for 9 week season",
+          "registration_text": "Current players have until Wednesday, March 4 to sign up before registration opens. Email Mike (mike.young@dover.nh.gov) for online registration information or mail a printed registration form with a check."
+        },
+        {
+          "label": "Summer Session",
+          "schedule_text": "July 6, 2026 – August 31, 2026, Mondays",
+          "exceptions": [],
+          "times_text": "Game times vary – see schedule",
+          "cost_text": "$275 for 9 week season",
+          "registration_text": "Current players have until Friday, June 17 to sign up before registration opens. Email Mike (mike.young@dover.nh.gov) for online registration information or mail a printed registration form with a check."
+        }
+      ],
+      "links": [
+        {
+          "label": "League rules",
+          "url": "https://www.dover.nh.gov/government/city-operations/recreation/arena/adult-programs-leagues/"
+        }
+      ]
+    },
+    {
+      "id": "dover-coed-beginner-pickup",
+      "rink_id": "dover-arena",
+      "title": "Co-ed / Beginner Level Pick-up Hockey",
+      "kind": "drop_in",
+      "description": "Beginner hockey pickup for men and women ages 18 and over. Recreational program focused on skill enhancement and fun. Safe, non-contact; welcomes beginner and intermediate skaters who stay focused on a fun pick-up game. No strong intermediate or advanced skaters; advanced skaters may be asked to leave. Beginner hockey players only. Full hockey equipment required. Sessions are 1.5 hours. Two goalies provided.",
+      "offerings": [
+        {
+          "label": "Summer Session",
+          "schedule_text": "July 10, 2026 – August 28, 2026, Fridays (8 weeks)",
+          "exceptions": ["None: 7/24"],
+          "times_text": "Check times weekly – registrations open at 8:00 a.m. Monday for Friday's skate by calling the front desk (603) 516-6060",
+          "cost_text": "$12 per session",
+          "registration_text": "Call the front desk to register each week."
+        },
+        {
+          "label": "Fall Session",
+          "schedule_text": "October 2, 2026 – November 20, 2026, Fridays",
+          "exceptions": ["None: 11/6"],
+          "times_text": "Check times weekly – registrations open at 8:00 a.m. Monday for that week's skate by calling 603-516-6060",
+          "cost_text": "$12 per skater",
+          "registration_text": "Call the arena front desk each week."
+        },
+        {
+          "label": "Winter/Spring Session",
+          "schedule_text": "TBA",
+          "exceptions": [],
+          "times_text": "Check times weekly – registrations open at 8:00 a.m. Monday for that week's skate by calling 603-516-6060",
+          "cost_text": "$12 per skater",
+          "registration_text": "Call the arena front desk each week."
+        }
+      ]
+    },
+    {
+      "id": "dover-beginner-skills-drills",
+      "rink_id": "dover-arena",
+      "title": "Beginner Adult Hockey Skills, Drills & Pick-up Games",
+      "kind": "skills",
+      "description": "Beginner hockey skills program for men and women ages 18 and over. Recreational; skill enhancement and fun. Safe, non-contact; welcomes all beginner skaters. Men limited to beginner level only (no intermediate or advanced). Full hockey equipment required. In-season sessions are 1.5 hours; summer sessions are 50 minutes of skating with drills and a game at the end. Qualified adult hockey instructors on the ice each session.",
+      "offerings": [
+        {
+          "label": "Summer Session",
+          "schedule_text": "July 8, 2026 – August 12, 2026, Wednesdays (6 weeks)",
+          "exceptions": [],
+          "times_text": "8:00pm – 8:50pm",
+          "cost_text": "$12 per session",
+          "registration_text": "Drop-in program – call the front desk for registration details."
+        },
+        {
+          "label": "Fall Session",
+          "schedule_text": "October 2, 2026 – December 11, 2026, Fridays",
+          "exceptions": ["None: 10/16", "10/30", "11/6", "11/27", "12/4"],
+          "times_text": "8:30am – 9:50am",
+          "cost_text": "$12/session",
+          "registration_text": "Drop-in program."
+        },
+        {
+          "label": "Spring Session",
+          "schedule_text": "TBD",
+          "exceptions": ["None: 4/24"],
+          "times_text": "8:30am – 10:00am",
+          "cost_text": "$12/session",
+          "registration_text": "Drop-in program."
+        }
+      ]
+    },
+    {
+      "id": "dover-adult-intro-skills",
+      "rink_id": "dover-arena",
+      "title": "Adult Intro Skills and Drills",
+      "kind": "skills",
+      "description": "Designed for adult beginner skaters (men and women) 18+. Basic skating skills and drills related to hockey. Full hockey equipment required.",
+      "offerings": [
+        {
+          "label": "Winter Session",
+          "schedule_text": "January 23 – March 27, Fridays",
+          "exceptions": ["None: 2/27", "3/6", "3/13"],
+          "times_text": "8:30am – 10:00am",
+          "cost_text": "$10/session – walk-ons welcome anytime",
+          "registration_text": "Walk-ons welcome."
+        }
+      ]
+    }
+  ]
+}

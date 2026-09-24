@@ -36,6 +36,7 @@ City recreation pages are intended for public information. Still:
 - One request per scrape run to `api-web.nhle.com` for BOS club schedule (season slug in scraper).
 - Same User-Agent and timeout defaults; on failure, **retain last good** `bruins-schedule.json`.
 - `tv_networks` on each game is derived from NHL `tvBroadcasts` (NESN normalized to `NESN`, plus US national feeds); simplified labels, not blackout or rights advice.
+- **`programs.json`** is manually curated from rink program pages (e.g. Dover adult leagues); attribute the facility/league in UI and link out for registration.
 - Drawer footer links to the official Bruins schedule; not a substitute for NHL apps or tickets.
 
 ## Third-party platforms (RecDesk, league sites)

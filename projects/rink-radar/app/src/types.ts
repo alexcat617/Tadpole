@@ -83,3 +83,35 @@ export interface BruinsScheduleFile {
   games: BruinsGame[];
   error?: string;
 }
+
+export type ProgramKind = 'drop_in' | 'league' | 'skills';
+
+export interface ProgramLink {
+  label: string;
+  url: string;
+}
+
+export interface ProgramOffering {
+  label: string;
+  schedule_text: string;
+  exceptions?: string[];
+  times_text: string;
+  cost_text: string;
+  registration_text: string;
+}
+
+export interface Program {
+  id: string;
+  rink_id: string;
+  title: string;
+  kind: ProgramKind;
+  description: string;
+  offerings: ProgramOffering[];
+  links?: ProgramLink[];
+}
+
+export interface ProgramsFile {
+  generated_at: string;
+  source_url: string;
+  programs: Program[];
+}

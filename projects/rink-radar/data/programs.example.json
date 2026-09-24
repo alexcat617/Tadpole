@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-09-24T12:00:00.000-04:00",
+  "source_url": "https://www.dover.nh.gov/government/city-operations/recreation/arena/adult-programs-leagues/",
+  "programs": [
+    {
+      "id": "dover-chix-with-stix",
+      "rink_id": "dover-arena",
+      "title": "Women's Hockey / Chix With Stix",
+      "kind": "drop_in",
+      "description": "Fun pick-up skate for adult women, ages 18 and older, with basic skating skills. Drop-in weekly skate; advance sign-up required. Bring a dark and light jersey.",
+      "offerings": [
+        {
+          "label": "Fall/Winter Session",
+          "schedule_text": "September 13, 2026 – December 6, 2026, Sundays",
+          "exceptions": ["None: 11/8", "11/29"],
+          "times_text": "6:00pm – 7:30pm",
+          "cost_text": "$12/skate",
+          "registration_text": "Sign-ups open Wednesday at 8 a.m. for the following week's skate by calling the front desk 603-516-6060."
+        }
+      ],
+      "links": []
+    }
+  ]
+}

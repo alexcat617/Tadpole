@@ -67,6 +67,20 @@ Fetched from NHL’s public schedule API during scrape; copied to `app/public/da
 
 See [`data/bruins-schedule.example.json`](../data/bruins-schedule.example.json).
 
+## `programs.json` — Arena programs (editorial)
+
+Multi-week leagues and drop-in **programs** (not day-by-day scrape rows). Copied to `app/public/data/programs.json`. Maintained manually from rink program pages.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `generated_at` | string | ISO when file last edited |
+| `source_url` | string | Canonical listings page |
+| `programs` | array | Program entries |
+
+Each program: `id`, `rink_id`, `title`, `kind` (`drop_in`, `league`, `skills`), `description`, `offerings[]` (`label`, `schedule_text`, `exceptions`, `times_text`, `cost_text`, `registration_text`), optional `links[]`.
+
+See [`data/programs.example.json`](../data/programs.example.json).
+
 ## Rink profile (optional)
 
 Curated content for future profile pages; not used by scrapers. May live inline on the rink object or in `data/rinks/{id}.profile.json`.
