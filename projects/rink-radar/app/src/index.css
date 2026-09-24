@@ -62,6 +62,11 @@
   box-sizing: border-box;
 }
 
+#root:has(.app-shell) {
+  border-inline: none;
+  text-align: left;
+}
+
 body {
   margin: 0;
   scrollbar-gutter: stable;
