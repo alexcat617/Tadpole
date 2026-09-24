@@ -62,12 +62,17 @@
         {
           "url": "https://www.churchillrink.org/page/show/1430862-live-public-skating-hockey-schedule",
           "kind": "html",
-          "activity_hints": ["public_skate", "adult_hockey"]
+          "activity_hints": ["public_skate"]
+        },
+        {
+          "url": "https://www.churchillrink.org/page/show/1439831-public-hockey-sessions-stick-and-puck-pond-hockey",
+          "kind": "html",
+          "activity_hints": ["adult_hockey", "stick_puck"]
         }
       ],
       "adapter": "sportsengine",
       "status": "pilot",
-      "notes": "Live schedule page (SportsEngine). Public skating and hockey on same feed — filter by activity in parser."
+      "notes": "SportsEngine site. Public skate: live schedule page. Hockey: separate page for public hockey, stick & puck, pond hockey."
     },
     {
       "id": "rochester-arena",
