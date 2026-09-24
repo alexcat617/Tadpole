@@ -33,13 +33,14 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Page shell
 
-- Centered column, light page background (`#f1f5f9`), white surfaces for cards and controls.
-- Header: product name, one-line tagline, meta line (updated timestamp or search hint).
+- Centered column, light page background (`--rr-page` / `#f0f0f2`), white card surfaces (`--rr-surface`).
+- **Sticky top bar:** dark ink background (`--rr-ink`), 2px gold bottom border (`--rr-gold`); region title on white text, app name and updated line on `--rr-on-dark-muted`.
+- Main content below the bar uses the light page fill; session cards and loading/empty blocks stay white.
 
 ### Activity tabs
 
 - Three equal-weight options: Public skate, Adult hockey, Stick & puck.
-- **States:** Selected = teal fill + white label; unselected = white fill + dark text + border.
+- **States:** Selected = ink fill (`--rr-ink`) + gold label (`--rr-gold`); unselected = transparent on gray track + dark text.
 - **Responsive:** `flex-wrap` on narrow screens; `min-width` on each tab so labels stay readable.
 - **A11y:** `role="tablist"` / `role="tab"`, `aria-selected`.
 
@@ -53,19 +54,19 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Rinks in search
 
-- **Header control:** **Rinks · N** in the sticky top bar (upper right, above or beside **Updated**).
+- **Header control:** **My rinks · N** in the sticky top bar (upper right, above or beside **Updated**).
 - **Right drawer:** Opens over the full page (~**80%** viewport width from the right); the left strip is a dimmed backdrop.
 - **Close:** Tap backdrop, **×** in drawer header, or **Escape**; body scroll is locked while open.
 - List pilot/active rinks within the search radius (nearest first); health badge under each name.
 - **Status badges** from `health.json`: Schedule available / No times listed yet / Scrape issue — unless `operations.status` is set on the rink (e.g. **Closed for the season**).
 - Paused registry rinks: muted “coming soon” count only (not in search list).
 - Opening rinks closes Search by date (and vice versa); changing session type closes both panels.
-- Empty results repeat a short “Searching {rink names}” line.
 
-### Primary CTA — Find sessions
+### Primary CTA — Find next session
 
 - Full width of `.app` at all breakpoints.
-- Teal background, white label, bold.
+- Primary style: white surface, **ink** label (`--rr-ink`, medium weight), **gold** border; hover uses `--rr-gold-muted` fill.
+- **Search by date** trigger uses the same typography and padding (`0.95rem`, weight 500); neutral 1px border distinguishes it from the primary control.
 - **States:** Default; disabled (searching or locked after results); label **Searching…** while loading.
 
 ### Secondary — Clear sessions
@@ -75,6 +76,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Results region
 
+- **Day header:** Uppercase kicker (`--rr-muted`, same scale as **Session type** label) + bold date title (`--rr-ink`); no gold-on-white for small kickers.
 - **Loading:** White card, centered spinner + message.
 - **Pre-search:** Empty state prompt to use Find next session or Search by date.
 - **No matches:** Empty state with suggestion to change date or activity.
@@ -99,7 +101,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - Phone (tel link) when present.
 - Open in maps (external).
 - Official schedule source (external).
-- **Share with friend** — last in details; full-width **secondary** button (outline) with icon; Web Share or copy; text opens with **Want to join me?**
+- **Share with friend** — last in details; full-width blue **action** button (`--rr-action`, white label + icon); Web Share or copy; text opens with **Want to join me?**
 
 **Interaction**
 
@@ -113,8 +115,11 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Typography & color
 
-- Body and controls: explicit dark text on white/light surfaces (`#0f172a` / `#64748b` muted).
-- Links in details: teal `#0f766e`.
+- **Tokens** (see `App.css` `:root`): `--rr-ink` body text, `--rr-gold` accents (header, tabs), `--rr-action` / `--rr-action-hover` for filled CTAs, `--rr-gold-muted` soft highlights (OK health badge, recreational badge, share notice), `--rr-muted` secondary copy, `--rr-border` dividers.
+- Body and controls: explicit `--rr-ink` on white/light surfaces; muted labels use slate grays or `--rr-muted` where aligned.
+- Links in session details: `--rr-ink` with semibold weight (not gold-on-white).
+- Header-on-dark: `--rr-surface` for the region title; `--rr-on-dark-muted` for meta; rinks control uses gold text and light border.
+- Bruins-inspired palette only (black + gold accents)—no team logos or marks in UI.
 - Do not rely on inherited `color` alone for `button` elements when background is hard-coded white.
 
 ## Styling approach (MVP)

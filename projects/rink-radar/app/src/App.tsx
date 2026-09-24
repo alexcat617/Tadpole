@@ -11,7 +11,6 @@ import {
   haversineKm,
   priceSummaryForCard,
   rinkListStatus,
-  searchRinkNamesSummary,
   sessionDateInZone,
   sessionScanBadge,
 } from './utils';
@@ -160,11 +159,6 @@ export default function App() {
   const pausedRinkCount = useMemo(
     () => (rinksFile?.rinks ?? []).filter((r) => r.status === 'paused').length,
     [rinksFile],
-  );
-
-  const searchRinkSummary = useMemo(
-    () => searchRinkNamesSummary(rinksInSearch.map(({ rink }) => rink)),
-    [rinksInSearch],
   );
 
   const scheduleCoverage = useMemo(() => {
@@ -394,10 +388,10 @@ export default function App() {
               className="header-rinks-btn"
               aria-expanded={rinksSearchOpen}
               aria-controls="rinks-in-search-panel"
-              aria-label={`Rinks in search, ${rinksInSearch.length} rinks`}
+              aria-label={`My rinks, ${rinksInSearch.length} in search`}
               onClick={toggleRinksPanel}
             >
-              Rinks · {rinksInSearch.length}
+              My rinks · {rinksInSearch.length}
             </button>
           )}
         </div>
@@ -546,10 +540,7 @@ export default function App() {
           </div>
         ) : !hasSearched ? (
           <div className="empty">
-            <p>Use Find next session or Search by date.</p>
-            {searchRinkSummary ? (
-              <p className="muted small">Searching {searchRinkSummary}.</p>
-            ) : null}
+            <p className="muted">Use Find next session or Search by date.</p>
           </div>
         ) : (
           <>
@@ -565,9 +556,6 @@ export default function App() {
               <div className="empty results-empty">
                 <p>No sessions for this day and filter.</p>
                 <p className="muted">Try another date, wider radius, or a different activity.</p>
-                {searchRinkSummary ? (
-                  <p className="muted small">Searching {searchRinkSummary}.</p>
-                ) : null}
               </div>
             ) : (
               <ul className="session-list">
@@ -633,7 +621,7 @@ export default function App() {
                     <p className="session-share-row">
                       <button
                         type="button"
-                        className="secondary session-share-btn"
+                        className="session-share-btn"
                         onClick={() => void shareSession(session, rink)}
                       >
                         <svg
