@@ -38,7 +38,47 @@
   margin-top: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
+}
+
+.controls-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.controls-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.search-date {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 9rem;
+  font-size: 0.75rem;
+  color: #64748b;
+  gap: 0.2rem;
+}
+
+.search-date input {
+  padding: 0.45rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  width: 100%;
 }
 
 .activity-toggle {
@@ -99,9 +139,9 @@
 }
 
 .search-cta {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.75rem 1rem;
+  flex: 1;
+  min-width: 6.5rem;
+  padding: 0.55rem 1rem;
   border: none;
   border-radius: 0.5rem;
   background: #0f766e;
@@ -122,6 +162,7 @@
 
 .find-next-session {
   width: 100%;
+  align-self: stretch;
 }
 
 .search-error {

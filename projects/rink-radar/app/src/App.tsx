@@ -197,52 +197,61 @@ export default function App() {
         </p>
       </header>
 
-      <section className="controls">
-        <div className="activity-toggle" role="tablist" aria-label="Activity">
-          {(['public_skate', 'adult_hockey', 'stick_puck'] as ActivityFilter[]).map((a) => (
-            <button
-              key={a}
-              type="button"
-              role="tab"
-              aria-selected={filter === a}
-              className={filter === a ? 'active' : ''}
-              onClick={() => selectActivity(a)}
-            >
-              {activityLabel(a as Activity)}
-            </button>
-          ))}
+      <section className="controls" aria-label="Find sessions">
+        <div className="controls-group controls-group--types">
+          <p className="controls-label" id="activity-label">
+            Session type
+          </p>
+          <div className="activity-toggle" role="tablist" aria-labelledby="activity-label">
+            {(['public_skate', 'adult_hockey', 'stick_puck'] as ActivityFilter[]).map((a) => (
+              <button
+                key={a}
+                type="button"
+                role="tab"
+                aria-selected={filter === a}
+                className={filter === a ? 'active' : ''}
+                onClick={() => selectActivity(a)}
+              >
+                {activityLabel(a as Activity)}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="row">
-          <label>
-            Date
-            <input type="date" value={date} onChange={(e) => selectDate(e.target.value)} />
-          </label>
-        </div>
-
-        <button
-          type="button"
-          className="secondary find-next-session"
-          onClick={() => void runFindNext()}
-          disabled={isSearching}
-        >
-          Find next session
-        </button>
-
-        <button
-          type="button"
-          className="search-cta"
-          onClick={() => void runSearch()}
-          disabled={isSearching || (hasSearched && rows.length > 0)}
-          aria-busy={isSearching}
-        >
-          {isSearching ? 'Searching…' : 'Search'}
-        </button>
-        {hasSearched && !isSearching && (
-          <button type="button" className="secondary clear-sessions" onClick={clearSessions}>
-            Clear sessions
+        <div className="controls-group controls-group--find-next">
+          <button
+            type="button"
+            className="secondary find-next-session"
+            onClick={() => void runFindNext()}
+            disabled={isSearching}
+          >
+            Find next session
           </button>
-        )}
+        </div>
+
+        <div className="controls-group controls-group--search">
+          <div className="search-row">
+            <label className="search-date">
+              Date
+              <input type="date" value={date} onChange={(e) => selectDate(e.target.value)} />
+            </label>
+            <button
+              type="button"
+              className="search-cta"
+              onClick={() => void runSearch()}
+              disabled={isSearching || (hasSearched && rows.length > 0)}
+              aria-busy={isSearching}
+            >
+              {isSearching ? 'Searching…' : 'Search'}
+            </button>
+          </div>
+          {hasSearched && !isSearching && (
+            <button type="button" className="secondary clear-sessions" onClick={clearSessions}>
+              Clear sessions
+            </button>
+          )}
+        </div>
+
         {searchError && <p className="error search-error">{searchError}</p>}
       </section>
 
