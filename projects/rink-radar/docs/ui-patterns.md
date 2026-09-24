@@ -61,7 +61,16 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - List pilot/active rinks within the search radius (nearest first); health badge under each name.
 - **Status badges** from `health.json`: Schedule available / No times listed yet / Scrape issue — unless `operations.status` is set on the rink (e.g. **Closed for the season**).
 - Paused registry rinks: muted “coming soon” count only (not in search list).
-- Opening rinks closes Search by date (and vice versa); changing session type closes both panels.
+- Opening rinks closes Search by date and Bruins schedule (and vice versa); changing session type closes all overlays.
+
+### Bruins schedule (companion)
+
+- **FAB:** Fixed bottom-right (`z-index: 28`), ink + gold label **Bruins**; hidden when schedule JSON missing or drawer open.
+- **Right drawer:** Same **side drawer** pattern as My rinks (`z-index: 40`, ~80% width, backdrop, Escape, scroll lock).
+- **Content:** Games grouped by month; home/away badge, venue, **TV · NESN / national** line when data exists; past games muted.
+- **Disclaimer:** Not affiliated with NHL/Bruins; link to official schedule.
+- **Exclusion:** Only one overlay at a time (My rinks, Search by date panel, Bruins drawer).
+- **Shell:** `.app-shell--bruins-fab` adds extra bottom padding on `.app` so content clears the FAB.
 
 ### Primary CTA — Find next session
 

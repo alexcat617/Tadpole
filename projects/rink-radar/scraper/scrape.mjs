@@ -7,6 +7,7 @@ import { discoverLatestPdfUrl } from './lib/discover-pdf.mjs';
 import { parseDoverPdfBuffer } from './lib/dover-pdf.mjs';
 import { scrapeRecDeskProgram } from './lib/recdesk.mjs';
 import { scrapeChurchillPage } from './lib/churchill.mjs';
+import { scrapeBruinsSchedule } from './lib/bruins-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -15,6 +16,8 @@ const outPath = path.join(root, 'data', 'sessions.generated.json');
 const publicOut = path.join(root, 'app', 'public', 'data', 'sessions.generated.json');
 const publicRinks = path.join(root, 'app', 'public', 'data', 'rinks.json');
 const publicHealth = path.join(root, 'app', 'public', 'data', 'health.json');
+const bruinsOut = path.join(root, 'data', 'bruins-schedule.json');
+const publicBruinsOut = path.join(root, 'app', 'public', 'data', 'bruins-schedule.json');
 
 const registry = JSON.parse(fs.readFileSync(rinksPath, 'utf8'));
 const fetchedAt = DateTime.now().setZone('America/New_York').toISO();
@@ -189,4 +192,9 @@ fs.writeFileSync(publicRinks, JSON.stringify(registry, null, 2));
 fs.writeFileSync(path.join(root, 'data', 'health.json'), JSON.stringify(health, null, 2));
 fs.writeFileSync(publicHealth, JSON.stringify(health, null, 2));
 
+const bruinsSchedule = await scrapeBruinsSchedule(bruinsOut, fs.readFileSync);
+fs.writeFileSync(bruinsOut, JSON.stringify(bruinsSchedule, null, 2));
+fs.writeFileSync(publicBruinsOut, JSON.stringify(bruinsSchedule, null, 2));
+
 console.log(`Wrote ${output.sessions.length} sessions to ${outPath}`);
+console.log(`Wrote ${bruinsSchedule.games?.length ?? 0} Bruins games to ${bruinsOut}`);

@@ -53,6 +53,7 @@
 
 - Adapters for drop-in / league pages (Rochester Beacons, Dover adult programs).
 - **Rink directory in UI** — “Rinks in search” panel + `health.json` badges (done in app).
+- **Bruins schedule companion** — FAB + side drawer from `bruins-schedule.json` (palette only; not NHL-affiliated).
 - **Rink profiles (later)** — optional `profile` on rink records: hero image, capacity, amenities, history; link from session accordion (see [data model](./data-model.md)).
 - **Share session** — expanded card action (Web Share + copy); done in app (see [PRD](./PRD.md) Flow D).
 - Filters: instructional vs recreational; hide league games unless “league” toggle on.
