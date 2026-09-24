@@ -48,7 +48,7 @@
       ],
       "adapter": "dover-pdf",
       "status": "pilot",
-      "notes": "Public skate calendar is a monthly PDF (update schedule_sources PDF url each month or scrape from public-skate page). Call to confirm times. Annual maintenance closure typically late spring."
+      "notes": "Monthly PDFs for public skate and stick practice (update PDF urls each month or scrape from city pages). Adult leagues on adult-programs-leagues page. Call to confirm times. Annual maintenance closure typically late spring."
     },
     {
       "id": "churchill-rink-durham",
