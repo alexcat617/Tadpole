@@ -137,13 +137,31 @@
   margin-top: 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 0.85rem;
 }
 
 .controls-group {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+}
+
+.controls-group--types {
+  gap: 0.5rem;
+  margin-bottom: 0.15rem;
+}
+
+.controls-group--find-next,
+.controls-group--search {
+  gap: 0.35rem;
+}
+
+.controls-group--find-next {
+  margin-top: 0;
+}
+
+.controls-group--search {
+  margin-top: 0;
 }
 
 .controls-label {
@@ -185,22 +203,23 @@
 
 .activity-segmented {
   --segment-count: 3;
+  --segment-track-pad: 0.35rem;
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding: 0.28rem;
+  padding: var(--segment-track-pad);
   background: #e2e8f0;
   border: 1px solid #cbd5e1;
-  border-radius: 0.55rem;
+  border-radius: 0.6rem;
   isolation: isolate;
 }
 
 .activity-segmented-thumb {
   position: absolute;
-  top: 0.28rem;
-  bottom: 0.28rem;
-  left: 0.28rem;
-  width: calc((100% - 0.56rem) / var(--segment-count));
+  top: var(--segment-track-pad);
+  bottom: var(--segment-track-pad);
+  left: var(--segment-track-pad);
+  width: calc((100% - (var(--segment-track-pad) * 2)) / var(--segment-count));
   border-radius: 0.4rem;
   background: var(--rr-ink);
   box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
@@ -214,12 +233,12 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  padding: 0.72rem 0.35rem;
+  padding: 0.85rem 0.4rem;
   border: none;
   border-radius: 0.4rem;
   background: transparent;
   color: #334155;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   line-height: 1.2;
   font-weight: 600;
   cursor: pointer;
@@ -319,12 +338,14 @@
 .find-next-session,
 .search-by-date-cta {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
+  min-height: 3rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.45rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.2;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .find-next-session {

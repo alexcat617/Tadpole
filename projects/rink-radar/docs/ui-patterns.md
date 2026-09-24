@@ -40,6 +40,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 ### Activity tabs
 
 - Three equal-weight options: Public skate, Adult hockey, Stick & puck.
+- **Layout:** Primary filter control—larger track padding and tab type (`~0.88rem`) so session type dominates the controls block.
 - **States:** Selected = ink fill (`--rr-ink`) + gold label (`--rr-gold`); unselected = transparent on gray track + dark text.
 - **Responsive:** `flex-wrap` on narrow screens; `min-width` on each tab so labels stay readable.
 - **A11y:** `role="tablist"` / `role="tab"`, `aria-selected`.
@@ -64,9 +65,10 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Primary CTA — Find next session
 
-- Full width of `.app` at all breakpoints.
+- Full width of `.app` at all breakpoints; stacked above **Search by date** with tight vertical spacing.
 - Primary style: white surface, **ink** label (`--rr-ink`, medium weight), **gold** border; hover uses `--rr-gold-muted` fill.
-- **Search by date** trigger uses the same typography and padding (`0.95rem`, weight 500); neutral 1px border distinguishes it from the primary control.
+- **Compact secondary stack:** `0.875rem` type, `0.75rem` vertical padding, `min-height: 3rem` (~48px touch); full `.controls` gap between Find next and Search by date (no overlap).
+- **Search by date** trigger shares compact metrics; neutral 1px border distinguishes it from the primary control.
 - **States:** Default; disabled (searching or locked after results); label **Searching…** while loading.
 
 ### Secondary — Clear sessions
