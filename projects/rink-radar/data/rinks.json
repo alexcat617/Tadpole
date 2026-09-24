@@ -74,6 +74,9 @@
       ],
       "adapter": "sportsengine",
       "status": "pilot",
+      "operations": {
+        "status": "closed_for_season"
+      },
       "notes": "SportsEngine site. Public skate: live schedule page. Hockey: separate page for public hockey, stick & puck, pond hockey."
     },
     {

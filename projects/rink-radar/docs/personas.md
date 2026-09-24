@@ -2,6 +2,10 @@
 
 Two primary personas for the Seacoast NH pilot (Dover anchor). Use these when prioritizing flows, copy, pricing clarity, and scrape coverage.
 
+### Community context
+
+Public skate and pickup hockey here are a **small, tight regional community**: the same rinks, overlapping crowds (travel parents, adult leaguers who public-skate, Rochester–Dover regulars). People plan together—group texts, carpools, “you going tonight?”—not only solo schedule lookups. Rink Radar should make **passing along accurate session details** easy without building feeds, profiles, or in-app chat.
+
 ---
 
 ## Persona 1 — Chris, hockey dad
@@ -19,6 +23,7 @@ Two primary personas for the Seacoast NH pilot (Dover anchor). Use these when pr
 - Know **cost per kid** ($8 youth stick vs $12 adult) before driving to the rink.
 - See **equipment rules** (full gear for youth stick; parent/tot is different from drop-in adult stick).
 - Use **Find next session** on the Stick & puck tab when the week is hectic.
+- **Coordinate with family**—share a youth stick slot with spouse or another parent (time, fee, confirm link) without retyping PDF text.
 
 ### Frustrations
 
@@ -33,10 +38,11 @@ Two primary personas for the Seacoast NH pilot (Dover anchor). Use these when pr
 - Expanded **youth stick** details list **all stick fee tiers** for comparison with parent/tot and adult options.
 - Date header after search (“Tomorrow”, full weekday) so he knows Leo can make it after school.
 - Phone + official PDF link in details to confirm caps and rule changes.
+- **Share session** in card details: one message with youth stick label, $8, time, and official source.
 
 ### Success looks like
 
-Chris searches Stick & puck for Saturday, sees **Youth stick $8** at Dover (or the next available youth slot via Find next), and confirms with one tap to the city PDF.
+Chris searches Stick & puck for Saturday, sees **Youth stick $8** at Dover (or the next available youth slot via Find next), confirms with one tap to the city PDF—or **shares the slot to a group chat** so his partner knows Leo can make it.
 
 ---
 
@@ -55,6 +61,7 @@ Chris searches Stick & puck for Saturday, sees **Youth stick $8** at Dover (or t
 - Compare **instructional** vs **recreational** sessions when trying skills without sticks.
 - See **resident-style pricing** at Dover (adult vs youth if bringing a niece/nephew later).
 - Quick answer: “Is there a skate **today** within ~40 km?”
+- **Invite a friend** to the same public skate with clear rec vs instructional wording.
 
 ### Frustrations
 
@@ -69,10 +76,11 @@ Chris searches Stick & puck for Saturday, sees **Youth stick $8** at Dover (or t
 - **Find next session** on Public skate jumps to the next upcoming rec or instructional slot in radius.
 - Results **date header** (Today / In 3 days) for planning after work.
 - Disclaimer stays short: confirm before you go.
+- **Share session** so a friend gets the same time, price, and rink link—not a screenshot.
 
 ### Success looks like
 
-Sam opens Public skate, taps Find next session, sees **Thursday recreational** at Dover with time and price, opens maps, and goes — no PDF hunting.
+Sam opens Public skate, taps Find next session, sees **Thursday recreational** at Dover with time and price, opens maps, and goes—or **shares the session** so a friend meets him there with the same details.
 
 ---
 
@@ -84,5 +92,7 @@ Sam opens Public skate, taps Find next session, sees **Thursday recreational** a
 | Price sensitivity | Per-child stick fees ($8 vs $12) | Adult public skate + optional youth |
 | Key data gap | Youth stick times not always on PDF | Instructional vs rec distinction |
 | Trust | Equipment/age rules, caps | Session type and end time |
+| Social coordination | Family / other hockey parents | Friends, partner |
+| Share use case | Youth stick time + fee + confirm link | Public skate plan + end time |
 
-When features conflict, prefer clarity for **both**: explicit session subtype, honest pricing tiers, and official source links.
+When features conflict, prefer clarity for **both**: explicit session subtype, honest pricing tiers, official source links, and **community-friendly sharing** (accurate, source-linked text)—without accounts or comments.

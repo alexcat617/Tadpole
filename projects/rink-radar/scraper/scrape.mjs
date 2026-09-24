@@ -14,6 +14,7 @@ const rinksPath = path.join(root, 'data', 'rinks.json');
 const outPath = path.join(root, 'data', 'sessions.generated.json');
 const publicOut = path.join(root, 'app', 'public', 'data', 'sessions.generated.json');
 const publicRinks = path.join(root, 'app', 'public', 'data', 'rinks.json');
+const publicHealth = path.join(root, 'app', 'public', 'data', 'health.json');
 
 const registry = JSON.parse(fs.readFileSync(rinksPath, 'utf8'));
 const fetchedAt = DateTime.now().setZone('America/New_York').toISO();
@@ -186,5 +187,6 @@ fs.mkdirSync(path.dirname(publicOut), { recursive: true });
 fs.writeFileSync(publicOut, JSON.stringify(output, null, 2));
 fs.writeFileSync(publicRinks, JSON.stringify(registry, null, 2));
 fs.writeFileSync(path.join(root, 'data', 'health.json'), JSON.stringify(health, null, 2));
+fs.writeFileSync(publicHealth, JSON.stringify(health, null, 2));
 
 console.log(`Wrote ${output.sessions.length} sessions to ${outPath}`);

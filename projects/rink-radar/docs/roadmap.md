@@ -52,6 +52,9 @@
 ## Phase 3 — Adult hockey + polish
 
 - Adapters for drop-in / league pages (Rochester Beacons, Dover adult programs).
+- **Rink directory in UI** — “Rinks in search” panel + `health.json` badges (done in app).
+- **Rink profiles (later)** — optional `profile` on rink records: hero image, capacity, amenities, history; link from session accordion (see [data model](./data-model.md)).
+- **Share session** — expanded card action (Web Share + copy); done in app (see [PRD](./PRD.md) Flow D).
 - Filters: instructional vs recreational; hide league games unless “league” toggle on.
 - PWA install, “open in maps”, phone `tel:` links.
 - Map view (optional).

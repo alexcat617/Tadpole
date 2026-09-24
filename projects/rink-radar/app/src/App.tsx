@@ -1,6 +1,20 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { Activity, Session, RinksFile, SessionsFile } from './types';
-import { activityLabel, doverStickPracticeFeesLine, findNextSession, formatResultsDayHeader, formatTimeRange, haversineKm, priceSummaryForCard, sessionDateInZone, sessionScanBadge } from './utils';
+import type { Activity, HealthFile, Rink, Session, RinksFile, SessionsFile } from './types';
+import {
+  activityLabel,
+  buildScheduleCoverage,
+  doverStickPracticeFeesLine,
+  findNextSession,
+  formatResultsDayHeader,
+  formatSessionShareText,
+  formatTimeRange,
+  haversineKm,
+  priceSummaryForCard,
+  rinkListStatus,
+  searchRinkNamesSummary,
+  sessionDateInZone,
+  sessionScanBadge,
+} from './utils';
 import './App.css';
 
 const DATA_BASE = `${import.meta.env.BASE_URL}data`;
@@ -23,8 +37,8 @@ export default function App() {
   const [sessionsFile, setSessionsFile] = useState<SessionsFile | null>(null);
   const [rinksFile, setRinksFile] = useState<RinksFile | null>(null);
   const [filter, setFilter] = useState<ActivityFilter>('public_skate');
-  const [date, setDate] = useState(todayInZone());
-  const [radiusKm] = useState(40);
+  const [date, setDate] = useState('');
+  const [healthFile, setHealthFile] = useState<HealthFile | null>(null);
   const [userLat, setUserLat] = useState<number | null>(null);
   const [userLng, setUserLng] = useState<number | null>(null);
   const [expandedSessionId, setExpandedSessionId] = useState<string | null>(null);
@@ -33,6 +47,33 @@ export default function App() {
   const [appliedFilter, setAppliedFilter] = useState<ActivityFilter | null>(null);
   const [appliedDate, setAppliedDate] = useState<string | null>(null);
   const [isSearching, setIsSearching] = useState(false);
+  const [dateSearchOpen, setDateSearchOpen] = useState(false);
+  const [rinksSearchOpen, setRinksSearchOpen] = useState(false);
+  const [shareNotice, setShareNotice] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!shareNotice) return;
+    const timer = window.setTimeout(() => setShareNotice(null), 3000);
+    return () => window.clearTimeout(timer);
+  }, [shareNotice]);
+
+  const shareSession = useCallback(async (session: Session, rink: Rink) => {
+    const text = formatSessionShareText(session, rink);
+    if (typeof navigator.share === 'function') {
+      try {
+        await navigator.share({ title: 'Ice session', text });
+        return;
+      } catch (err) {
+        if (err instanceof Error && err.name === 'AbortError') return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(text);
+      setShareNotice('Session details copied.');
+    } catch {
+      setShareNotice('Could not copy. Use the official schedule link below.');
+    }
+  }, []);
 
   useEffect(() => {
     fetch(`${DATA_BASE}/rinks.json`)
@@ -55,10 +96,18 @@ export default function App() {
       })
       .then((sessions: SessionsFile) => setSessionsFile(sessions))
       .catch(() => {});
+
+    fetch(`${DATA_BASE}/health.json`)
+      .then((r) => {
+        if (!r.ok) throw new Error('health');
+        return r.json();
+      })
+      .then((health: HealthFile) => setHealthFile(health))
+      .catch(() => {});
   }, []);
 
   const runSearch = useCallback(async () => {
-    if (isSearching) return;
+    if (isSearching || !date) return;
     setIsSearching(true);
     setSearchError(null);
     setExpandedSessionId(null);
@@ -69,6 +118,7 @@ export default function App() {
       setSessionsFile(sessions);
       setAppliedFilter(filter);
       setAppliedDate(date);
+      setDateSearchOpen(true);
     } catch {
       setSearchError('Could not load schedules. Try again.');
     } finally {
@@ -81,6 +131,7 @@ export default function App() {
     setAppliedDate(null);
     setExpandedSessionId(null);
     setSearchError(null);
+    setDate('');
   }, []);
 
   const clearSessions = clearSearchResults;
@@ -92,6 +143,40 @@ export default function App() {
   );
 
   const rinkMap = useMemo(() => new Map(activeRinks.map((r) => [r.id, r])), [activeRinks]);
+
+  const radiusKm = rinksFile?.region.default_radius_km ?? 25;
+
+  const rinksInSearch = useMemo(() => {
+    if (userLat == null || userLng == null) return [];
+    return activeRinks
+      .map((rink) => ({
+        rink,
+        distance_km: haversineKm(userLat, userLng, rink.lat, rink.lng),
+      }))
+      .filter(({ distance_km }) => distance_km <= radiusKm)
+      .sort((a, b) => a.distance_km - b.distance_km);
+  }, [activeRinks, radiusKm, userLat, userLng]);
+
+  const pausedRinkCount = useMemo(
+    () => (rinksFile?.rinks ?? []).filter((r) => r.status === 'paused').length,
+    [rinksFile],
+  );
+
+  const searchRinkSummary = useMemo(
+    () => searchRinkNamesSummary(rinksInSearch.map(({ rink }) => rink)),
+    [rinksInSearch],
+  );
+
+  const scheduleCoverage = useMemo(() => {
+    if (!sessionsFile) return null;
+    return buildScheduleCoverage(sessionsFile.sessions, filter, rinkMap.keys());
+  }, [sessionsFile, filter, rinkMap]);
+
+  const noDateDataMessage = useCallback(
+    (activity: ActivityFilter) =>
+      `No schedule data for this date for ${activityLabel(activity).toLowerCase()}. Try another day or use Find next session.`,
+    [],
+  );
 
   const runFindNext = useCallback(async () => {
     if (isSearching || userLat == null || userLng == null) return;
@@ -111,7 +196,6 @@ export default function App() {
         return;
       }
       const nextDate = sessionDateInZone(next.starts_at);
-      setDate(nextDate);
       setAppliedFilter(filter);
       setAppliedDate(nextDate);
     } catch {
@@ -124,19 +208,44 @@ export default function App() {
   const selectActivity = useCallback(
     (activity: ActivityFilter) => {
       if (activity === filter) return;
+      const prevDate = date;
       setFilter(activity);
+      setDateSearchOpen(false);
+      setRinksSearchOpen(false);
       clearSearchResults();
+      if (prevDate && sessionsFile) {
+        const cov = buildScheduleCoverage(sessionsFile.sessions, activity, rinkMap.keys());
+        if (!cov || !cov.dates.has(prevDate)) {
+          setSearchError(noDateDataMessage(activity));
+        }
+      }
     },
-    [clearSearchResults, filter],
+    [clearSearchResults, date, filter, noDateDataMessage, rinkMap, sessionsFile],
   );
 
   const selectDate = useCallback(
     (nextDate: string) => {
+      if (!nextDate) {
+        setDate('');
+        setSearchError(null);
+        return;
+      }
       if (nextDate === date) return;
-      setDate(nextDate);
+      if (!sessionsFile) {
+        setSearchError('Schedules aren’t loaded yet. Wait a moment, then pick a date again.');
+        setDate('');
+        return;
+      }
+      if (!scheduleCoverage || !scheduleCoverage.dates.has(nextDate)) {
+        setSearchError(noDateDataMessage(filter));
+        setDate('');
+        return;
+      }
+      setSearchError(null);
       clearSearchResults();
+      setDate(nextDate);
     },
-    [clearSearchResults, date],
+    [clearSearchResults, date, filter, noDateDataMessage, scheduleCoverage, sessionsFile],
   );
 
   const rows = useMemo(() => {
@@ -187,18 +296,111 @@ export default function App() {
     return { label, iso: sessionsFile.generated_at };
   }, [sessionsFile]);
 
+  const toggleRinksPanel = useCallback(() => {
+    setRinksSearchOpen((open) => {
+      if (!open) setDateSearchOpen(false);
+      return !open;
+    });
+  }, []);
+
+  const closeRinksPanel = useCallback(() => {
+    setRinksSearchOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (!rinksSearchOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setRinksSearchOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [rinksSearchOpen]);
+
+  const rinksDrawer =
+    rinksSearchOpen && rinksFile ? (
+      <div className="rinks-drawer-root">
+        <button
+          type="button"
+          className="rinks-drawer-backdrop"
+          aria-label="Close rinks list"
+          onClick={closeRinksPanel}
+        />
+        <div
+          id="rinks-in-search-panel"
+          className="rinks-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="rinks-drawer-title"
+        >
+          <header className="rinks-drawer-header">
+            <h2 id="rinks-drawer-title" className="rinks-drawer-title">
+              Rinks in search
+            </h2>
+            <button
+              type="button"
+              className="rinks-drawer-close"
+              aria-label="Close"
+              onClick={closeRinksPanel}
+            >
+              ×
+            </button>
+          </header>
+          <div className="rinks-drawer-body">
+            <ul className="rinks-in-search-list">
+              {rinksInSearch.map(({ rink }) => {
+                const status = rinkListStatus(rink, healthFile?.rinks[rink.id]);
+                return (
+                  <li key={rink.id} className="rinks-in-search-item">
+                    <span className="rinks-in-search-name">{rink.name}</span>
+                    <span className="rinks-in-search-city">{rink.city}</span>
+                    <span className={`rink-health-badge rink-health-badge--${status.variant}`}>
+                      {status.label}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+            {pausedRinkCount > 0 && (
+              <p className="muted small rinks-in-search-more">
+                {pausedRinkCount} more rinks in our registry coming soon.
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    ) : null;
+
   const topBar = (
     <header className="top-bar" role="banner">
       <div className="top-bar-inner">
         <div className="header-titles">
           <h1 className="header-region">Seacoast ice</h1>
           <p className="header-app-name">Rink Radar</p>
+          {schedulesUpdated && (
+            <time className="header-updated" dateTime={schedulesUpdated.iso}>
+              Updated {schedulesUpdated.label}
+            </time>
+          )}
         </div>
-        {schedulesUpdated && (
-          <time className="header-updated" dateTime={schedulesUpdated.iso}>
-            Updated {schedulesUpdated.label}
-          </time>
-        )}
+        <div className="header-actions">
+          {rinksFile && (
+            <button
+              type="button"
+              className="header-rinks-btn"
+              aria-expanded={rinksSearchOpen}
+              aria-controls="rinks-in-search-panel"
+              aria-label={`Rinks in search, ${rinksInSearch.length} rinks`}
+              onClick={toggleRinksPanel}
+            >
+              Rinks · {rinksInSearch.length}
+            </button>
+          )}
+        </div>
       </div>
     </header>
   );
@@ -210,6 +412,7 @@ export default function App() {
         <main className="app">
           <p className="error">{loadError}</p>
         </main>
+        {rinksDrawer}
       </div>
     );
   }
@@ -221,6 +424,7 @@ export default function App() {
         <main className="app">
           <p className="muted">Loading…</p>
         </main>
+        {rinksDrawer}
       </div>
     );
   }
@@ -268,35 +472,73 @@ export default function App() {
         </div>
 
         <div className="controls-group controls-group--search">
-          <div className="search-row">
-            <label className="search-date">
-              Date
-              <input type="date" value={date} onChange={(e) => selectDate(e.target.value)} />
-            </label>
+          {!dateSearchOpen ? (
             <button
               type="button"
-              className="search-cta"
-              onClick={() => void runSearch()}
-              disabled={isSearching || (hasSearched && rows.length > 0)}
-              aria-busy={isSearching}
+              className="search-by-date-cta"
+              onClick={() => {
+                setDateSearchOpen(true);
+                setRinksSearchOpen(false);
+              }}
             >
-              {isSearching ? 'Searching…' : 'Search'}
+              <svg
+                className="search-by-date-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg>
+              Search by date
             </button>
-            <button
-              type="button"
-              className="secondary clear-sessions"
-              onClick={clearSessions}
-              disabled={!hasSearched || isSearching}
-            >
-              Clear
-            </button>
-          </div>
+          ) : (
+            <div className="search-row">
+              <label className="search-date">
+                Date
+                <input
+                  type="date"
+                  value={date}
+                  min={scheduleCoverage?.min}
+                  max={scheduleCoverage?.max}
+                  onChange={(e) => selectDate(e.target.value)}
+                />
+              </label>
+              <button
+                type="button"
+                className="search-cta"
+                onClick={() => void runSearch()}
+                disabled={isSearching || !date || (hasSearched && rows.length > 0)}
+                aria-busy={isSearching}
+              >
+                {isSearching ? 'Searching…' : 'Search'}
+              </button>
+              <button
+                type="button"
+                className="secondary clear-sessions"
+                onClick={clearSessions}
+                disabled={!hasSearched || isSearching}
+              >
+                Clear
+              </button>
+            </div>
+          )}
         </div>
 
         {searchError && <p className="error search-error">{searchError}</p>}
       </section>
 
       <section className="results" aria-live="polite" aria-busy={isSearching}>
+        {shareNotice ? (
+          <p className="share-notice" role="status">
+            {shareNotice}
+          </p>
+        ) : null}
         {isSearching ? (
           <div className="search-loading">
             <span className="search-loading-spinner" aria-hidden="true" />
@@ -304,7 +546,10 @@ export default function App() {
           </div>
         ) : !hasSearched ? (
           <div className="empty">
-            <p>Pick an activity and date, search, or use Find next session.</p>
+            <p>Use Find next session or Search by date.</p>
+            {searchRinkSummary ? (
+              <p className="muted small">Searching {searchRinkSummary}.</p>
+            ) : null}
           </div>
         ) : (
           <>
@@ -320,6 +565,9 @@ export default function App() {
               <div className="empty results-empty">
                 <p>No sessions for this day and filter.</p>
                 <p className="muted">Try another date, wider radius, or a different activity.</p>
+                {searchRinkSummary ? (
+                  <p className="muted small">Searching {searchRinkSummary}.</p>
+                ) : null}
               </div>
             ) : (
               <ul className="session-list">
@@ -334,7 +582,7 @@ export default function App() {
               <li key={session.id} className={isExpanded ? 'session-item expanded' : 'session-item'}>
                 <button
                   type="button"
-                  className="session-card"
+                  className="session-card-toggle"
                   aria-expanded={isExpanded}
                   aria-controls={detailsId}
                   onClick={() => setExpandedSessionId(isExpanded ? null : session.id)}
@@ -382,11 +630,29 @@ export default function App() {
                         Official schedule source
                       </a>
                     </p>
-                    <p className="muted small">
-                      Rink site:{' '}
-                      <a href={rink.website} target="_blank" rel="noreferrer">
-                        {rink.website}
-                      </a>
+                    <p className="session-share-row">
+                      <button
+                        type="button"
+                        className="secondary session-share-btn"
+                        onClick={() => void shareSession(session, rink)}
+                      >
+                        <svg
+                          className="session-share-icon"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                          <polyline points="16 6 12 2 8 6" />
+                          <line x1="12" y1="2" x2="12" y2="15" />
+                        </svg>
+                        Share with friend
+                      </button>
                     </p>
                   </div>
                 )}
@@ -401,6 +667,7 @@ export default function App() {
 
       <p className="disclaimer">Schedules change — confirm with the rink before you go.</p>
       </main>
+      {rinksDrawer}
     </div>
   );
 }

@@ -45,9 +45,22 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Filter row (date)
 
+- **Progressive disclosure:** Default shows **Search by date** only; tap to reveal date input, **Search**, and **Clear**. Panel stays open after **Search** or **Clear** when the user opened it; **Find next session** does not expand the date panel.
+- Native date input uses **`min` / `max`** from scraped session dates for the current activity; gap days inside that range are rejected on pick with an **inline error** (not a modal).
 - Label above control (small caps tone via label styling).
 - Date input uses native `type="date"` for mobile pickers.
 - **Responsive:** Full width of column on mobile; may sit beside future secondary controls at `≥ 640px`.
+
+### Rinks in search
+
+- **Header control:** **Rinks · N** in the sticky top bar (upper right, above or beside **Updated**).
+- **Right drawer:** Opens over the full page (~**80%** viewport width from the right); the left strip is a dimmed backdrop.
+- **Close:** Tap backdrop, **×** in drawer header, or **Escape**; body scroll is locked while open.
+- List pilot/active rinks within the search radius (nearest first); health badge under each name.
+- **Status badges** from `health.json`: Schedule available / No times listed yet / Scrape issue — unless `operations.status` is set on the rink (e.g. **Closed for the season**).
+- Paused registry rinks: muted “coming soon” count only (not in search list).
+- Opening rinks closes Search by date (and vice versa); changing session type closes both panels.
+- Empty results repeat a short “Searching {rink names}” line.
 
 ### Primary CTA — Find sessions
 
@@ -63,7 +76,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 ### Results region
 
 - **Loading:** White card, centered spinner + message.
-- **Pre-search:** Empty state prompt to pick activity and date.
+- **Pre-search:** Empty state prompt to use Find next session or Search by date.
 - **No matches:** Empty state with suggestion to change date or activity.
 - **List:** Vertical stack of session items with consistent gap.
 - **A11y:** `aria-live="polite"` on results section; `aria-busy` while searching.
@@ -77,7 +90,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 | Row 1 | Start–end time (emphasis) · distance (secondary, top-right) |
 | Row 2 | Rink name (emphasis) |
 | Row 3 | Activity subtype + price summary (muted) |
-| Chrome | + / − chevron (decorative; not sole indicator of state) |
+| Chrome | Expand **caret** top-right (decorative; not sole indicator of state) |
 
 **Expanded (detail)**
 
@@ -86,7 +99,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - Phone (tel link) when present.
 - Open in maps (external).
 - Official schedule source (external).
-- Rink website (external).
+- **Share with friend** — last in details; full-width **secondary** button (outline) with icon; Web Share or copy; text opens with **Want to join me?**
 
 **Interaction**
 
