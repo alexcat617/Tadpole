@@ -84,14 +84,16 @@
       "website": "https://www.rochesternh.gov/rochester-recreation-arena",
       "schedule_sources": [
         {
-          "url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=1776",
+          "url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
           "kind": "recdesk",
-          "activity_hints": ["public_skate"]
+          "activity_hints": ["public_skate"],
+          "recdesk_program_id": 2479,
+          "recdesk_program_name": "Public Ice Skating"
         }
       ],
       "adapter": "recdesk",
       "status": "pilot",
-      "notes": "Public skate via RecDesk; adult hockey/leagues may be separate — add sources when known."
+      "notes": "RecDesk Public Ice Skating (programId 2479). Same URL has Details / Fees / Schedule tabs — parser reads Schedule tab table. $7 admission, $7 rentals. Adult hockey/leagues: add separate program URL when known."
     },
     {
       "id": "rochester-ice-center",
