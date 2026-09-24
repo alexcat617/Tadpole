@@ -1,0 +1,18 @@
+---
+description: UX and UI guardrails for Rink Radar web app
+globs: projects/rink-radar/app/**/*
+alwaysApply: false
+---
+
+# Rink Radar UX
+
+Before changing UI in `projects/rink-radar/app/`:
+
+1. Read `projects/rink-radar/docs/ux-principles.md` and `projects/rink-radar/docs/ui-patterns.md`.
+2. Preserve v2 prototype flow unless the user says otherwise: **Find sessions** → loading → results; **Clear sessions** to reset; session **accordion** (not modal); hidden radius/geolocation until built.
+3. **Responsive:** mobile-first; content column via `.app` (~32rem max); test 320px, 390px, 1280px; full-width primary CTA; no horizontal scroll at 320px.
+4. **Controls:** set explicit dark `color` on buttons/inputs with white/light backgrounds (dark `color-scheme` otherwise hides labels).
+5. **A11y:** `aria-expanded` on accordions; polite live region for search results; touch targets ~44px where feasible (NFR-4 / WCAG 2.2 AA target).
+6. **Copy:** use repo **ux-writing** skill for user-facing strings; link to official schedule sources in details.
+
+Do not reintroduce auto-search on filter change, modal session detail, or PRD-only features (geolocation UI, radius selector) without explicit request.

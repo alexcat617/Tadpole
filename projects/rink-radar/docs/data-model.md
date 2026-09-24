@@ -21,7 +21,9 @@ All times are stored in **ISO 8601** with offset (e.g. `2026-09-24T13:30:00-04:0
 | `schedule_sources` | array | yes | See below |
 | `adapter` | string | yes | Scraper key, e.g. `dover-pdf`, `recdesk` |
 | `status` | enum | yes | `active`, `pilot`, `paused` |
+| `operations` | object | no | Curated facility status for UI, e.g. `{ "status": "closed_for_season" }` — overrides feed badge in **Rinks in search** |
 | `notes` | string | no | Maintainer notes |
+| `profile` | object | no | Optional curated profile (see [Rink profile](#rink-profile-optional)) |
 
 ### `schedule_sources[]`
 
@@ -30,6 +32,36 @@ All times are stored in **ISO 8601** with offset (e.g. `2026-09-24T13:30:00-04:0
 | `url` | string | Page or PDF URL |
 | `kind` | enum | `html`, `pdf`, `ics`, `api`, `recdesk` |
 | `activity_hints` | string[] | Which activities this URL covers |
+
+## `health.json` — Scraper health (optional client fetch)
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `generated_at` | string | ISO datetime of last scrape |
+| `rinks` | object | Keys = rink `id` |
+| `rinks[id].ok` | boolean | Scraper succeeded |
+| `rinks[id].session_count` | number | Sessions written for that rink |
+| `rinks[id].error` | string | Present when `ok` is false |
+
+Copied to `app/public/data/health.json` on each scrape for the **Rinks in search** panel.
+
+## Rink profile (optional)
+
+Curated content for future profile pages; not used by scrapers. May live inline on the rink object or in `data/rinks/{id}.profile.json`.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `tagline` | string | One-line summary for UI |
+| `hero_image` | string | URL or site-relative path, e.g. `/rinks/dover-arena.jpg` |
+| `gallery` | string[] | Additional image URLs |
+| `sheets` | number | Ice sheets (e.g. `1`) |
+| `capacity` | number | Approximate spectator capacity |
+| `amenities` | string[] | e.g. `Skate rental`, `Pro shop` |
+| `public_description` | string | Visitor-facing description (plain text or markdown) |
+| `history` | string | Short history blurb (markdown) |
+| `profile_updated_at` | string | ISO date when editorial content last changed |
+
+Sessions and `schedule_sources` remain the source of truth for **times**; profile fields are editorial only.
 
 ## `sessions.generated.json` — Session list
 
@@ -50,7 +82,7 @@ Top-level:
 | `id` | string | yes | Hash or slug: `dover-arena-2026-09-24T1330-public` |
 | `rink_id` | string | yes | FK to rink |
 | `activity` | enum | yes | `public_skate`, `adult_hockey`, `stick_puck`, `other` |
-| `subtype` | string | no | e.g. `recreational`, `instructional`, `rock_night`, `drop_in`, `league` |
+| `subtype` | string | no | e.g. `recreational`, `instructional`, `rock_night`, `adult_stick`, `youth_stick`, `parent_tot`, `drop_in`, `league` |
 | `starts_at` | string | yes | ISO datetime |
 | `ends_at` | string | yes | ISO datetime |
 | `price` | object | no | See below |
@@ -63,7 +95,7 @@ Top-level:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `summary` | string | Human text: “$9 adult (Dover resident)” |
+| `summary` | string | Human text, e.g. `Dover resident adult $9 / youth $7` (see [Dover public skate](./dover-public-skate.md)) |
 | `amount_cents` | number | Nullable; single representative adult price |
 | `currency` | string | `USD` |
 | `is_free` | boolean | True only if admission is $0 for typical adult |

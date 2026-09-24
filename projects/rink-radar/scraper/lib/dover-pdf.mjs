@@ -14,7 +14,6 @@ const MONTHS =
 function parseTimePair(startRaw, endRaw, day, month, year, zone) {
   const norm = (t, fallbackPeriod) => {
     let s = t.trim().toLowerCase().replace(/\s/g, '');
-    if (!/am|pm/.test(s) && fallbackPeriod) s += fallbackPeriod;
     if (/^\d{1,2}:\d{2}(am|pm)$/.test(s)) return s;
     if (/^\d{1,2}(am|pm)$/.test(s)) return s.replace(/(am|pm)/, ':00$1');
     if (/^\d{1,2}-\d{1,2}:\d{2}(am|pm)$/.test(s)) {
@@ -22,9 +21,13 @@ function parseTimePair(startRaw, endRaw, day, month, year, zone) {
       const period = rest.match(/(am|pm)/)?.[0] ?? 'am';
       return `${h}:${rest.replace(/(am|pm)/, '')}${period}`;
     }
-    if (/^\d{1,2}:\d{2}$/.test(s)) return s + (fallbackPeriod ?? 'am');
+    if (/^\d{1,2}:\d{2}[ap]$/.test(s)) {
+      return s.slice(0, -1) + (s.endsWith('a') ? 'am' : 'pm');
+    }
     if (/^\d{1,2}a$/.test(s)) return s.replace('a', ':00am');
     if (/^\d{1,2}p$/.test(s)) return s.replace('p', ':00pm');
+    if (!/(am|pm)$/.test(s) && fallbackPeriod) s += fallbackPeriod;
+    if (/^\d{1,2}:\d{2}$/.test(s)) return s + (fallbackPeriod ?? 'am');
     return s;
   };
 
@@ -117,19 +120,26 @@ export function parseDoverCalendarPdf(text, calendarKind) {
       }
     }
 
-    if (calendarKind === 'stick' && /ADULT\s*STICK/i.test(body)) {
-      const tm = body.match(
-        /(\d{1,2}:\d{2}[ap]?\s*-\s*\d{1,2}:\d{2}(?:am|pm)?|\d{1,2}:\d{2}[ap]?\s*-\s*\d{1,2}:\d{2}[ap]m)/i,
-      );
-      const timeStr = tm?.[1] ?? body.match(/(\d{1,2}:\d{2}[ap]?-\d{1,2}:\d{2}(?:am|pm)?)/i)?.[1];
-      if (timeStr) {
+    if (calendarKind === 'stick') {
+      const stickKinds = [
+        { pattern: /ADULT\s*STICK/i, subtype: 'adult_stick', label: 'ADULT STICK' },
+        { pattern: /YOUTH\s*STICK/i, subtype: 'youth_stick', label: 'YOUTH STICK' },
+        { pattern: /PARENT\s*\/?\s*TOT/i, subtype: 'parent_tot', label: 'PARENT/TOT' },
+      ];
+      for (const kind of stickKinds) {
+        if (!kind.pattern.test(body)) continue;
+        const tm = body.match(
+          /(\d{1,2}:\d{2}[ap]?\s*-\s*\d{1,2}:\d{2}(?:am|pm)?|\d{1,2}:\d{2}[ap]?\s*-\s*\d{1,2}:\d{2}[ap]m)/i,
+        );
+        const timeStr = tm?.[1] ?? body.match(/(\d{1,2}:\d{2}[ap]?-\d{1,2}:\d{2}(?:am|pm)?)/i)?.[1];
+        if (!timeStr) continue;
         const parts = timeStr.replace(/\s/g, '').split('-');
         const t = parseTimePair(parts[0], parts[1], day, month, year, 'America/New_York');
         if (t) {
           sessions.push({
             activity: 'stick_puck',
-            subtype: 'adult_stick',
-            raw_label: `ADULT STICK ${timeStr}`,
+            subtype: kind.subtype,
+            raw_label: `${kind.label} ${timeStr}`,
             ...t,
           });
         }

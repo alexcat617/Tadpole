@@ -1,0 +1,131 @@
+# UI patterns — Rink Radar
+
+Concrete layout and component rules for the web app (`app/`). Pair with [UX principles](./ux-principles.md).
+
+## Responsive strategy
+
+**Primary surface:** Mobile browser (PRD). **Desktop:** Same content column, centered—not a wide multi-column schedule grid unless explicitly designed.
+
+### Breakpoints
+
+| Token | Width | Use |
+| --- | --- | --- |
+| Default | &lt; 640px | Single column; full-width CTAs; wrapped activity tabs |
+| `--bp-md` | ≥ 640px | Optional: date row + secondary actions on one line |
+| `--bp-lg` | ≥ 1024px | Slightly reduced base type (see `index.css`); extra horizontal margin only |
+
+Prefer **`rem`**, **`%`**, and **`max-width`** for layout. Avoid fixed pixel widths for the main column.
+
+### Layout ownership
+
+- **Product column:** `.app` in `App.css` (`max-width: 32rem`, horizontal padding). This is the source of truth for readable width.
+- **Shell:** `#root` in `index.css` may use a wider max width from the Vite template; do not let shell styles widen cards or controls beyond `.app` without updating this doc.
+
+### Viewport checks
+
+Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px** width:
+
+- No horizontal scroll at 320px (except deliberate overflow, none in MVP).
+- Primary actions remain tappable without precision zoom.
+- Long rink names and URLs wrap; no clipped accordion content.
+
+## Pattern catalog
+
+### Page shell
+
+- Centered column, light page background (`#f1f5f9`), white surfaces for cards and controls.
+- Header: product name, one-line tagline, meta line (updated timestamp or search hint).
+
+### Activity tabs
+
+- Three equal-weight options: Public skate, Adult hockey, Stick & puck.
+- **States:** Selected = teal fill + white label; unselected = white fill + dark text + border.
+- **Responsive:** `flex-wrap` on narrow screens; `min-width` on each tab so labels stay readable.
+- **A11y:** `role="tablist"` / `role="tab"`, `aria-selected`.
+
+### Filter row (date)
+
+- **Progressive disclosure:** Default shows **Search by date** only; tap to reveal date input, **Search**, and **Clear**. Panel stays open after **Search** or **Clear** when the user opened it; **Find next session** does not expand the date panel.
+- Native date input uses **`min` / `max`** from scraped session dates for the current activity; gap days inside that range are rejected on pick with an **inline error** (not a modal).
+- Label above control (small caps tone via label styling).
+- Date input uses native `type="date"` for mobile pickers.
+- **Responsive:** Full width of column on mobile; may sit beside future secondary controls at `≥ 640px`.
+
+### Rinks in search
+
+- **Header control:** **Rinks · N** in the sticky top bar (upper right, above or beside **Updated**).
+- **Right drawer:** Opens over the full page (~**80%** viewport width from the right); the left strip is a dimmed backdrop.
+- **Close:** Tap backdrop, **×** in drawer header, or **Escape**; body scroll is locked while open.
+- List pilot/active rinks within the search radius (nearest first); health badge under each name.
+- **Status badges** from `health.json`: Schedule available / No times listed yet / Scrape issue — unless `operations.status` is set on the rink (e.g. **Closed for the season**).
+- Paused registry rinks: muted “coming soon” count only (not in search list).
+- Opening rinks closes Search by date (and vice versa); changing session type closes both panels.
+- Empty results repeat a short “Searching {rink names}” line.
+
+### Primary CTA — Find sessions
+
+- Full width of `.app` at all breakpoints.
+- Teal background, white label, bold.
+- **States:** Default; disabled (searching or locked after results); label **Searching…** while loading.
+
+### Secondary — Clear sessions
+
+- Full width outline button below CTA when results are showing.
+- Resets results only; does not reset activity/date drafts.
+
+### Results region
+
+- **Loading:** White card, centered spinner + message.
+- **Pre-search:** Empty state prompt to use Find next session or Search by date.
+- **No matches:** Empty state with suggestion to change date or activity.
+- **List:** Vertical stack of session items with consistent gap.
+- **A11y:** `aria-live="polite"` on results section; `aria-busy` while searching.
+
+### Session accordion item
+
+**Collapsed (summary)**
+
+| Element | Content |
+| --- | --- |
+| Row 1 | Start–end time (emphasis) · distance (secondary, top-right) |
+| Row 2 | Rink name (emphasis) |
+| Row 3 | Activity subtype + price summary (muted) |
+| Chrome | Expand **caret** top-right (decorative; not sole indicator of state) |
+
+**Expanded (detail)**
+
+- Optional raw schedule label.
+- Full postal address.
+- Phone (tel link) when present.
+- Open in maps (external).
+- Official schedule source (external).
+- **Share with friend** — last in details; full-width **secondary** button (outline) with icon; Web Share or copy; text opens with **Want to join me?**
+
+**Interaction**
+
+- One item expanded at a time (toggle same item to collapse; opening another closes the previous).
+- Entire summary row is one button; `aria-expanded`, `aria-controls` point to detail panel id.
+
+**Responsive**
+
+- Summary button: full width; padding reserves space for chevron.
+- Detail panel: full width; links wrap; no side-by-side columns in MVP.
+
+### Typography & color
+
+- Body and controls: explicit dark text on white/light surfaces (`#0f172a` / `#64748b` muted).
+- Links in details: teal `#0f766e`.
+- Do not rely on inherited `color` alone for `button` elements when background is hard-coded white.
+
+## Styling approach (MVP)
+
+- Plain CSS in `App.css` + global tokens in `index.css`.
+- No component library unless explicitly requested; extend existing class names before inventing parallel systems.
+
+## Agent checklist (quick)
+
+1. Read [ux-principles.md](./ux-principles.md) and this file before UI edits.
+2. Mobile-first; verify 320 / 390 / 1280.
+3. Preserve search → loading → results → clear flow unless asked otherwise.
+4. New buttons/inputs: set explicit `color` when `background` is light.
+5. User-visible strings: follow **ux-writing** skill tone (concise, clear, conversational).

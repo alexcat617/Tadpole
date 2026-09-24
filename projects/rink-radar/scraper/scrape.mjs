@@ -14,6 +14,7 @@ const rinksPath = path.join(root, 'data', 'rinks.json');
 const outPath = path.join(root, 'data', 'sessions.generated.json');
 const publicOut = path.join(root, 'app', 'public', 'data', 'sessions.generated.json');
 const publicRinks = path.join(root, 'app', 'public', 'data', 'rinks.json');
+const publicHealth = path.join(root, 'app', 'public', 'data', 'health.json');
 
 const registry = JSON.parse(fs.readFileSync(rinksPath, 'utf8'));
 const fetchedAt = DateTime.now().setZone('America/New_York').toISO();
@@ -41,6 +42,48 @@ function addSessions(rinkId, sourceUrl, rows, price) {
       starts_at: row.starts_at,
       ends_at: row.ends_at,
       price: row.price ?? price,
+      raw_label: row.raw_label,
+      source_url: sourceUrl,
+      fetched_at: fetchedAt,
+      confidence: row.confidence ?? 'high',
+    });
+  }
+}
+
+/** Dover stick practice PDF fee legend (per city stick calendar). */
+const DOVER_STICK_PRICE_BY_SUBTYPE = {
+  adult_stick: {
+    summary: 'Adult stick $12',
+    amount_cents: 1200,
+    currency: 'USD',
+    is_free: false,
+  },
+  youth_stick: {
+    summary: 'Youth stick $8',
+    amount_cents: 800,
+    currency: 'USD',
+    is_free: false,
+  },
+  parent_tot: {
+    summary: 'Parent/tot $8 per skater',
+    amount_cents: 800,
+    currency: 'USD',
+    is_free: false,
+  },
+};
+
+function addDoverStickSessions(rinkId, sourceUrl, rows) {
+  for (const row of rows) {
+    const price =
+      DOVER_STICK_PRICE_BY_SUBTYPE[row.subtype] ?? DOVER_STICK_PRICE_BY_SUBTYPE.adult_stick;
+    output.sessions.push({
+      id: sessionId(rinkId, row.starts_at, row.activity, row.subtype),
+      rink_id: rinkId,
+      activity: row.activity,
+      subtype: row.subtype,
+      starts_at: row.starts_at,
+      ends_at: row.ends_at,
+      price,
       raw_label: row.raw_label,
       source_url: sourceUrl,
       fetched_at: fetchedAt,
@@ -78,20 +121,13 @@ async function scrapeDover(rink) {
   const stickRows = await parseDoverPdfBuffer(stickBuf, 'stick');
 
   const publicPrice = {
-    summary: 'Non-res adult $12 / youth $9 (see rink)',
-    amount_cents: 1200,
+    summary: 'Dover resident adult $9 / youth $7 (see rink)',
+    amount_cents: 900,
     currency: 'USD',
     is_free: false,
   };
-  const stickPrice = {
-    summary: 'Adult stick $12 (see rink)',
-    amount_cents: 1200,
-    currency: 'USD',
-    is_free: false,
-  };
-
   addSessions(rink.id, publicPdf, publicRows, publicPrice);
-  addSessions(rink.id, stickPdf, stickRows, stickPrice);
+  addDoverStickSessions(rink.id, stickPdf, stickRows);
 
   health.rinks[rink.id] = {
     ok: true,
@@ -151,5 +187,6 @@ fs.mkdirSync(path.dirname(publicOut), { recursive: true });
 fs.writeFileSync(publicOut, JSON.stringify(output, null, 2));
 fs.writeFileSync(publicRinks, JSON.stringify(registry, null, 2));
 fs.writeFileSync(path.join(root, 'data', 'health.json'), JSON.stringify(health, null, 2));
+fs.writeFileSync(publicHealth, JSON.stringify(health, null, 2));
 
 console.log(`Wrote ${output.sessions.length} sessions to ${outPath}`);
