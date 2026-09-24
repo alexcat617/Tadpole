@@ -1,0 +1,18 @@
+{
+  "season_label": "2026–27",
+  "season_slug": "20262027",
+  "generated_at": "2026-09-24T12:00:00.000-04:00",
+  "source_url": "https://www.nhl.com/bruins/schedule",
+  "games": [
+    {
+      "id": "2026010013",
+      "starts_at": "2026-09-20T17:00:00.000-04:00",
+      "opponent_abbr": "WSH",
+      "opponent_name": "Capitals",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": ["NESN", "NHL Network"]
+    }
+  ]
+}

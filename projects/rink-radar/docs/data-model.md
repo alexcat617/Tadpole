@@ -45,6 +45,28 @@ All times are stored in **ISO 8601** with offset (e.g. `2026-09-24T13:30:00-04:0
 
 Copied to `app/public/data/health.json` on each scrape for the **Rinks in search** panel.
 
+## `bruins-schedule.json` — Bruins NHL schedule (companion)
+
+Fetched from NHL’s public schedule API during scrape; copied to `app/public/data/bruins-schedule.json`. Not rink session data.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `season_label` | string | Display, e.g. `2026–27` |
+| `season_slug` | string | API season id, e.g. `20262027` |
+| `generated_at` | string | ISO datetime of last fetch |
+| `source_url` | string | Official Bruins schedule page |
+| `games` | array | Full season list |
+| `games[].id` | string | NHL game id |
+| `games[].starts_at` | string | ISO in `America/New_York` |
+| `games[].opponent_abbr` | string | e.g. `TOR` |
+| `games[].opponent_name` | string | Display name |
+| `games[].is_home` | boolean | BOS home vs away |
+| `games[].venue` | string | Arena name |
+| `games[].game_state` | string | e.g. `FUT`, `FINAL` |
+| `games[].tv_networks` | string[] | Curated US TV labels (e.g. `NESN`, `TNT`, `NHL Network`); may be empty |
+
+See [`data/bruins-schedule.example.json`](../data/bruins-schedule.example.json).
+
 ## Rink profile (optional)
 
 Curated content for future profile pages; not used by scrapers. May live inline on the rink object or in `data/rinks/{id}.profile.json`.

@@ -63,3 +63,23 @@ export interface HealthFile {
   generated_at: string;
   rinks: Record<string, RinkHealthEntry>;
 }
+
+export interface BruinsGame {
+  id: string;
+  starts_at: string;
+  opponent_abbr: string;
+  opponent_name: string;
+  is_home: boolean;
+  venue: string;
+  game_state: string;
+  tv_networks: string[];
+}
+
+export interface BruinsScheduleFile {
+  season_label: string;
+  season_slug: string;
+  generated_at: string;
+  source_url: string;
+  games: BruinsGame[];
+  error?: string;
+}

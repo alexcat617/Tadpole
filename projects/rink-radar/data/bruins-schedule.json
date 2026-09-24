@@ -1,0 +1,1086 @@
+{
+  "season_label": "2026–27",
+  "season_slug": "20262027",
+  "generated_at": "2026-09-24T18:18:47.284-04:00",
+  "source_url": "https://www.nhl.com/bruins/schedule",
+  "games": [
+    {
+      "id": "2026010013",
+      "starts_at": "2026-09-20T17:00:00.000-04:00",
+      "opponent_abbr": "WSH",
+      "opponent_name": "Capitals",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FINAL",
+      "tv_networks": [
+        "NESN",
+        "NHL Network"
+      ]
+    },
+    {
+      "id": "2026010028",
+      "starts_at": "2026-09-22T19:00:00.000-04:00",
+      "opponent_abbr": "PHI",
+      "opponent_name": "Flyers",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FINAL",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026010040",
+      "starts_at": "2026-09-24T19:00:00.000-04:00",
+      "opponent_abbr": "PHI",
+      "opponent_name": "Flyers",
+      "is_home": false,
+      "venue": "Xfinity Mobile Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026010049",
+      "starts_at": "2026-09-25T19:00:00.000-04:00",
+      "opponent_abbr": "WSH",
+      "opponent_name": "Capitals",
+      "is_home": false,
+      "venue": "Capital One Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020003",
+      "starts_at": "2026-09-29T20:00:00.000-04:00",
+      "opponent_abbr": "NYR",
+      "opponent_name": "Rangers",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ESPN"
+      ]
+    },
+    {
+      "id": "2026020019",
+      "starts_at": "2026-10-02T20:00:00.000-04:00",
+      "opponent_abbr": "WPG",
+      "opponent_name": "Jets",
+      "is_home": false,
+      "venue": "Canada Life Centre",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020031",
+      "starts_at": "2026-10-03T20:00:00.000-04:00",
+      "opponent_abbr": "MIN",
+      "opponent_name": "Wild",
+      "is_home": false,
+      "venue": "Grand Casino Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020041",
+      "starts_at": "2026-10-05T19:30:00.000-04:00",
+      "opponent_abbr": "OTT",
+      "opponent_name": "Senators",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020056",
+      "starts_at": "2026-10-08T19:00:00.000-04:00",
+      "opponent_abbr": "UTA",
+      "opponent_name": "Mammoth",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020070",
+      "starts_at": "2026-10-10T13:00:00.000-04:00",
+      "opponent_abbr": "PHI",
+      "opponent_name": "Flyers",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020105",
+      "starts_at": "2026-10-13T23:00:00.000-04:00",
+      "opponent_abbr": "SJS",
+      "opponent_name": "Sharks",
+      "is_home": false,
+      "venue": "SAP Center at San Jose",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN",
+        "ESPN"
+      ]
+    },
+    {
+      "id": "2026020120",
+      "starts_at": "2026-10-16T22:00:00.000-04:00",
+      "opponent_abbr": "ANA",
+      "opponent_name": "Ducks",
+      "is_home": false,
+      "venue": "Honda Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020132",
+      "starts_at": "2026-10-17T21:00:00.000-04:00",
+      "opponent_abbr": "LAK",
+      "opponent_name": "Kings",
+      "is_home": false,
+      "venue": "Crypto.com Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020147",
+      "starts_at": "2026-10-20T20:00:00.000-04:00",
+      "opponent_abbr": "DAL",
+      "opponent_name": "Stars",
+      "is_home": false,
+      "venue": "American Airlines Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ESPN"
+      ]
+    },
+    {
+      "id": "2026020154",
+      "starts_at": "2026-10-22T19:00:00.000-04:00",
+      "opponent_abbr": "NSH",
+      "opponent_name": "Predators",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020170",
+      "starts_at": "2026-10-24T19:00:00.000-04:00",
+      "opponent_abbr": "SJS",
+      "opponent_name": "Sharks",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020189",
+      "starts_at": "2026-10-27T20:00:00.000-04:00",
+      "opponent_abbr": "CAR",
+      "opponent_name": "Hurricanes",
+      "is_home": false,
+      "venue": "Lenovo Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ESPN"
+      ]
+    },
+    {
+      "id": "2026020207",
+      "starts_at": "2026-10-29T20:00:00.000-04:00",
+      "opponent_abbr": "STL",
+      "opponent_name": "Blues",
+      "is_home": false,
+      "venue": "Enterprise Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020217",
+      "starts_at": "2026-10-31T13:00:00.000-04:00",
+      "opponent_abbr": "CHI",
+      "opponent_name": "Blackhawks",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020232",
+      "starts_at": "2026-11-02T19:00:00.000-05:00",
+      "opponent_abbr": "VGK",
+      "opponent_name": "Golden Knights",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020257",
+      "starts_at": "2026-11-05T19:00:00.000-05:00",
+      "opponent_abbr": "PIT",
+      "opponent_name": "Penguins",
+      "is_home": false,
+      "venue": "PPG Paints Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020277",
+      "starts_at": "2026-11-08T13:00:00.000-05:00",
+      "opponent_abbr": "FLA",
+      "opponent_name": "Panthers",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020299",
+      "starts_at": "2026-11-12T19:00:00.000-05:00",
+      "opponent_abbr": "MTL",
+      "opponent_name": "Canadiens",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020313",
+      "starts_at": "2026-11-14T19:00:00.000-05:00",
+      "opponent_abbr": "MIN",
+      "opponent_name": "Wild",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020333",
+      "starts_at": "2026-11-17T19:00:00.000-05:00",
+      "opponent_abbr": "LAK",
+      "opponent_name": "Kings",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020344",
+      "starts_at": "2026-11-18T19:30:00.000-05:00",
+      "opponent_abbr": "DET",
+      "opponent_name": "Red Wings",
+      "is_home": false,
+      "venue": "Little Caesars Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026020363",
+      "starts_at": "2026-11-21T19:00:00.000-05:00",
+      "opponent_abbr": "WSH",
+      "opponent_name": "Capitals",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020386",
+      "starts_at": "2026-11-25T19:00:00.000-05:00",
+      "opponent_abbr": "WPG",
+      "opponent_name": "Jets",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020400",
+      "starts_at": "2026-11-27T13:00:00.000-05:00",
+      "opponent_abbr": "TOR",
+      "opponent_name": "Maple Leafs",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020429",
+      "starts_at": "2026-11-29T17:00:00.000-05:00",
+      "opponent_abbr": "VAN",
+      "opponent_name": "Canucks",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020440",
+      "starts_at": "2026-12-01T20:00:00.000-05:00",
+      "opponent_abbr": "COL",
+      "opponent_name": "Avalanche",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN",
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026020464",
+      "starts_at": "2026-12-05T13:00:00.000-05:00",
+      "opponent_abbr": "DET",
+      "opponent_name": "Red Wings",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020488",
+      "starts_at": "2026-12-08T19:00:00.000-05:00",
+      "opponent_abbr": "FLA",
+      "opponent_name": "Panthers",
+      "is_home": false,
+      "venue": "Amerant Bank Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020502",
+      "starts_at": "2026-12-10T19:00:00.000-05:00",
+      "opponent_abbr": "TBL",
+      "opponent_name": "Lightning",
+      "is_home": false,
+      "venue": "Benchmark International Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020514",
+      "starts_at": "2026-12-12T13:00:00.000-05:00",
+      "opponent_abbr": "NJD",
+      "opponent_name": "Devils",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020527",
+      "starts_at": "2026-12-13T13:00:00.000-05:00",
+      "opponent_abbr": "CAR",
+      "opponent_name": "Hurricanes",
+      "is_home": false,
+      "venue": "Lenovo Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020536",
+      "starts_at": "2026-12-15T19:00:00.000-05:00",
+      "opponent_abbr": "FLA",
+      "opponent_name": "Panthers",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026020551",
+      "starts_at": "2026-12-17T19:00:00.000-05:00",
+      "opponent_abbr": "STL",
+      "opponent_name": "Blues",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020567",
+      "starts_at": "2026-12-19T12:00:00.000-05:00",
+      "opponent_abbr": "NJD",
+      "opponent_name": "Devils",
+      "is_home": false,
+      "venue": "Prudential Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020576",
+      "starts_at": "2026-12-20T13:00:00.000-05:00",
+      "opponent_abbr": "PHI",
+      "opponent_name": "Flyers",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020591",
+      "starts_at": "2026-12-22T19:00:00.000-05:00",
+      "opponent_abbr": "NYI",
+      "opponent_name": "Islanders",
+      "is_home": false,
+      "venue": "UBS Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020602",
+      "starts_at": "2026-12-26T19:00:00.000-05:00",
+      "opponent_abbr": "NYI",
+      "opponent_name": "Islanders",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020616",
+      "starts_at": "2026-12-27T19:00:00.000-05:00",
+      "opponent_abbr": "NJD",
+      "opponent_name": "Devils",
+      "is_home": false,
+      "venue": "Prudential Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020639",
+      "starts_at": "2026-12-30T19:30:00.000-05:00",
+      "opponent_abbr": "EDM",
+      "opponent_name": "Oilers",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020651",
+      "starts_at": "2027-01-01T15:00:00.000-05:00",
+      "opponent_abbr": "CHI",
+      "opponent_name": "Blackhawks",
+      "is_home": false,
+      "venue": "United Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020660",
+      "starts_at": "2027-01-02T19:00:00.000-05:00",
+      "opponent_abbr": "CBJ",
+      "opponent_name": "Blue Jackets",
+      "is_home": false,
+      "venue": "Nationwide Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020683",
+      "starts_at": "2027-01-05T19:30:00.000-05:00",
+      "opponent_abbr": "BUF",
+      "opponent_name": "Sabres",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026020690",
+      "starts_at": "2027-01-06T19:30:00.000-05:00",
+      "opponent_abbr": "MTL",
+      "opponent_name": "Canadiens",
+      "is_home": false,
+      "venue": "Centre Bell",
+      "game_state": "FUT",
+      "tv_networks": [
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026020715",
+      "starts_at": "2027-01-09T19:00:00.000-05:00",
+      "opponent_abbr": "DET",
+      "opponent_name": "Red Wings",
+      "is_home": false,
+      "venue": "Little Caesars Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020728",
+      "starts_at": "2027-01-12T19:00:00.000-05:00",
+      "opponent_abbr": "CAR",
+      "opponent_name": "Hurricanes",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020743",
+      "starts_at": "2027-01-14T19:00:00.000-05:00",
+      "opponent_abbr": "DAL",
+      "opponent_name": "Stars",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020758",
+      "starts_at": "2027-01-16T12:00:00.000-05:00",
+      "opponent_abbr": "NYR",
+      "opponent_name": "Rangers",
+      "is_home": false,
+      "venue": "Madison Square Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ABC"
+      ]
+    },
+    {
+      "id": "2026020777",
+      "starts_at": "2027-01-18T13:30:00.000-05:00",
+      "opponent_abbr": "TBL",
+      "opponent_name": "Lightning",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026020795",
+      "starts_at": "2027-01-20T21:00:00.000-05:00",
+      "opponent_abbr": "COL",
+      "opponent_name": "Avalanche",
+      "is_home": false,
+      "venue": "Ball Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020811",
+      "starts_at": "2027-01-22T22:00:00.000-05:00",
+      "opponent_abbr": "VGK",
+      "opponent_name": "Golden Knights",
+      "is_home": false,
+      "venue": "T-Mobile Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020822",
+      "starts_at": "2027-01-23T21:00:00.000-05:00",
+      "opponent_abbr": "UTA",
+      "opponent_name": "Mammoth",
+      "is_home": false,
+      "venue": "Delta Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020834",
+      "starts_at": "2027-01-26T19:00:00.000-05:00",
+      "opponent_abbr": "CBJ",
+      "opponent_name": "Blue Jackets",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020849",
+      "starts_at": "2027-01-28T19:00:00.000-05:00",
+      "opponent_abbr": "OTT",
+      "opponent_name": "Senators",
+      "is_home": false,
+      "venue": "Canadian Tire Centre",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020869",
+      "starts_at": "2027-01-30T19:00:00.000-05:00",
+      "opponent_abbr": "TOR",
+      "opponent_name": "Maple Leafs",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020901",
+      "starts_at": "2027-02-10T19:30:00.000-05:00",
+      "opponent_abbr": "TOR",
+      "opponent_name": "Maple Leafs",
+      "is_home": false,
+      "venue": "Scotiabank Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026020917",
+      "starts_at": "2027-02-13T19:00:00.000-05:00",
+      "opponent_abbr": "CBJ",
+      "opponent_name": "Blue Jackets",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020929",
+      "starts_at": "2027-02-15T14:00:00.000-05:00",
+      "opponent_abbr": "ANA",
+      "opponent_name": "Ducks",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020948",
+      "starts_at": "2027-02-17T21:00:00.000-05:00",
+      "opponent_abbr": "CGY",
+      "opponent_name": "Flames",
+      "is_home": false,
+      "venue": "Scotiabank Saddledome",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020965",
+      "starts_at": "2027-02-19T20:00:00.000-05:00",
+      "opponent_abbr": "EDM",
+      "opponent_name": "Oilers",
+      "is_home": false,
+      "venue": "Rogers Place",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020985",
+      "starts_at": "2027-02-21T20:00:00.000-05:00",
+      "opponent_abbr": "VAN",
+      "opponent_name": "Canucks",
+      "is_home": false,
+      "venue": "Rogers Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026020990",
+      "starts_at": "2027-02-22T21:40:00.000-05:00",
+      "opponent_abbr": "SEA",
+      "opponent_name": "Kraken",
+      "is_home": false,
+      "venue": "Climate Pledge Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021007",
+      "starts_at": "2027-02-25T20:00:00.000-05:00",
+      "opponent_abbr": "WSH",
+      "opponent_name": "Capitals",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ESPN"
+      ]
+    },
+    {
+      "id": "2026021019",
+      "starts_at": "2027-02-27T12:30:00.000-05:00",
+      "opponent_abbr": "DET",
+      "opponent_name": "Red Wings",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ABC"
+      ]
+    },
+    {
+      "id": "2026021049",
+      "starts_at": "2027-03-03T19:00:00.000-05:00",
+      "opponent_abbr": "NYR",
+      "opponent_name": "Rangers",
+      "is_home": false,
+      "venue": "Madison Square Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021058",
+      "starts_at": "2027-03-04T19:00:00.000-05:00",
+      "opponent_abbr": "OTT",
+      "opponent_name": "Senators",
+      "is_home": false,
+      "venue": "Canadian Tire Centre",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021071",
+      "starts_at": "2027-03-06T12:30:00.000-05:00",
+      "opponent_abbr": "PIT",
+      "opponent_name": "Penguins",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ABC"
+      ]
+    },
+    {
+      "id": "2026021089",
+      "starts_at": "2027-03-08T19:00:00.000-05:00",
+      "opponent_abbr": "SEA",
+      "opponent_name": "Kraken",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021104",
+      "starts_at": "2027-03-10T19:30:00.000-05:00",
+      "opponent_abbr": "MTL",
+      "opponent_name": "Canadiens",
+      "is_home": false,
+      "venue": "Centre Bell",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021109",
+      "starts_at": "2027-03-11T19:30:00.000-05:00",
+      "opponent_abbr": "PIT",
+      "opponent_name": "Penguins",
+      "is_home": false,
+      "venue": "PPG Paints Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026021124",
+      "starts_at": "2027-03-13T19:00:00.000-05:00",
+      "opponent_abbr": "CGY",
+      "opponent_name": "Flames",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021139",
+      "starts_at": "2027-03-15T19:00:00.000-04:00",
+      "opponent_abbr": "NYI",
+      "opponent_name": "Islanders",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ESPN"
+      ]
+    },
+    {
+      "id": "2026021166",
+      "starts_at": "2027-03-18T19:00:00.000-04:00",
+      "opponent_abbr": "PHI",
+      "opponent_name": "Flyers",
+      "is_home": false,
+      "venue": "Xfinity Mobile Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021178",
+      "starts_at": "2027-03-20T17:00:00.000-04:00",
+      "opponent_abbr": "NSH",
+      "opponent_name": "Predators",
+      "is_home": false,
+      "venue": "Bridgestone Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021196",
+      "starts_at": "2027-03-23T19:00:00.000-04:00",
+      "opponent_abbr": "BUF",
+      "opponent_name": "Sabres",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021211",
+      "starts_at": "2027-03-25T19:00:00.000-04:00",
+      "opponent_abbr": "OTT",
+      "opponent_name": "Senators",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021224",
+      "starts_at": "2027-03-26T19:00:00.000-04:00",
+      "opponent_abbr": "WSH",
+      "opponent_name": "Capitals",
+      "is_home": false,
+      "venue": "Capital One Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021248",
+      "starts_at": "2027-03-30T19:00:00.000-04:00",
+      "opponent_abbr": "MTL",
+      "opponent_name": "Canadiens",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021268",
+      "starts_at": "2027-04-01T19:00:00.000-04:00",
+      "opponent_abbr": "BUF",
+      "opponent_name": "Sabres",
+      "is_home": false,
+      "venue": "KeyBank Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021278",
+      "starts_at": "2027-04-03T15:00:00.000-04:00",
+      "opponent_abbr": "TBL",
+      "opponent_name": "Lightning",
+      "is_home": true,
+      "venue": "TD Garden",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ABC"
+      ]
+    },
+    {
+      "id": "2026021298",
+      "starts_at": "2027-04-05T19:00:00.000-04:00",
+      "opponent_abbr": "TOR",
+      "opponent_name": "Maple Leafs",
+      "is_home": false,
+      "venue": "Scotiabank Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021312",
+      "starts_at": "2027-04-07T19:30:00.000-04:00",
+      "opponent_abbr": "BUF",
+      "opponent_name": "Sabres",
+      "is_home": false,
+      "venue": "KeyBank Center",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN",
+        "TNT",
+        "truTV",
+        "HBO MAX"
+      ]
+    },
+    {
+      "id": "2026021326",
+      "starts_at": "2027-04-09T19:00:00.000-04:00",
+      "opponent_abbr": "FLA",
+      "opponent_name": "Panthers",
+      "is_home": false,
+      "venue": "Amerant Bank Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "NESN"
+      ]
+    },
+    {
+      "id": "2026021341",
+      "starts_at": "2027-04-10T20:00:00.000-04:00",
+      "opponent_abbr": "TBL",
+      "opponent_name": "Lightning",
+      "is_home": false,
+      "venue": "Benchmark International Arena",
+      "game_state": "FUT",
+      "tv_networks": [
+        "ABC"
+      ]
+    }
+  ]
+}

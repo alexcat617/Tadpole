@@ -1,14 +1,19 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { Activity, HealthFile, Rink, Session, RinksFile, SessionsFile } from './types';
+import type { Activity, BruinsScheduleFile, HealthFile, Rink, Session, RinksFile, SessionsFile } from './types';
 import {
   activityLabel,
+  bruinsMatchupLabel,
   buildScheduleCoverage,
   doverStickPracticeFeesLine,
   findNextSession,
+  formatBruinsGameDateTime,
+  formatBruinsTvLine,
   formatResultsDayHeader,
   formatSessionShareText,
   formatTimeRange,
+  groupBruinsGamesByMonth,
   haversineKm,
+  isBruinsGamePast,
   priceSummaryForCard,
   rinkListStatus,
   sessionDateInZone,
@@ -48,6 +53,8 @@ export default function App() {
   const [isSearching, setIsSearching] = useState(false);
   const [dateSearchOpen, setDateSearchOpen] = useState(false);
   const [rinksSearchOpen, setRinksSearchOpen] = useState(false);
+  const [bruinsScheduleOpen, setBruinsScheduleOpen] = useState(false);
+  const [bruinsScheduleFile, setBruinsScheduleFile] = useState<BruinsScheduleFile | null>(null);
   const [shareNotice, setShareNotice] = useState<string | null>(null);
 
   useEffect(() => {
@@ -102,6 +109,16 @@ export default function App() {
         return r.json();
       })
       .then((health: HealthFile) => setHealthFile(health))
+      .catch(() => {});
+
+    fetch(`${DATA_BASE}/bruins-schedule.json`)
+      .then((r) => {
+        if (!r.ok) throw new Error('bruins');
+        return r.json();
+      })
+      .then((schedule: BruinsScheduleFile) => {
+        if (schedule.games?.length) setBruinsScheduleFile(schedule);
+      })
       .catch(() => {});
   }, []);
 
@@ -206,6 +223,7 @@ export default function App() {
       setFilter(activity);
       setDateSearchOpen(false);
       setRinksSearchOpen(false);
+      setBruinsScheduleOpen(false);
       clearSearchResults();
       if (prevDate && sessionsFile) {
         const cov = buildScheduleCoverage(sessionsFile.sessions, activity, rinkMap.keys());
@@ -290,9 +308,19 @@ export default function App() {
     return { label, iso: sessionsFile.generated_at };
   }, [sessionsFile]);
 
+  const bruinsGamesByMonth = useMemo(
+    () => (bruinsScheduleFile ? groupBruinsGamesByMonth(bruinsScheduleFile.games) : []),
+    [bruinsScheduleFile],
+  );
+
+  const showBruinsFab = (bruinsScheduleFile?.games.length ?? 0) > 0;
+
   const toggleRinksPanel = useCallback(() => {
     setRinksSearchOpen((open) => {
-      if (!open) setDateSearchOpen(false);
+      if (!open) {
+        setDateSearchOpen(false);
+        setBruinsScheduleOpen(false);
+      }
       return !open;
     });
   }, []);
@@ -301,10 +329,29 @@ export default function App() {
     setRinksSearchOpen(false);
   }, []);
 
+  const toggleBruinsPanel = useCallback(() => {
+    setBruinsScheduleOpen((open) => {
+      if (!open) {
+        setDateSearchOpen(false);
+        setRinksSearchOpen(false);
+      }
+      return !open;
+    });
+  }, []);
+
+  const closeBruinsPanel = useCallback(() => {
+    setBruinsScheduleOpen(false);
+  }, []);
+
+  const sidePanelOpen = rinksSearchOpen || bruinsScheduleOpen;
+
   useEffect(() => {
-    if (!rinksSearchOpen) return;
+    if (!sidePanelOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setRinksSearchOpen(false);
+      if (event.key === 'Escape') {
+        setRinksSearchOpen(false);
+        setBruinsScheduleOpen(false);
+      }
     };
     document.addEventListener('keydown', onKeyDown);
     const previousOverflow = document.body.style.overflow;
@@ -313,7 +360,7 @@ export default function App() {
       document.removeEventListener('keydown', onKeyDown);
       document.body.style.overflow = previousOverflow;
     };
-  }, [rinksSearchOpen]);
+  }, [sidePanelOpen]);
 
   const rinksDrawer =
     rinksSearchOpen && rinksFile ? (
@@ -369,6 +416,96 @@ export default function App() {
       </div>
     ) : null;
 
+  const bruinsDrawer =
+    bruinsScheduleOpen && bruinsScheduleFile ? (
+      <div className="bruins-drawer-root side-drawer-root">
+        <button
+          type="button"
+          className="bruins-drawer-backdrop side-drawer-backdrop"
+          aria-label="Close Bruins schedule"
+          onClick={closeBruinsPanel}
+        />
+        <div
+          id="bruins-schedule-panel"
+          className="bruins-drawer side-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="bruins-drawer-title"
+        >
+          <header className="bruins-drawer-header side-drawer-header">
+            <h2 id="bruins-drawer-title" className="bruins-drawer-title side-drawer-title">
+              Bruins {bruinsScheduleFile.season_label}
+            </h2>
+            <button
+              type="button"
+              className="bruins-drawer-close side-drawer-close"
+              aria-label="Close"
+              onClick={closeBruinsPanel}
+            >
+              ×
+            </button>
+          </header>
+          <div className="bruins-drawer-body side-drawer-body">
+            {bruinsGamesByMonth.map((group) => (
+              <section key={group.monthKey} className="bruins-schedule-month">
+                <h3 className="bruins-schedule-month-title">{group.monthLabel}</h3>
+                <ul className="bruins-schedule-list">
+                  {group.games.map((game) => {
+                    const past = isBruinsGamePast(game);
+                    return (
+                      <li
+                        key={game.id}
+                        className={`bruins-schedule-item${past ? ' bruins-schedule-item--past' : ''}`}
+                      >
+                        <p className="bruins-schedule-item-primary">
+                          <span className="bruins-schedule-datetime">
+                            {formatBruinsGameDateTime(game.starts_at)}
+                          </span>
+                          <span className="bruins-schedule-matchup">{bruinsMatchupLabel(game)}</span>
+                        </p>
+                        <p className="bruins-schedule-item-meta">
+                          <span className={`bruins-home-away${game.is_home ? ' bruins-home-away--home' : ''}`}>
+                            {game.is_home ? 'Home' : 'Away'}
+                          </span>
+                          <span className="bruins-schedule-venue">{game.venue}</span>
+                        </p>
+                        {game.tv_networks.length > 0 ? (
+                          <p className="bruins-schedule-tv muted small">
+                            {formatBruinsTvLine(game.tv_networks)}
+                          </p>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
+            ))}
+            <p className="bruins-schedule-footer muted small">
+              Not affiliated with the NHL or Boston Bruins.{' '}
+              <a href={bruinsScheduleFile.source_url} target="_blank" rel="noreferrer">
+                Official schedule
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    ) : null;
+
+  const bruinsFab =
+    showBruinsFab && !bruinsScheduleOpen ? (
+      <button
+        type="button"
+        className="bruins-fab"
+        aria-expanded={bruinsScheduleOpen}
+        aria-controls="bruins-schedule-panel"
+        onClick={toggleBruinsPanel}
+      >
+        Bruins
+      </button>
+    ) : null;
+
+  const shellClassName = showBruinsFab ? 'app-shell app-shell--bruins-fab' : 'app-shell';
+
   const topBar = (
     <header className="top-bar" role="banner">
       <div className="top-bar-inner">
@@ -401,30 +538,34 @@ export default function App() {
 
   if (loadError) {
     return (
-      <div className="app-shell">
+      <div className={shellClassName}>
         {topBar}
         <main className="app">
           <p className="error">{loadError}</p>
         </main>
         {rinksDrawer}
+        {bruinsDrawer}
+        {bruinsFab}
       </div>
     );
   }
 
   if (!rinksFile) {
     return (
-      <div className="app-shell">
+      <div className={shellClassName}>
         {topBar}
         <main className="app">
           <p className="muted">Loading…</p>
         </main>
         {rinksDrawer}
+        {bruinsDrawer}
+        {bruinsFab}
       </div>
     );
   }
 
   return (
-    <div className="app-shell">
+    <div className={shellClassName}>
       {topBar}
       <main className="app">
       <section className="controls" aria-label="Find sessions">
@@ -473,6 +614,7 @@ export default function App() {
               onClick={() => {
                 setDateSearchOpen(true);
                 setRinksSearchOpen(false);
+                setBruinsScheduleOpen(false);
               }}
             >
               <svg
@@ -658,6 +800,8 @@ export default function App() {
       ) : null}
       </main>
       {rinksDrawer}
+      {bruinsDrawer}
+      {bruinsFab}
     </div>
   );
 }

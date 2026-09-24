@@ -1,4 +1,4 @@
-import type { Session, Rink, RinkHealthEntry } from './types';
+import type { Session, Rink, RinkHealthEntry, BruinsGame } from './types';
 
 export function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const r = 6371;
@@ -223,4 +223,66 @@ export function formatSessionShareText(session: Session, rink: Rink): string {
   }
   lines.push(`Confirm before you go: ${session.source_url}`);
   return `Want to join me?\n\n${lines.join('\n')}`;
+}
+
+export type BruinsMonthGroup = {
+  monthKey: string;
+  monthLabel: string;
+  games: BruinsGame[];
+};
+
+export function groupBruinsGamesByMonth(games: BruinsGame[]): BruinsMonthGroup[] {
+  const map = new Map<string, BruinsGame[]>();
+  for (const game of games) {
+    const key = new Intl.DateTimeFormat('en-CA', {
+      year: 'numeric',
+      month: '2-digit',
+      timeZone: 'America/New_York',
+    })
+      .format(new Date(game.starts_at))
+      .slice(0, 7);
+    const list = map.get(key) ?? [];
+    list.push(game);
+    map.set(key, list);
+  }
+  return [...map.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([monthKey, monthGames]) => ({
+      monthKey,
+      monthLabel: new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        year: 'numeric',
+        timeZone: 'America/New_York',
+      }).format(new Date(`${monthKey}-15T12:00:00-04:00`)),
+      games: monthGames.sort((a, b) => a.starts_at.localeCompare(b.starts_at)),
+    }));
+}
+
+export function formatBruinsGameDateTime(startsAt: string): string {
+  const date = new Intl.DateTimeFormat('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'America/New_York',
+  }).format(new Date(startsAt));
+  const time = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZone: 'America/New_York',
+  }).format(new Date(startsAt));
+  return `${date} · ${time}`;
+}
+
+export function bruinsMatchupLabel(game: BruinsGame): string {
+  return game.is_home ? `vs ${game.opponent_abbr}` : `@ ${game.opponent_abbr}`;
+}
+
+export function isBruinsGamePast(game: BruinsGame): boolean {
+  if (game.game_state === 'FINAL' || game.game_state === 'OFF') return true;
+  return new Date(game.starts_at).getTime() < Date.now() - 3 * 60 * 60 * 1000;
+}
+
+export function formatBruinsTvLine(networks: string[]): string {
+  if (!networks.length) return '';
+  return `TV · ${networks.join(' · ')}`;
 }
