@@ -39,7 +39,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Activity tabs
 
-- Three equal-weight options: Public skate, Adult hockey, Stick & puck.
+- Two equal-weight options: **Public skate**, **Stick & puck** (adult leagues/programs live under **Programs**, not the slider).
 - **Layout:** Primary filter control—larger track padding and tab type (`~0.88rem`) so session type dominates the controls block.
 - **States:** Selected = ink fill (`--rr-ink`) + gold label (`--rr-gold`); unselected = transparent on gray track + dark text.
 - **Responsive:** `flex-wrap` on narrow screens; `min-width` on each tab so labels stay readable.
@@ -62,6 +62,14 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - **Status badges** from `health.json`: Schedule available / No times listed yet / Scrape issue — unless `operations.status` is set on the rink (e.g. **Closed for the season**).
 - Paused registry rinks: muted “coming soon” count only (not in search list).
 - Opening rinks closes Search by date and Bruins schedule (and vice versa); changing session type closes all overlays.
+
+### Programs (editorial)
+
+- **Header:** Plain-text **Programs** (when `programs.json` has entries) swaps the main column away from session search; label stays **Programs** while viewing (underlined); **×** on the Programs panel returns to session search.
+- **Filter:** Programs whose `rink_id` is in the **My rinks · search** radius set; empty state prompts to widen rinks.
+- **Cards:** Accordion like session cards — title, rink name, kind badge (Drop-in / League / Skills), teaser; expanded shows description, season offerings, registration copy, optional links.
+- **Footer:** Not affiliated with host facilities; link to official program listings.
+- **My rinks** stays in the header on the Programs view so users can adjust which rinks appear.
 
 ### Bruins schedule (companion)
 

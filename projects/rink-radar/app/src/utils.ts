@@ -1,4 +1,4 @@
-import type { Session, Rink, RinkHealthEntry, BruinsGame } from './types';
+import type { Session, Rink, RinkHealthEntry, BruinsGame, Program, ProgramKind } from './types';
 
 export function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const r = 6371;
@@ -285,4 +285,31 @@ export function isBruinsGamePast(game: BruinsGame): boolean {
 export function formatBruinsTvLine(networks: string[]): string {
   if (!networks.length) return '';
   return `TV · ${networks.join(' · ')}`;
+}
+
+export function programKindLabel(kind: ProgramKind): string {
+  switch (kind) {
+    case 'drop_in':
+      return 'Drop-in';
+    case 'league':
+      return 'League';
+    case 'skills':
+      return 'Skills';
+    default:
+      return kind;
+  }
+}
+
+export function filterProgramsByRinkIds(programs: Program[], rinkIds: Set<string>): Program[] {
+  return programs.filter((p) => rinkIds.has(p.rink_id));
+}
+
+export function programTeaser(program: Program, maxLen = 100): string {
+  const first = program.offerings[0];
+  if (first?.schedule_text) {
+    const line = `${first.label}: ${first.schedule_text}`;
+    return line.length <= maxLen ? line : `${line.slice(0, maxLen - 1)}…`;
+  }
+  const desc = program.description.trim();
+  return desc.length <= maxLen ? desc : `${desc.slice(0, maxLen - 1)}…`;
 }
