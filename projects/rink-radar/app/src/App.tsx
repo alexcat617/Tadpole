@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Activity, Session, RinksFile, SessionsFile } from './types';
-import { activityLabel, findNextSession, formatTimeRange, haversineKm, priceSummaryForCard, sessionDateInZone, sessionScanBadge } from './utils';
+import { activityLabel, doverStickPracticeFeesLine, findNextSession, formatResultsDayHeader, formatTimeRange, haversineKm, priceSummaryForCard, sessionDateInZone, sessionScanBadge } from './utils';
 import './App.css';
 
 const DATA_BASE = `${import.meta.env.BASE_URL}data`;
 
 type ActivityFilter = 'public_skate' | 'adult_hockey' | 'stick_puck';
+
+const ACTIVITY_FILTERS: ActivityFilter[] = ['public_skate', 'adult_hockey', 'stick_puck'];
 
 function todayInZone(): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
@@ -112,7 +114,6 @@ export default function App() {
       setDate(nextDate);
       setAppliedFilter(filter);
       setAppliedDate(nextDate);
-      setExpandedSessionId(next.id);
     } catch {
       setSearchError('Could not load schedules. Try again.');
     } finally {
@@ -169,47 +170,84 @@ export default function App() {
 
   const hasSearched = appliedFilter != null && appliedDate != null;
 
+  const resultsDayHeader = useMemo(() => {
+    if (!appliedDate) return null;
+    return formatResultsDayHeader(appliedDate, todayInZone());
+  }, [appliedDate]);
+
+  const schedulesUpdated = useMemo(() => {
+    if (!sessionsFile) return null;
+    const label = new Intl.DateTimeFormat('en-US', {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      timeZone: 'America/New_York',
+    }).format(new Date(sessionsFile.generated_at));
+    return { label, iso: sessionsFile.generated_at };
+  }, [sessionsFile]);
+
+  const topBar = (
+    <header className="top-bar" role="banner">
+      <div className="top-bar-inner">
+        <div className="header-titles">
+          <h1 className="header-region">Seacoast ice</h1>
+          <p className="header-app-name">Rink Radar</p>
+        </div>
+        {schedulesUpdated && (
+          <time className="header-updated" dateTime={schedulesUpdated.iso}>
+            Updated {schedulesUpdated.label}
+          </time>
+        )}
+      </div>
+    </header>
+  );
+
   if (loadError) {
     return (
-      <div className="app">
-        <p className="error">{loadError}</p>
+      <div className="app-shell">
+        {topBar}
+        <main className="app">
+          <p className="error">{loadError}</p>
+        </main>
       </div>
     );
   }
 
   if (!rinksFile) {
     return (
-      <div className="app">
-        <p className="muted">Loading…</p>
+      <div className="app-shell">
+        {topBar}
+        <main className="app">
+          <p className="muted">Loading…</p>
+        </main>
       </div>
     );
   }
 
   return (
-    <div className="app">
-      <header className="header">
-        <h1>Rink Radar</h1>
-        <p className="tagline">Seacoast ice near Dover · schedules from official sources</p>
-        <p className="meta">
-          {sessionsFile
-            ? `Updated ${new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'America/New_York' }).format(new Date(sessionsFile.generated_at))}`
-            : 'Choose options below, then search for sessions.'}
-        </p>
-      </header>
-
+    <div className="app-shell">
+      {topBar}
+      <main className="app">
       <section className="controls" aria-label="Find sessions">
         <div className="controls-group controls-group--types">
           <p className="controls-label" id="activity-label">
             Session type
           </p>
-          <div className="activity-toggle" role="tablist" aria-labelledby="activity-label">
-            {(['public_skate', 'adult_hockey', 'stick_puck'] as ActivityFilter[]).map((a) => (
+          <div
+            className="activity-segmented"
+            role="tablist"
+            aria-labelledby="activity-label"
+            style={{ '--segment-index': ACTIVITY_FILTERS.indexOf(filter) } as React.CSSProperties}
+          >
+            <span className="activity-segmented-thumb" aria-hidden="true" />
+            {ACTIVITY_FILTERS.map((a) => (
               <button
                 key={a}
                 type="button"
                 role="tab"
                 aria-selected={filter === a}
-                className={filter === a ? 'active' : ''}
+                className={`activity-segmented-btn${filter === a ? ' active' : ''}`}
                 onClick={() => selectActivity(a)}
               >
                 {activityLabel(a as Activity)}
@@ -221,7 +259,7 @@ export default function App() {
         <div className="controls-group controls-group--find-next">
           <button
             type="button"
-            className="secondary find-next-session"
+            className="find-next-session"
             onClick={() => void runFindNext()}
             disabled={isSearching}
           >
@@ -244,20 +282,19 @@ export default function App() {
             >
               {isSearching ? 'Searching…' : 'Search'}
             </button>
-          </div>
-          {hasSearched && !isSearching && (
-            <button type="button" className="secondary clear-sessions" onClick={clearSessions}>
-              Clear sessions
+            <button
+              type="button"
+              className="secondary clear-sessions"
+              onClick={clearSessions}
+              disabled={!hasSearched || isSearching}
+            >
+              Clear
             </button>
-          )}
+          </div>
         </div>
 
         {searchError && <p className="error search-error">{searchError}</p>}
       </section>
-
-      <p className="disclaimer">
-        Schedules change — confirm with the rink before you go.
-      </p>
 
       <section className="results" aria-live="polite" aria-busy={isSearching}>
         {isSearching ? (
@@ -269,14 +306,24 @@ export default function App() {
           <div className="empty">
             <p>Pick an activity and date, search, or use Find next session.</p>
           </div>
-        ) : rows.length === 0 ? (
-        <div className="empty">
-          <p>No sessions for this day and filter.</p>
-          <p className="muted">Try another date, wider radius, or a different activity.</p>
-        </div>
-      ) : (
-        <ul className="session-list">
-          {rows.map(({ session, rink }) => {
+        ) : (
+          <>
+            {resultsDayHeader && appliedFilter && (
+              <header className="results-day-header">
+                <p className="results-day-kicker">
+                  {activityLabel(appliedFilter)} · {resultsDayHeader.relative ?? 'Selected day'}
+                </p>
+                <h2 className="results-day-title">{resultsDayHeader.title}</h2>
+              </header>
+            )}
+            {rows.length === 0 ? (
+              <div className="empty results-empty">
+                <p>No sessions for this day and filter.</p>
+                <p className="muted">Try another date, wider radius, or a different activity.</p>
+              </div>
+            ) : (
+              <ul className="session-list">
+                {rows.map(({ session, rink }) => {
             const isExpanded = expandedSessionId === session.id;
             const detailsId = `session-details-${session.id}`;
             const scanBadge = sessionScanBadge(session.subtype);
@@ -310,7 +357,9 @@ export default function App() {
                 </button>
                 {isExpanded && (
                   <div className="session-details" id={detailsId}>
-                    {session.raw_label && <p className="muted">{session.raw_label}</p>}
+                    {rink.id === 'dover-arena' && session.subtype === 'youth_stick' && (
+                      <p className="muted small">{doverStickPracticeFeesLine()}</p>
+                    )}
                     <p>
                       {rink.address}, {rink.city}, {rink.region} {rink.postal_code}
                     </p>
@@ -344,9 +393,14 @@ export default function App() {
               </li>
             );
           })}
-        </ul>
+              </ul>
+            )}
+          </>
         )}
       </section>
+
+      <p className="disclaimer">Schedules change — confirm with the rink before you go.</p>
+      </main>
     </div>
   );
 }

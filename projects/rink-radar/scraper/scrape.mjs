@@ -49,6 +49,48 @@ function addSessions(rinkId, sourceUrl, rows, price) {
   }
 }
 
+/** Dover stick practice PDF fee legend (per city stick calendar). */
+const DOVER_STICK_PRICE_BY_SUBTYPE = {
+  adult_stick: {
+    summary: 'Adult stick $12',
+    amount_cents: 1200,
+    currency: 'USD',
+    is_free: false,
+  },
+  youth_stick: {
+    summary: 'Youth stick $8',
+    amount_cents: 800,
+    currency: 'USD',
+    is_free: false,
+  },
+  parent_tot: {
+    summary: 'Parent/tot $8 per skater',
+    amount_cents: 800,
+    currency: 'USD',
+    is_free: false,
+  },
+};
+
+function addDoverStickSessions(rinkId, sourceUrl, rows) {
+  for (const row of rows) {
+    const price =
+      DOVER_STICK_PRICE_BY_SUBTYPE[row.subtype] ?? DOVER_STICK_PRICE_BY_SUBTYPE.adult_stick;
+    output.sessions.push({
+      id: sessionId(rinkId, row.starts_at, row.activity, row.subtype),
+      rink_id: rinkId,
+      activity: row.activity,
+      subtype: row.subtype,
+      starts_at: row.starts_at,
+      ends_at: row.ends_at,
+      price,
+      raw_label: row.raw_label,
+      source_url: sourceUrl,
+      fetched_at: fetchedAt,
+      confidence: row.confidence ?? 'high',
+    });
+  }
+}
+
 async function fetchPdfBuffer(url) {
   const res = await fetch(url, {
     headers: { 'User-Agent': 'RinkRadar/1.0 (+https://github.com/alexcat617/Tadpole)' },
@@ -83,15 +125,8 @@ async function scrapeDover(rink) {
     currency: 'USD',
     is_free: false,
   };
-  const stickPrice = {
-    summary: 'Adult stick $12 (see rink)',
-    amount_cents: 1200,
-    currency: 'USD',
-    is_free: false,
-  };
-
   addSessions(rink.id, publicPdf, publicRows, publicPrice);
-  addSessions(rink.id, stickPdf, stickRows, stickPrice);
+  addDoverStickSessions(rink.id, stickPdf, stickRows);
 
   health.rinks[rink.id] = {
     ok: true,

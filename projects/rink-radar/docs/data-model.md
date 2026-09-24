@@ -50,7 +50,7 @@ Top-level:
 | `id` | string | yes | Hash or slug: `dover-arena-2026-09-24T1330-public` |
 | `rink_id` | string | yes | FK to rink |
 | `activity` | enum | yes | `public_skate`, `adult_hockey`, `stick_puck`, `other` |
-| `subtype` | string | no | e.g. `recreational`, `instructional`, `rock_night`, `drop_in`, `league` |
+| `subtype` | string | no | e.g. `recreational`, `instructional`, `rock_night`, `adult_stick`, `youth_stick`, `parent_tot`, `drop_in`, `league` |
 | `starts_at` | string | yes | ISO datetime |
 | `ends_at` | string | yes | ISO datetime |
 | `price` | object | no | See below |

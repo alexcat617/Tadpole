@@ -44,6 +44,6 @@ The product anchor is **Dover, NH 03820**, so scraped Dover public skate session
 - Summary text: `Dover resident adult $9 / youth $7`
 - Representative adult amount: `amount_cents: 900`
 
-Stick & puck / adult stick fees are on the separate [stick practice page](https://www.dover.nh.gov/government/city-operations/recreation/arena/stick-practice/) and are set in `scraper/scrape.mjs` (`stickPrice`).
+Stick & puck / stick practice fees are documented in [Dover stick practice](./dover-stick-practice.md) and applied per subtype in `scraper/scrape.mjs` (`DOVER_STICK_PRICE_BY_SUBTYPE`).
 
 To change pricing assumptions (e.g. show non-resident rates), update the scraper defaults and regenerate data with `npm run scrape` in `projects/rink-radar/scraper`.

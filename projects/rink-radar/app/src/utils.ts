@@ -54,11 +54,53 @@ export function sessionScanBadge(subtype?: string): SessionScanBadge | null {
   if (subtype === 'instructional') {
     return { label: 'Instructional', variant: 'instructional' };
   }
+  if (subtype === 'youth_stick') {
+    return { label: 'Youth stick', variant: 'instructional' };
+  }
+  if (subtype === 'parent_tot') {
+    return { label: 'Parent/tot', variant: 'recreational' };
+  }
   return null;
+}
+
+/** Shown in session details for Dover stick practice (monthly PDF fee legend). */
+export function doverStickPracticeFeesLine(): string {
+  return 'Stick practice fees at Dover: youth stick $8, parent/tot $8 per skater, adult stick $12.';
 }
 
 export function sessionDateInZone(startsAt: string): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date(startsAt));
+}
+
+export type ResultsDayHeader = {
+  title: string;
+  relative: string | null;
+};
+
+/** @param dateIso YYYY-MM-DD in America/New_York */
+export function formatResultsDayHeader(dateIso: string, todayIso: string): ResultsDayHeader {
+  const anchor = new Date(`${dateIso}T12:00:00-04:00`);
+  const title = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'America/New_York',
+  }).format(anchor);
+
+  const dayMs = 86400000;
+  const target = new Date(`${dateIso}T12:00:00-04:00`).getTime();
+  const today = new Date(`${todayIso}T12:00:00-04:00`).getTime();
+  const diffDays = Math.round((target - today) / dayMs);
+
+  let relative: string | null = null;
+  if (diffDays === 0) relative = 'Today';
+  else if (diffDays === 1) relative = 'Tomorrow';
+  else if (diffDays > 1) relative = `In ${diffDays} days`;
+  else if (diffDays === -1) relative = 'Yesterday';
+  else if (diffDays < -1) relative = `${Math.abs(diffDays)} days ago`;
+
+  return { title, relative };
 }
 
 export function isUpcomingSession(session: Session, today: string, now = Date.now()): boolean {

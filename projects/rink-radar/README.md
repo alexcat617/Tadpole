@@ -33,6 +33,8 @@ projects/rink-radar/
 | [Data model](./docs/data-model.md) | Rink + session schema |
 | [Rink registry](./docs/rink-registry.md) | How to add rinks & adapters |
 | [Dover public skate](./docs/dover-public-skate.md) | Official fees & session types (Dover Ice Arena) |
+| [Dover stick practice](./docs/dover-stick-practice.md) | Youth / parent-tot / adult stick fees & PDF types |
+| [Personas](./docs/personas.md) | Primary users for pilot UX decisions |
 | [Scraping policy](./docs/scraping-policy.md) | Fetch rules, attribution |
 | [Roadmap](./docs/roadmap.md) | Phases & acceptance criteria |
 | [Open questions](./docs/open-questions.md) | Decisions still to make |
