@@ -63,7 +63,7 @@ Top-level:
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `summary` | string | Human text: “$9 adult (Dover resident)” |
+| `summary` | string | Human text, e.g. `Dover resident adult $9 / youth $7` (see [Dover public skate](./dover-public-skate.md)) |
 | `amount_cents` | number | Nullable; single representative adult price |
 | `currency` | string | `USD` |
 | `is_free` | boolean | True only if admission is $0 for typical adult |

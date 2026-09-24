@@ -14,7 +14,6 @@ const MONTHS =
 function parseTimePair(startRaw, endRaw, day, month, year, zone) {
   const norm = (t, fallbackPeriod) => {
     let s = t.trim().toLowerCase().replace(/\s/g, '');
-    if (!/am|pm/.test(s) && fallbackPeriod) s += fallbackPeriod;
     if (/^\d{1,2}:\d{2}(am|pm)$/.test(s)) return s;
     if (/^\d{1,2}(am|pm)$/.test(s)) return s.replace(/(am|pm)/, ':00$1');
     if (/^\d{1,2}-\d{1,2}:\d{2}(am|pm)$/.test(s)) {
@@ -22,9 +21,13 @@ function parseTimePair(startRaw, endRaw, day, month, year, zone) {
       const period = rest.match(/(am|pm)/)?.[0] ?? 'am';
       return `${h}:${rest.replace(/(am|pm)/, '')}${period}`;
     }
-    if (/^\d{1,2}:\d{2}$/.test(s)) return s + (fallbackPeriod ?? 'am');
+    if (/^\d{1,2}:\d{2}[ap]$/.test(s)) {
+      return s.slice(0, -1) + (s.endsWith('a') ? 'am' : 'pm');
+    }
     if (/^\d{1,2}a$/.test(s)) return s.replace('a', ':00am');
     if (/^\d{1,2}p$/.test(s)) return s.replace('p', ':00pm');
+    if (!/(am|pm)$/.test(s) && fallbackPeriod) s += fallbackPeriod;
+    if (/^\d{1,2}:\d{2}$/.test(s)) return s + (fallbackPeriod ?? 'am');
     return s;
   };
 

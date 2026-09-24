@@ -10,7 +10,9 @@
 }
 
 .app {
+  width: 100%;
   max-width: 32rem;
+  min-width: 0;
   margin: 0 auto;
   padding: 1rem 1rem 3rem;
 }
@@ -118,6 +120,10 @@
   width: 100%;
 }
 
+.find-next-session {
+  width: 100%;
+}
+
 .search-error {
   margin: 0.35rem 0 0;
   font-size: 0.85rem;
@@ -156,6 +162,8 @@
 
 .results {
   margin: 0;
+  width: 100%;
+  min-width: 0;
 }
 
 .disclaimer {
@@ -171,9 +179,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
 }
 
 .session-item {
+  width: 100%;
+  min-width: 0;
   border-radius: 0.65rem;
   overflow: hidden;
   box-shadow: 0 1px 2px rgb(15 23 42 / 8%);
@@ -181,64 +193,128 @@
 }
 
 .session-item.expanded {
-  box-shadow: 0 2px 8px rgb(15 23 42 / 12%);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 8%);
 }
 
 .session-card {
   width: 100%;
+  min-width: 0;
   text-align: left;
   padding: 0.85rem 2.25rem 0.85rem 1rem;
   border: none;
+  border-bottom: 1px solid transparent;
   border-radius: 0;
   background: #fff;
   color: #0f172a;
   box-shadow: none;
   cursor: pointer;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.2rem 0.75rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  gap: 0.35rem 0.75rem;
   position: relative;
 }
 
 .session-item.expanded .session-card {
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.session-card .time {
-  font-weight: 600;
-  grid-column: 1;
-  color: #0f172a;
-}
-
-.session-card .dist {
-  font-size: 0.8rem;
-  color: #64748b;
-  grid-column: 2;
-  grid-row: 1;
-  align-self: start;
+  border-bottom-color: #e2e8f0;
 }
 
 .session-card .rink {
-  grid-column: 1 / -1;
-  font-size: 1rem;
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1.05rem;
   font-weight: 600;
+  line-height: 1.35;
   color: #0f172a;
+  min-width: 0;
+  padding-right: 0.25rem;
 }
 
-.session-card .sub {
+.session-card .time {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #0f172a;
+  text-align: right;
+  white-space: nowrap;
+  padding-right: 1.35rem;
+}
+
+.session-card .session-meta {
   grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  min-width: 0;
+  padding-top: 0.15rem;
+  padding-right: 1.35rem;
+}
+
+.session-badge {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  line-height: 1.25;
+}
+
+.session-badge--recreational {
+  background: #ccfbf1;
+  color: #0f766e;
+}
+
+.session-badge--instructional {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.session-badge--neutral {
+  background: #f1f5f9;
+  color: #475569;
+  text-transform: none;
+  font-size: 0.75rem;
+  letter-spacing: normal;
+  font-weight: 500;
+}
+
+.session-price {
+  margin-left: auto;
+  flex: 1 1 6rem;
   font-size: 0.8rem;
+  line-height: 1.4;
   color: #64748b;
+  min-width: 0;
+  text-align: right;
 }
 
 .session-chevron {
   position: absolute;
-  top: 0.85rem;
-  right: 0.75rem;
-  font-size: 1.1rem;
-  line-height: 1;
-  color: #64748b;
-  font-weight: 600;
+  top: 1.3rem;
+  right: 0.95rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid #64748b;
+  border-bottom: 2px solid #64748b;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.session-item.expanded .session-chevron {
+  transform: rotate(-135deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .session-chevron {
+    transition: none;
+  }
 }
 
 .session-details {
@@ -246,6 +322,10 @@
   font-size: 0.9rem;
   color: #0f172a;
   text-align: left;
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .session-details p {
@@ -258,6 +338,8 @@
 
 .session-details a {
   color: #0f766e;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .empty {

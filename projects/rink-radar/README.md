@@ -32,6 +32,7 @@ projects/rink-radar/
 | [Requirements](./docs/requirements.md) | Functional & non-functional |
 | [Data model](./docs/data-model.md) | Rink + session schema |
 | [Rink registry](./docs/rink-registry.md) | How to add rinks & adapters |
+| [Dover public skate](./docs/dover-public-skate.md) | Official fees & session types (Dover Ice Arena) |
 | [Scraping policy](./docs/scraping-policy.md) | Fetch rules, attribution |
 | [Roadmap](./docs/roadmap.md) | Phases & acceptance criteria |
 | [Open questions](./docs/open-questions.md) | Decisions still to make |

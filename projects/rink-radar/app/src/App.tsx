@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { Activity, Session, RinksFile, SessionsFile } from './types';
-import { activityLabel, formatTimeRange, haversineKm } from './utils';
+import { activityLabel, findNextSession, formatTimeRange, haversineKm, priceSummaryForCard, sessionDateInZone, sessionScanBadge } from './utils';
 import './App.css';
 
 const DATA_BASE = `${import.meta.env.BASE_URL}data`;
@@ -74,12 +74,14 @@ export default function App() {
     }
   }, [date, filter, isSearching]);
 
-  const clearSessions = useCallback(() => {
+  const clearSearchResults = useCallback(() => {
     setAppliedFilter(null);
     setAppliedDate(null);
     setExpandedSessionId(null);
     setSearchError(null);
   }, []);
+
+  const clearSessions = clearSearchResults;
 
   const activeRinks = useMemo(
     () =>
@@ -88,6 +90,53 @@ export default function App() {
   );
 
   const rinkMap = useMemo(() => new Map(activeRinks.map((r) => [r.id, r])), [activeRinks]);
+
+  const runFindNext = useCallback(async () => {
+    if (isSearching || userLat == null || userLng == null) return;
+    setIsSearching(true);
+    setSearchError(null);
+    setExpandedSessionId(null);
+    try {
+      const res = await fetch(`${DATA_BASE}/sessions.generated.json`, { cache: 'no-store' });
+      if (!res.ok) throw new Error('sessions');
+      const sessions: SessionsFile = await res.json();
+      setSessionsFile(sessions);
+      const today = todayInZone();
+      const next = findNextSession(sessions.sessions, rinkMap, userLat, userLng, radiusKm, today, filter);
+      if (!next) {
+        clearSearchResults();
+        setSearchError(`No upcoming ${activityLabel(filter).toLowerCase()} sessions in our schedule data.`);
+        return;
+      }
+      const nextDate = sessionDateInZone(next.starts_at);
+      setDate(nextDate);
+      setAppliedFilter(filter);
+      setAppliedDate(nextDate);
+      setExpandedSessionId(next.id);
+    } catch {
+      setSearchError('Could not load schedules. Try again.');
+    } finally {
+      setIsSearching(false);
+    }
+  }, [clearSearchResults, filter, isSearching, radiusKm, rinkMap, userLat, userLng]);
+
+  const selectActivity = useCallback(
+    (activity: ActivityFilter) => {
+      if (activity === filter) return;
+      setFilter(activity);
+      clearSearchResults();
+    },
+    [clearSearchResults, filter],
+  );
+
+  const selectDate = useCallback(
+    (nextDate: string) => {
+      if (nextDate === date) return;
+      setDate(nextDate);
+      clearSearchResults();
+    },
+    [clearSearchResults, date],
+  );
 
   const rows = useMemo(() => {
     if (!sessionsFile || appliedFilter == null || appliedDate == null || userLat == null || userLng == null) {
@@ -157,7 +206,7 @@ export default function App() {
               role="tab"
               aria-selected={filter === a}
               className={filter === a ? 'active' : ''}
-              onClick={() => setFilter(a)}
+              onClick={() => selectActivity(a)}
             >
               {activityLabel(a as Activity)}
             </button>
@@ -167,9 +216,18 @@ export default function App() {
         <div className="row">
           <label>
             Date
-            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+            <input type="date" value={date} onChange={(e) => selectDate(e.target.value)} />
           </label>
         </div>
+
+        <button
+          type="button"
+          className="secondary find-next-session"
+          onClick={() => void runFindNext()}
+          disabled={isSearching}
+        >
+          Find next session
+        </button>
 
         <button
           type="button"
@@ -178,7 +236,7 @@ export default function App() {
           disabled={isSearching || (hasSearched && rows.length > 0)}
           aria-busy={isSearching}
         >
-          {isSearching ? 'Searching…' : 'Find sessions'}
+          {isSearching ? 'Searching…' : 'Search'}
         </button>
         {hasSearched && !isSearching && (
           <button type="button" className="secondary clear-sessions" onClick={clearSessions}>
@@ -200,7 +258,7 @@ export default function App() {
           </div>
         ) : !hasSearched ? (
           <div className="empty">
-            <p>Pick an activity and date, then search.</p>
+            <p>Pick an activity and date, search, or use Find next session.</p>
           </div>
         ) : rows.length === 0 ? (
         <div className="empty">
@@ -209,9 +267,13 @@ export default function App() {
         </div>
       ) : (
         <ul className="session-list">
-          {rows.map(({ session, rink, distance_km }) => {
+          {rows.map(({ session, rink }) => {
             const isExpanded = expandedSessionId === session.id;
             const detailsId = `session-details-${session.id}`;
+            const scanBadge = sessionScanBadge(session.subtype);
+            const priceText = session.price?.summary
+              ? priceSummaryForCard(session.price.summary)
+              : '';
             return (
               <li key={session.id} className={isExpanded ? 'session-item expanded' : 'session-item'}>
                 <button
@@ -221,16 +283,21 @@ export default function App() {
                   aria-controls={detailsId}
                   onClick={() => setExpandedSessionId(isExpanded ? null : session.id)}
                 >
-                  <span className="time">{formatTimeRange(session.starts_at, session.ends_at)}</span>
-                  <span className="dist">{distance_km.toFixed(1)} km</span>
                   <span className="rink">{rink.name}</span>
-                  <span className="sub">
-                    {session.subtype?.replace(/_/g, ' ') ?? activityLabel(session.activity)}
-                    {session.price?.summary ? ` · ${session.price.summary}` : ''}
+                  <span className="time">{formatTimeRange(session.starts_at, session.ends_at)}</span>
+                  <span className="session-meta">
+                    {scanBadge ? (
+                      <span className={`session-badge session-badge--${scanBadge.variant}`}>
+                        {scanBadge.label}
+                      </span>
+                    ) : (
+                      <span className="session-badge session-badge--neutral">
+                        {session.subtype?.replace(/_/g, ' ') ?? activityLabel(session.activity)}
+                      </span>
+                    )}
+                    {priceText ? <span className="session-price">{priceText}</span> : null}
                   </span>
-                  <span className="session-chevron" aria-hidden="true">
-                    {isExpanded ? '−' : '+'}
-                  </span>
+                  <span className="session-chevron" aria-hidden="true" />
                 </button>
                 {isExpanded && (
                   <div className="session-details" id={detailsId}>

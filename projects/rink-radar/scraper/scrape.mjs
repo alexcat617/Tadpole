@@ -78,8 +78,8 @@ async function scrapeDover(rink) {
   const stickRows = await parseDoverPdfBuffer(stickBuf, 'stick');
 
   const publicPrice = {
-    summary: 'Non-res adult $12 / youth $9 (see rink)',
-    amount_cents: 1200,
+    summary: 'Dover resident adult $9 / youth $7 (see rink)',
+    amount_cents: 900,
     currency: 'USD',
     is_free: false,
   };
