@@ -46,6 +46,30 @@
       "notes": "Public skate calendar is a monthly PDF (update schedule_sources PDF url each month or scrape from public-skate page). Call to confirm times. Annual maintenance closure typically late spring."
     },
     {
+      "id": "churchill-rink-durham",
+      "name": "Churchill Rink at Jackson's Landing",
+      "address": "10 Old Piscataqua Rd",
+      "city": "Durham",
+      "region": "NH",
+      "postal_code": "03824",
+      "country": "US",
+      "lat": 43.1192,
+      "lng": -70.9398,
+      "timezone": "America/New_York",
+      "phone": "603-868-3907",
+      "website": "https://www.churchillrink.org/",
+      "schedule_sources": [
+        {
+          "url": "https://www.churchillrink.org/page/show/1430862-live-public-skating-hockey-schedule",
+          "kind": "html",
+          "activity_hints": ["public_skate", "adult_hockey"]
+        }
+      ],
+      "adapter": "sportsengine",
+      "status": "pilot",
+      "notes": "Live schedule page (SportsEngine). Public skating and hockey on same feed — filter by activity in parser."
+    },
+    {
       "id": "rochester-arena",
       "name": "Rochester Arena",
       "address": "45 Lowell St",
