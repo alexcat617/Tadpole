@@ -39,6 +39,11 @@
           "url": "http://dover.nh.gov/government/city-operations/recreation/arena/adult-programs-leagues/",
           "kind": "html",
           "activity_hints": ["adult_hockey"]
+        },
+        {
+          "url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Stick-26.pdf",
+          "kind": "pdf",
+          "activity_hints": ["stick_puck", "adult_hockey"]
         }
       ],
       "adapter": "dover-pdf",
