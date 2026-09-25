@@ -3,7 +3,6 @@ import type {
   Activity,
   BruinsScheduleFile,
   CompanionScheduleFile,
-  HealthFile,
   ProgramsFile,
   Rink,
   Session,
@@ -34,7 +33,6 @@ import {
   priceSummaryForCard,
   programKindLabel,
   programTeaser,
-  rinkListStatus,
   sessionScanBadge,
   type ProgramAudienceFilter,
 } from './utils';
@@ -62,7 +60,6 @@ export default function App() {
   const [rinksFile, setRinksFile] = useState<RinksFile | null>(null);
   const [filter, setFilter] = useState<ActivityFilter>('public_skate');
   const [date, setDate] = useState('');
-  const [healthFile, setHealthFile] = useState<HealthFile | null>(null);
   const [userLat, setUserLat] = useState<number | null>(null);
   const [userLng, setUserLng] = useState<number | null>(null);
   const [expandedSessionId, setExpandedSessionId] = useState<string | null>(null);
@@ -141,14 +138,6 @@ export default function App() {
         return r.json();
       })
       .then((sessions: SessionsFile) => setSessionsFile(sessions))
-      .catch(() => {});
-
-    fetch(`${DATA_BASE}/health.json`)
-      .then((r) => {
-        if (!r.ok) throw new Error('health');
-        return r.json();
-      })
-      .then((health: HealthFile) => setHealthFile(health))
       .catch(() => {});
 
     fetch(`${DATA_BASE}/bruins-schedule.json`)
@@ -307,11 +296,6 @@ export default function App() {
     setAppView('sessions');
     setExpandedProgramId(null);
   }, []);
-
-  const pausedRinkCount = useMemo(
-    () => (rinksFile?.rinks ?? []).filter((r) => r.status === 'paused').length,
-    [rinksFile],
-  );
 
   const scheduleCoverage = useMemo(() => {
     if (!sessionsFile) return null;
@@ -629,8 +613,11 @@ export default function App() {
             </p>
             <ul className="rinks-in-search-list">
               {rinksInSearch.map(({ rink }) => {
-                const status = rinkListStatus(rink, healthFile?.rinks[rink.id]);
                 const included = selectedRinkIds.has(rink.id);
+                const facilityNote =
+                  rink.operations?.status === 'closed_for_season'
+                    ? (rink.operations.label ?? 'Closed for the season')
+                    : null;
                 return (
                   <li key={rink.id} className="rinks-in-search-item">
                     <label className="rinks-in-search-toggle">
@@ -642,18 +629,15 @@ export default function App() {
                       <span className="rinks-in-search-name">{rink.name}</span>
                     </label>
                     <span className="rinks-in-search-city">{rink.city}</span>
-                    <span className={`rink-health-badge rink-health-badge--${status.variant}`}>
-                      {status.label}
-                    </span>
+                    {facilityNote ? (
+                      <span className="rink-health-badge rink-health-badge--neutral">
+                        {facilityNote}
+                      </span>
+                    ) : null}
                   </li>
                 );
               })}
             </ul>
-            {pausedRinkCount > 0 && (
-              <p className="muted small rinks-in-search-more">
-                {pausedRinkCount} more rinks in our registry coming soon.
-              </p>
-            )}
           </div>
         </div>
       </div>
