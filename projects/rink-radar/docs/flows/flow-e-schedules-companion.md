@@ -5,14 +5,14 @@
 
 ## Summary
 
-Header **Schedules** opens a drawer with a **Wildcats | Bruins** toggle; one team’s games shown at a time (not stacked scroll).
+Bottom **Schedules** FAB opens a drawer with a **Wildcats | Bruins** toggle; one team’s games shown at a time (not stacked scroll). **Hype** lives in the drawer footer.
 
 ## Entry & preconditions
 
 | Precondition | If false |
 | --- | --- |
-| At least one of `bruins-schedule.json`, `wildcats-schedule.json` has games | Hide header **Schedules** control |
-| User on any main view | **Schedules** in header (sessions or programs) |
+| At least one of `bruins-schedule.json`, `wildcats-schedule.json` has games | Hide Schedules FAB entirely |
+| User on any main view | Schedules FAB visible (sessions or programs) |
 
 ## States
 
@@ -25,7 +25,7 @@ stateDiagram-v2
   wildcatsOnly: Wildcats_section_populated
   both: Both_sections
 
-  closed --> open: Tap_Schedules_header
+  closed --> open: Tap_Schedules_FAB
   open --> closed: Backdrop_Escape_close
   open --> bruinsOnly: Wildcats_JSON_empty
   open --> wildcatsOnly: Bruins_JSON_empty
@@ -34,7 +34,7 @@ stateDiagram-v2
 
 ## Happy path
 
-1. User taps **Schedules** in the header (next to Programs when shown).
+1. User taps **Schedules** FAB (bottom-right; shell padding clears FAB).
 2. Drawer opens; scroll locked on body.
 3. If both teams have data: **Bruins | Wildcats** text tabs (muted inactive, ink active); default **Bruins** when opening.
 4. Active tab shows that team’s games by month (TV line for Bruins when present); past games muted.
@@ -54,7 +54,7 @@ stateDiagram-v2
 | State | UI |
 | --- | --- |
 | Section JSON empty after failed scrape | Muted: Schedule unavailable. Check official site. + link |
-| Entire companion empty | No header **Schedules** control |
+| Entire companion empty | No Schedules FAB |
 | No Bruins/UNH game today or tomorrow (ET) | No game-day banner |
 | Game today or tomorrow | Compact left-aligned pill above session controls (not tappable) |
 
@@ -71,7 +71,8 @@ stateDiagram-v2
 
 | Element | Copy |
 | --- | --- |
-| Header control | Schedules |
+| Schedules FAB | Schedules |
+| Drawer Hype | Hype |
 | Bruins title | Bruins {season_label} |
 | Wildcats title | UNH Wildcats men's hockey |
 | Disclaimer (each) | Not affiliated with {league/team}. |
@@ -79,8 +80,8 @@ stateDiagram-v2
 
 ## Acceptance criteria
 
-- [ ] One header control, one drawer (user decision).
-- [ ] Header **Schedules** hidden when both JSON game arrays empty.
+- [ ] One Schedules FAB, one drawer; Hype in drawer footer.
+- [ ] FAB hidden when both JSON game arrays empty.
 - [ ] Escape, backdrop, × close drawer; scroll unlock.
 - [ ] No NHL/UNH logos in UI (palette only).
 - [ ] Scraper retains last-good file per league on failure.

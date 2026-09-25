@@ -498,7 +498,7 @@ export default function App() {
   const hasWildcatsSchedule = (wildcatsScheduleFile?.games.length ?? 0) > 0;
   const hasBruinsSchedule = (bruinsScheduleFile?.games.length ?? 0) > 0;
   const hasAnyCompanionSchedule = hasWildcatsSchedule || hasBruinsSchedule;
-  const showSchedulesNav = hasAnyCompanionSchedule;
+  const showSchedulesFab = hasAnyCompanionSchedule;
   const showCompanionScheduleToggle = hasWildcatsSchedule && hasBruinsSchedule;
 
   const effectiveCompanionTab = useMemo((): CompanionScheduleTab => {
@@ -545,7 +545,7 @@ export default function App() {
     setHypeMoment(false);
     requestAnimationFrame(() => {
       setHypeMoment(true);
-      hypeMomentTimerRef.current = window.setTimeout(() => setHypeMoment(false), 4250);
+      hypeMomentTimerRef.current = window.setTimeout(() => setHypeMoment(false), 600);
     });
   }, []);
 
@@ -695,6 +695,30 @@ export default function App() {
       </section>
     ));
 
+  const hypeControl = (
+    <div className="hype-control">
+      <button
+        type="button"
+        className={`hype-fab${hypeMoment ? ' hype-fab--burst' : ''}`}
+        aria-label="Play hype sound"
+        onClick={(event) => {
+          event.stopPropagation();
+          playHype();
+        }}
+      >
+        Hype
+      </button>
+      <span
+        className={`hype-burst${hypeMoment ? ' hype-burst--active' : ''}`}
+        aria-hidden="true"
+      >
+        {Array.from({ length: 8 }, (_, i) => (
+          <span key={i} className="hype-burst-dot" />
+        ))}
+      </span>
+    </div>
+  );
+
   const schedulesDrawer =
     schedulesDrawerOpen && hasAnyCompanionSchedule ? (
       <div className="bruins-drawer-root side-drawer-root">
@@ -782,34 +806,26 @@ export default function App() {
               </section>
             ) : null}
           </div>
+          <footer className="schedules-drawer-hype">{hypeControl}</footer>
         </div>
       </div>
     ) : null;
 
-  const hypeFab =
-    !schedulesDrawerOpen ? (
-      <div className="hype-fab-root">
-        <button
-          type="button"
-          className={`hype-fab${hypeMoment ? ' hype-fab--burst' : ''}`}
-          aria-label="Play hype sound"
-          onClick={playHype}
-        >
-          Hype
-        </button>
-        <span
-          className={`hype-burst${hypeMoment ? ' hype-burst--active' : ''}`}
-          aria-hidden="true"
-        >
-          {Array.from({ length: 8 }, (_, i) => (
-            <span key={i} className="hype-burst-dot" />
-          ))}
-        </span>
-      </div>
+  const schedulesFab =
+    showSchedulesFab && !schedulesDrawerOpen ? (
+      <button
+        type="button"
+        className="bottom-fab"
+        aria-expanded={schedulesDrawerOpen}
+        aria-controls="schedules-companion-panel"
+        onClick={toggleSchedulesPanel}
+      >
+        Schedules
+      </button>
     ) : null;
 
-  const shellClassName = `app-shell app-shell--bottom-fab${
-    hypeMoment ? ' app-shell--hype-moment' : ''
+  const shellClassName = `app-shell${
+    showSchedulesFab && !schedulesDrawerOpen ? ' app-shell--bottom-fab' : ''
   }`;
 
   const topBar = (
@@ -835,17 +851,6 @@ export default function App() {
               }}
             >
               Programs
-            </button>
-          ) : null}
-          {showSchedulesNav ? (
-            <button
-              type="button"
-              className="header-rinks-btn"
-              aria-expanded={schedulesDrawerOpen}
-              aria-controls="schedules-companion-panel"
-              onClick={toggleSchedulesPanel}
-            >
-              Schedules
             </button>
           ) : null}
           {rinksFile ? (
@@ -874,7 +879,7 @@ export default function App() {
         </main>
         {rinksDrawer}
         {schedulesDrawer}
-        {hypeFab}
+        {schedulesFab}
       </div>
     );
   }
@@ -888,7 +893,7 @@ export default function App() {
         </main>
         {rinksDrawer}
         {schedulesDrawer}
-        {hypeFab}
+        {schedulesFab}
       </div>
     );
   }
@@ -1335,7 +1340,7 @@ export default function App() {
       </main>
       {rinksDrawer}
       {schedulesDrawer}
-      {hypeFab}
+      {schedulesFab}
     </div>
   );
 }
