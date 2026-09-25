@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type {
   Activity,
   BruinsScheduleFile,
@@ -41,6 +41,7 @@ import {
 import './App.css';
 
 const DATA_BASE = `${import.meta.env.BASE_URL}data`;
+const HYPE_SOUND_URL = `${import.meta.env.BASE_URL}sounds/hype.wav`;
 
 const RINK_SELECTION_STORAGE_KEY = 'rink-radar-selected-rink-ids';
 
@@ -83,12 +84,24 @@ export default function App() {
   const [appView, setAppView] = useState<AppView>('sessions');
   const [expandedProgramId, setExpandedProgramId] = useState<string | null>(null);
   const [shareNotice, setShareNotice] = useState<string | null>(null);
+  const hypeAudioRef = useRef<HTMLAudioElement | null>(null);
+  const hypeMomentTimerRef = useRef<number | null>(null);
+  const [hypeMoment, setHypeMoment] = useState(false);
 
   useEffect(() => {
     if (!shareNotice) return;
     const timer = window.setTimeout(() => setShareNotice(null), 3000);
     return () => window.clearTimeout(timer);
   }, [shareNotice]);
+
+  useEffect(
+    () => () => {
+      if (hypeMomentTimerRef.current !== null) {
+        window.clearTimeout(hypeMomentTimerRef.current);
+      }
+    },
+    [],
+  );
 
   const shareSession = useCallback(async (session: Session, rink: Rink) => {
     const text = formatSessionShareText(session, rink);
@@ -520,6 +533,22 @@ export default function App() {
     setSchedulesDrawerOpen(false);
   }, []);
 
+  const playHype = useCallback(() => {
+    const audio = hypeAudioRef.current ?? new Audio(HYPE_SOUND_URL);
+    hypeAudioRef.current = audio;
+    audio.currentTime = 0;
+    void audio.play().catch(() => {});
+
+    if (hypeMomentTimerRef.current !== null) {
+      window.clearTimeout(hypeMomentTimerRef.current);
+    }
+    setHypeMoment(false);
+    requestAnimationFrame(() => {
+      setHypeMoment(true);
+      hypeMomentTimerRef.current = window.setTimeout(() => setHypeMoment(false), 600);
+    });
+  }, []);
+
   const toggleRinksPanel = useCallback(() => {
     setRinksSearchOpen((open) => {
       if (!open) {
@@ -666,6 +695,30 @@ export default function App() {
       </section>
     ));
 
+  const hypeControl = (
+    <div className="hype-control">
+      <button
+        type="button"
+        className={`hype-fab${hypeMoment ? ' hype-fab--burst' : ''}`}
+        aria-label="Play hype sound"
+        onClick={(event) => {
+          event.stopPropagation();
+          playHype();
+        }}
+      >
+        Hype
+      </button>
+      <span
+        className={`hype-burst${hypeMoment ? ' hype-burst--active' : ''}`}
+        aria-hidden="true"
+      >
+        {Array.from({ length: 8 }, (_, i) => (
+          <span key={i} className="hype-burst-dot" />
+        ))}
+      </span>
+    </div>
+  );
+
   const schedulesDrawer =
     schedulesDrawerOpen && hasAnyCompanionSchedule ? (
       <div className="bruins-drawer-root side-drawer-root">
@@ -753,6 +806,7 @@ export default function App() {
               </section>
             ) : null}
           </div>
+          <footer className="schedules-drawer-hype">{hypeControl}</footer>
         </div>
       </div>
     ) : null;
@@ -761,7 +815,7 @@ export default function App() {
     showSchedulesFab && !schedulesDrawerOpen ? (
       <button
         type="button"
-        className="bruins-fab"
+        className="bottom-fab"
         aria-expanded={schedulesDrawerOpen}
         aria-controls="schedules-companion-panel"
         onClick={toggleSchedulesPanel}
@@ -770,7 +824,9 @@ export default function App() {
       </button>
     ) : null;
 
-  const shellClassName = showSchedulesFab ? 'app-shell app-shell--bruins-fab' : 'app-shell';
+  const shellClassName = `app-shell${
+    showSchedulesFab && !schedulesDrawerOpen ? ' app-shell--bottom-fab' : ''
+  }`;
 
   const topBar = (
     <header className="top-bar" role="banner">
@@ -803,10 +859,10 @@ export default function App() {
               className="header-rinks-btn"
               aria-expanded={rinksSearchOpen}
               aria-controls="rinks-in-search-panel"
-              aria-label={`My rinks, ${selectedRinkIds.size} selected`}
+              aria-label={`Rinks, ${selectedRinkIds.size} selected`}
               onClick={toggleRinksPanel}
             >
-              My rinks
+              Rinks
             </button>
           ) : null}
         </div>
@@ -895,7 +951,7 @@ export default function App() {
               <p className="muted">
                 {programAudienceFilter === 'kids'
                   ? 'No kids programs for your selected rinks — try Public skate or Stick & puck for open ice.'
-                  : 'Open My rinks — turn on a rink that offers programs.'}
+                  : 'Open rinks — turn on a rink that offers programs.'}
               </p>
             </div>
           ) : (
@@ -1121,7 +1177,7 @@ export default function App() {
         </div>
 
         {noRinksSelected && (
-          <p className="error search-error">Turn on at least one rink in My rinks.</p>
+          <p className="error search-error">Turn on at least one rink.</p>
         )}
         {searchError && <p className="error search-error">{searchError}</p>}
       </section>
@@ -1144,7 +1200,7 @@ export default function App() {
         ) : totalResultRows.length === 0 ? (
           <div className="empty results-empty">
             <p>No sessions for this day and filter.</p>
-            <p className="muted">Try another date, My rinks, or a different activity.</p>
+            <p className="muted">Try another date, activity, or rinks.</p>
             {filter === 'public_skate' && showProgramsNav ? (
               <p className="muted">
                 Looking for classes?{' '}

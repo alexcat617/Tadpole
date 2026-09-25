@@ -5,14 +5,14 @@
 
 ## Summary
 
-Single **Schedules** FAB opens a drawer with a **Wildcats | Bruins** toggle; one team’s games shown at a time (not stacked scroll).
+Bottom **Schedules** FAB opens a drawer with a **Wildcats | Bruins** toggle; one team’s games shown at a time (not stacked scroll). **Hype** lives in the drawer footer.
 
 ## Entry & preconditions
 
 | Precondition | If false |
 | --- | --- |
-| At least one of `bruins-schedule.json`, `wildcats-schedule.json` has games | Hide FAB entirely |
-| User on any main view | FAB visible (sessions or programs) |
+| At least one of `bruins-schedule.json`, `wildcats-schedule.json` has games | Hide Schedules FAB entirely |
+| User on any main view | Schedules FAB visible (sessions or programs) |
 
 ## States
 
@@ -54,7 +54,7 @@ stateDiagram-v2
 | State | UI |
 | --- | --- |
 | Section JSON empty after failed scrape | Muted: Schedule unavailable. Check official site. + link |
-| Entire companion empty | No FAB |
+| Entire companion empty | No Schedules FAB |
 | No Bruins/UNH game today or tomorrow (ET) | No game-day banner |
 | Game today or tomorrow | Compact left-aligned pill above session controls (not tappable) |
 
@@ -71,7 +71,8 @@ stateDiagram-v2
 
 | Element | Copy |
 | --- | --- |
-| FAB | Schedules |
+| Schedules FAB | Schedules |
+| Drawer Hype | Hype |
 | Bruins title | Bruins {season_label} |
 | Wildcats title | UNH Wildcats men's hockey |
 | Disclaimer (each) | Not affiliated with {league/team}. |
@@ -79,7 +80,7 @@ stateDiagram-v2
 
 ## Acceptance criteria
 
-- [ ] One FAB, one drawer (user decision).
+- [ ] One Schedules FAB, one drawer; Hype in drawer footer.
 - [ ] FAB hidden when both JSON game arrays empty.
 - [ ] Escape, backdrop, × close drawer; scroll unlock.
 - [ ] No NHL/UNH logos in UI (palette only).

@@ -29,7 +29,7 @@
   flex-direction: column;
 }
 
-.app-shell--bruins-fab .app {
+.app-shell--bottom-fab .app {
   padding-bottom: 4.75rem;
 }
 
@@ -670,7 +670,7 @@
   text-align: left;
 }
 
-.bruins-fab {
+.bottom-fab {
   position: fixed;
   z-index: 28;
   right: 1rem;
@@ -688,14 +688,160 @@
   box-shadow: 0 2px 10px rgb(0 0 0 / 22%);
 }
 
-.bruins-fab:hover {
+.bottom-fab:hover {
   border-color: var(--rr-gold-hover);
   box-shadow: 0 3px 12px rgb(0 0 0 / 28%);
 }
 
-.bruins-fab:focus-visible {
+.bottom-fab:focus-visible {
   outline: 2px solid var(--rr-gold);
   outline-offset: 2px;
+}
+
+.schedules-drawer-hype {
+  flex-shrink: 0;
+  padding: 0.65rem 1rem 0.75rem;
+  border-top: 1px solid var(--rr-border);
+  background: var(--rr-surface);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hype-control {
+  position: relative;
+  display: inline-flex;
+}
+
+.hype-fab {
+  position: relative;
+  overflow: visible;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  border: 2px solid var(--rr-gold);
+  border-radius: 999px;
+  background: var(--rr-ink);
+  color: var(--rr-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 22%);
+}
+
+.hype-fab--burst {
+  animation: hype-pop 0.35s ease-out;
+}
+
+.hype-fab--burst::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid var(--rr-gold);
+  border-radius: 999px;
+  pointer-events: none;
+  animation: hype-ring 0.55s ease-out;
+}
+
+@keyframes hype-pop {
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes hype-ring {
+  from {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.85);
+  }
+}
+
+.hype-burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hype-burst-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: var(--rr-gold);
+  opacity: 0;
+}
+
+.hype-burst--active .hype-burst-dot {
+  animation: hype-particle 0.5s ease-out forwards;
+}
+
+.hype-burst-dot:nth-child(1) {
+  --hype-angle: 0deg;
+}
+
+.hype-burst-dot:nth-child(2) {
+  --hype-angle: 45deg;
+}
+
+.hype-burst-dot:nth-child(3) {
+  --hype-angle: 90deg;
+}
+
+.hype-burst-dot:nth-child(4) {
+  --hype-angle: 135deg;
+}
+
+.hype-burst-dot:nth-child(5) {
+  --hype-angle: 180deg;
+}
+
+.hype-burst-dot:nth-child(6) {
+  --hype-angle: 225deg;
+}
+
+.hype-burst-dot:nth-child(7) {
+  --hype-angle: 270deg;
+}
+
+.hype-burst-dot:nth-child(8) {
+  --hype-angle: 315deg;
+}
+
+@keyframes hype-particle {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--hype-angle)) translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(var(--hype-angle)) translateY(-1.65rem) scale(0.35);
+  }
+}
+
+.hype-fab:hover {
+  border-color: var(--rr-gold-hover);
+  box-shadow: 0 3px 12px rgb(0 0 0 / 28%);
+}
+
+.hype-fab:focus-visible {
+  outline: 2px solid var(--rr-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hype-fab--burst,
+  .hype-fab--burst::after,
+  .hype-burst--active .hype-burst-dot {
+    animation: none !important;
+  }
 }
 
 .bruins-schedule-month {
