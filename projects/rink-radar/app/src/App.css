@@ -1163,6 +1163,7 @@
 .companion-game-banner-day {
   flex-shrink: 0;
   font-weight: 700;
+  margin-right: 0.35em;
 }
 
 .companion-game-banner-chip {
