@@ -64,6 +64,42 @@ function collapsePdfWhitespace(body) {
   return body.replace(/\r/g, '').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+/** `\n26\n27\nRec` — Sun stacked under Sat without a `\n` before the second day number. */
+function normalizeStackedDayHeaders(grid) {
+  return grid.replace(
+    /(\n[ \t]*\d{1,2}[ \t]*\n(?!\n))(\d{1,2})([ \t]*\n)/g,
+    '$1\n$2$3',
+  );
+}
+
+/** Dover PDFs use stacked day headers when Sat/Sun cells are empty back-to-back. */
+function extractDayBlocks(grid) {
+  const normalized = normalizeStackedDayHeaders(grid);
+  const markers = [];
+  const headerRe = /\n[ \t]*(\d{1,2})[ \t]*\n/g;
+  let headerMatch;
+  while ((headerMatch = headerRe.exec(normalized)) !== null) {
+    const day = parseInt(headerMatch[1], 10);
+    if (day < 1 || day > 31) continue;
+    markers.push({
+      day,
+      bodyStart: headerMatch.index + headerMatch[0].length,
+      headerStart: headerMatch.index,
+    });
+  }
+  const blocks = [];
+  for (let i = 0; i < markers.length; i++) {
+    const { day, bodyStart, headerStart } = markers[i];
+    const bodyEnd = i + 1 < markers.length ? markers[i + 1].headerStart : normalized.length;
+    if (bodyStart >= bodyEnd) {
+      blocks.push({ day, body: '' });
+      continue;
+    }
+    blocks.push({ day, body: normalized.slice(bodyStart, bodyEnd) });
+  }
+  return blocks;
+}
+
 /**
  * @param {string} body
  * @param {RegExp} labelPattern e.g. /Instructional(?:\s+PS|\s+Public\s+Skate)?/i
@@ -116,12 +152,7 @@ export function parseDoverCalendarPdf(text, calendarKind) {
       : text.slice(Math.max(0, text.indexOf(monthMatch[0])));
 
   const sessions = [];
-  const dayBlockRe = /\n\s*(\d{1,2})\s*\n([\s\S]*?)(?=\n\s*\d{1,2}\s*\n|$)/g;
-  let dayBlock;
-  while ((dayBlock = dayBlockRe.exec(grid)) !== null) {
-    const day = parseInt(dayBlock[1], 10);
-    if (day < 1 || day > 31) continue;
-    const body = dayBlock[2];
+  for (const { day, body } of extractDayBlocks(grid)) {
 
     if (calendarKind === 'public') {
       for (const slot of findLabeledPublicSessions(
