@@ -1,12 +1,25 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import type { Activity, BruinsScheduleFile, HealthFile, ProgramsFile, Rink, Session, RinksFile, SessionsFile } from './types';
+import type {
+  Activity,
+  BruinsScheduleFile,
+  CompanionScheduleFile,
+  HealthFile,
+  ProgramsFile,
+  Rink,
+  Session,
+  RinksFile,
+  SessionsFile,
+} from './types';
 import {
   activityLabel,
+  addCalendarDaysIso,
   bruinsMatchupLabel,
   buildScheduleCoverage,
+  buildSessionRowsForDay,
+  defaultSearchDateFromCoverage,
   doverStickPracticeFeesLine,
-  filterProgramsByRinkIds,
-  findNextSession,
+  filterProgramsForView,
+  findNextSessionWindow,
   formatBruinsGameDateTime,
   formatBruinsTvLine,
   formatResultsDayHeader,
@@ -19,12 +32,14 @@ import {
   programKindLabel,
   programTeaser,
   rinkListStatus,
-  sessionDateInZone,
   sessionScanBadge,
+  type ProgramAudienceFilter,
 } from './utils';
 import './App.css';
 
 const DATA_BASE = `${import.meta.env.BASE_URL}data`;
+
+const RINK_SELECTION_STORAGE_KEY = 'rink-radar-selected-rink-ids';
 
 type ActivityFilter = 'public_skate' | 'stick_puck';
 
@@ -32,13 +47,10 @@ const ACTIVITY_FILTERS: ActivityFilter[] = ['public_skate', 'stick_puck'];
 
 type AppView = 'sessions' | 'programs';
 
+type CompanionScheduleTab = 'wildcats' | 'bruins';
+
 function todayInZone(): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
-}
-
-function sessionMatchesFilter(session: Session, filter: ActivityFilter): boolean {
-  if (filter === 'public_skate') return session.activity === 'public_skate';
-  return session.activity === 'stick_puck';
 }
 
 export default function App() {
@@ -54,12 +66,17 @@ export default function App() {
   const [searchError, setSearchError] = useState<string | null>(null);
   const [appliedFilter, setAppliedFilter] = useState<ActivityFilter | null>(null);
   const [appliedDate, setAppliedDate] = useState<string | null>(null);
+  const [appliedDateEnd, setAppliedDateEnd] = useState<string | null>(null);
   const [isSearching, setIsSearching] = useState(false);
   const [dateSearchOpen, setDateSearchOpen] = useState(false);
   const [rinksSearchOpen, setRinksSearchOpen] = useState(false);
-  const [bruinsScheduleOpen, setBruinsScheduleOpen] = useState(false);
+  const [schedulesDrawerOpen, setSchedulesDrawerOpen] = useState(false);
+  const [companionScheduleTab, setCompanionScheduleTab] = useState<CompanionScheduleTab>('bruins');
   const [bruinsScheduleFile, setBruinsScheduleFile] = useState<BruinsScheduleFile | null>(null);
+  const [wildcatsScheduleFile, setWildcatsScheduleFile] = useState<CompanionScheduleFile | null>(null);
   const [programsFile, setProgramsFile] = useState<ProgramsFile | null>(null);
+  const [programAudienceFilter, setProgramAudienceFilter] = useState<ProgramAudienceFilter>('all');
+  const [selectedRinkIds, setSelectedRinkIds] = useState<Set<string>>(() => new Set());
   const [appView, setAppView] = useState<AppView>('sessions');
   const [expandedProgramId, setExpandedProgramId] = useState<string | null>(null);
   const [shareNotice, setShareNotice] = useState<string | null>(null);
@@ -128,6 +145,16 @@ export default function App() {
       })
       .catch(() => {});
 
+    fetch(`${DATA_BASE}/wildcats-schedule.json`)
+      .then((r) => {
+        if (!r.ok) throw new Error('wildcats');
+        return r.json();
+      })
+      .then((schedule: CompanionScheduleFile) => {
+        if (schedule.games?.length) setWildcatsScheduleFile(schedule);
+      })
+      .catch(() => {});
+
     fetch(`${DATA_BASE}/programs.json`)
       .then((r) => {
         if (!r.ok) throw new Error('programs');
@@ -139,29 +166,10 @@ export default function App() {
       .catch(() => {});
   }, []);
 
-  const runSearch = useCallback(async () => {
-    if (isSearching || !date) return;
-    setIsSearching(true);
-    setSearchError(null);
-    setExpandedSessionId(null);
-    try {
-      const res = await fetch(`${DATA_BASE}/sessions.generated.json`, { cache: 'no-store' });
-      if (!res.ok) throw new Error('sessions');
-      const sessions: SessionsFile = await res.json();
-      setSessionsFile(sessions);
-      setAppliedFilter(filter);
-      setAppliedDate(date);
-      setDateSearchOpen(true);
-    } catch {
-      setSearchError('Could not load schedules. Try again.');
-    } finally {
-      setIsSearching(false);
-    }
-  }, [date, filter, isSearching]);
-
   const clearSearchResults = useCallback(() => {
     setAppliedFilter(null);
     setAppliedDate(null);
+    setAppliedDateEnd(null);
     setExpandedSessionId(null);
     setSearchError(null);
     setDate('');
@@ -190,15 +198,87 @@ export default function App() {
       .sort((a, b) => a.distance_km - b.distance_km);
   }, [activeRinks, radiusKm, userLat, userLng]);
 
-  const searchRinkIds = useMemo(
-    () => new Set(rinksInSearch.map(({ rink }) => rink.id)),
-    [rinksInSearch],
-  );
+  useEffect(() => {
+    if (rinksInSearch.length === 0) return;
+    const inRadiusIds = rinksInSearch.map(({ rink }) => rink.id);
+    try {
+      const raw = sessionStorage.getItem(RINK_SELECTION_STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw) as string[];
+        const valid = new Set(parsed.filter((id) => inRadiusIds.includes(id)));
+        if (valid.size > 0) {
+          setSelectedRinkIds(valid);
+          return;
+        }
+      }
+    } catch {
+      /* ignore */
+    }
+    setSelectedRinkIds(new Set(inRadiusIds));
+  }, [rinksInSearch]);
+
+  useEffect(() => {
+    if (selectedRinkIds.size === 0) return;
+    try {
+      sessionStorage.setItem(RINK_SELECTION_STORAGE_KEY, JSON.stringify([...selectedRinkIds]));
+    } catch {
+      /* ignore */
+    }
+  }, [selectedRinkIds]);
+
+  const searchRinkMap = useMemo(() => {
+    const map = new Map<string, Rink>();
+    for (const id of selectedRinkIds) {
+      const rink = rinkMap.get(id);
+      if (rink) map.set(id, rink);
+    }
+    return map;
+  }, [rinkMap, selectedRinkIds]);
+
+  const searchRinkIds = useMemo(() => new Set(searchRinkMap.keys()), [searchRinkMap]);
+
+  const noRinksSelected = searchRinkIds.size === 0 && rinksInSearch.length > 0;
+
+  const toggleRinkInSearch = useCallback((rinkId: string) => {
+    setSelectedRinkIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(rinkId)) next.delete(rinkId);
+      else next.add(rinkId);
+      return next;
+    });
+    clearSearchResults();
+  }, [clearSearchResults]);
+
+  const selectAllRinksInSearch = useCallback(() => {
+    setSelectedRinkIds(new Set(rinksInSearch.map(({ rink }) => rink.id)));
+    clearSearchResults();
+  }, [clearSearchResults, rinksInSearch]);
+
+  const runSearch = useCallback(async () => {
+    if (isSearching || !date || noRinksSelected) return;
+    setIsSearching(true);
+    setSearchError(null);
+    setExpandedSessionId(null);
+    try {
+      const res = await fetch(`${DATA_BASE}/sessions.generated.json`, { cache: 'no-store' });
+      if (!res.ok) throw new Error('sessions');
+      const sessions: SessionsFile = await res.json();
+      setSessionsFile(sessions);
+      setAppliedFilter(filter);
+      setAppliedDate(date);
+      setAppliedDateEnd(null);
+      setDateSearchOpen(true);
+    } catch {
+      setSearchError('Could not load schedules. Try again.');
+    } finally {
+      setIsSearching(false);
+    }
+  }, [date, filter, isSearching, noRinksSelected]);
 
   const visiblePrograms = useMemo(() => {
     if (!programsFile) return [];
-    return filterProgramsByRinkIds(programsFile.programs, searchRinkIds);
-  }, [programsFile, searchRinkIds]);
+    return filterProgramsForView(programsFile.programs, searchRinkIds, programAudienceFilter);
+  }, [programsFile, searchRinkIds, programAudienceFilter]);
 
   const showProgramsNav = (programsFile?.programs.length ?? 0) > 0;
 
@@ -207,7 +287,7 @@ export default function App() {
     setExpandedProgramId(null);
     setDateSearchOpen(false);
     setRinksSearchOpen(false);
-    setBruinsScheduleOpen(false);
+    setSchedulesDrawerOpen(false);
   }, []);
 
   const openSessionsView = useCallback(() => {
@@ -222,8 +302,8 @@ export default function App() {
 
   const scheduleCoverage = useMemo(() => {
     if (!sessionsFile) return null;
-    return buildScheduleCoverage(sessionsFile.sessions, filter, rinkMap.keys());
-  }, [sessionsFile, filter, rinkMap]);
+    return buildScheduleCoverage(sessionsFile.sessions, filter, searchRinkMap.keys());
+  }, [sessionsFile, filter, searchRinkMap]);
 
   const noDateDataMessage = useCallback(
     (activity: ActivityFilter) =>
@@ -232,7 +312,7 @@ export default function App() {
   );
 
   const runFindNext = useCallback(async () => {
-    if (isSearching || userLat == null || userLng == null) return;
+    if (isSearching || userLat == null || userLng == null || noRinksSelected) return;
     setIsSearching(true);
     setSearchError(null);
     setExpandedSessionId(null);
@@ -242,21 +322,41 @@ export default function App() {
       const sessions: SessionsFile = await res.json();
       setSessionsFile(sessions);
       const today = todayInZone();
-      const next = findNextSession(sessions.sessions, rinkMap, userLat, userLng, radiusKm, today, filter);
-      if (!next) {
+      const window = findNextSessionWindow(
+        sessions.sessions,
+        searchRinkMap,
+        userLat,
+        userLng,
+        radiusKm,
+        today,
+        filter,
+        5,
+      );
+      if (!window) {
         clearSearchResults();
-        setSearchError(`No upcoming ${activityLabel(filter).toLowerCase()} sessions in our schedule data.`);
+        setSearchError(
+          `No upcoming ${activityLabel(filter).toLowerCase()} in the next five days for your rinks.`,
+        );
         return;
       }
-      const nextDate = sessionDateInZone(next.starts_at);
       setAppliedFilter(filter);
-      setAppliedDate(nextDate);
+      setAppliedDate(window.startDate);
+      setAppliedDateEnd(window.endDate);
     } catch {
       setSearchError('Could not load schedules. Try again.');
     } finally {
       setIsSearching(false);
     }
-  }, [clearSearchResults, filter, isSearching, radiusKm, rinkMap, userLat, userLng]);
+  }, [
+    clearSearchResults,
+    filter,
+    isSearching,
+    noRinksSelected,
+    radiusKm,
+    searchRinkMap,
+    userLat,
+    userLng,
+  ]);
 
   const selectActivity = useCallback(
     (activity: ActivityFilter) => {
@@ -265,16 +365,16 @@ export default function App() {
       setFilter(activity);
       setDateSearchOpen(false);
       setRinksSearchOpen(false);
-      setBruinsScheduleOpen(false);
+      setSchedulesDrawerOpen(false);
       clearSearchResults();
       if (prevDate && sessionsFile) {
-        const cov = buildScheduleCoverage(sessionsFile.sessions, activity, rinkMap.keys());
+        const cov = buildScheduleCoverage(sessionsFile.sessions, activity, searchRinkMap.keys());
         if (!cov || !cov.dates.has(prevDate)) {
           setSearchError(noDateDataMessage(activity));
         }
       }
     },
-    [clearSearchResults, date, filter, noDateDataMessage, rinkMap, sessionsFile],
+    [clearSearchResults, date, filter, noDateDataMessage, searchRinkMap, sessionsFile],
   );
 
   const selectDate = useCallback(
@@ -302,41 +402,53 @@ export default function App() {
     [clearSearchResults, date, filter, noDateDataMessage, scheduleCoverage, sessionsFile],
   );
 
-  const rows = useMemo(() => {
-    if (!sessionsFile || appliedFilter == null || appliedDate == null || userLat == null || userLng == null) {
+  const resultDayBlocks = useMemo(() => {
+    if (
+      !sessionsFile ||
+      appliedFilter == null ||
+      appliedDate == null ||
+      userLat == null ||
+      userLng == null
+    ) {
       return [];
     }
-    const now = Date.now();
-    const dayStart = new Date(`${appliedDate}T00:00:00-04:00`).getTime();
-    const dayEnd = new Date(`${appliedDate}T23:59:59-04:00`).getTime();
+    const end = appliedDateEnd ?? appliedDate;
+    const blocks: { day: string; rows: ReturnType<typeof buildSessionRowsForDay> }[] = [];
+    let d = appliedDate;
+    while (d <= end) {
+      const dayRows = buildSessionRowsForDay(
+        sessionsFile.sessions,
+        d,
+        appliedFilter,
+        searchRinkMap,
+        userLat,
+        userLng,
+        radiusKm,
+      );
+      if (dayRows.length > 0 || !appliedDateEnd || d === appliedDate) {
+        blocks.push({ day: d, rows: dayRows });
+      }
+      if (d === end) break;
+      d = addCalendarDaysIso(d, 1);
+    }
+    return blocks;
+  }, [
+    sessionsFile,
+    appliedFilter,
+    appliedDate,
+    appliedDateEnd,
+    radiusKm,
+    userLat,
+    userLng,
+    searchRinkMap,
+  ]);
 
-    return sessionsFile.sessions
-      .filter((s) => {
-        if (!rinkMap.has(s.rink_id)) return false;
-        if (!sessionMatchesFilter(s, appliedFilter)) return false;
-        const start = new Date(s.starts_at).getTime();
-        if (start < dayStart || start > dayEnd) return false;
-        if (appliedDate === todayInZone() && new Date(s.ends_at).getTime() < now - 30 * 60 * 1000) {
-          return false;
-        }
-        const rink = rinkMap.get(s.rink_id)!;
-        const dist = haversineKm(userLat, userLng, rink.lat, rink.lng);
-        return dist <= radiusKm;
-      })
-      .map((s) => {
-        const rink = rinkMap.get(s.rink_id)!;
-        const distance_km = haversineKm(userLat, userLng, rink.lat, rink.lng);
-        return { session: s, rink, distance_km };
-      })
-      .sort((a, b) => a.session.starts_at.localeCompare(b.session.starts_at));
-  }, [sessionsFile, appliedFilter, appliedDate, radiusKm, userLat, userLng, rinkMap]);
+  const totalResultRows = useMemo(
+    () => resultDayBlocks.flatMap((block) => block.rows),
+    [resultDayBlocks],
+  );
 
   const hasSearched = appliedFilter != null && appliedDate != null;
-
-  const resultsDayHeader = useMemo(() => {
-    if (!appliedDate) return null;
-    return formatResultsDayHeader(appliedDate, todayInZone());
-  }, [appliedDate]);
 
   const schedulesUpdated = useMemo(() => {
     if (!sessionsFile) return null;
@@ -355,13 +467,44 @@ export default function App() {
     [bruinsScheduleFile],
   );
 
-  const showBruinsFab = (bruinsScheduleFile?.games.length ?? 0) > 0;
+  const wildcatsGamesByMonth = useMemo(
+    () => (wildcatsScheduleFile ? groupBruinsGamesByMonth(wildcatsScheduleFile.games) : []),
+    [wildcatsScheduleFile],
+  );
+
+  const hasWildcatsSchedule = (wildcatsScheduleFile?.games.length ?? 0) > 0;
+  const hasBruinsSchedule = (bruinsScheduleFile?.games.length ?? 0) > 0;
+  const hasAnyCompanionSchedule = hasWildcatsSchedule || hasBruinsSchedule;
+  const showSchedulesFab = hasAnyCompanionSchedule;
+  const showCompanionScheduleToggle = hasWildcatsSchedule && hasBruinsSchedule;
+
+  const effectiveCompanionTab = useMemo((): CompanionScheduleTab => {
+    if (companionScheduleTab === 'bruins' && hasBruinsSchedule) return 'bruins';
+    if (companionScheduleTab === 'wildcats' && hasWildcatsSchedule) return 'wildcats';
+    if (hasBruinsSchedule) return 'bruins';
+    return 'wildcats';
+  }, [companionScheduleTab, hasWildcatsSchedule, hasBruinsSchedule]);
+
+  const toggleSchedulesPanel = useCallback(() => {
+    setSchedulesDrawerOpen((open) => {
+      if (open) return false;
+      setAppView('sessions');
+      setDateSearchOpen(false);
+      setRinksSearchOpen(false);
+      setCompanionScheduleTab(hasBruinsSchedule ? 'bruins' : 'wildcats');
+      return true;
+    });
+  }, [hasBruinsSchedule]);
+
+  const closeSchedulesPanel = useCallback(() => {
+    setSchedulesDrawerOpen(false);
+  }, []);
 
   const toggleRinksPanel = useCallback(() => {
     setRinksSearchOpen((open) => {
       if (!open) {
         setDateSearchOpen(false);
-        setBruinsScheduleOpen(false);
+        setSchedulesDrawerOpen(false);
       }
       return !open;
     });
@@ -371,28 +514,23 @@ export default function App() {
     setRinksSearchOpen(false);
   }, []);
 
-  const toggleBruinsPanel = useCallback(() => {
-    setBruinsScheduleOpen((open) => {
-      if (!open) {
-        setDateSearchOpen(false);
-        setRinksSearchOpen(false);
-      }
-      return !open;
-    });
-  }, []);
+  const openDateSearchPanel = useCallback(() => {
+    setDateSearchOpen(true);
+    setRinksSearchOpen(false);
+    setSchedulesDrawerOpen(false);
+    const today = todayInZone();
+    setDate((current) => current || defaultSearchDateFromCoverage(scheduleCoverage, today));
+    setSearchError(null);
+  }, [scheduleCoverage]);
 
-  const closeBruinsPanel = useCallback(() => {
-    setBruinsScheduleOpen(false);
-  }, []);
-
-  const sidePanelOpen = rinksSearchOpen || bruinsScheduleOpen;
+  const sidePanelOpen = rinksSearchOpen || schedulesDrawerOpen;
 
   useEffect(() => {
     if (!sidePanelOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setRinksSearchOpen(false);
-        setBruinsScheduleOpen(false);
+        setSchedulesDrawerOpen(false);
       }
     };
     document.addEventListener('keydown', onKeyDown);
@@ -434,12 +572,26 @@ export default function App() {
             </button>
           </header>
           <div className="rinks-drawer-body">
+            <p className="muted small rinks-drawer-lede">Choose rinks for search.</p>
+            <p className="rinks-drawer-actions">
+              <button type="button" className="rinks-select-all" onClick={selectAllRinksInSearch}>
+                Select all
+              </button>
+            </p>
             <ul className="rinks-in-search-list">
               {rinksInSearch.map(({ rink }) => {
                 const status = rinkListStatus(rink, healthFile?.rinks[rink.id]);
+                const included = selectedRinkIds.has(rink.id);
                 return (
                   <li key={rink.id} className="rinks-in-search-item">
-                    <span className="rinks-in-search-name">{rink.name}</span>
+                    <label className="rinks-in-search-toggle">
+                      <input
+                        type="checkbox"
+                        checked={included}
+                        onChange={() => toggleRinkInSearch(rink.id)}
+                      />
+                      <span className="rinks-in-search-name">{rink.name}</span>
+                    </label>
                     <span className="rinks-in-search-city">{rink.city}</span>
                     <span className={`rink-health-badge rink-health-badge--${status.variant}`}>
                       {status.label}
@@ -458,95 +610,150 @@ export default function App() {
       </div>
     ) : null;
 
-  const bruinsDrawer =
-    bruinsScheduleOpen && bruinsScheduleFile ? (
+  const renderCompanionMonthGroups = (groups: ReturnType<typeof groupBruinsGamesByMonth>) =>
+    groups.map((group) => (
+      <section key={group.monthKey} className="bruins-schedule-month">
+        <h3 className="bruins-schedule-month-title">{group.monthLabel}</h3>
+        <ul className="bruins-schedule-list">
+          {group.games.map((game) => {
+            const past = isBruinsGamePast(game);
+            return (
+              <li
+                key={game.id}
+                className={`bruins-schedule-item${past ? ' bruins-schedule-item--past' : ''}`}
+              >
+                <p className="bruins-schedule-item-primary">
+                  <span className="bruins-schedule-datetime">
+                    {formatBruinsGameDateTime(game.starts_at)}
+                  </span>
+                  <span className="bruins-schedule-matchup">{bruinsMatchupLabel(game)}</span>
+                </p>
+                <p className="bruins-schedule-item-meta">
+                  <span className={`bruins-home-away${game.is_home ? ' bruins-home-away--home' : ''}`}>
+                    {game.is_home ? 'Home' : 'Away'}
+                  </span>
+                  <span className="bruins-schedule-venue">{game.venue}</span>
+                </p>
+                {game.tv_networks.length > 0 ? (
+                  <p className="bruins-schedule-tv muted small">
+                    {formatBruinsTvLine(game.tv_networks)}
+                  </p>
+                ) : null}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ));
+
+  const schedulesDrawer =
+    schedulesDrawerOpen && hasAnyCompanionSchedule ? (
       <div className="bruins-drawer-root side-drawer-root">
         <button
           type="button"
           className="bruins-drawer-backdrop side-drawer-backdrop"
-          aria-label="Close Bruins schedule"
-          onClick={closeBruinsPanel}
+          aria-label="Close schedules"
+          onClick={closeSchedulesPanel}
         />
         <div
-          id="bruins-schedule-panel"
+          id="schedules-companion-panel"
           className="bruins-drawer side-drawer"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="bruins-drawer-title"
+          aria-labelledby="schedules-drawer-title"
         >
           <header className="bruins-drawer-header side-drawer-header">
-            <h2 id="bruins-drawer-title" className="bruins-drawer-title side-drawer-title">
-              Bruins {bruinsScheduleFile.season_label}
+            <h2 id="schedules-drawer-title" className="bruins-drawer-title side-drawer-title">
+              Game schedules
             </h2>
             <button
               type="button"
               className="bruins-drawer-close side-drawer-close"
               aria-label="Close"
-              onClick={closeBruinsPanel}
+              onClick={closeSchedulesPanel}
             >
               ×
             </button>
           </header>
           <div className="bruins-drawer-body side-drawer-body">
-            {bruinsGamesByMonth.map((group) => (
-              <section key={group.monthKey} className="bruins-schedule-month">
-                <h3 className="bruins-schedule-month-title">{group.monthLabel}</h3>
-                <ul className="bruins-schedule-list">
-                  {group.games.map((game) => {
-                    const past = isBruinsGamePast(game);
-                    return (
-                      <li
-                        key={game.id}
-                        className={`bruins-schedule-item${past ? ' bruins-schedule-item--past' : ''}`}
-                      >
-                        <p className="bruins-schedule-item-primary">
-                          <span className="bruins-schedule-datetime">
-                            {formatBruinsGameDateTime(game.starts_at)}
-                          </span>
-                          <span className="bruins-schedule-matchup">{bruinsMatchupLabel(game)}</span>
-                        </p>
-                        <p className="bruins-schedule-item-meta">
-                          <span className={`bruins-home-away${game.is_home ? ' bruins-home-away--home' : ''}`}>
-                            {game.is_home ? 'Home' : 'Away'}
-                          </span>
-                          <span className="bruins-schedule-venue">{game.venue}</span>
-                        </p>
-                        {game.tv_networks.length > 0 ? (
-                          <p className="bruins-schedule-tv muted small">
-                            {formatBruinsTvLine(game.tv_networks)}
-                          </p>
-                        ) : null}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            ))}
-            <p className="bruins-schedule-footer muted small">
-              Not affiliated with the NHL or Boston Bruins.{' '}
-              <a href={bruinsScheduleFile.source_url} target="_blank" rel="noreferrer">
-                Official schedule
-              </a>
+            <p className="muted small schedules-drawer-lede">
+              Pro and college hockey — not public skate times at local rinks.
             </p>
+            {showCompanionScheduleToggle ? (
+              <div className="companion-schedule-tabs" role="tablist" aria-label="Schedule team">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={effectiveCompanionTab === 'bruins'}
+                  className={`companion-schedule-tab${effectiveCompanionTab === 'bruins' ? ' active' : ''}`}
+                  onClick={() => setCompanionScheduleTab('bruins')}
+                  disabled={!hasBruinsSchedule}
+                >
+                  Bruins
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={effectiveCompanionTab === 'wildcats'}
+                  className={`companion-schedule-tab${effectiveCompanionTab === 'wildcats' ? ' active' : ''}`}
+                  onClick={() => setCompanionScheduleTab('wildcats')}
+                  disabled={!hasWildcatsSchedule}
+                >
+                  Wildcats
+                </button>
+              </div>
+            ) : null}
+            {effectiveCompanionTab === 'wildcats' && hasWildcatsSchedule && wildcatsScheduleFile ? (
+              <section className="companion-schedule-section" aria-label="UNH Wildcats">
+                {!showCompanionScheduleToggle ? (
+                  <h3 className="companion-schedule-heading">
+                    {wildcatsScheduleFile.team_label ?? "UNH Wildcats men's hockey"}
+                  </h3>
+                ) : null}
+                {renderCompanionMonthGroups(wildcatsGamesByMonth)}
+                <p className="bruins-schedule-footer muted small">
+                  Not affiliated with UNH or NCAA.{' '}
+                  <a href={wildcatsScheduleFile.source_url} target="_blank" rel="noreferrer">
+                    Official UNH schedule
+                  </a>
+                </p>
+              </section>
+            ) : null}
+            {effectiveCompanionTab === 'bruins' && hasBruinsSchedule && bruinsScheduleFile ? (
+              <section className="companion-schedule-section" aria-label="Boston Bruins">
+                {!showCompanionScheduleToggle ? (
+                  <h3 className="companion-schedule-heading">
+                    Bruins {bruinsScheduleFile.season_label}
+                  </h3>
+                ) : null}
+                {renderCompanionMonthGroups(bruinsGamesByMonth)}
+                <p className="bruins-schedule-footer muted small">
+                  Not affiliated with the NHL or Boston Bruins.{' '}
+                  <a href={bruinsScheduleFile.source_url} target="_blank" rel="noreferrer">
+                    Official Bruins schedule
+                  </a>
+                </p>
+              </section>
+            ) : null}
           </div>
         </div>
       </div>
     ) : null;
 
-  const bruinsFab =
-    showBruinsFab && !bruinsScheduleOpen ? (
+  const schedulesFab =
+    showSchedulesFab && !schedulesDrawerOpen ? (
       <button
         type="button"
         className="bruins-fab"
-        aria-expanded={bruinsScheduleOpen}
-        aria-controls="bruins-schedule-panel"
-        onClick={toggleBruinsPanel}
+        aria-expanded={schedulesDrawerOpen}
+        aria-controls="schedules-companion-panel"
+        onClick={toggleSchedulesPanel}
       >
-        Bruins
+        Schedules
       </button>
     ) : null;
 
-  const shellClassName = showBruinsFab ? 'app-shell app-shell--bruins-fab' : 'app-shell';
+  const shellClassName = showSchedulesFab ? 'app-shell app-shell--bruins-fab' : 'app-shell';
 
   const topBar = (
     <header className="top-bar" role="banner">
@@ -579,7 +786,7 @@ export default function App() {
               className="header-rinks-btn"
               aria-expanded={rinksSearchOpen}
               aria-controls="rinks-in-search-panel"
-              aria-label={`My rinks, ${rinksInSearch.length} in search`}
+              aria-label={`My rinks, ${selectedRinkIds.size} selected`}
               onClick={toggleRinksPanel}
             >
               My rinks
@@ -598,8 +805,8 @@ export default function App() {
           <p className="error">{loadError}</p>
         </main>
         {rinksDrawer}
-        {bruinsDrawer}
-        {bruinsFab}
+        {schedulesDrawer}
+        {schedulesFab}
       </div>
     );
   }
@@ -612,8 +819,8 @@ export default function App() {
           <p className="muted">Loading…</p>
         </main>
         {rinksDrawer}
-        {bruinsDrawer}
-        {bruinsFab}
+        {schedulesDrawer}
+        {schedulesFab}
       </div>
     );
   }
@@ -637,14 +844,42 @@ export default function App() {
               </button>
             </div>
             <p className="muted small programs-lede">
-              Leagues and drop-ins from rinks in your search area. Confirm times and registration with the
-              arena.
+              Kids learn-to-skate, leagues, and drop-ins from your selected rinks. Confirm times and
+              registration with the arena.
             </p>
+            <div
+              className="program-audience-segmented"
+              role="tablist"
+              aria-label="Program audience"
+            >
+              {(
+                [
+                  ['all', 'All'],
+                  ['kids', 'Kids'],
+                  ['adult', 'Adult'],
+                ] as const
+              ).map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  role="tab"
+                  aria-selected={programAudienceFilter === value}
+                  className={`program-audience-btn${programAudienceFilter === value ? ' active' : ''}`}
+                  onClick={() => setProgramAudienceFilter(value)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </header>
           {visiblePrograms.length === 0 ? (
             <div className="empty programs-empty">
-              <p>No programs for rinks in your search area.</p>
-              <p className="muted">Open My rinks — include a rink that offers adult programs.</p>
+              <p>No programs for your filters.</p>
+              <p className="muted">
+                {programAudienceFilter === 'kids'
+                  ? 'No kids programs for your selected rinks — try Public skate or Stick & puck for open ice.'
+                  : 'Open My rinks — turn on a rink that offers programs.'}
+              </p>
             </div>
           ) : (
             <ul className="program-list">
@@ -772,7 +1007,7 @@ export default function App() {
             type="button"
             className="find-next-session"
             onClick={() => void runFindNext()}
-            disabled={isSearching}
+            disabled={isSearching || noRinksSelected}
           >
             Find next session
           </button>
@@ -783,11 +1018,7 @@ export default function App() {
             <button
               type="button"
               className="search-by-date-cta"
-              onClick={() => {
-                setDateSearchOpen(true);
-                setRinksSearchOpen(false);
-                setBruinsScheduleOpen(false);
-              }}
+              onClick={openDateSearchPanel}
             >
               <svg
                 className="search-by-date-icon"
@@ -821,7 +1052,7 @@ export default function App() {
                 type="button"
                 className="search-cta"
                 onClick={() => void runSearch()}
-                disabled={isSearching || !date || (hasSearched && rows.length > 0)}
+                disabled={isSearching || !date || noRinksSelected}
                 aria-busy={isSearching}
               >
                 {isSearching ? 'Searching…' : 'Search'}
@@ -838,6 +1069,9 @@ export default function App() {
           )}
         </div>
 
+        {noRinksSelected && (
+          <p className="error search-error">Turn on at least one rink in My rinks.</p>
+        )}
         {searchError && <p className="error search-error">{searchError}</p>}
       </section>
 
@@ -856,24 +1090,47 @@ export default function App() {
           <div className="empty empty--prompt">
             <p>Use Find next session or Search by date.</p>
           </div>
+        ) : totalResultRows.length === 0 ? (
+          <div className="empty results-empty">
+            <p>No sessions for this day and filter.</p>
+            <p className="muted">Try another date, My rinks, or a different activity.</p>
+            {filter === 'public_skate' && showProgramsNav ? (
+              <p className="muted">
+                Looking for classes?{' '}
+                <button type="button" className="text-link-btn" onClick={openProgramsView}>
+                  Programs → Kids
+                </button>
+              </p>
+            ) : null}
+          </div>
         ) : (
-          <>
-            {resultsDayHeader && appliedFilter && (
-              <header className="results-day-header">
-                <p className="results-day-kicker">
-                  {activityLabel(appliedFilter)} · {resultsDayHeader.relative ?? 'Selected day'}
-                </p>
-                <h2 className="results-day-title">{resultsDayHeader.title}</h2>
-              </header>
-            )}
-            {rows.length === 0 ? (
-              <div className="empty results-empty">
-                <p>No sessions for this day and filter.</p>
-                <p className="muted">Try another date, wider radius, or a different activity.</p>
-              </div>
-            ) : (
-              <ul className="session-list">
-                {rows.map(({ session, rink }) => {
+          resultDayBlocks.map((block) => {
+            if (block.rows.length === 0) return null;
+            const dayHeader = formatResultsDayHeader(block.day, todayInZone());
+            const isTodayBlock = dayHeader.relative === 'Today';
+            return (
+              <div
+                key={block.day}
+                className={
+                  isTodayBlock ? 'results-day-block results-day-block--today' : 'results-day-block'
+                }
+              >
+                {appliedFilter && (
+                  <header
+                    className={
+                      isTodayBlock
+                        ? 'results-day-header results-day-header--today'
+                        : 'results-day-header'
+                    }
+                  >
+                    <p className="results-day-kicker">
+                      {dayHeader.relative ?? 'Selected day'}
+                    </p>
+                    <h2 className="results-day-title">{dayHeader.title}</h2>
+                  </header>
+                )}
+                <ul className="session-list">
+                  {block.rows.map(({ session, rink }) => {
             const isExpanded = expandedSessionId === session.id;
             const detailsId = `session-details-${session.id}`;
             const scanBadge = sessionScanBadge(session.subtype);
@@ -961,21 +1218,22 @@ export default function App() {
               </li>
             );
           })}
-              </ul>
-            )}
-          </>
+                </ul>
+              </div>
+            );
+          })
         )}
       </section>
 
-      {hasSearched && rows.length > 0 ? (
+      {hasSearched && totalResultRows.length > 0 ? (
         <p className="disclaimer">Schedules change — confirm with the rink before you go.</p>
       ) : null}
         </>
       )}
       </main>
       {rinksDrawer}
-      {bruinsDrawer}
-      {bruinsFab}
+      {schedulesDrawer}
+      {schedulesFab}
     </div>
   );
 }

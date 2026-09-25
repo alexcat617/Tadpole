@@ -160,6 +160,112 @@ export function findNextSession(
   return candidates[0] ?? null;
 }
 
+/** Add calendar days to YYYY-MM-DD (America/New_York calendar). */
+export function addCalendarDaysIso(dateIso: string, days: number): string {
+  const anchor = new Date(`${dateIso}T12:00:00-04:00`);
+  anchor.setDate(anchor.getDate() + days);
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(anchor);
+}
+
+/** Default date for the search panel: today if in coverage, else earliest scraped day. */
+export function defaultSearchDateFromCoverage(
+  coverage: ScheduleCoverage | null,
+  todayIso: string,
+): string {
+  if (!coverage) return todayIso;
+  if (coverage.dates.has(todayIso)) return todayIso;
+  return coverage.min;
+}
+
+/** First day with an upcoming session; end is start + (windowDays - 1) calendar days. */
+export function findNextSessionWindow(
+  sessions: Session[],
+  rinkMap: Map<string, Rink>,
+  userLat: number,
+  userLng: number,
+  radiusKm: number,
+  today: string,
+  activity: NextSessionActivity,
+  windowDays = 5,
+  now = Date.now(),
+): { startDate: string; endDate: string } | null {
+  const first = findNextSession(
+    sessions,
+    rinkMap,
+    userLat,
+    userLng,
+    radiusKm,
+    today,
+    activity,
+    now,
+  );
+  if (!first) return null;
+  const startDate = sessionDateInZone(first.starts_at);
+  const endDate = addCalendarDaysIso(startDate, windowDays - 1);
+  return { startDate, endDate };
+}
+
+export type SessionRow = { session: Session; rink: Rink; distance_km: number };
+
+export function buildSessionRowsForDay(
+  sessions: Session[],
+  dayIso: string,
+  activity: 'public_skate' | 'stick_puck',
+  rinkMap: Map<string, Rink>,
+  userLat: number,
+  userLng: number,
+  radiusKm: number,
+  now = Date.now(),
+): SessionRow[] {
+  const todayZone = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(
+    new Date(),
+  );
+  const dayStart = new Date(`${dayIso}T00:00:00-04:00`).getTime();
+  const dayEnd = new Date(`${dayIso}T23:59:59-04:00`).getTime();
+
+  return sessions
+    .filter((s) => {
+      if (!rinkMap.has(s.rink_id)) return false;
+      if (activity === 'public_skate' ? s.activity !== 'public_skate' : s.activity !== 'stick_puck')
+        return false;
+      const start = new Date(s.starts_at).getTime();
+      if (start < dayStart || start > dayEnd) return false;
+      if (dayIso === todayZone && new Date(s.ends_at).getTime() < now - 30 * 60 * 1000) {
+        return false;
+      }
+      const rink = rinkMap.get(s.rink_id)!;
+      return haversineKm(userLat, userLng, rink.lat, rink.lng) <= radiusKm;
+    })
+    .map((s) => {
+      const rink = rinkMap.get(s.rink_id)!;
+      const distance_km = haversineKm(userLat, userLng, rink.lat, rink.lng);
+      return { session: s, rink, distance_km };
+    })
+    .sort((a, b) => a.session.starts_at.localeCompare(b.session.starts_at));
+}
+
+export type ProgramAudienceFilter = 'all' | 'kids' | 'adult';
+
+export function programMatchesAudienceFilter(
+  program: Program,
+  filter: ProgramAudienceFilter,
+): boolean {
+  const audience = program.audience ?? 'adult';
+  if (filter === 'all') return true;
+  if (filter === 'kids') return audience === 'youth' || audience === 'family';
+  return audience === 'adult' || audience === 'family';
+}
+
+export function filterProgramsForView(
+  programs: Program[],
+  rinkIds: Set<string>,
+  audienceFilter: ProgramAudienceFilter,
+): Program[] {
+  return programs
+    .filter((p) => rinkIds.has(p.rink_id))
+    .filter((p) => programMatchesAudienceFilter(p, audienceFilter));
+}
+
 export function rinkById(rinks: Rink[], id: string): Rink | undefined {
   return rinks.find((r) => r.id === id);
 }

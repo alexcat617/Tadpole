@@ -95,7 +95,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Results region
 
-- **Day header:** Uppercase kicker (`--rr-muted`, same scale as **Session type** label) + bold date title (`--rr-ink`); no gold-on-white for small kickers.
+- **Day header:** Uppercase kicker with relative day only (`Today`, `Tomorrow`, `In N days`) + bold full date title. **Today:** light blue-muted block fill (`--rr-blue-muted`), ink kicker; no left stripe.
 - **Loading:** White card, centered spinner + message.
 - **Pre-search:** Empty state prompt to use Find next session or Search by date.
 - **No matches:** Empty state with suggestion to change date or activity.
@@ -134,7 +134,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Typography & color
 
-- **Tokens** (see `App.css` `:root`): `--rr-ink` body text, `--rr-gold` accents (header, tabs), `--rr-action` / `--rr-action-hover` for filled CTAs, `--rr-gold-muted` soft highlights (OK health badge, recreational badge, share notice), `--rr-muted` secondary copy, `--rr-border` dividers.
+- **Tokens** (see `App.css` `:root`): `--rr-ink` body text, `--rr-gold` accents (header, tabs), `--rr-action` / `--rr-action-hover` for filled CTAs, `--rr-gold-muted` soft highlights (OK health badge, recreational badge, share notice), `--rr-blue-muted` Today results block, `--rr-muted` secondary copy, `--rr-border` dividers.
 - Body and controls: explicit `--rr-ink` on white/light surfaces; muted labels use slate grays or `--rr-muted` where aligned.
 - Links in session details: `--rr-ink` with semibold weight (not gold-on-white).
 - Header-on-dark: `--rr-surface` for the region title; `--rr-on-dark-muted` for meta; rinks control uses gold text and light border.

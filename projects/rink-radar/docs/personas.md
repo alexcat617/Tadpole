@@ -14,85 +14,92 @@ Public skate and pickup hockey here are a **small, tight regional community**: t
 | --- | --- |
 | **Age** | 42 |
 | **Home** | Dover, NH (03820) |
-| **Household** | Married; son **Leo, 9**, plays travel/s house hockey (Squirts) |
-| **Skates** | Often; helps Leo get extra ice outside team practice |
+| **Household** | Married; son **Leo, 9**, Squirts travel/house hockey |
+| **Skates** | Often with Leo; still plays **adult stick** some weeknights |
+| **Fandom** | Bruins on TV; catches **UNH Wildcats** men’s games when he can |
 
 ### Goals
 
-- Find **youth stick** or age-appropriate stick practice near home without reading PDF calendars.
-- Know **cost per kid** ($8 youth stick vs $12 adult) before driving to the rink.
-- See **equipment rules** (full gear for youth stick; parent/tot is different from drop-in adult stick).
-- Use **Find next session** on the Stick & puck tab when the week is hectic.
-- **Coordinate with family**—share a youth stick slot with spouse or another parent (time, fee, confirm link) without retyping PDF text.
+- Find **youth stick** or **parent/tot** near home without decoding PDF color codes.
+- Know **cost per kid** ($8 youth stick vs $12 adult) before driving.
+- See **equipment and age rules** (full gear for youth stick; parent/tot is not adult drop-in).
+- Use **Find next session** on Stick & puck when the week is hectic — wants **several upcoming days**, not one slot.
+- Browse **adult programs** (co-ed league, women’s drop-in) separate from daily stick PDF rows.
+- Glance at **Bruins + UNH game nights** in the same app as rink ice (planning, not tickets).
+- **Share** youth stick details with spouse or carpool parents via one tap.
 
 ### Frustrations
 
-- Dover’s PDF mixes session types and colors; easy to show up for the wrong skate.
-- Adult stick times are visible online but **youth stick** times may be on a different month or omitted from the grid.
-- One price on a card that only applies to adults hides family cost.
+- Dover’s PDF mixes session types; easy to show up for the wrong skate.
+- **Youth stick** may live on a different PDF month than adult stick.
+- One adult price on a card hides what Leo’s session actually costs.
+- Program registration pages are separate from daily stick calendars.
 
 ### How Rink Radar should help Chris
 
-- **Stick & puck** tab includes Dover youth stick and parent/tot rows when published.
-- Card badge **Youth stick** / **Parent/tot** and price **$8** (not adult $12).
-- Expanded **youth stick** details list **all stick fee tiers** for comparison with parent/tot and adult options.
-- Date header after search (“Tomorrow”, full weekday) so he knows Leo can make it after school.
-- Phone + official PDF link in details to confirm caps and rule changes.
-- **Share session** in card details: one message with youth stick label, $8, time, and official source.
+- Stick & puck tab: **Youth stick** / **Parent/tot** badges and **$8** pricing when scraped.
+- Expanded youth stick details: full Dover fee tier line for comparison.
+- **Programs → Adult** for leagues and drop-ins; **Find next** spans multiple days.
+- **Schedules** drawer: Bruins + UNH Wildcats with official links.
+- **My rinks** to focus on Dover only when comparing stick times.
+- **Share session** with youth label, fee, time, official PDF link.
 
 ### Success looks like
 
-Chris searches Stick & puck for Saturday, sees **Youth stick $8** at Dover (or the next available youth slot via Find next), confirms with one tap to the city PDF—or **shares the slot to a group chat** so his partner knows Leo can make it.
+Chris taps Find next on Stick & puck, sees **youth stick** slots across the next few days at Dover, shares Saturday **$8** youth stick to the team chat, and checks **Schedules** for a Friday UNH home game the same week.
 
 ---
 
-## Persona 2 — Sam, public skater
+## Persona 2 — Jordan, hockey mom
 
 | | |
 | --- | --- |
-| **Age** | 28 |
+| **Age** | 36 |
 | **Home** | Rochester, NH (~25 min from Dover) |
-| **Household** | Partner; no kids on ice regularly |
-| **Skates** | For exercise and fun; occasional friends’ outing |
+| **Household** | Partner; **Maya, 7** (learn-to-skate / future house hockey); **Noah, 4** (parent/tot curious) |
+| **Skates** | Rec **public skate** with the kids; avoids hockey jargon |
 
 ### Goals
 
-- Find **recreational public skate** (music, open ice) on weeknights or Sunday.
-- Compare **instructional** vs **recreational** sessions when trying skills without sticks.
-- See **resident-style pricing** at Dover (adult vs youth if bringing a niece/nephew later).
-- Quick answer: “Is there a skate **today** within ~40 km?”
-- **Invite a friend** to the same public skate with clear rec vs instructional wording.
+- Find **recreational public skate** (weekend or early evening) with clear **instructional vs rec** labels.
+- See **youth pricing** on cards (Dover resident youth $7) before packing the car.
+- Discover **kids programs** — learn-to-skate, clinics, camps — not buried under adult leagues.
+- **Filter to Dover Arena** when she is not driving to Rochester rinks.
+- **Find next** showing **multiple days** so she can compare Sunday vs Wednesday.
+- **Share** session time, youth price, and end time with partner.
 
 ### Frustrations
 
-- Rink websites bury PDFs or use inconsistent names (“Rec Public Skate”, “Instructional PS”).
-- Doesn’t want hockey jargon (stick & puck, shinny) when looking for a public session.
-- Forgets schedules change — needs a clear **confirm with rink** reminder without feeling nagged.
+- City site splits public skate PDF, stick PDF, and program pages.
+- **Programs** feels “adult only” — “where are the kids programs?”
+- Mobile date search with blank date or cramped buttons.
+- Too many rinks in results when she only ever goes to Dover.
 
-### How Rink Radar should help Sam
+### How Rink Radar should help Jordan
 
-- **Public skate** tab as default-friendly entry; badges **Recreational** / **Instructional**.
-- Card shows **time + price** (e.g. Dover resident adult $9 / youth $7) without “see rink” noise.
-- **Find next session** on Public skate jumps to the next upcoming rec or instructional slot in radius.
-- Results **date header** (Today / In 3 days) for planning after work.
-- Disclaimer stays short: confirm before you go.
-- **Share session** so a friend gets the same time, price, and rink link—not a screenshot.
+- **Public skate** tab as friendly default; Rec / Instructional badges.
+- **Programs → Kids** for youth and family programs with registration copy.
+- **My rinks** toggles — Dover only in one gesture.
+- **Search by date** opens with a valid default date; buttons stack cleanly on phone.
+- **Find next** lists upcoming days with headers (Today, Tomorrow, …).
+- Short confirm-with-rink disclaimer; official links in every detail.
 
 ### Success looks like
 
-Sam opens Public skate, taps Find next session, sees **Thursday recreational** at Dover with time and price, opens maps, and goes—or **shares the session** so a friend meets him there with the same details.
+Jordan opens Public skate, turns on **Dover only** in My rinks, taps Find next, sees **rec public skate** across the next few days, opens **Programs → Kids** for learn-to-skate registration info, and texts her partner a **share** link for Sunday’s slot.
 
 ---
 
 ## Persona contrast (for decisions)
 
-| Topic | Chris (hockey dad) | Sam (public skater) |
+| Topic | Chris (hockey dad) | Jordan (hockey mom) |
 | --- | --- | --- |
 | Primary tab | Stick & puck | Public skate |
-| Price sensitivity | Per-child stick fees ($8 vs $12) | Adult public skate + optional youth |
-| Key data gap | Youth stick times not always on PDF | Instructional vs rec distinction |
-| Trust | Equipment/age rules, caps | Session type and end time |
-| Social coordination | Family / other hockey parents | Friends, partner |
-| Share use case | Youth stick time + fee + confirm link | Public skate plan + end time |
+| Secondary | Programs (adult), Schedules | Programs (kids) |
+| Price sensitivity | Per-child stick ($8 vs $12) | Youth public skate + program fees |
+| Key data gap | Youth stick on PDF | Kids programs vs drop-in ice |
+| Rink scope | Often Dover; sometimes compare | Often **Dover only** |
+| Find next | Multi-day stick + adult stick | Multi-day public skate |
+| Share use case | Youth stick + fee + PDF | Family skate plan + end time |
 
-When features conflict, prefer clarity for **both**: explicit session subtype, honest pricing tiers, official source links, and **community-friendly sharing** (accurate, source-linked text)—without accounts or comments.
+When features conflict, prefer clarity for **both**: explicit session subtype, honest pricing tiers, official source links, and **community-friendly sharing** — without accounts or comments.

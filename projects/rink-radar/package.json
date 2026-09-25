@@ -1,0 +1,10 @@
+{
+  "name": "rink-radar",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix app",
+    "build": "npm run build --prefix app",
+    "preview": "npm run preview --prefix app",
+    "scrape": "npm run scrape --prefix scraper"
+  }
+}
