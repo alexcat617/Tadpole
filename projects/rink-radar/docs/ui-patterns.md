@@ -73,12 +73,13 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Bruins schedule (companion)
 
-- **FAB:** Fixed bottom-right (`z-index: 28`), ink + gold label **Bruins**; hidden when schedule JSON missing or drawer open.
+- **Header:** Plain-text **Schedules** (when at least one companion JSON has games), same gold link style as **Programs** / **My rinks**; opens the game-schedules drawer.
+- **Hype FAB:** Fixed bottom-right (`z-index: 28`), ink + gold label **Hype**; plays `public/sounds/hype.wav` on tap; hidden while Schedules drawer is open.
 - **Right drawer:** Same **side drawer** pattern as My rinks (`z-index: 40`, ~80% width, backdrop, Escape, scroll lock).
 - **Content:** Games grouped by month; home/away badge, venue, **TV · NESN / national** line when data exists; past games muted.
 - **Disclaimer:** Not affiliated with NHL/Bruins; link to official schedule.
-- **Exclusion:** Only one overlay at a time (My rinks, Search by date panel, Bruins drawer).
-- **Shell:** `.app-shell--bruins-fab` adds extra bottom padding on `.app` so content clears the FAB.
+- **Exclusion:** Only one overlay at a time (My rinks, Search by date panel, Schedules drawer).
+- **Shell:** `.app-shell--bottom-fab` adds extra bottom padding on `.app` so content clears the Hype FAB.
 
 ### Primary CTA — Find Ice
 
