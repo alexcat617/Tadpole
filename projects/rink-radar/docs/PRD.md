@@ -58,8 +58,8 @@ Seacoast-area skaters who want **public ice** or **adult hockey** today must vis
 ### Flow D — Share a session (Phase 3)
 
 1. User expands a session row → **Share session**.
-2. System share sheet or copied text: activity, rink, local date/time, price if known, “Confirm before you go: {source_url}”.
-3. Recipient verifies via the official link; no Rink Radar account required.
+2. System share sheet or copied text: activity, rink, local date/time, and price if known (no official schedule URL in the payload).
+3. Recipient uses the facts to plan; they can confirm with the rink on their own. No Rink Radar account required. Official sources remain in expanded session details in the app.
 
 ## Success metrics (personal / MVP)
 
@@ -77,4 +77,4 @@ Seacoast-area skaters who want **public ice** or **adult hockey** today must vis
 
 > Schedules change. Always confirm with the rink before you go. Rink Radar links to official sources and is not affiliated with any facility.
 
-Share payloads must include the same confirm-with-rink expectation and the official `source_url`.
+Share payloads are session facts only (type, rink, time, price). Official `source_url` stays in expanded session details in the app, not in shared text.

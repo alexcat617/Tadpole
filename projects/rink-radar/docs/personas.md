@@ -42,7 +42,7 @@ Public skate and pickup hockey here are a **small, tight regional community**: t
 - **Programs → Adult** for leagues and drop-ins; **Find Ice** spans multiple days.
 - **Schedules** drawer: Bruins + UNH Wildcats with official links.
 - **My rinks** to focus on Dover only when comparing stick times.
-- **Share session** with youth label, fee, time, official PDF link.
+- **Share session** with youth label, fee, and time (facts only for group chat).
 
 ### Success looks like
 
@@ -86,7 +86,7 @@ Chris taps Find Ice on Stick & puck, sees **youth stick** slots across the next 
 
 ### Success looks like
 
-Jordan opens Public skate, turns on **Dover only** in My rinks, taps Find Ice, sees **rec public skate** across the next few days, opens **Programs → Kids** for learn-to-skate registration info, and texts her partner a **share** link for Sunday’s slot.
+Jordan opens Public skate, turns on **Dover only** in My rinks, taps Find Ice, sees **rec public skate** across the next few days, opens **Programs → Kids** for learn-to-skate registration info, and texts her partner shared session details for Sunday’s slot.
 
 ---
 
@@ -100,6 +100,6 @@ Jordan opens Public skate, turns on **Dover only** in My rinks, taps Find Ice, s
 | Key data gap | Youth stick on PDF | Kids programs vs drop-in ice |
 | Rink scope | Often Dover; sometimes compare | Often **Dover only** |
 | Find Ice | Multi-day stick + adult stick | Multi-day public skate |
-| Share use case | Youth stick + fee + PDF | Family skate plan + end time |
+| Share use case | Youth stick + fee + time | Family skate plan + end time |
 
 When features conflict, prefer clarity for **both**: explicit session subtype, honest pricing tiers, official source links, and **community-friendly sharing** — without accounts or comments.
