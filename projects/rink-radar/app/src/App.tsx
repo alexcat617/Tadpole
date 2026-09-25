@@ -104,7 +104,7 @@ export default function App() {
       await navigator.clipboard.writeText(text);
       setShareNotice('Session details copied.');
     } catch {
-      setShareNotice('Could not copy. Use the official schedule link below.');
+      setShareNotice('Could not copy session details.');
     }
   }, []);
 
@@ -857,8 +857,7 @@ export default function App() {
               </button>
             </div>
             <p className="muted small programs-lede">
-              Kids learn-to-skate, leagues, and drop-ins from your selected rinks. Confirm times and
-              registration with the arena.
+              Kids learn-to-skate, leagues, and drop-ins from your selected rinks.
             </p>
             <div
               className="program-audience-segmented"

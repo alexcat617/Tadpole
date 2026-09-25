@@ -327,7 +327,6 @@ export function formatSessionShareText(session: Session, rink: Rink): string {
   if (session.price?.summary) {
     lines.push(priceSummaryForCard(session.price.summary));
   }
-  lines.push(`Confirm before you go: ${session.source_url}`);
   return `Want to join me?\n\n${lines.join('\n')}`;
 }
 

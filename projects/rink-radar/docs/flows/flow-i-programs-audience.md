@@ -83,7 +83,7 @@ Add at least one Dover **youth** program entry (learn-to-skate / hockey school) 
 
 | Element | Copy |
 | --- | --- |
-| Lede (new) | Leagues, learn-to-skate, and drop-ins from your selected rinks. Confirm times and registration with the arena. |
+| Lede (new) | Kids learn-to-skate, leagues, and drop-ins from your selected rinks. |
 | Segment labels | Kids · Adult · All |
 | Footer | Not affiliated… Official program listings |
 | Empty kids | No kids programs for your selected rinks. Try Public skate or Stick & puck for open ice times. |
