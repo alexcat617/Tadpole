@@ -7,6 +7,10 @@ import { discoverLatestPdfUrl } from './lib/discover-pdf.mjs';
 import { parseDoverPdfBuffer } from './lib/dover-pdf.mjs';
 import { scrapeRecDeskProgram } from './lib/recdesk.mjs';
 import { scrapeChurchillPage } from './lib/churchill.mjs';
+import {
+  churchillRowMatchesFilter,
+  scrapeChurchillRssFeed,
+} from './lib/churchill-rss.mjs';
 import { scrapeBruinsSchedule } from './lib/bruins-schedule.mjs';
 import { scrapeWildcatsSchedule } from './lib/wildcats-schedule.mjs';
 
@@ -25,6 +29,54 @@ const publicWildcatsOut = path.join(root, 'app', 'public', 'data', 'wildcats-sch
 const registry = JSON.parse(fs.readFileSync(rinksPath, 'utf8'));
 const fetchedAt = DateTime.now().setZone('America/New_York').toISO();
 const health = { generated_at: fetchedAt, rinks: {} };
+
+function loadPreviousSessions() {
+  try {
+    const prev = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+    return Array.isArray(prev.sessions) ? prev.sessions : [];
+  } catch {
+    return [];
+  }
+}
+
+const previousSessions = loadPreviousSessions();
+
+function previousSessionsForRink(rinkId) {
+  return previousSessions.filter((s) => s.rink_id === rinkId);
+}
+
+function retainPreviousSessionsForRink(rinkId, errorMessage) {
+  const kept = previousSessionsForRink(rinkId);
+  for (const session of kept) {
+    output.sessions.push({ ...session, fetched_at: fetchedAt });
+  }
+  health.rinks[rinkId] = {
+    ok: false,
+    error: errorMessage,
+    session_count: kept.length,
+    retained_previous: kept.length > 0,
+  };
+  if (kept.length > 0) {
+    console.warn(`[${rinkId}] retaining ${kept.length} previous session(s): ${errorMessage}`);
+  }
+}
+
+function retainIfEmptyScrape(rinkId, newCount, sourceHint) {
+  if (newCount > 0) return false;
+  const kept = previousSessionsForRink(rinkId);
+  if (kept.length === 0) return false;
+  for (const session of kept) {
+    output.sessions.push({ ...session, fetched_at: fetchedAt });
+  }
+  health.rinks[rinkId] = {
+    ok: true,
+    session_count: kept.length,
+    retained_previous: true,
+    warning: sourceHint,
+  };
+  console.warn(`[${rinkId}] scrape returned 0; kept ${kept.length} previous session(s)`);
+  return true;
+}
 
 /** @type {import('../data/sessions.example.json')} */
 const output = {
@@ -156,6 +208,22 @@ async function scrapeRochester(rink) {
 }
 
 async function scrapeChurchill(rink) {
+  const feedUrl = rink.churchill_rss_feed;
+  let rows = [];
+  if (feedUrl) {
+    rows = await scrapeChurchillRssFeed(feedUrl, rink.id);
+  } else {
+    for (const src of rink.schedule_sources) {
+      const activity = src.activity_hints.includes('public_skate')
+        ? 'public_skate'
+        : src.activity_hints.includes('stick_puck')
+          ? 'stick_puck'
+          : 'adult_hockey';
+      const pageRows = await scrapeChurchillPage(src.url, rink.id, activity);
+      rows.push(...pageRows);
+    }
+  }
+
   let count = 0;
   for (const src of rink.schedule_sources) {
     const activity = src.activity_hints.includes('public_skate')
@@ -163,11 +231,23 @@ async function scrapeChurchill(rink) {
       : src.activity_hints.includes('stick_puck')
         ? 'stick_puck'
         : 'adult_hockey';
-    const rows = await scrapeChurchillPage(src.url, rink.id, activity);
-    addSessions(rink.id, src.url, rows);
-    count += rows.length;
+    const filtered = feedUrl
+      ? rows.filter((row) => churchillRowMatchesFilter(row, activity))
+      : rows.filter((row) => row.source_url === src.url);
+    const sourceUrl = feedUrl ?? src.url;
+    addSessions(rink.id, sourceUrl, filtered);
+    count += filtered.length;
   }
-  health.rinks[rink.id] = { ok: true, session_count: count };
+
+  if (retainIfEmptyScrape(rink.id, count, 'RSS/HTML returned 0 sessions')) {
+    return;
+  }
+
+  health.rinks[rink.id] = {
+    ok: true,
+    session_count: count,
+    ...(feedUrl ? { rss_feed: feedUrl } : {}),
+  };
 }
 
 const active = registry.rinks.filter((r) => r.status === 'pilot' || r.status === 'active');
@@ -181,7 +261,7 @@ for (const rink of active) {
       health.rinks[rink.id] = { ok: false, error: 'No scraper for adapter' };
     }
   } catch (err) {
-    health.rinks[rink.id] = { ok: false, error: String(err?.message ?? err) };
+    retainPreviousSessionsForRink(rink.id, String(err?.message ?? err));
     console.error(`[${rink.id}]`, err);
   }
 }

@@ -1,19 +1,23 @@
 {
-  "generated_at": "2026-09-25T09:59:31.993-04:00",
+  "generated_at": "2026-09-25T12:52:10.502-04:00",
   "rinks": {
     "dover-arena": {
       "ok": true,
       "public_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf",
       "stick_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Stick-26.pdf",
-      "session_count": 35
+      "session_count": 60
     },
     "churchill-rink-durham": {
-      "ok": true,
-      "session_count": 0
+      "ok": false,
+      "error": "fetch failed",
+      "session_count": 0,
+      "retained_previous": false
     },
     "rochester-arena": {
-      "ok": true,
-      "session_count": 100
+      "ok": false,
+      "error": "fetch failed",
+      "session_count": 100,
+      "retained_previous": true
     }
   }
 }

@@ -26,7 +26,13 @@ function parseTimePair(startRaw, endRaw, day, month, year, zone) {
     }
     if (/^\d{1,2}a$/.test(s)) return s.replace('a', ':00am');
     if (/^\d{1,2}p$/.test(s)) return s.replace('p', ':00pm');
-    if (!/(am|pm)$/.test(s) && fallbackPeriod) s += fallbackPeriod;
+    if (/^\d{1,2}$/.test(s) && fallbackPeriod) {
+      return `${s}:00${fallbackPeriod}`;
+    }
+    if (!/(am|pm)$/i.test(s) && fallbackPeriod) s += fallbackPeriod;
+    if (/^\d{1,2}(am|pm)$/i.test(s)) {
+      return s.replace(/(am|pm)$/i, ':00$1');
+    }
     if (/^\d{1,2}:\d{2}$/.test(s)) return s + (fallbackPeriod ?? 'am');
     return s;
   };
@@ -38,7 +44,9 @@ function parseTimePair(startRaw, endRaw, day, month, year, zone) {
     /(\d{1,2}(?::\d{2})?(?:am|pm|a|p)?)\s*-\s*(\d{1,2}(?::\d{2})?(?:am|pm)?)/i,
   );
   if (!m) return null;
-  const endPeriod = m[2].match(/(am|pm)/i)?.[0]?.toLowerCase();
+  const endPeriod =
+    m[2].match(/(am|pm)/i)?.[0]?.toLowerCase() ??
+    (m[2].toLowerCase().endsWith('p') ? 'pm' : m[2].toLowerCase().endsWith('a') ? 'am' : undefined);
   const start = norm(m[1], endPeriod);
   const end = norm(m[2], endPeriod);
   const fmt = 'M/d/yyyy h:mma';
@@ -46,6 +54,47 @@ function parseTimePair(startRaw, endRaw, day, month, year, zone) {
   const endDt = DateTime.fromFormat(`${month}/${day}/${year} ${end}`, fmt, { zone });
   if (!startDt.isValid || !endDt.isValid) return null;
   return { starts_at: startDt.toISO(), ends_at: endDt.toISO() };
+}
+
+/** Flexible public-skate time range as extracted from Dover PDFs (e.g. 10-11:20am, 1:30-2:50P). */
+const PUBLIC_TIME_RANGE =
+  /(\d{1,2}(?::\d{2})?[ap]?\s*-\s*\d{1,2}(?::\d{2})?(?:am|pm|[ap])?)/i;
+
+function collapsePdfWhitespace(body) {
+  return body.replace(/\r/g, '').replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * @param {string} body
+ * @param {RegExp} labelPattern e.g. /Instructional(?:\s+PS|\s+Public\s+Skate)?/i
+ * @param {RegExp | null} noLinePattern when set, skip if NO… appears immediately before this label
+ */
+function findLabeledPublicSessions(body, labelPattern, noLinePattern) {
+  const found = [];
+  const flat = collapsePdfWhitespace(body);
+  const combined = new RegExp(
+    `${labelPattern.source}\\s+(${PUBLIC_TIME_RANGE.source})`,
+    'gi',
+  );
+  let match;
+  while ((match = combined.exec(flat)) !== null) {
+    if (noLinePattern) {
+      const before = flat.slice(Math.max(0, match.index - 48), match.index);
+      if (noLinePattern.test(before) && !/Instructional(?:\s+PS|\s+Public\s+Skate)/i.test(before)) {
+        continue;
+      }
+    }
+    const timeStr = match[1].replace(/\s/g, '');
+    const dash = timeStr.indexOf('-');
+    if (dash < 0) continue;
+    found.push({
+      startRaw: timeStr.slice(0, dash),
+      endRaw: timeStr.slice(dash + 1),
+      rawTime: timeStr,
+      label: match[0].slice(0, match[0].length - timeStr.length).trim(),
+    });
+  }
+  return found;
 }
 
 /**
@@ -59,61 +108,71 @@ export function parseDoverCalendarPdf(text, calendarKind) {
   const year = parseInt(monthMatch[2], 10);
   const month = DateTime.fromFormat(`${monthName} 1, ${year}`, 'MMMM d, yyyy').month;
 
-  const footerIdx = text.indexOf(monthMatch[0]);
-  const grid = footerIdx > 0 ? text.slice(0, footerIdx) : text;
-  const normalized = grid.replace(/\r/g, '').replace(/\n+/g, '\n');
+  const calStart = text.search(/\bSun\s+Mon\s+Tue\s+Wed\s+Thu\s+Fri\s+Sat\b/i);
+  const feesIdx = text.search(/Public Skate Fees/i);
+  const grid =
+    calStart >= 0
+      ? text.slice(calStart, feesIdx > calStart ? feesIdx : undefined)
+      : text.slice(Math.max(0, text.indexOf(monthMatch[0])));
 
   const sessions = [];
-  const dayChunks = normalized.split(/\n(?=\d{1,2}\n|\d{1,2}\s)/);
-
-  for (const chunk of dayChunks) {
-    const dayMatch = chunk.match(/^(\d{1,2})\b/);
-    if (!dayMatch) continue;
-    const day = parseInt(dayMatch[1], 10);
+  const dayBlockRe = /\n\s*(\d{1,2})\s*\n([\s\S]*?)(?=\n\s*\d{1,2}\s*\n|$)/g;
+  let dayBlock;
+  while ((dayBlock = dayBlockRe.exec(grid)) !== null) {
+    const day = parseInt(dayBlock[1], 10);
     if (day < 1 || day > 31) continue;
-    const body = chunk.slice(dayMatch[0].length);
+    const body = dayBlock[2];
 
     if (calendarKind === 'public') {
-      if (/NO\s*Instructional/i.test(body) === false && /Instructional PS/i.test(body)) {
-        const tm = body.match(
-          /Instructional PS\s*(\d{1,2}(?::\d{2})?(?:am|pm)?)\s*-\s*(\d{1,2}(?::\d{2})?(?:am|pm)?)/i,
-        );
-        if (tm) {
-          const t = parseTimePair(tm[1], tm[2], day, month, year, 'America/New_York');
-          if (t) {
-            sessions.push({
-              activity: 'public_skate',
-              subtype: 'instructional',
-              raw_label: `Instructional PS ${tm[1]}-${tm[2]}`,
-              ...t,
-            });
-          }
+      for (const slot of findLabeledPublicSessions(
+        body,
+        /Instructional(?:\s+PS|\s+Public\s+Skate)?/i,
+        null,
+      )) {
+        const t = parseTimePair(slot.startRaw, slot.endRaw, day, month, year, 'America/New_York');
+        if (t) {
+          sessions.push({
+            activity: 'public_skate',
+            subtype: 'instructional',
+            raw_label: `${slot.label} ${slot.rawTime}`.trim(),
+            ...t,
+          });
         }
       }
-      if (!/NO\s*Rec Public Skate/i.test(body) && /Rec Public Skate/i.test(body)) {
-        const tm = body.match(
-          /Rec Public Skate\s*(\d{1,2}:\d{2}(?:am|pm)?)\s*-\s*(\d{1,2}:\d{2}(?:am|pm)?)/i,
-        );
-        if (tm) {
-          const t = parseTimePair(tm[1], tm[2], day, month, year, 'America/New_York');
-          if (t) {
-            sessions.push({
-              activity: 'public_skate',
-              subtype: 'recreational',
-              raw_label: `Rec Public Skate ${tm[1]}-${tm[2]}`,
-              ...t,
-            });
-          }
+      for (const slot of findLabeledPublicSessions(
+        body,
+        /Rec Public Skate/i,
+        /NO\s*Rec Public Skate/i,
+      )) {
+        const t = parseTimePair(slot.startRaw, slot.endRaw, day, month, year, 'America/New_York');
+        if (t) {
+          sessions.push({
+            activity: 'public_skate',
+            subtype: 'recreational',
+            raw_label: `${slot.label} ${slot.rawTime}`.trim(),
+            ...t,
+          });
         }
       }
-      const rock = body.match(/Rock Night\s*(\d{1,2}:\d{2}(?:am|pm)?)\s*-\s*(\d{1,2}:\d{2}(?:am|pm)?)/i);
-      if (rock) {
-        const t = parseTimePair(rock[1], rock[2], day, month, year, 'America/New_York');
+      const rockMatch = collapsePdfWhitespace(body).match(
+        new RegExp(`Rock Night\\s+(${PUBLIC_TIME_RANGE.source})`, 'i'),
+      );
+      if (rockMatch) {
+        const timeStr = rockMatch[1].replace(/\s/g, '');
+        const dash = timeStr.indexOf('-');
+        const t = parseTimePair(
+          timeStr.slice(0, dash),
+          timeStr.slice(dash + 1),
+          day,
+          month,
+          year,
+          'America/New_York',
+        );
         if (t) {
           sessions.push({
             activity: 'public_skate',
             subtype: 'rock_night',
-            raw_label: `Rock Night ${rock[1]}-${rock[2]}`,
+            raw_label: `Rock Night ${timeStr}`,
             ...t,
           });
         }
