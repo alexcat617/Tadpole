@@ -175,10 +175,7 @@ export default function App() {
     setAppliedDateEnd(null);
     setExpandedSessionId(null);
     setSearchError(null);
-    setDate('');
   }, []);
-
-  const clearSessions = clearSearchResults;
 
   const activeRinks = useMemo(
     () =>
@@ -308,6 +305,16 @@ export default function App() {
     return buildScheduleCoverage(sessionsFile.sessions, filter, searchRinkMap.keys());
   }, [sessionsFile, filter, searchRinkMap]);
 
+  const resetDateDraft = useCallback(() => {
+    const today = todayInZone();
+    setDate(defaultSearchDateFromCoverage(scheduleCoverage, today));
+  }, [scheduleCoverage]);
+
+  const clearSessions = useCallback(() => {
+    clearSearchResults();
+    resetDateDraft();
+  }, [clearSearchResults, resetDateDraft]);
+
   const noDateDataMessage = useCallback(
     (activity: ActivityFilter) =>
       `No schedule data for this date for ${activityLabel(activity).toLowerCase()}. Try another day or use Find Ice.`,
@@ -383,26 +390,26 @@ export default function App() {
   const selectDate = useCallback(
     (nextDate: string) => {
       if (!nextDate) {
-        setDate('');
         setSearchError(null);
+        resetDateDraft();
         return;
       }
       if (nextDate === date) return;
       if (!sessionsFile) {
         setSearchError('Schedules aren’t loaded yet. Wait a moment, then pick a date again.');
-        setDate('');
+        resetDateDraft();
         return;
       }
       if (!scheduleCoverage || !scheduleCoverage.dates.has(nextDate)) {
         setSearchError(noDateDataMessage(filter));
-        setDate('');
+        resetDateDraft();
         return;
       }
       setSearchError(null);
       clearSearchResults();
       setDate(nextDate);
     },
-    [clearSearchResults, date, filter, noDateDataMessage, scheduleCoverage, sessionsFile],
+    [clearSearchResults, date, filter, noDateDataMessage, resetDateDraft, scheduleCoverage, sessionsFile],
   );
 
   const resultDayBlocks = useMemo(() => {
@@ -689,9 +696,6 @@ export default function App() {
             </button>
           </header>
           <div className="bruins-drawer-body side-drawer-body">
-            <p className="muted small schedules-drawer-lede">
-              Pro and college hockey — not public skate times at local rinks.
-            </p>
             {showCompanionScheduleToggle ? (
               <div className="companion-schedule-tabs" role="tablist" aria-label="Schedule team">
                 <button
@@ -1087,7 +1091,13 @@ export default function App() {
                   min={scheduleCoverage?.min}
                   max={scheduleCoverage?.max}
                   onChange={(e) => selectDate(e.target.value)}
+                  aria-describedby={!date ? 'search-date-helper' : undefined}
                 />
+                {!date ? (
+                  <span id="search-date-helper" className="search-date-helper">
+                    Pick a date to search.
+                  </span>
+                ) : null}
               </label>
               <button
                 type="button"
