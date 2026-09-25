@@ -482,7 +482,6 @@ export default function App() {
   const hasWildcatsSchedule = (wildcatsScheduleFile?.games.length ?? 0) > 0;
   const hasBruinsSchedule = (bruinsScheduleFile?.games.length ?? 0) > 0;
   const hasAnyCompanionSchedule = hasWildcatsSchedule || hasBruinsSchedule;
-  const showSchedulesFab = hasAnyCompanionSchedule;
   const showCompanionScheduleToggle = hasWildcatsSchedule && hasBruinsSchedule;
 
   const effectiveCompanionTab = useMemo((): CompanionScheduleTab => {
@@ -795,8 +794,10 @@ export default function App() {
       </div>
     ) : null;
 
+  const showSchedulesFabOnView = hasAnyCompanionSchedule && appView !== 'programs';
+
   const schedulesFab =
-    showSchedulesFab && !schedulesDrawerOpen ? (
+    showSchedulesFabOnView && !schedulesDrawerOpen ? (
       <button
         type="button"
         className="bottom-fab"
@@ -809,7 +810,7 @@ export default function App() {
     ) : null;
 
   const shellClassName = `app-shell${
-    showSchedulesFab && !schedulesDrawerOpen ? ' app-shell--bottom-fab' : ''
+    showSchedulesFabOnView && !schedulesDrawerOpen ? ' app-shell--bottom-fab' : ''
   }`;
 
   const topBar = (

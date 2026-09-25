@@ -1164,6 +1164,11 @@
   color: #3730a3;
 }
 
+.session-badge--adult_stick {
+  background: #f1f5f9;
+  color: #475569;
+}
+
 .session-badge--neutral {
   background: #f1f5f9;
   color: #475569;
