@@ -29,7 +29,7 @@ Before adding a rink adapter, check `robots.txt` for the host. If schedules are 
 City recreation pages are intended for public information. Still:
 
 - Do not scrape unrelated citizen services.
-- Cache aggressively; schedules are monthly or weekly, not per-second.
+- Cache aggressively; schedules are monthly or weekly, not per-second. **Rink Radar** runs a **daily** GitHub Actions scrape (~12:00 UTC) plus deploys on `main` pushes.
 
 ## NHL public schedule API (Bruins companion)
 
@@ -48,8 +48,8 @@ City recreation pages are intended for public information. Still:
 
 | Situation | Action |
 | --- | --- |
-| HTTP 4xx/5xx | Log, keep last good `sessions.generated.json`, set health flag |
-| Parse 0 sessions unexpectedly | Alert maintainer; do not publish empty overwrite without review |
+| HTTP 4xx/5xx | Log, **retain last good sessions for that rink** in `sessions.generated.json`, set health flag |
+| Parse 0 sessions unexpectedly | Retain that rink’s previous sessions when any existed; set health `retained_previous` / `warning` |
 | CAPTCHA / bot block | Pause adapter; fall back to manual entry |
 
 ## Disclaimer (shown in app)

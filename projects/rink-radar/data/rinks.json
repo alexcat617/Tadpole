@@ -74,10 +74,8 @@
       ],
       "adapter": "sportsengine",
       "status": "pilot",
-      "operations": {
-        "status": "closed_for_season"
-      },
-      "notes": "SportsEngine site. Public skate: live schedule page. Hockey: separate page for public hockey, stick & puck, pond hockey."
+      "churchill_rss_feed": "https://www.churchillrink.org/event_rss_feed?tags=1428237,1439579,1439831",
+      "notes": "SportsEngine RSS (public + hockey tags) through posted season; HTML calendar is month-limited."
     },
     {
       "id": "rochester-arena",

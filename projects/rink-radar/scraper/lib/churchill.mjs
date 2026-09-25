@@ -1,7 +1,8 @@
 import * as cheerio from 'cheerio';
 import { DateTime } from 'luxon';
 
-const SKIP = /CLOSED FOR THE SEASON|WE ARE CLOSED/i;
+const SKIP = /CLOSED FOR THE SEASON - THANK YOU!/i;
+const PLACEHOLDER_HOURS = /9:00am EDT-5:00pm EDT/i;
 
 /**
  * @param {string} pageUrl
@@ -26,7 +27,7 @@ export async function scrapeChurchillPage(pageUrl, rinkId, activityFilter) {
         : null;
 
   const eventRegex =
-    /(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday),\s*(\d{1,2}:\d{2}(?:am|pm))\s*(?:EDT|EST)?\s*-\s*(\d{1,2}:\d{2}(?:am|pm))\s*(?:EDT|EST)?/gi;
+    /(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday),\s*(\d{1,2}:\d{2}(?:am|pm))\s*(?:(?:EDT|EST)\s*)?-\s*(\d{1,2}:\d{2}(?:am|pm))\s*(?:EDT|EST)?/gi;
 
   const chunks = text.split(/\d{1,2}\s/);
   let m;
@@ -34,7 +35,8 @@ export async function scrapeChurchillPage(pageUrl, rinkId, activityFilter) {
   while ((m = eventRegex.exec(full)) !== null) {
     const blockStart = Math.max(0, m.index - 120);
     const block = full.slice(blockStart, m.index + 80);
-    if (SKIP.test(block)) continue;
+    if (SKIP.test(block) && PLACEHOLDER_HOURS.test(m[0])) continue;
+    if (/WE ARE CLOSED/i.test(block)) continue;
     if (tagNeedle && !block.includes(tagNeedle) && !full.slice(m.index, m.index + 200).includes(tagNeedle)) {
       continue;
     }
