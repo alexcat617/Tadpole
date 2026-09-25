@@ -246,6 +246,12 @@
   color-scheme: light;
 }
 
+.search-date-helper {
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--rr-muted);
+}
+
 .activity-segmented {
   --segment-count: 2;
   --segment-track-pad: 0.35rem;

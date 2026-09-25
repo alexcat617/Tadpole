@@ -65,7 +65,7 @@ stateDiagram-v2
 | Bruins API fail (scrape) | Last good JSON retained | User may not notice; Updated not shown for companion optionally |
 | Wildcats fetch fail | Empty section + link | Open official UNH schedule |
 | Drawer open, rotate device | Drawer remains; scroll restored on close | Close and reopen |
-| User expects rink sessions | Companion is separate from session search | Lede in drawer: Game schedules, not public skate times |
+| User expects rink sessions | Companion is separate from session search | Drawer title **Game schedules** only; no lede copy |
 
 ## Copy inventory
 
