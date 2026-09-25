@@ -160,6 +160,112 @@ export function findNextSession(
   return candidates[0] ?? null;
 }
 
+/** Add calendar days to YYYY-MM-DD (America/New_York calendar). */
+export function addCalendarDaysIso(dateIso: string, days: number): string {
+  const anchor = new Date(`${dateIso}T12:00:00-04:00`);
+  anchor.setDate(anchor.getDate() + days);
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(anchor);
+}
+
+/** Default date for the search panel: today if in coverage, else earliest scraped day. */
+export function defaultSearchDateFromCoverage(
+  coverage: ScheduleCoverage | null,
+  todayIso: string,
+): string {
+  if (!coverage) return todayIso;
+  if (coverage.dates.has(todayIso)) return todayIso;
+  return coverage.min;
+}
+
+/** First day with an upcoming session; end is start + (windowDays - 1) calendar days. */
+export function findNextSessionWindow(
+  sessions: Session[],
+  rinkMap: Map<string, Rink>,
+  userLat: number,
+  userLng: number,
+  radiusKm: number,
+  today: string,
+  activity: NextSessionActivity,
+  windowDays = 5,
+  now = Date.now(),
+): { startDate: string; endDate: string } | null {
+  const first = findNextSession(
+    sessions,
+    rinkMap,
+    userLat,
+    userLng,
+    radiusKm,
+    today,
+    activity,
+    now,
+  );
+  if (!first) return null;
+  const startDate = sessionDateInZone(first.starts_at);
+  const endDate = addCalendarDaysIso(startDate, windowDays - 1);
+  return { startDate, endDate };
+}
+
+export type SessionRow = { session: Session; rink: Rink; distance_km: number };
+
+export function buildSessionRowsForDay(
+  sessions: Session[],
+  dayIso: string,
+  activity: 'public_skate' | 'stick_puck',
+  rinkMap: Map<string, Rink>,
+  userLat: number,
+  userLng: number,
+  radiusKm: number,
+  now = Date.now(),
+): SessionRow[] {
+  const todayZone = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(
+    new Date(),
+  );
+  const dayStart = new Date(`${dayIso}T00:00:00-04:00`).getTime();
+  const dayEnd = new Date(`${dayIso}T23:59:59-04:00`).getTime();
+
+  return sessions
+    .filter((s) => {
+      if (!rinkMap.has(s.rink_id)) return false;
+      if (activity === 'public_skate' ? s.activity !== 'public_skate' : s.activity !== 'stick_puck')
+        return false;
+      const start = new Date(s.starts_at).getTime();
+      if (start < dayStart || start > dayEnd) return false;
+      if (dayIso === todayZone && new Date(s.ends_at).getTime() < now - 30 * 60 * 1000) {
+        return false;
+      }
+      const rink = rinkMap.get(s.rink_id)!;
+      return haversineKm(userLat, userLng, rink.lat, rink.lng) <= radiusKm;
+    })
+    .map((s) => {
+      const rink = rinkMap.get(s.rink_id)!;
+      const distance_km = haversineKm(userLat, userLng, rink.lat, rink.lng);
+      return { session: s, rink, distance_km };
+    })
+    .sort((a, b) => a.session.starts_at.localeCompare(b.session.starts_at));
+}
+
+export type ProgramAudienceFilter = 'all' | 'kids' | 'adult';
+
+export function programMatchesAudienceFilter(
+  program: Program,
+  filter: ProgramAudienceFilter,
+): boolean {
+  const audience = program.audience ?? 'adult';
+  if (filter === 'all') return true;
+  if (filter === 'kids') return audience === 'youth' || audience === 'family';
+  return audience === 'adult' || audience === 'family';
+}
+
+export function filterProgramsForView(
+  programs: Program[],
+  rinkIds: Set<string>,
+  audienceFilter: ProgramAudienceFilter,
+): Program[] {
+  return programs
+    .filter((p) => rinkIds.has(p.rink_id))
+    .filter((p) => programMatchesAudienceFilter(p, audienceFilter));
+}
+
 export function rinkById(rinks: Rink[], id: string): Rink | undefined {
   return rinks.find((r) => r.id === id);
 }
@@ -280,6 +386,119 @@ export function bruinsMatchupLabel(game: BruinsGame): string {
 export function isBruinsGamePast(game: BruinsGame): boolean {
   if (game.game_state === 'FINAL' || game.game_state === 'OFF') return true;
   return new Date(game.starts_at).getTime() < Date.now() - 3 * 60 * 60 * 1000;
+}
+
+export type CompanionBannerTeam = 'bruins' | 'wildcats';
+
+type CompanionBannerPart =
+  | { kind: 'day'; label: string }
+  | { kind: 'game'; team: CompanionBannerTeam; text: string };
+
+export interface CompanionGameDayBanner {
+  parts: CompanionBannerPart[];
+}
+
+function gameDateIsoInEt(startsAt: string): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(
+    new Date(startsAt),
+  );
+}
+
+export function formatCompanionGameTimeShort(startsAt: string): string {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'America/New_York',
+  }).formatToParts(new Date(startsAt));
+  const hour = parts.find((p) => p.type === 'hour')?.value ?? '';
+  const minute = parts.find((p) => p.type === 'minute')?.value ?? '00';
+  const dayPeriod = (parts.find((p) => p.type === 'dayPeriod')?.value ?? 'PM')
+    .charAt(0)
+    .toLowerCase();
+  if (minute === '00') return `${hour}${dayPeriod}`;
+  return `${hour}:${minute}${dayPeriod}`;
+}
+
+function companionGameChipText(teamLabel: string, game: BruinsGame): string {
+  return `${teamLabel} ${bruinsMatchupLabel(game)} ${formatCompanionGameTimeShort(game.starts_at)}`;
+}
+
+export function companionGameBannerAriaLabel(banner: CompanionGameDayBanner): string {
+  return banner.parts.map((p) => (p.kind === 'day' ? p.label : p.text)).join(', ');
+}
+
+/** Upcoming Bruins + UNH games today and tomorrow (ET), for a single-line banner. */
+export function buildCompanionGameDayBanner(
+  bruinsGames: BruinsGame[] | undefined,
+  wildcatsGames: BruinsGame[] | undefined,
+  todayIso: string,
+): CompanionGameDayBanner | null {
+  const tomorrowIso = addCalendarDaysIso(todayIso, 1);
+  const maxListed = 2;
+
+  type Tagged = { team: CompanionBannerTeam; teamLabel: string; game: BruinsGame };
+  const tag = (team: CompanionBannerTeam, teamLabel: string, game: BruinsGame): Tagged => ({
+    team,
+    teamLabel,
+    game,
+  });
+
+  const upcoming: Tagged[] = [
+    ...(bruinsGames ?? [])
+      .filter((g) => !isBruinsGamePast(g))
+      .map((g) => tag('bruins', 'Bruins', g)),
+    ...(wildcatsGames ?? [])
+      .filter((g) => !isBruinsGamePast(g))
+      .map((g) => tag('wildcats', 'UNH', g)),
+  ];
+
+  const forDay = (dayIso: string) =>
+    upcoming
+      .filter((t) => gameDateIsoInEt(t.game.starts_at) === dayIso)
+      .sort((a, b) => a.game.starts_at.localeCompare(b.game.starts_at));
+
+  const todayAll = forDay(todayIso);
+  const tomorrowAll = forDay(tomorrowIso);
+  const todayListed = todayAll.slice(0, maxListed);
+  const tomorrowListed = tomorrowAll.slice(0, maxListed);
+
+  if (todayListed.length === 0 && tomorrowListed.length === 0) return null;
+
+  const parts: CompanionBannerPart[] = [];
+
+  const appendDay = (label: string, listed: Tagged[], total: number) => {
+    if (listed.length === 0) return;
+    parts.push({ kind: 'day', label });
+    for (const item of listed) {
+      parts.push({
+        kind: 'game',
+        team: item.team,
+        text: companionGameChipText(item.teamLabel, item.game),
+      });
+    }
+    const extra = total - listed.length;
+    if (extra > 0) {
+      parts.push({ kind: 'game', team: listed[0].team, text: `+${extra} more` });
+    }
+  };
+
+  appendDay('Today', todayListed, todayAll.length);
+  appendDay('Tomorrow', tomorrowListed, tomorrowAll.length);
+
+  return { parts };
+}
+
+export function companionBannerSepBefore(
+  index: number,
+  parts: CompanionGameDayBanner['parts'],
+): boolean {
+  if (index === 0) return false;
+  const prev = parts[index - 1];
+  const curr = parts[index];
+  if (curr.kind === 'day') return true;
+  if (prev.kind === 'day') return false;
+  return true;
 }
 
 export function formatBruinsTvLine(networks: string[]): string {

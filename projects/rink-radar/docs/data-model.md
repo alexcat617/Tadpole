@@ -67,6 +67,10 @@ Fetched from NHL’s public schedule API during scrape; copied to `app/public/da
 
 See [`data/bruins-schedule.example.json`](../data/bruins-schedule.example.json).
 
+## `wildcats-schedule.json` — UNH Wildcats companion
+
+Same **`games[]` shape** as Bruins companion. Optional `team_label` for drawer heading. Fetched in scrape from UNH’s [text schedule](https://unhwildcats.com/sports/mens-ice-hockey/schedule/text) HTML table (Sidearm NextGen SSR); retains last good file on failure. Copied to `app/public/data/wildcats-schedule.json`.
+
 ## `programs.json` — Arena programs (editorial)
 
 Multi-week leagues and drop-in **programs** (not day-by-day scrape rows). Copied to `app/public/data/programs.json`. Maintained manually from rink program pages.
@@ -77,7 +81,7 @@ Multi-week leagues and drop-in **programs** (not day-by-day scrape rows). Copied
 | `source_url` | string | Canonical listings page |
 | `programs` | array | Program entries |
 
-Each program: `id`, `rink_id`, `title`, `kind` (`drop_in`, `league`, `skills`), `description`, `offerings[]` (`label`, `schedule_text`, `exceptions`, `times_text`, `cost_text`, `registration_text`), optional `links[]`.
+Each program: `id`, `rink_id`, `title`, `kind` (`drop_in`, `league`, `skills`), optional `audience` (`youth`, `adult`, `family`; defaults to `adult`), `description`, `offerings[]` …
 
 See [`data/programs.example.json`](../data/programs.example.json).
 

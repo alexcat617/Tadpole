@@ -1,0 +1,329 @@
+{
+  "team_label": "UNH Wildcats men's hockey",
+  "season_label": "2026–27",
+  "season_slug": "20262027",
+  "generated_at": "2026-09-25T09:05:46.475-04:00",
+  "source_url": "https://unhwildcats.com/sports/mens-ice-hockey/schedule/text",
+  "games": [
+    {
+      "id": "2026-10-02T19:00:00.000-04:00-quinnipiac",
+      "starts_at": "2026-10-02T19:00:00.000-04:00",
+      "opponent_abbr": "QU",
+      "opponent_name": "Quinnipiac",
+      "is_home": false,
+      "venue": "Hamden, Conn. (M&T Bank Arena)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-10-08T19:00:00.000-04:00-merrimack",
+      "starts_at": "2026-10-08T19:00:00.000-04:00",
+      "opponent_abbr": "MER",
+      "opponent_name": "Merrimack",
+      "is_home": false,
+      "venue": "North Andover, Mass. (Lawler Rink)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-10-16T19:00:00.000-04:00-colgate",
+      "starts_at": "2026-10-16T19:00:00.000-04:00",
+      "opponent_abbr": "COL",
+      "opponent_name": "Colgate",
+      "is_home": false,
+      "venue": "Hamilton, N.Y. (Class of 1965 Arena)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-10-17T19:00:00.000-04:00-colgate",
+      "starts_at": "2026-10-17T19:00:00.000-04:00",
+      "opponent_abbr": "COL",
+      "opponent_name": "Colgate",
+      "is_home": false,
+      "venue": "Hamilton, N.Y. (Class of 1965 Arena)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-10-23T19:00:00.000-04:00-michigan-state",
+      "starts_at": "2026-10-23T19:00:00.000-04:00",
+      "opponent_abbr": "MSU",
+      "opponent_name": "Michigan State",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-10-24T19:00:00.000-04:00-michigan-state",
+      "starts_at": "2026-10-24T19:00:00.000-04:00",
+      "opponent_abbr": "MSU",
+      "opponent_name": "Michigan State",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-10-30T19:00:00.000-04:00-vermont",
+      "starts_at": "2026-10-30T19:00:00.000-04:00",
+      "opponent_abbr": "UVM",
+      "opponent_name": "Vermont",
+      "is_home": false,
+      "venue": "Burlington, Vt. (Gutterson Fieldhouse)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-10-31T16:00:00.000-04:00-vermont",
+      "starts_at": "2026-10-31T16:00:00.000-04:00",
+      "opponent_abbr": "UVM",
+      "opponent_name": "Vermont",
+      "is_home": false,
+      "venue": "Burlington, Vt. (Gutterson Fieldhouse)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-11-06T19:15:00.000-05:00-umass-lowell",
+      "starts_at": "2026-11-06T19:15:00.000-05:00",
+      "opponent_abbr": "UML",
+      "opponent_name": "UMass Lowell",
+      "is_home": false,
+      "venue": "Lowell, Mass. (Tsongas Center)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-11-07T19:00:00.000-05:00-umass-lowell",
+      "starts_at": "2026-11-07T19:00:00.000-05:00",
+      "opponent_abbr": "UML",
+      "opponent_name": "UMass Lowell",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-11-13T19:00:00.000-05:00-rpi",
+      "starts_at": "2026-11-13T19:00:00.000-05:00",
+      "opponent_abbr": "RPI",
+      "opponent_name": "RPI",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-11-14T19:00:00.000-05:00-union",
+      "starts_at": "2026-11-14T19:00:00.000-05:00",
+      "opponent_abbr": "UNI",
+      "opponent_name": "Union",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-11-19T19:00:00.000-05:00-uconn",
+      "starts_at": "2026-11-19T19:00:00.000-05:00",
+      "opponent_abbr": "UCON",
+      "opponent_name": "UConn",
+      "is_home": false,
+      "venue": "Storrs, Conn. (Toscano Family Ice Forum)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-11-21T17:00:00.000-05:00-uconn",
+      "starts_at": "2026-11-21T17:00:00.000-05:00",
+      "opponent_abbr": "UCON",
+      "opponent_name": "UConn",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-11-28T16:00:00.000-05:00-brown",
+      "starts_at": "2026-11-28T16:00:00.000-05:00",
+      "opponent_abbr": "BRN",
+      "opponent_name": "Brown",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-12-04T19:00:00.000-05:00-maine",
+      "starts_at": "2026-12-04T19:00:00.000-05:00",
+      "opponent_abbr": "ME",
+      "opponent_name": "Maine",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-12-05T19:00:00.000-05:00-maine",
+      "starts_at": "2026-12-05T19:00:00.000-05:00",
+      "opponent_abbr": "ME",
+      "opponent_name": "Maine",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-12-11T19:00:00.000-05:00-providence",
+      "starts_at": "2026-12-11T19:00:00.000-05:00",
+      "opponent_abbr": "PROV",
+      "opponent_name": "Providence",
+      "is_home": false,
+      "venue": "Providence, R.I. (Schneider Arena)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2026-12-13T15:00:00.000-05:00-dartmouth",
+      "starts_at": "2026-12-13T15:00:00.000-05:00",
+      "opponent_abbr": "DART",
+      "opponent_name": "Dartmouth",
+      "is_home": false,
+      "venue": "Hanover, N.H. (Thompson Arena)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-01-02T19:00:00.000-05:00-rit",
+      "starts_at": "2027-01-02T19:00:00.000-05:00",
+      "opponent_abbr": "RIT",
+      "opponent_name": "RIT",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-01-09T16:00:00.000-05:00-merrimack",
+      "starts_at": "2027-01-09T16:00:00.000-05:00",
+      "opponent_abbr": "MER",
+      "opponent_name": "Merrimack",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-01-15T19:00:00.000-05:00-northeastern",
+      "starts_at": "2027-01-15T19:00:00.000-05:00",
+      "opponent_abbr": "NEU",
+      "opponent_name": "Northeastern",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-01-16T19:00:00.000-05:00-northeastern",
+      "starts_at": "2027-01-16T19:00:00.000-05:00",
+      "opponent_abbr": "NEU",
+      "opponent_name": "Northeastern",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-01-22T19:00:00.000-05:00-boston-college",
+      "starts_at": "2027-01-22T19:00:00.000-05:00",
+      "opponent_abbr": "BC",
+      "opponent_name": "Boston College",
+      "is_home": false,
+      "venue": "Chestnut Hill, Mass. (Conte Forum)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-01-23T19:00:00.000-05:00-boston-college",
+      "starts_at": "2027-01-23T19:00:00.000-05:00",
+      "opponent_abbr": "BC",
+      "opponent_name": "Boston College",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-01-29T19:00:00.000-05:00-merrimack",
+      "starts_at": "2027-01-29T19:00:00.000-05:00",
+      "opponent_abbr": "MER",
+      "opponent_name": "Merrimack",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-02-06T19:00:00.000-05:00-umass",
+      "starts_at": "2027-02-06T19:00:00.000-05:00",
+      "opponent_abbr": "UMAS",
+      "opponent_name": "UMass",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-02-19T19:00:00.000-05:00-boston-university",
+      "starts_at": "2027-02-19T19:00:00.000-05:00",
+      "opponent_abbr": "BU",
+      "opponent_name": "Boston University",
+      "is_home": false,
+      "venue": "Boston, Mass. (Agganis Arena)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-02-20T19:00:00.000-05:00-boston-university",
+      "starts_at": "2027-02-20T19:00:00.000-05:00",
+      "opponent_abbr": "BU",
+      "opponent_name": "Boston University",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-02-26T19:00:00.000-05:00-providence",
+      "starts_at": "2027-02-26T19:00:00.000-05:00",
+      "opponent_abbr": "PROV",
+      "opponent_name": "Providence",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-02-27T19:00:00.000-05:00-providence",
+      "starts_at": "2027-02-27T19:00:00.000-05:00",
+      "opponent_abbr": "PROV",
+      "opponent_name": "Providence",
+      "is_home": false,
+      "venue": "Providence, R.I. (Schneider Arena)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-03-04T19:00:00.000-05:00-uconn",
+      "starts_at": "2027-03-04T19:00:00.000-05:00",
+      "opponent_abbr": "UCON",
+      "opponent_name": "UConn",
+      "is_home": true,
+      "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    }
+  ]
+}

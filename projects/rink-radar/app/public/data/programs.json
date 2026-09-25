@@ -3,10 +3,35 @@
   "source_url": "https://www.dover.nh.gov/government/city-operations/recreation/arena/adult-programs-leagues/",
   "programs": [
     {
+      "id": "dover-learn-to-skate",
+      "rink_id": "dover-arena",
+      "title": "Learn to Skate / Skating School",
+      "kind": "skills",
+      "audience": "youth",
+      "description": "Dover Arena skating school for beginners through advanced youth skaters. Session dates and levels are posted on the city recreation site. Confirm current season registration with the arena front desk.",
+      "offerings": [
+        {
+          "label": "Season registration",
+          "schedule_text": "Fall, winter, and spring sessions — see official listing",
+          "exceptions": [],
+          "times_text": "Varies by level",
+          "cost_text": "See city recreation fee sheet",
+          "registration_text": "Register through Dover recreation / arena program pages or call (603) 516-6060."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dover arena programs",
+          "url": "https://www.dover.nh.gov/government/city-operations/recreation/arena/"
+        }
+      ]
+    },
+    {
       "id": "dover-chix-with-stix",
       "rink_id": "dover-arena",
       "title": "Women's Hockey / Chix With Stix",
       "kind": "drop_in",
+      "audience": "adult",
       "description": "Fun pick-up skate for adult women, ages 18 and older, with basic skating skills. This is a drop-in weekly skate. Advance sign-up required. Please bring a dark and light jersey to the skate.",
       "offerings": [
         {

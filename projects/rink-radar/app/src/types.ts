@@ -76,6 +76,7 @@ export interface BruinsGame {
 }
 
 export interface BruinsScheduleFile {
+  team_label?: string;
   season_label: string;
   season_slug: string;
   generated_at: string;
@@ -83,6 +84,9 @@ export interface BruinsScheduleFile {
   games: BruinsGame[];
   error?: string;
 }
+
+/** Same game list shape as Bruins companion (UNH Wildcats, etc.). */
+export type CompanionScheduleFile = BruinsScheduleFile;
 
 export type ProgramKind = 'drop_in' | 'league' | 'skills';
 
@@ -100,11 +104,15 @@ export interface ProgramOffering {
   registration_text: string;
 }
 
+export type ProgramAudience = 'youth' | 'adult' | 'family';
+
 export interface Program {
   id: string;
   rink_id: string;
   title: string;
   kind: ProgramKind;
+  /** Defaults to adult when omitted (legacy JSON). */
+  audience?: ProgramAudience;
   description: string;
   offerings: ProgramOffering[];
   links?: ProgramLink[];
