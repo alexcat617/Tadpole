@@ -32,4 +32,34 @@ assert.ok(
   'instructional time preserved',
 );
 
+const stackedWeekend = `
+September 2026
+Sun Mon Tue Wed Thu Fri Sat
+25
+  Instructional PS
+  10-11:20am
+  Rec Public Skate
+  1:30-2:50pm
+26
+27
+Rec Public Skate
+  1:30-2:50pm
+28
+  Instructional PS
+  10-11:50am
+September 2026
+`;
+
+const weekendRows = parseDoverCalendarPdf(stackedWeekend, 'public');
+const dayFromIso = (iso) => parseInt(iso.slice(8, 10), 10);
+const rec26 = weekendRows.filter(
+  (r) => r.subtype === 'recreational' && dayFromIso(r.starts_at) === 26,
+);
+const rec27 = weekendRows.filter(
+  (r) => r.subtype === 'recreational' && dayFromIso(r.starts_at) === 27,
+);
+assert.equal(rec26.length, 0, 'blank Sat 26 should have no rec');
+assert.equal(rec27.length, 1, 'Sun 27 rec should not attach to Sat 26');
+assert.ok(rec27[0].raw_label.includes('1:30-2:50pm'));
+
 console.log('dover-pdf.test.mjs: ok');

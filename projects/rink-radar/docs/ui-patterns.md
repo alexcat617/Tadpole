@@ -58,9 +58,9 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - **Header control:** **My rinks · N** in the sticky top bar (upper right, above or beside **Updated**).
 - **Right drawer:** Opens over the full page (~**80%** viewport width from the right); the left strip is a dimmed backdrop.
 - **Close:** Tap backdrop, **×** in drawer header, or **Escape**; body scroll is locked while open.
-- List pilot/active rinks within the search radius (nearest first); health badge under each name.
-- **Status badges** from `health.json`: Schedule available / No times listed yet / Scrape issue — unless `operations.status` is set on the rink (e.g. **Closed for the season**).
-- Paused registry rinks: muted “coming soon” count only (not in search list).
+- List pilot/active rinks within the search radius (nearest first); name, city, checkbox only (no scrape-health badges).
+- Optional neutral note when `operations.status` is **Closed for the season** on a rink. Scrape health stays in `health.json` for CI/ops only.
+- Paused registry rinks are omitted from the search list (not shown in the drawer).
 - Opening rinks closes Search by date and Bruins schedule (and vice versa); changing session type closes all overlays.
 
 ### Programs (editorial)

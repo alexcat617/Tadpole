@@ -44,7 +44,7 @@ export function priceSummaryForCard(summary: string): string {
 
 export type SessionScanBadge = {
   label: string;
-  variant: 'recreational' | 'instructional';
+  variant: 'recreational' | 'instructional' | 'adult_stick';
 };
 
 export function sessionScanBadge(subtype?: string): SessionScanBadge | null {
@@ -56,6 +56,9 @@ export function sessionScanBadge(subtype?: string): SessionScanBadge | null {
   }
   if (subtype === 'youth_stick') {
     return { label: 'Youth stick', variant: 'instructional' };
+  }
+  if (subtype === 'adult_stick') {
+    return { label: 'Adult stick', variant: 'adult_stick' };
   }
   if (subtype === 'parent_tot') {
     return { label: 'Parent/tot', variant: 'recreational' };

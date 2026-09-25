@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T13:02:27.298-04:00",
+  "generated_at": "2026-09-25T13:34:49.374-04:00",
   "rinks": {
     "dover-arena": {
       "ok": true,
@@ -8,13 +8,16 @@
       "session_count": 60
     },
     "churchill-rink-durham": {
-      "ok": true,
+      "ok": false,
+      "error": "fetch failed",
       "session_count": 0,
-      "rss_feed": "https://www.churchillrink.org/event_rss_feed?tags=1428237,1439579,1439831"
+      "retained_previous": false
     },
     "rochester-arena": {
-      "ok": true,
-      "session_count": 100
+      "ok": false,
+      "error": "fetch failed",
+      "session_count": 100,
+      "retained_previous": true
     }
   }
 }
