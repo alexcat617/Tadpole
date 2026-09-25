@@ -14,8 +14,11 @@ import {
   activityLabel,
   addCalendarDaysIso,
   bruinsMatchupLabel,
+  buildCompanionGameDayBanner,
   buildScheduleCoverage,
   buildSessionRowsForDay,
+  companionBannerSepBefore,
+  companionGameBannerAriaLabel,
   defaultSearchDateFromCoverage,
   doverStickPracticeFeesLine,
   filterProgramsForView,
@@ -307,7 +310,7 @@ export default function App() {
 
   const noDateDataMessage = useCallback(
     (activity: ActivityFilter) =>
-      `No schedule data for this date for ${activityLabel(activity).toLowerCase()}. Try another day or use Find next session.`,
+      `No schedule data for this date for ${activityLabel(activity).toLowerCase()}. Try another day or use Find Ice.`,
     [],
   );
 
@@ -484,6 +487,16 @@ export default function App() {
     if (hasBruinsSchedule) return 'bruins';
     return 'wildcats';
   }, [companionScheduleTab, hasWildcatsSchedule, hasBruinsSchedule]);
+
+  const companionGameBanner = useMemo(
+    () =>
+      buildCompanionGameDayBanner(
+        bruinsScheduleFile?.games,
+        wildcatsScheduleFile?.games,
+        todayInZone(),
+      ),
+    [bruinsScheduleFile, wildcatsScheduleFile],
+  );
 
   const toggleSchedulesPanel = useCallback(() => {
     setSchedulesDrawerOpen((open) => {
@@ -828,7 +841,7 @@ export default function App() {
   return (
     <div className={shellClassName}>
       {topBar}
-      <main className="app">
+      <main className={appView === 'programs' ? 'app app--programs' : 'app'}>
       {appView === 'programs' && programsFile ? (
         <section className="programs-section" aria-label="Arena programs">
           <header className="programs-intro">
@@ -836,7 +849,7 @@ export default function App() {
               <h2 className="programs-heading">Programs</h2>
               <button
                 type="button"
-                className="programs-close"
+                className="programs-close side-drawer-close"
                 aria-label="Close programs"
                 onClick={openSessionsView}
               >
@@ -872,6 +885,7 @@ export default function App() {
               ))}
             </div>
           </header>
+          <div className="programs-body">
           {visiblePrograms.length === 0 ? (
             <div className="empty programs-empty">
               <p>No programs for your filters.</p>
@@ -967,9 +981,37 @@ export default function App() {
               Official program listings
             </a>
           </p>
+          </div>
         </section>
       ) : (
         <>
+      {companionGameBanner ? (
+        <div className="companion-game-banner-wrap">
+          <div
+            className="companion-game-banner"
+            role="status"
+            aria-label={companionGameBannerAriaLabel(companionGameBanner)}
+          >
+            <span className="companion-game-banner-inner">
+            {companionGameBanner.parts.map((part, index) => (
+              <span
+                key={`${part.kind}-${index}`}
+                className={
+                  part.kind === 'day' ? 'companion-game-banner-day' : 'companion-game-banner-chip'
+                }
+              >
+                {companionBannerSepBefore(index, companionGameBanner.parts) ? (
+                  <span className="companion-game-banner-sep" aria-hidden="true">
+                    {' · '}
+                  </span>
+                ) : null}
+                {part.kind === 'day' ? part.label : part.text}
+              </span>
+            ))}
+          </span>
+        </div>
+        </div>
+      ) : null}
       <section className="controls" aria-label="Find sessions">
         <div className="controls-group controls-group--types">
           <p className="controls-label" id="activity-label">
@@ -1009,7 +1051,7 @@ export default function App() {
             onClick={() => void runFindNext()}
             disabled={isSearching || noRinksSelected}
           >
-            Find next session
+            Find Ice
           </button>
         </div>
 
@@ -1088,7 +1130,7 @@ export default function App() {
           </div>
         ) : !hasSearched ? (
           <div className="empty empty--prompt">
-            <p>Use Find next session or Search by date.</p>
+            <p>Use Find Ice or Search by date.</p>
           </div>
         ) : totalResultRows.length === 0 ? (
           <div className="empty results-empty">

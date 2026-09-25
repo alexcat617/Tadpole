@@ -47,7 +47,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Filter row (date)
 
-- **Progressive disclosure:** Default shows **Search by date** only; tap to reveal date input, **Search**, and **Clear**. Panel stays open after **Search** or **Clear** when the user opened it; **Find next session** does not expand the date panel.
+- **Progressive disclosure:** Default shows **Search by date** only; tap to reveal date input, **Search**, and **Clear**. Panel stays open after **Search** or **Clear** when the user opened it; **Find Ice** does not expand the date panel.
 - Native date input uses **`min` / `max`** from scraped session dates for the current activity; gap days inside that range are rejected on pick with an **inline error** (not a modal).
 - Label above control (small caps tone via label styling).
 - Date input uses native `type="date"` for mobile pickers.
@@ -80,11 +80,11 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - **Exclusion:** Only one overlay at a time (My rinks, Search by date panel, Bruins drawer).
 - **Shell:** `.app-shell--bruins-fab` adds extra bottom padding on `.app` so content clears the FAB.
 
-### Primary CTA — Find next session
+### Primary CTA — Find Ice
 
 - Full width of `.app` at all breakpoints; stacked above **Search by date** with tight vertical spacing.
 - Primary style: white surface, **ink** label (`--rr-ink`, medium weight), **gold** border; hover uses `--rr-gold-muted` fill.
-- **Compact secondary stack:** `0.875rem` type, `0.75rem` vertical padding, `min-height: 3rem` (~48px touch); full `.controls` gap between Find next and Search by date (no overlap).
+- **Compact secondary stack:** `0.875rem` type, `0.75rem` vertical padding, `min-height: 3rem` (~48px touch); full `.controls` gap between Find Ice and Search by date (no overlap).
 - **Search by date** trigger shares compact metrics; neutral 1px border distinguishes it from the primary control.
 - **States:** Default; disabled (searching or locked after results); label **Searching…** while loading.
 
@@ -97,7 +97,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 - **Day header:** Uppercase kicker with relative day only (`Today`, `Tomorrow`, `In N days`) + bold full date title. **Today:** light blue-muted block fill (`--rr-blue-muted`), ink kicker; no left stripe.
 - **Loading:** White card, centered spinner + message.
-- **Pre-search:** Empty state prompt to use Find next session or Search by date.
+- **Pre-search:** Empty state prompt to use Find Ice or Search by date.
 - **No matches:** Empty state with suggestion to change date or activity.
 - **List:** Vertical stack of session items with consistent gap.
 - **A11y:** `aria-live="polite"` on results section; `aria-busy` while searching.

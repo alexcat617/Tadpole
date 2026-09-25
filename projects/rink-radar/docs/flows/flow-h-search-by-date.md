@@ -52,7 +52,7 @@ stateDiagram-v2
 | --- | --- |
 | User opens panel then switches activity | Panel closes (global rule); reopening recomputes min/max/default |
 | User has results, changes date in input | Does not auto-search; must tap Search again |
-| User taps Find next while panel open | Panel may stay closed (find-next does not expand panel — unchanged) |
+| User taps Find Ice while panel open | Panel may stay closed (find-next does not expand panel — unchanged) |
 
 ## Empty states
 
@@ -85,7 +85,7 @@ stateDiagram-v2
 
 ## Acceptance criteria
 
-- [ ] At 320px and 390px, date input and buttons do not overlap Find next or each other.
+- [ ] At 320px and 390px, date input and buttons do not overlap Find Ice or each other.
 - [ ] Opening panel never shows `type="date"` with empty value while Search looks enabled.
 - [ ] Search works after Clear without forcing user to re-open panel.
 - [ ] Only one overlay at a time (rinks / schedules / date panel policy documented).

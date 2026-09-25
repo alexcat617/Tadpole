@@ -55,6 +55,8 @@ stateDiagram-v2
 | --- | --- |
 | Section JSON empty after failed scrape | Muted: Schedule unavailable. Check official site. + link |
 | Entire companion empty | No FAB |
+| No Bruins/UNH game today or tomorrow (ET) | No game-day banner |
+| Game today or tomorrow | Compact left-aligned pill above session controls (not tappable) |
 
 ## Error & recovery
 

@@ -4,7 +4,7 @@ Baseline behavior on the sessions view before build-specific flows (H, G, F). Ma
 
 ## Summary
 
-User chooses **Public skate** or **Stick & puck**, then either **Find next session** (single upcoming day today) or **Search by date** (one selected day). Results show session accordions; **Clear** resets results.
+User chooses **Public skate** or **Stick & puck**, then either **Find Ice** (single upcoming day today) or **Search by date** (one selected day). Results show session accordions; **Clear** resets results.
 
 ## Entry & preconditions
 
@@ -35,10 +35,10 @@ stateDiagram-v2
   idle --> error: Invalid_date_pick
 ```
 
-## Happy path — Find next session (current)
+## Happy path — Find Ice (current)
 
 1. User confirms activity tab.
-2. User taps **Find next session**.
+2. User taps **Find Ice**.
 3. UI: CTA **Searching…**, disabled; results region `aria-busy`.
 4. App fetches fresh `sessions.generated.json`.
 5. App finds earliest upcoming session matching activity, radius, and rink set.
@@ -65,9 +65,9 @@ stateDiagram-v2
 
 | State | UI | Recovery |
 | --- | --- | --- |
-| Pre-search | “Use Find next session or Search by date.” | Tap either CTA |
+| Pre-search | “Use Find Ice or Search by date.” | Tap either CTA |
 | Search returned 0 rows | “No sessions for this day and filter.” + muted hint | Change date, activity, or (future) rinks |
-| Find next: no upcoming | Inline error, no day header | Try other activity; Search by date; widen rinks (future) |
+| Find Ice: no upcoming | Inline error, no day header | Try other activity; Search by date; widen rinks (future) |
 
 ## Error & recovery
 
@@ -75,15 +75,15 @@ stateDiagram-v2
 | --- | --- | --- |
 | Rinks fetch failed | “Could not load rink data.” | Reload page |
 | Sessions fetch failed on search/find | “Could not load schedules. Try again.” | Tap action again |
-| Date picked with no data for activity | “No schedule data for this date for {activity}…” | Pick another day or Find next |
+| Date picked with no data for activity | “No schedule data for this date for {activity}…” | Pick another day or Find Ice |
 | Sessions not loaded yet on date pick | “Schedules aren’t loaded yet…” | Wait; pick date again |
-| Today’s sessions all ended | Filter hides ended (30 min grace) | Empty list for today → try tomorrow or Find next |
+| Today’s sessions all ended | Filter hides ended (30 min grace) | Empty list for today → try tomorrow or Find Ice |
 
 ## Copy inventory
 
 | Element | Copy |
 | --- | --- |
-| Pre-search empty | Use Find next session or Search by date. |
+| Pre-search empty | Use Find Ice or Search by date. |
 | Loading | Searching schedules… |
 | Clear (with results) | Clear |
 | Trust | Confirm with rink; official link in detail |

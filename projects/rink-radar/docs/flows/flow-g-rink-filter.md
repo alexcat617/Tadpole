@@ -40,7 +40,7 @@ stateDiagram-v2
 3. List shows rinks in radius (nearest first) with toggle **Include in search** (default ON for all).
 4. User turns off all but **Dover Ice Arena**.
 5. User closes drawer (backdrop, ×, Escape).
-6. User runs **Find next** or **Search by date** → only Dover sessions appear.
+6. User runs **Find Ice** or **Search by date** → only Dover sessions appear.
 7. **Programs** view lists programs for selected rinks only.
 8. Selection persists in `sessionStorage` for return visit.
 

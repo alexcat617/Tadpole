@@ -388,6 +388,119 @@ export function isBruinsGamePast(game: BruinsGame): boolean {
   return new Date(game.starts_at).getTime() < Date.now() - 3 * 60 * 60 * 1000;
 }
 
+export type CompanionBannerTeam = 'bruins' | 'wildcats';
+
+type CompanionBannerPart =
+  | { kind: 'day'; label: string }
+  | { kind: 'game'; team: CompanionBannerTeam; text: string };
+
+export interface CompanionGameDayBanner {
+  parts: CompanionBannerPart[];
+}
+
+function gameDateIsoInEt(startsAt: string): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(
+    new Date(startsAt),
+  );
+}
+
+export function formatCompanionGameTimeShort(startsAt: string): string {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'America/New_York',
+  }).formatToParts(new Date(startsAt));
+  const hour = parts.find((p) => p.type === 'hour')?.value ?? '';
+  const minute = parts.find((p) => p.type === 'minute')?.value ?? '00';
+  const dayPeriod = (parts.find((p) => p.type === 'dayPeriod')?.value ?? 'PM')
+    .charAt(0)
+    .toLowerCase();
+  if (minute === '00') return `${hour}${dayPeriod}`;
+  return `${hour}:${minute}${dayPeriod}`;
+}
+
+function companionGameChipText(teamLabel: string, game: BruinsGame): string {
+  return `${teamLabel} ${bruinsMatchupLabel(game)} ${formatCompanionGameTimeShort(game.starts_at)}`;
+}
+
+export function companionGameBannerAriaLabel(banner: CompanionGameDayBanner): string {
+  return banner.parts.map((p) => (p.kind === 'day' ? p.label : p.text)).join(', ');
+}
+
+/** Upcoming Bruins + UNH games today and tomorrow (ET), for a single-line banner. */
+export function buildCompanionGameDayBanner(
+  bruinsGames: BruinsGame[] | undefined,
+  wildcatsGames: BruinsGame[] | undefined,
+  todayIso: string,
+): CompanionGameDayBanner | null {
+  const tomorrowIso = addCalendarDaysIso(todayIso, 1);
+  const maxListed = 2;
+
+  type Tagged = { team: CompanionBannerTeam; teamLabel: string; game: BruinsGame };
+  const tag = (team: CompanionBannerTeam, teamLabel: string, game: BruinsGame): Tagged => ({
+    team,
+    teamLabel,
+    game,
+  });
+
+  const upcoming: Tagged[] = [
+    ...(bruinsGames ?? [])
+      .filter((g) => !isBruinsGamePast(g))
+      .map((g) => tag('bruins', 'Bruins', g)),
+    ...(wildcatsGames ?? [])
+      .filter((g) => !isBruinsGamePast(g))
+      .map((g) => tag('wildcats', 'UNH', g)),
+  ];
+
+  const forDay = (dayIso: string) =>
+    upcoming
+      .filter((t) => gameDateIsoInEt(t.game.starts_at) === dayIso)
+      .sort((a, b) => a.game.starts_at.localeCompare(b.game.starts_at));
+
+  const todayAll = forDay(todayIso);
+  const tomorrowAll = forDay(tomorrowIso);
+  const todayListed = todayAll.slice(0, maxListed);
+  const tomorrowListed = tomorrowAll.slice(0, maxListed);
+
+  if (todayListed.length === 0 && tomorrowListed.length === 0) return null;
+
+  const parts: CompanionBannerPart[] = [];
+
+  const appendDay = (label: string, listed: Tagged[], total: number) => {
+    if (listed.length === 0) return;
+    parts.push({ kind: 'day', label });
+    for (const item of listed) {
+      parts.push({
+        kind: 'game',
+        team: item.team,
+        text: companionGameChipText(item.teamLabel, item.game),
+      });
+    }
+    const extra = total - listed.length;
+    if (extra > 0) {
+      parts.push({ kind: 'game', team: listed[0].team, text: `+${extra} more` });
+    }
+  };
+
+  appendDay('Today', todayListed, todayAll.length);
+  appendDay('Tomorrow', tomorrowListed, tomorrowAll.length);
+
+  return { parts };
+}
+
+export function companionBannerSepBefore(
+  index: number,
+  parts: CompanionGameDayBanner['parts'],
+): boolean {
+  if (index === 0) return false;
+  const prev = parts[index - 1];
+  const curr = parts[index];
+  if (curr.kind === 'day') return true;
+  if (prev.kind === 'day') return false;
+  return true;
+}
+
 export function formatBruinsTvLine(networks: string[]): string {
   if (!networks.length) return '';
   return `TV · ${networks.join(' · ')}`;

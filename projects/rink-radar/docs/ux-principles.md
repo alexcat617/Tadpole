@@ -33,7 +33,7 @@ These reflect the current app behavior. The PRD still describes geolocation, rad
 | Status & feedback | Search loading state; results region `aria-live`; show schedule **Updated** when data exists; disabled buttons reflect state | Informative feedback | Visibility of system status |
 | User control | Explicit search and clear; expand/collapse session details; no surprise navigation or auto-submit | Locus of control; easy reversal | User control and freedom |
 | Closure | Search completes → list or empty state; clear → back to “pick and search” prompt | Dialog yields closure | (supports status) |
-| Consistency | Primary search CTA (**Find next session**: gold-outline on white); blue fill only for **Share with friend**; secondary outline buttons elsewhere; one card/accordion pattern. Chrome uses Bruins-inspired ink + gold (header, tabs)—reference colors only, no logos. | Strive for consistency | Consistency and standards |
+| Consistency | Primary search CTA (**Find Ice**: gold-outline on white); blue fill only for **Share with friend**; secondary outline buttons elsewhere; one card/accordion pattern. Chrome uses Bruins-inspired ink + gold (header, tabs)—reference colors only, no logos. | Strive for consistency | Consistency and standards |
 | Errors | Plain language; recover by retrying search or changing date/activity; do not show wrong times (NFR-1) | Simple error handling | Help recover from errors; error prevention |
 | Recognition | Collapsed cards show recognizable fields (rink name, time); details on expand | Reduce memory load | Recognition rather than recall |
 | Real-world language | “Public skate”, “Adult hockey”, rink names; avoid internal schema labels in UI | — | Match between system and real world |

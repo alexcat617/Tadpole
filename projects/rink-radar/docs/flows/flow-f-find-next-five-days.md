@@ -1,11 +1,11 @@
-# Flow F — Find next session (five-day window)
+# Flow F — Find Ice (five-day window)
 
 **Feedback:** “I want to see more than just one result” (next available).  
 **Priority:** P1 · **Personas:** Chris, Jordan
 
 ## Summary
 
-**Find next session** loads upcoming sessions across **five calendar days** starting from the first day with any matching session (respecting activity, radius, and rink filter). Each day with sessions gets a day header and list; days with zero sessions are skipped within the scan window.
+**Find Ice** loads upcoming sessions across **five calendar days** starting from the first day with any matching session (respecting activity, radius, and rink filter). Each day with sessions gets a day header and list; days with zero sessions are skipped within the scan window.
 
 ## Entry & preconditions
 
@@ -34,7 +34,7 @@ stateDiagram-v2
 ## Happy path
 
 1. User selects activity (Public skate or Stick & puck).
-2. User taps **Find next session**.
+2. User taps **Find Ice**.
 3. App fetches sessions; computes `startDate` = first calendar day ≥ today with ≥1 qualifying session.
 4. App collects sessions on `startDate` … `startDate+4` (five days total calendar span from startDate).
 5. Results region renders **one header block per day** that has sessions (reuse `results-day-header` + list).
@@ -61,16 +61,16 @@ stateDiagram-v2
 
 | Trigger | User sees | Recovery |
 | --- | --- | --- |
-| Fetch failure | Could not load schedules. Try again. | Retry Find next |
+| Fetch failure | Could not load schedules. Try again. | Retry Find Ice |
 | All sessions today ended | startDate rolls to tomorrow automatically | — |
 | Rink scrape stale | Fewer rows; **Updated** timestamp in header | Official link in card |
-| User clears mid-scroll | Returns to idle | Find next again |
+| User clears mid-scroll | Returns to idle | Find Ice again |
 
 ## Copy inventory
 
 | Element | Copy |
 | --- | --- |
-| CTA (keep v1) | Find next session |
+| CTA (keep v1) | Find Ice |
 | Empty (proposed) | No upcoming {activity} in the next five days for your rinks. |
 | Day kicker | {Activity} · Today / Tomorrow / In N days (existing helper) |
 
