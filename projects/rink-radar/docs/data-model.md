@@ -71,6 +71,22 @@ See [`data/bruins-schedule.example.json`](../data/bruins-schedule.example.json).
 
 Same **`games[]` shape** as Bruins companion. Optional `team_label` for drawer heading. Fetched in scrape from UNH’s [text schedule](https://unhwildcats.com/sports/mens-ice-hockey/schedule/text) HTML table (Sidearm NextGen SSR); retains last good file on failure. Copied to `app/public/data/wildcats-schedule.json`.
 
+## `dover-varsity-schedule.json` — Dover HS varsity hockey (companion)
+
+Boys and girls varsity from [Arbiter Live](https://arbiterlive.com/) team schedule pages (see [companion-schedule-intake.md](./companion-schedule-intake.md)). Copied to `app/public/data/dover-varsity-schedule.json`.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `team_label` | string | Drawer heading when only Dover is shown |
+| `season_label` / `season_slug` | string | NH HS season span |
+| `generated_at` | string | ISO datetime of last fetch |
+| `source_url` | string | Primary official link (boys page) |
+| `source_urls` | object | `{ "boys", "girls" }` Arbiter schedule URLs |
+| `squads` | object | `{ "boys", "girls" }` each `{ "label", "games" }` |
+| `games` | array | Merged sorted list (same game shape as Bruins; optional `squad`: `boys` \| `girls`) |
+
+Scraper: `dover-varsity-schedule.mjs`; last-good retention on failure.
+
 ## `programs.json` — Arena programs (editorial)
 
 Multi-week leagues and drop-in **programs** (not day-by-day scrape rows). Copied to `app/public/data/programs.json`. Maintained manually from rink program pages.

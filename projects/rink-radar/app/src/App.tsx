@@ -3,6 +3,7 @@ import type {
   Activity,
   BruinsScheduleFile,
   CompanionScheduleFile,
+  DoverVarsityScheduleFile,
   ProgramsFile,
   Rink,
   Session,
@@ -49,7 +50,9 @@ const ACTIVITY_FILTERS: ActivityFilter[] = ['public_skate', 'stick_puck'];
 
 type AppView = 'sessions' | 'programs';
 
-type CompanionScheduleTab = 'wildcats' | 'bruins';
+type CompanionScheduleTab = 'wildcats' | 'bruins' | 'doverVarsity';
+
+type DoverSquadTab = 'boys' | 'girls';
 
 function todayInZone(): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
@@ -73,8 +76,11 @@ export default function App() {
   const [rinksSearchOpen, setRinksSearchOpen] = useState(false);
   const [schedulesDrawerOpen, setSchedulesDrawerOpen] = useState(false);
   const [companionScheduleTab, setCompanionScheduleTab] = useState<CompanionScheduleTab>('bruins');
+  const [doverSquadTab, setDoverSquadTab] = useState<DoverSquadTab>('boys');
   const [bruinsScheduleFile, setBruinsScheduleFile] = useState<BruinsScheduleFile | null>(null);
   const [wildcatsScheduleFile, setWildcatsScheduleFile] = useState<CompanionScheduleFile | null>(null);
+  const [doverVarsityScheduleFile, setDoverVarsityScheduleFile] =
+    useState<DoverVarsityScheduleFile | null>(null);
   const [programsFile, setProgramsFile] = useState<ProgramsFile | null>(null);
   const [programAudienceFilter, setProgramAudienceFilter] = useState<ProgramAudienceFilter>('all');
   const [selectedRinkIds, setSelectedRinkIds] = useState<Set<string>>(() => new Set());
@@ -157,6 +163,16 @@ export default function App() {
       })
       .then((schedule: CompanionScheduleFile) => {
         if (schedule.games?.length) setWildcatsScheduleFile(schedule);
+      })
+      .catch(() => {});
+
+    fetch(`${DATA_BASE}/dover-varsity-schedule.json`)
+      .then((r) => {
+        if (!r.ok) throw new Error('dover-varsity');
+        return r.json();
+      })
+      .then((schedule: DoverVarsityScheduleFile) => {
+        if (schedule.games?.length) setDoverVarsityScheduleFile(schedule);
       })
       .catch(() => {});
 
@@ -479,17 +495,56 @@ export default function App() {
     [wildcatsScheduleFile],
   );
 
+  const doverBoysGamesByMonth = useMemo(
+    () =>
+      doverVarsityScheduleFile?.squads?.boys?.games?.length
+        ? groupBruinsGamesByMonth(doverVarsityScheduleFile.squads.boys.games)
+        : [],
+    [doverVarsityScheduleFile],
+  );
+
+  const doverGirlsGamesByMonth = useMemo(
+    () =>
+      doverVarsityScheduleFile?.squads?.girls?.games?.length
+        ? groupBruinsGamesByMonth(doverVarsityScheduleFile.squads.girls.games)
+        : [],
+    [doverVarsityScheduleFile],
+  );
+
   const hasWildcatsSchedule = (wildcatsScheduleFile?.games.length ?? 0) > 0;
   const hasBruinsSchedule = (bruinsScheduleFile?.games.length ?? 0) > 0;
-  const hasAnyCompanionSchedule = hasWildcatsSchedule || hasBruinsSchedule;
-  const showCompanionScheduleToggle = hasWildcatsSchedule && hasBruinsSchedule;
+  const hasDoverVarsitySchedule = (doverVarsityScheduleFile?.games.length ?? 0) > 0;
+  const hasDoverBoysSchedule =
+    (doverVarsityScheduleFile?.squads?.boys?.games?.length ?? 0) > 0;
+  const hasDoverGirlsSchedule =
+    (doverVarsityScheduleFile?.squads?.girls?.games?.length ?? 0) > 0;
+  const showDoverSquadTabs = hasDoverBoysSchedule && hasDoverGirlsSchedule;
+
+  const effectiveDoverSquadTab = useMemo((): DoverSquadTab => {
+    if (doverSquadTab === 'boys' && hasDoverBoysSchedule) return 'boys';
+    if (doverSquadTab === 'girls' && hasDoverGirlsSchedule) return 'girls';
+    if (hasDoverBoysSchedule) return 'boys';
+    return 'girls';
+  }, [doverSquadTab, hasDoverBoysSchedule, hasDoverGirlsSchedule]);
+  const hasAnyCompanionSchedule =
+    hasWildcatsSchedule || hasBruinsSchedule || hasDoverVarsitySchedule;
+  const companionScheduleSourceCount =
+    Number(hasBruinsSchedule) + Number(hasWildcatsSchedule) + Number(hasDoverVarsitySchedule);
+  const showCompanionScheduleTabs = companionScheduleSourceCount >= 2;
 
   const effectiveCompanionTab = useMemo((): CompanionScheduleTab => {
     if (companionScheduleTab === 'bruins' && hasBruinsSchedule) return 'bruins';
     if (companionScheduleTab === 'wildcats' && hasWildcatsSchedule) return 'wildcats';
+    if (companionScheduleTab === 'doverVarsity' && hasDoverVarsitySchedule) return 'doverVarsity';
     if (hasBruinsSchedule) return 'bruins';
-    return 'wildcats';
-  }, [companionScheduleTab, hasWildcatsSchedule, hasBruinsSchedule]);
+    if (hasWildcatsSchedule) return 'wildcats';
+    return 'doverVarsity';
+  }, [
+    companionScheduleTab,
+    hasWildcatsSchedule,
+    hasBruinsSchedule,
+    hasDoverVarsitySchedule,
+  ]);
 
   const companionGameBanner = useMemo(
     () =>
@@ -497,9 +552,16 @@ export default function App() {
         bruinsScheduleFile?.games,
         wildcatsScheduleFile?.games,
         todayInZone(),
+        doverVarsityScheduleFile?.games,
       ),
-    [bruinsScheduleFile, wildcatsScheduleFile],
+    [bruinsScheduleFile, wildcatsScheduleFile, doverVarsityScheduleFile],
   );
+
+  const defaultCompanionTab = useMemo((): CompanionScheduleTab => {
+    if (hasBruinsSchedule) return 'bruins';
+    if (hasWildcatsSchedule) return 'wildcats';
+    return 'doverVarsity';
+  }, [hasBruinsSchedule, hasWildcatsSchedule]);
 
   const toggleSchedulesPanel = useCallback(() => {
     setSchedulesDrawerOpen((open) => {
@@ -507,10 +569,11 @@ export default function App() {
       setAppView('sessions');
       setDateSearchOpen(false);
       setRinksSearchOpen(false);
-      setCompanionScheduleTab(hasBruinsSchedule ? 'bruins' : 'wildcats');
+      setCompanionScheduleTab(defaultCompanionTab);
+      setDoverSquadTab('boys');
       return true;
     });
-  }, [hasBruinsSchedule]);
+  }, [defaultCompanionTab]);
 
   const closeSchedulesPanel = useCallback(() => {
     setSchedulesDrawerOpen(false);
@@ -732,33 +795,49 @@ export default function App() {
             </button>
           </header>
           <div className="bruins-drawer-body side-drawer-body">
-            {showCompanionScheduleToggle ? (
+            {showCompanionScheduleTabs ? (
               <div className="companion-schedule-tabs" role="tablist" aria-label="Schedule team">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={effectiveCompanionTab === 'bruins'}
-                  className={`companion-schedule-tab${effectiveCompanionTab === 'bruins' ? ' active' : ''}`}
-                  onClick={() => setCompanionScheduleTab('bruins')}
-                  disabled={!hasBruinsSchedule}
-                >
-                  Bruins
-                </button>
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={effectiveCompanionTab === 'wildcats'}
-                  className={`companion-schedule-tab${effectiveCompanionTab === 'wildcats' ? ' active' : ''}`}
-                  onClick={() => setCompanionScheduleTab('wildcats')}
-                  disabled={!hasWildcatsSchedule}
-                >
-                  Wildcats
-                </button>
+                {hasBruinsSchedule ? (
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={effectiveCompanionTab === 'bruins'}
+                    className={`companion-schedule-tab${effectiveCompanionTab === 'bruins' ? ' active' : ''}`}
+                    onClick={() => setCompanionScheduleTab('bruins')}
+                  >
+                    Bruins
+                  </button>
+                ) : null}
+                {hasWildcatsSchedule ? (
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={effectiveCompanionTab === 'wildcats'}
+                    className={`companion-schedule-tab${effectiveCompanionTab === 'wildcats' ? ' active' : ''}`}
+                    onClick={() => setCompanionScheduleTab('wildcats')}
+                  >
+                    Wildcats
+                  </button>
+                ) : null}
+                {hasDoverVarsitySchedule ? (
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={effectiveCompanionTab === 'doverVarsity'}
+                    className={`companion-schedule-tab${effectiveCompanionTab === 'doverVarsity' ? ' active' : ''}`}
+                    onClick={() => {
+                      setCompanionScheduleTab('doverVarsity');
+                      setDoverSquadTab('boys');
+                    }}
+                  >
+                    Dover Varsity
+                  </button>
+                ) : null}
               </div>
             ) : null}
             {effectiveCompanionTab === 'wildcats' && hasWildcatsSchedule && wildcatsScheduleFile ? (
               <section className="companion-schedule-section" aria-label="UNH Wildcats">
-                {!showCompanionScheduleToggle ? (
+                {!showCompanionScheduleTabs ? (
                   <h3 className="companion-schedule-heading">
                     {wildcatsScheduleFile.team_label ?? "UNH Wildcats men's hockey"}
                   </h3>
@@ -774,7 +853,7 @@ export default function App() {
             ) : null}
             {effectiveCompanionTab === 'bruins' && hasBruinsSchedule && bruinsScheduleFile ? (
               <section className="companion-schedule-section" aria-label="Boston Bruins">
-                {!showCompanionScheduleToggle ? (
+                {!showCompanionScheduleTabs ? (
                   <h3 className="companion-schedule-heading">
                     Bruins {bruinsScheduleFile.season_label}
                   </h3>
@@ -785,6 +864,109 @@ export default function App() {
                   <a href={bruinsScheduleFile.source_url} target="_blank" rel="noreferrer">
                     Official Bruins schedule
                   </a>
+                </p>
+              </section>
+            ) : null}
+            {effectiveCompanionTab === 'doverVarsity' &&
+            hasDoverVarsitySchedule &&
+            doverVarsityScheduleFile ? (
+              <section className="companion-schedule-section" aria-label="Dover varsity hockey">
+                {!showCompanionScheduleTabs ? (
+                  <h3 className="companion-schedule-heading">
+                    {doverVarsityScheduleFile.team_label ?? 'Dover varsity hockey'}{' '}
+                    {doverVarsityScheduleFile.season_label}
+                  </h3>
+                ) : null}
+                {showDoverSquadTabs ? (
+                  <div
+                    className="program-audience-segmented companion-squad-audience"
+                    role="tablist"
+                    aria-label="Dover varsity squad"
+                  >
+                    {(
+                      [
+                        ['boys', 'Boys'],
+                        ['girls', 'Girls'],
+                      ] as const
+                    ).map(([value, label]) => (
+                      <button
+                        key={value}
+                        type="button"
+                        role="tab"
+                        aria-selected={effectiveDoverSquadTab === value}
+                        className={`program-audience-btn${effectiveDoverSquadTab === value ? ' active' : ''}`}
+                        onClick={() => setDoverSquadTab(value)}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                ) : !showCompanionScheduleTabs ? (
+                  <h4 className="companion-schedule-squad-title">
+                    {effectiveDoverSquadTab === 'boys'
+                      ? doverVarsityScheduleFile.squads.boys.label
+                      : doverVarsityScheduleFile.squads.girls.label}
+                  </h4>
+                ) : null}
+                {effectiveDoverSquadTab === 'boys' ? (
+                  hasDoverBoysSchedule ? (
+                    renderCompanionMonthGroups(doverBoysGamesByMonth)
+                  ) : (
+                    <p className="muted small">
+                      Schedule unavailable.{' '}
+                      <a
+                        href={
+                          doverVarsityScheduleFile.source_urls?.boys ??
+                          doverVarsityScheduleFile.source_url
+                        }
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Check official boys schedule
+                      </a>
+                    </p>
+                  )
+                ) : hasDoverGirlsSchedule ? (
+                  renderCompanionMonthGroups(doverGirlsGamesByMonth)
+                ) : (
+                  <p className="muted small">
+                    Schedule unavailable.{' '}
+                    <a
+                      href={
+                        doverVarsityScheduleFile.source_urls?.girls ??
+                        doverVarsityScheduleFile.source_url
+                      }
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Check official girls schedule
+                    </a>
+                  </p>
+                )}
+                <p className="bruins-schedule-footer muted small">
+                  Not affiliated with NHIAA or Dover School District.{' '}
+                  {doverVarsityScheduleFile.source_urls?.boys ? (
+                    <a
+                      href={doverVarsityScheduleFile.source_urls.boys}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Boys schedule
+                    </a>
+                  ) : null}
+                  {doverVarsityScheduleFile.source_urls?.boys &&
+                  doverVarsityScheduleFile.source_urls?.girls ? (
+                    <span aria-hidden="true"> · </span>
+                  ) : null}
+                  {doverVarsityScheduleFile.source_urls?.girls ? (
+                    <a
+                      href={doverVarsityScheduleFile.source_urls.girls}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Girls schedule
+                    </a>
+                  ) : null}
                 </p>
               </section>
             ) : null}
@@ -809,21 +991,28 @@ export default function App() {
       </button>
     ) : null;
 
-  const shellClassName = `app-shell${
+  const shellClassName = `app-shell app-shell--site-footer${
     showSchedulesFabOnView && !schedulesDrawerOpen ? ' app-shell--bottom-fab' : ''
   }`;
+
+  const siteFooter = (
+    <footer className="site-footer" role="contentinfo">
+      {schedulesUpdated ? (
+        <time className="site-footer-updated" dateTime={schedulesUpdated.iso}>
+          Updated {schedulesUpdated.label}
+        </time>
+      ) : (
+        <span className="site-footer-updated">Schedule data loading…</span>
+      )}
+      <p className="site-footer-trust">Schedules change — confirm with the rink before you go.</p>
+    </footer>
+  );
 
   const topBar = (
     <header className="top-bar" role="banner">
       <div className="top-bar-inner">
         <div className="header-titles">
           <h1 className="header-region">Seacoast ice</h1>
-          <p className="header-app-name">Rink Radar</p>
-          {schedulesUpdated && (
-            <time className="header-updated" dateTime={schedulesUpdated.iso}>
-              Updated {schedulesUpdated.label}
-            </time>
-          )}
         </div>
         <div className="header-actions">
           {showProgramsNav ? (
@@ -865,6 +1054,7 @@ export default function App() {
         {rinksDrawer}
         {schedulesDrawer}
         {schedulesFab}
+        {siteFooter}
       </div>
     );
   }
@@ -879,6 +1069,7 @@ export default function App() {
         {rinksDrawer}
         {schedulesDrawer}
         {schedulesFab}
+        {siteFooter}
       </div>
     );
   }
@@ -1059,7 +1250,7 @@ export default function App() {
       <section className="controls" aria-label="Find sessions">
         <div className="controls-group controls-group--types">
           <p className="controls-label" id="activity-label">
-            Session type
+            I want to…
           </p>
           <div
             className="activity-segmented"
@@ -1316,16 +1507,13 @@ export default function App() {
           })
         )}
       </section>
-
-      {hasSearched && totalResultRows.length > 0 ? (
-        <p className="disclaimer">Schedules change — confirm with the rink before you go.</p>
-      ) : null}
         </>
       )}
       </main>
       {rinksDrawer}
       {schedulesDrawer}
       {schedulesFab}
+      {siteFooter}
     </div>
   );
 }

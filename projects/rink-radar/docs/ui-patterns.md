@@ -39,8 +39,9 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Activity tabs
 
+- **Label:** **I want to…** (`#activity-label` → segmented control).
 - Two equal-weight options: **Public skate**, **Stick & puck** (adult leagues/programs live under **Programs**, not the slider).
-- **Layout:** Primary filter control—larger track padding and tab type (`~0.88rem`) so session type dominates the controls block.
+- **Layout:** Primary filter control—larger track padding and tab type (`~0.88rem`) so the activity choice dominates the controls block.
 - **States:** Selected = ink fill (`--rr-ink`) + gold label (`--rr-gold`); unselected = transparent on gray track + dark text.
 - **Responsive:** `flex-wrap` on narrow screens; `min-width` on each tab so labels stay readable.
 - **A11y:** `role="tablist"` / `role="tab"`, `aria-selected`.
@@ -55,7 +56,9 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Rinks in search
 
-- **Header control:** **My rinks · N** in the sticky top bar (upper right, above or beside **Updated**).
+- **Header:** **Seacoast ice** title plus **Programs** / **Rinks** actions (no product subtitle in the bar).
+- **Footer (always on):** schedule **Updated** time and confirm-with-rink trust line; sits above the **Schedules** FAB when shown.
+- **Header control:** **My rinks · N** in the sticky top bar (upper right).
 - **Right drawer:** Opens over the full page (~**80%** viewport width from the right); the left strip is a dimmed backdrop.
 - **Close:** Tap backdrop, **×** in drawer header, or **Escape**; body scroll is locked while open.
 - List pilot/active rinks within the search radius (nearest first); name, city, checkbox only (no scrape-health badges).
@@ -73,11 +76,12 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Bruins schedule (companion)
 
-- **FAB:** Fixed bottom-right (`z-index: 28`), ink + gold label **Schedules**; hidden when schedule JSON missing or drawer open.
+- **FAB:** Fixed bottom-right (`z-index: 28`), ink + gold label **Schedules**; hidden when all companion JSON files are empty, on Programs view, or when drawer open.
+- **Tabs:** Text tabs for each companion with data (Bruins, Wildcats, Dover Varsity); wrap on narrow widths; tab bar hidden when only one source has games.
 - **Drawer footer:** Minimal **Hype** pill plays `public/sounds/hype.wav` with burst animation; only visible while the schedules drawer is open.
 - **Right drawer:** Same **side drawer** pattern as My rinks (`z-index: 40`, ~80% width, backdrop, Escape, scroll lock).
-- **Content:** Games grouped by month; home/away badge, venue, **TV · NESN / national** line when data exists; past games muted.
-- **Disclaimer:** Not affiliated with NHL/Bruins; link to official schedule.
+- **Content:** Games grouped by month; home/away badge, venue, **TV · NESN / national** line when data exists (Bruins); past games muted. Dover tab: **Boys | Girls** toggle when both squads have data.
+- **Disclaimer:** Per source (NHL/Bruins, UNH/NCAA, NHIAA/Dover); links to official schedule pages.
 - **Exclusion:** Only one overlay at a time (My rinks, Search by date panel, Schedules drawer).
 - **Shell:** `.app-shell--bottom-fab` adds extra bottom padding on `.app` so content clears the Schedules FAB.
 

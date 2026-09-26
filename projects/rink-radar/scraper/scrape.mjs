@@ -13,6 +13,7 @@ import {
 } from './lib/churchill-rss.mjs';
 import { scrapeBruinsSchedule } from './lib/bruins-schedule.mjs';
 import { scrapeWildcatsSchedule } from './lib/wildcats-schedule.mjs';
+import { scrapeDoverVarsitySchedule } from './lib/dover-varsity-schedule.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -25,6 +26,8 @@ const bruinsOut = path.join(root, 'data', 'bruins-schedule.json');
 const publicBruinsOut = path.join(root, 'app', 'public', 'data', 'bruins-schedule.json');
 const wildcatsOut = path.join(root, 'data', 'wildcats-schedule.json');
 const publicWildcatsOut = path.join(root, 'app', 'public', 'data', 'wildcats-schedule.json');
+const doverVarsityOut = path.join(root, 'data', 'dover-varsity-schedule.json');
+const publicDoverVarsityOut = path.join(root, 'app', 'public', 'data', 'dover-varsity-schedule.json');
 
 const registry = JSON.parse(fs.readFileSync(rinksPath, 'utf8'));
 const fetchedAt = DateTime.now().setZone('America/New_York').toISO();
@@ -283,6 +286,15 @@ const wildcatsSchedule = await scrapeWildcatsSchedule(wildcatsOut, fs.readFileSy
 fs.writeFileSync(wildcatsOut, JSON.stringify(wildcatsSchedule, null, 2));
 fs.writeFileSync(publicWildcatsOut, JSON.stringify(wildcatsSchedule, null, 2));
 
+const doverVarsitySchedule = await scrapeDoverVarsitySchedule(doverVarsityOut, fs.readFileSync);
+fs.writeFileSync(doverVarsityOut, JSON.stringify(doverVarsitySchedule, null, 2));
+fs.writeFileSync(publicDoverVarsityOut, JSON.stringify(doverVarsitySchedule, null, 2));
+
 console.log(`Wrote ${output.sessions.length} sessions to ${outPath}`);
 console.log(`Wrote ${bruinsSchedule.games?.length ?? 0} Bruins games to ${bruinsOut}`);
 console.log(`Wrote ${wildcatsSchedule.games?.length ?? 0} UNH games to ${wildcatsOut}`);
+const doverBoys = doverVarsitySchedule.squads?.boys?.games?.length ?? 0;
+const doverGirls = doverVarsitySchedule.squads?.girls?.games?.length ?? 0;
+console.log(
+  `Wrote ${doverVarsitySchedule.games?.length ?? 0} Dover varsity games (${doverBoys} boys, ${doverGirls} girls) to ${doverVarsityOut}`,
+);

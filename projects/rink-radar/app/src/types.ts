@@ -73,6 +73,28 @@ export interface BruinsGame {
   venue: string;
   game_state: string;
   tv_networks: string[];
+  /** Dover varsity companion: boys or girls squad */
+  squad?: 'boys' | 'girls';
+}
+
+export interface DoverVarsitySquadSchedule {
+  label: string;
+  games: BruinsGame[];
+}
+
+export interface DoverVarsityScheduleFile {
+  team_label?: string;
+  season_label: string;
+  season_slug: string;
+  generated_at: string;
+  source_url: string;
+  source_urls?: { boys: string; girls: string };
+  squads: {
+    boys: DoverVarsitySquadSchedule;
+    girls: DoverVarsitySquadSchedule;
+  };
+  games: BruinsGame[];
+  error?: string;
 }
 
 export interface BruinsScheduleFile {
