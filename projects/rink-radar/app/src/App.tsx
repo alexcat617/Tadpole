@@ -991,7 +991,9 @@ export default function App() {
       </button>
     ) : null;
 
-  const shellClassName = `app-shell app-shell--site-footer${
+  const showSiteFooter = appView !== 'programs';
+
+  const shellClassName = `app-shell${showSiteFooter ? ' app-shell--site-footer' : ''}${
     showSchedulesFabOnView && !schedulesDrawerOpen ? ' app-shell--bottom-fab' : ''
   }`;
 
@@ -1053,8 +1055,8 @@ export default function App() {
         </main>
         {rinksDrawer}
         {schedulesDrawer}
+        {showSiteFooter ? siteFooter : null}
         {schedulesFab}
-        {siteFooter}
       </div>
     );
   }
@@ -1068,8 +1070,8 @@ export default function App() {
         </main>
         {rinksDrawer}
         {schedulesDrawer}
+        {showSiteFooter ? siteFooter : null}
         {schedulesFab}
-        {siteFooter}
       </div>
     );
   }
@@ -1512,8 +1514,8 @@ export default function App() {
       </main>
       {rinksDrawer}
       {schedulesDrawer}
+      {showSiteFooter ? siteFooter : null}
       {schedulesFab}
-      {siteFooter}
     </div>
   );
 }
