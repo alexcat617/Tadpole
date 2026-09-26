@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-09-25T13:35:33.282-04:00",
+  "generated_at": "2026-09-26T11:19:48.365-04:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -48,7 +48,7 @@
       "opponent_name": "Capitals",
       "is_home": false,
       "venue": "Capital One Arena",
-      "game_state": "FUT",
+      "game_state": "FINAL",
       "tv_networks": [
         "NESN"
       ]
