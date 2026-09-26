@@ -1,18 +1,43 @@
-# Flow E — Schedules companion (Bruins + UNH Wildcats)
+# Flow E — Schedules companion (Bruins, UNH Wildcats, Dover varsity)
 
 **Feedback:** “It would be nice to see the wildcats schedule too.”  
 **Priority:** P2 · **Persona:** Chris (primary)
 
 ## Summary
 
-Bottom **Schedules** FAB opens a drawer with a **Wildcats | Bruins** toggle; one team’s games shown at a time (not stacked scroll). **Hype** lives in the drawer footer.
+Bottom **Schedules** FAB opens a drawer with text tabs for each companion source that has data (**Bruins**, **Wildcats**, **Dover Varsity**). One source’s content shown at a time (not stacked across tabs). **Dover Varsity** uses **Boys | Girls** inner tabs when both squads have games. **Hype** lives in the drawer footer.
 
 ## Entry & preconditions
 
 | Precondition | If false |
 | --- | --- |
-| At least one of `bruins-schedule.json`, `wildcats-schedule.json` has games | Hide Schedules FAB entirely |
-| User on any main view | Schedules FAB visible (sessions or programs) |
+| At least one companion JSON (`bruins-schedule.json`, `wildcats-schedule.json`, `dover-varsity-schedule.json`) has games | Hide Schedules FAB entirely |
+| User on sessions view (not Programs) | Schedules FAB hidden on Programs |
+
+## Happy path
+
+1. User taps **Schedules** FAB.
+2. Drawer opens; scroll locked on body.
+3. If **≥ 2** sources have data: tab bar lists each available source; default **Bruins** when present, else Wildcats, else Dover Varsity.
+4. Active tab shows that source’s games by month (TV line for Bruins when present); past games muted.
+5. Dover tab: **Boys | Girls** inner tabs when both squads have games; otherwise single squad list. Footer links to each Arbiter page.
+6. User closes drawer → returns to prior view.
+
+## Tab bar
+
+| Sources with games | Tabs shown |
+| --- | --- |
+| 1 | No tab bar; section heading only |
+| 2+ | One tab per non-empty source |
+
+## Copy inventory (additions)
+
+| Element | Copy |
+| --- | --- |
+| Dover tab | Dover Varsity |
+| Dover squad headings | Boys varsity · Girls varsity |
+| Dover disclaimer | Not affiliated with NHIAA or Dover School District. |
+| Dover footer links | Boys schedule · Girls schedule |
 
 ## States
 
@@ -89,5 +114,7 @@ stateDiagram-v2
 ## Dependencies
 
 - `wildcats-schedule.mjs` + data file
+- `dover-varsity-schedule.mjs` + `dover-varsity-schedule.json`
 - Refactor Bruins-only UI in `App.tsx` to shared drawer
 - `scraping-policy.md` + `data-model.md` updates
+- Candidate sources: [companion-schedule-intake.md](../companion-schedule-intake.md)

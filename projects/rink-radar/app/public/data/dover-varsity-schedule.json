@@ -1,0 +1,773 @@
+{
+  "team_label": "Dover varsity hockey",
+  "season_label": "2026–27",
+  "season_slug": "20262027",
+  "generated_at": "2026-09-26T14:55:50.534-04:00",
+  "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
+  "source_urls": {
+    "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
+    "girls": "https://arbiterlive.com/Teams/Schedule/11761173?activeEntityId=6087"
+  },
+  "squads": {
+    "boys": {
+      "label": "Boys varsity",
+      "games": [
+        {
+          "id": "boys-102201428",
+          "starts_at": "2026-12-16T12:00:00.000-05:00",
+          "opponent_abbr": "LHS",
+          "opponent_name": "Londonderry High School",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201442",
+          "starts_at": "2026-12-19T12:00:00.000-05:00",
+          "opponent_abbr": "WHS",
+          "opponent_name": "Windham High School",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201454",
+          "starts_at": "2026-12-23T19:30:00.000-05:00",
+          "opponent_abbr": "CHS",
+          "opponent_name": "Concord High School",
+          "is_home": false,
+          "venue": "Concord - Everett Arena Everett Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201632",
+          "starts_at": "2027-01-02T17:45:00.000-05:00",
+          "opponent_abbr": "PA",
+          "opponent_name": "Pinkerton Academy",
+          "is_home": false,
+          "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201463",
+          "starts_at": "2027-01-06T12:00:00.000-05:00",
+          "opponent_abbr": "SHS",
+          "opponent_name": "Spaulding High School",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102166125",
+          "starts_at": "2027-01-09T17:30:00.000-05:00",
+          "opponent_abbr": "BERL",
+          "opponent_name": "Berlin-Gorham",
+          "is_home": false,
+          "venue": "Notre Dame Arena Notre Dame Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201488",
+          "starts_at": "2027-01-13T12:00:00.000-05:00",
+          "opponent_abbr": "BGHS",
+          "opponent_name": "Bishop Guertin High School",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201503",
+          "starts_at": "2027-01-16T19:30:00.000-05:00",
+          "opponent_abbr": "BHS",
+          "opponent_name": "Bow High School",
+          "is_home": false,
+          "venue": "Bow HS Everett Arena, Concord",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201509",
+          "starts_at": "2027-01-18T13:00:00.000-05:00",
+          "opponent_abbr": "STAH",
+          "opponent_name": "St. Thomas Aquinas High School",
+          "is_home": false,
+          "venue": "St Thomas High School Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201519",
+          "starts_at": "2027-01-20T12:00:00.000-05:00",
+          "opponent_abbr": "KHS",
+          "opponent_name": "Keene High School",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201543",
+          "starts_at": "2027-01-27T12:00:00.000-05:00",
+          "opponent_abbr": "SHS",
+          "opponent_name": "Salem High School",
+          "is_home": false,
+          "venue": "Salem High School - NH Varsity Baseball Field",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201555",
+          "starts_at": "2027-01-30T12:00:00.000-05:00",
+          "opponent_abbr": "HHSN",
+          "opponent_name": "Hanover High School -NH",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201583",
+          "starts_at": "2027-02-06T12:00:00.000-05:00",
+          "opponent_abbr": "EHS",
+          "opponent_name": "Exeter High School",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201592",
+          "starts_at": "2027-02-10T19:00:00.000-05:00",
+          "opponent_abbr": "ORHS",
+          "opponent_name": "Oyster River High School",
+          "is_home": false,
+          "venue": "Oyster River High School Baseball Diamond",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201647",
+          "starts_at": "2027-02-15T18:30:00.000-05:00",
+          "opponent_abbr": "NORT",
+          "opponent_name": "North-South",
+          "is_home": true,
+          "venue": "Dover Ice Arena Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201620",
+          "starts_at": "2027-02-17T12:00:00.000-05:00",
+          "opponent_abbr": "MC",
+          "opponent_name": "Man. Central-West-Memorial",
+          "is_home": false,
+          "venue": "Manchester High School Central Manchester Central",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-102201656",
+          "starts_at": "2027-02-27T12:00:00.000-05:00",
+          "opponent_abbr": "BHSN",
+          "opponent_name": "Bedford High School -NH",
+          "is_home": true,
+          "venue": "Dover - Dunaway",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        }
+      ]
+    },
+    "girls": {
+      "label": "Girls varsity",
+      "games": [
+        {
+          "id": "girls-102488691",
+          "starts_at": "2026-12-16T20:00:00.000-05:00",
+          "opponent_abbr": "BGHS",
+          "opponent_name": "Bishop Guertin High School",
+          "is_home": true,
+          "venue": "St Thomas High School Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488698",
+          "starts_at": "2026-12-19T17:00:00.000-05:00",
+          "opponent_abbr": "BERL",
+          "opponent_name": "Berlin-Gorham-Kennett",
+          "is_home": false,
+          "venue": "Berlin Senior High School Ham Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488714",
+          "starts_at": "2026-12-21T19:00:00.000-05:00",
+          "opponent_abbr": "OR",
+          "opponent_name": "Oyster River-Portsmouth",
+          "is_home": false,
+          "venue": "Oyster River High School UNH-Whittemore Center",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488721",
+          "starts_at": "2027-01-06T20:00:00.000-05:00",
+          "opponent_abbr": "PA",
+          "opponent_name": "Pinkerton Academy",
+          "is_home": true,
+          "venue": "St Thomas High School Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488723",
+          "starts_at": "2027-01-09T18:50:00.000-05:00",
+          "opponent_abbr": "BB",
+          "opponent_name": "Bishop Brady-Trinity-Bow",
+          "is_home": false,
+          "venue": "Bishop Brady High School Delta Dental Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488735",
+          "starts_at": "2027-01-13T12:00:00.000-05:00",
+          "opponent_abbr": "MC",
+          "opponent_name": "Man. Central-West-Memorial",
+          "is_home": false,
+          "venue": "Manchester High School Central Manchester Central",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488746",
+          "starts_at": "2027-01-18T17:30:00.000-05:00",
+          "opponent_abbr": "SS",
+          "opponent_name": "SNS Storm",
+          "is_home": true,
+          "venue": "St Thomas High School Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488754",
+          "starts_at": "2027-01-20T20:30:00.000-05:00",
+          "opponent_abbr": "OR",
+          "opponent_name": "Oyster River-Portsmouth",
+          "is_home": true,
+          "venue": "St Thomas High School Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488761",
+          "starts_at": "2027-01-22T19:20:00.000-05:00",
+          "opponent_abbr": "PA",
+          "opponent_name": "Pinkerton Academy",
+          "is_home": false,
+          "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488769",
+          "starts_at": "2027-01-27T18:30:00.000-05:00",
+          "opponent_abbr": "SALE",
+          "opponent_name": "Salem-Londonderry-Alvirne",
+          "is_home": true,
+          "venue": "St Thomas High School Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488774",
+          "starts_at": "2027-01-30T19:15:00.000-05:00",
+          "opponent_abbr": "KM",
+          "opponent_name": "Keene-Monadnock-Fall Mtn.",
+          "is_home": true,
+          "venue": "St Thomas High School Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488780",
+          "starts_at": "2027-02-03T04:00:00.000-05:00",
+          "opponent_abbr": "EHS",
+          "opponent_name": "Exeter High School",
+          "is_home": false,
+          "venue": "Phillips Exeter Academy Ice Rink Phillips Exeter",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488788",
+          "starts_at": "2027-02-06T13:00:00.000-05:00",
+          "opponent_abbr": "KM",
+          "opponent_name": "Kingswood-Prospect Mtn.-Plymouth",
+          "is_home": false,
+          "venue": "Kingswood Regional HS Pop Whalen Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488792",
+          "starts_at": "2027-02-10T17:30:00.000-05:00",
+          "opponent_abbr": "CHS",
+          "opponent_name": "Concord High School",
+          "is_home": true,
+          "venue": "St Thomas High School Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488797",
+          "starts_at": "2027-02-13T11:00:00.000-05:00",
+          "opponent_abbr": "BHSN",
+          "opponent_name": "Bedford High School -NH",
+          "is_home": false,
+          "venue": "Saint Anselm Sullivan Ice Arena Saint Anselm Sullivan Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488817",
+          "starts_at": "2027-02-20T18:00:00.000-05:00",
+          "opponent_abbr": "LEBA",
+          "opponent_name": "Lebanon-Kearsarge-Mascoma",
+          "is_home": true,
+          "venue": "St Thomas High School Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        },
+        {
+          "id": "girls-102488565",
+          "starts_at": "2027-02-24T18:30:00.000-05:00",
+          "opponent_abbr": "BERL",
+          "opponent_name": "Berlin-Gorham-Kennett",
+          "is_home": true,
+          "venue": "St Thomas High School Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "girls"
+        }
+      ]
+    }
+  },
+  "games": [
+    {
+      "id": "boys-102201428",
+      "starts_at": "2026-12-16T12:00:00.000-05:00",
+      "opponent_abbr": "LHS",
+      "opponent_name": "Londonderry High School",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488691",
+      "starts_at": "2026-12-16T20:00:00.000-05:00",
+      "opponent_abbr": "BGHS",
+      "opponent_name": "Bishop Guertin High School",
+      "is_home": true,
+      "venue": "St Thomas High School Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201442",
+      "starts_at": "2026-12-19T12:00:00.000-05:00",
+      "opponent_abbr": "WHS",
+      "opponent_name": "Windham High School",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488698",
+      "starts_at": "2026-12-19T17:00:00.000-05:00",
+      "opponent_abbr": "BERL",
+      "opponent_name": "Berlin-Gorham-Kennett",
+      "is_home": false,
+      "venue": "Berlin Senior High School Ham Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "girls-102488714",
+      "starts_at": "2026-12-21T19:00:00.000-05:00",
+      "opponent_abbr": "OR",
+      "opponent_name": "Oyster River-Portsmouth",
+      "is_home": false,
+      "venue": "Oyster River High School UNH-Whittemore Center",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201454",
+      "starts_at": "2026-12-23T19:30:00.000-05:00",
+      "opponent_abbr": "CHS",
+      "opponent_name": "Concord High School",
+      "is_home": false,
+      "venue": "Concord - Everett Arena Everett Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "boys-102201632",
+      "starts_at": "2027-01-02T17:45:00.000-05:00",
+      "opponent_abbr": "PA",
+      "opponent_name": "Pinkerton Academy",
+      "is_home": false,
+      "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "boys-102201463",
+      "starts_at": "2027-01-06T12:00:00.000-05:00",
+      "opponent_abbr": "SHS",
+      "opponent_name": "Spaulding High School",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488721",
+      "starts_at": "2027-01-06T20:00:00.000-05:00",
+      "opponent_abbr": "PA",
+      "opponent_name": "Pinkerton Academy",
+      "is_home": true,
+      "venue": "St Thomas High School Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102166125",
+      "starts_at": "2027-01-09T17:30:00.000-05:00",
+      "opponent_abbr": "BERL",
+      "opponent_name": "Berlin-Gorham",
+      "is_home": false,
+      "venue": "Notre Dame Arena Notre Dame Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488723",
+      "starts_at": "2027-01-09T18:50:00.000-05:00",
+      "opponent_abbr": "BB",
+      "opponent_name": "Bishop Brady-Trinity-Bow",
+      "is_home": false,
+      "venue": "Bishop Brady High School Delta Dental Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201488",
+      "starts_at": "2027-01-13T12:00:00.000-05:00",
+      "opponent_abbr": "BGHS",
+      "opponent_name": "Bishop Guertin High School",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488735",
+      "starts_at": "2027-01-13T12:00:00.000-05:00",
+      "opponent_abbr": "MC",
+      "opponent_name": "Man. Central-West-Memorial",
+      "is_home": false,
+      "venue": "Manchester High School Central Manchester Central",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201503",
+      "starts_at": "2027-01-16T19:30:00.000-05:00",
+      "opponent_abbr": "BHS",
+      "opponent_name": "Bow High School",
+      "is_home": false,
+      "venue": "Bow HS Everett Arena, Concord",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "boys-102201509",
+      "starts_at": "2027-01-18T13:00:00.000-05:00",
+      "opponent_abbr": "STAH",
+      "opponent_name": "St. Thomas Aquinas High School",
+      "is_home": false,
+      "venue": "St Thomas High School Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488746",
+      "starts_at": "2027-01-18T17:30:00.000-05:00",
+      "opponent_abbr": "SS",
+      "opponent_name": "SNS Storm",
+      "is_home": true,
+      "venue": "St Thomas High School Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201519",
+      "starts_at": "2027-01-20T12:00:00.000-05:00",
+      "opponent_abbr": "KHS",
+      "opponent_name": "Keene High School",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488754",
+      "starts_at": "2027-01-20T20:30:00.000-05:00",
+      "opponent_abbr": "OR",
+      "opponent_name": "Oyster River-Portsmouth",
+      "is_home": true,
+      "venue": "St Thomas High School Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "girls-102488761",
+      "starts_at": "2027-01-22T19:20:00.000-05:00",
+      "opponent_abbr": "PA",
+      "opponent_name": "Pinkerton Academy",
+      "is_home": false,
+      "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201543",
+      "starts_at": "2027-01-27T12:00:00.000-05:00",
+      "opponent_abbr": "SHS",
+      "opponent_name": "Salem High School",
+      "is_home": false,
+      "venue": "Salem High School - NH Varsity Baseball Field",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488769",
+      "starts_at": "2027-01-27T18:30:00.000-05:00",
+      "opponent_abbr": "SALE",
+      "opponent_name": "Salem-Londonderry-Alvirne",
+      "is_home": true,
+      "venue": "St Thomas High School Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201555",
+      "starts_at": "2027-01-30T12:00:00.000-05:00",
+      "opponent_abbr": "HHSN",
+      "opponent_name": "Hanover High School -NH",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488774",
+      "starts_at": "2027-01-30T19:15:00.000-05:00",
+      "opponent_abbr": "KM",
+      "opponent_name": "Keene-Monadnock-Fall Mtn.",
+      "is_home": true,
+      "venue": "St Thomas High School Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "girls-102488780",
+      "starts_at": "2027-02-03T04:00:00.000-05:00",
+      "opponent_abbr": "EHS",
+      "opponent_name": "Exeter High School",
+      "is_home": false,
+      "venue": "Phillips Exeter Academy Ice Rink Phillips Exeter",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201583",
+      "starts_at": "2027-02-06T12:00:00.000-05:00",
+      "opponent_abbr": "EHS",
+      "opponent_name": "Exeter High School",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488788",
+      "starts_at": "2027-02-06T13:00:00.000-05:00",
+      "opponent_abbr": "KM",
+      "opponent_name": "Kingswood-Prospect Mtn.-Plymouth",
+      "is_home": false,
+      "venue": "Kingswood Regional HS Pop Whalen Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "girls-102488792",
+      "starts_at": "2027-02-10T17:30:00.000-05:00",
+      "opponent_abbr": "CHS",
+      "opponent_name": "Concord High School",
+      "is_home": true,
+      "venue": "St Thomas High School Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201592",
+      "starts_at": "2027-02-10T19:00:00.000-05:00",
+      "opponent_abbr": "ORHS",
+      "opponent_name": "Oyster River High School",
+      "is_home": false,
+      "venue": "Oyster River High School Baseball Diamond",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488797",
+      "starts_at": "2027-02-13T11:00:00.000-05:00",
+      "opponent_abbr": "BHSN",
+      "opponent_name": "Bedford High School -NH",
+      "is_home": false,
+      "venue": "Saint Anselm Sullivan Ice Arena Saint Anselm Sullivan Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201647",
+      "starts_at": "2027-02-15T18:30:00.000-05:00",
+      "opponent_abbr": "NORT",
+      "opponent_name": "North-South",
+      "is_home": true,
+      "venue": "Dover Ice Arena Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "boys-102201620",
+      "starts_at": "2027-02-17T12:00:00.000-05:00",
+      "opponent_abbr": "MC",
+      "opponent_name": "Man. Central-West-Memorial",
+      "is_home": false,
+      "venue": "Manchester High School Central Manchester Central",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "girls-102488817",
+      "starts_at": "2027-02-20T18:00:00.000-05:00",
+      "opponent_abbr": "LEBA",
+      "opponent_name": "Lebanon-Kearsarge-Mascoma",
+      "is_home": true,
+      "venue": "St Thomas High School Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "girls-102488565",
+      "starts_at": "2027-02-24T18:30:00.000-05:00",
+      "opponent_abbr": "BERL",
+      "opponent_name": "Berlin-Gorham-Kennett",
+      "is_home": true,
+      "venue": "St Thomas High School Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
+      "id": "boys-102201656",
+      "starts_at": "2027-02-27T12:00:00.000-05:00",
+      "opponent_abbr": "BHSN",
+      "opponent_name": "Bedford High School -NH",
+      "is_home": true,
+      "venue": "Dover - Dunaway",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    }
+  ]
+}

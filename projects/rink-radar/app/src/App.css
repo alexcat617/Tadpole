@@ -29,8 +29,44 @@
   flex-direction: column;
 }
 
-.app-shell--bottom-fab .app {
-  padding-bottom: 4.75rem;
+.app-shell--site-footer .app {
+  padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0));
+}
+
+.app-shell--site-footer.app-shell--bottom-fab .app {
+  padding-bottom: calc(7.25rem + env(safe-area-inset-bottom, 0));
+}
+
+.site-footer {
+  position: fixed;
+  z-index: 26;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.4rem 1rem calc(0.45rem + env(safe-area-inset-bottom, 0));
+  background: var(--rr-page);
+  border-top: 1px solid var(--rr-border);
+  text-align: center;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.app-shell--bottom-fab .site-footer {
+  bottom: calc(3.35rem + env(safe-area-inset-bottom, 0));
+}
+
+.site-footer-updated {
+  display: block;
+  font-size: 0.68rem;
+  line-height: 1.3;
+  color: #64748b;
+}
+
+.site-footer-trust {
+  margin: 0.15rem 0 0;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: #64748b;
 }
 
 .top-bar {
@@ -46,7 +82,7 @@
 .top-bar-inner {
   max-width: 32rem;
   margin: 0 auto;
-  padding: 0.55rem 1rem;
+  padding: 0.65rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,6 +109,10 @@
   overflow: hidden;
 }
 
+.app-shell--site-footer .app--programs {
+  padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0));
+}
+
 .app-shell:has(.app--programs) {
   min-height: 100svh;
   max-height: 100svh;
@@ -93,7 +133,7 @@
 
 .header-region {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -1405,10 +1445,23 @@
   border: none;
   background: transparent;
   color: var(--rr-muted);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.3;
   cursor: pointer;
+}
+
+.companion-squad-audience {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  max-width: 14rem;
+}
+
+.companion-schedule-squad-title {
+  margin: 0 0 0.65rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--rr-ink);
 }
 
 .companion-schedule-tab:hover:not(:disabled) {

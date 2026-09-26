@@ -390,7 +390,7 @@ export function isBruinsGamePast(game: BruinsGame): boolean {
   return new Date(game.starts_at).getTime() < Date.now() - 3 * 60 * 60 * 1000;
 }
 
-export type CompanionBannerTeam = 'bruins' | 'wildcats';
+export type CompanionBannerTeam = 'bruins' | 'wildcats' | 'dover';
 
 type CompanionBannerPart =
   | { kind: 'day'; label: string }
@@ -430,11 +430,12 @@ export function companionGameBannerAriaLabel(banner: CompanionGameDayBanner): st
   return banner.parts.map((p) => (p.kind === 'day' ? p.label : p.text)).join(', ');
 }
 
-/** Upcoming Bruins + UNH games today and tomorrow (ET), for a single-line banner. */
+/** Upcoming Bruins + UNH + Dover varsity games today and tomorrow (ET), for a single-line banner. */
 export function buildCompanionGameDayBanner(
   bruinsGames: BruinsGame[] | undefined,
   wildcatsGames: BruinsGame[] | undefined,
   todayIso: string,
+  doverGames?: BruinsGame[] | undefined,
 ): CompanionGameDayBanner | null {
   const tomorrowIso = addCalendarDaysIso(todayIso, 1);
   const maxListed = 2;
@@ -446,6 +447,9 @@ export function buildCompanionGameDayBanner(
     game,
   });
 
+  const doverLabel = (game: BruinsGame) =>
+    game.squad === 'girls' ? 'Dover Girls' : 'Dover Boys';
+
   const upcoming: Tagged[] = [
     ...(bruinsGames ?? [])
       .filter((g) => !isBruinsGamePast(g))
@@ -453,6 +457,9 @@ export function buildCompanionGameDayBanner(
     ...(wildcatsGames ?? [])
       .filter((g) => !isBruinsGamePast(g))
       .map((g) => tag('wildcats', 'UNH', g)),
+    ...(doverGames ?? [])
+      .filter((g) => !isBruinsGamePast(g))
+      .map((g) => tag('dover', doverLabel(g), g)),
   ];
 
   const forDay = (dayIso: string) =>
