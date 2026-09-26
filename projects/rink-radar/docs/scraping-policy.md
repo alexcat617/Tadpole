@@ -44,6 +44,14 @@ City recreation pages are intended for public information. Still:
 - Prefer stable program URLs over authenticated areas.
 - League schedules (e.g. adult league game nights) may be **league property** — attribute the league in UI.
 
+## Arbiter Live — Dover HS varsity (companion)
+
+- **Sources:** Public boys and girls team schedule pages on `arbiterlive.com` (URLs in [companion-schedule-intake.md](./companion-schedule-intake.md)).
+- **Frequency:** Two HTML fetches per daily scrape, **≥ 2 seconds** apart; same User-Agent and timeout defaults as other companions.
+- **robots.txt:** Arbiter publishes `Disallow: /` for all crawlers. For the **Dover pilot**, Rink Radar still fetches these **public, link-out schedule pages** once per day with an identifiable UA and prominent official links in the drawer—not a substitute for Arbiter or school apps. Revisit manual JSON if the host objects.
+- **TLS:** Node may require relaxed certificate verify for this host (same approach as UNH Sidearm); logged once per run.
+- On failure, **retain last good** `dover-varsity-schedule.json`. UI: NHIAA / Dover School District disclaimer; separate boys and girls footer links.
+
 ## Errors
 
 | Situation | Action |
