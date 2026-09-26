@@ -57,7 +57,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 ### Rinks in search
 
 - **Header:** **Seacoast ice** title plus **Programs** / **Rinks** actions (no product subtitle in the bar).
-- **Footer (always on):** schedule **Updated** time and confirm-with-rink trust line; sits above the **Schedules** FAB when shown.
+- **Footer (always on):** schedule **Updated** time and confirm-with-rink trust line; pinned to the bottom of the viewport. **Schedules** FAB sits above the footer (not overlapping it). Hidden on **Programs**.
 - **Header control:** **My rinks · N** in the sticky top bar (upper right).
 - **Right drawer:** Opens over the full page (~**80%** viewport width from the right); the left strip is a dimmed backdrop.
 - **Close:** Tap backdrop, **×** in drawer header, or **Escape**; body scroll is locked while open.

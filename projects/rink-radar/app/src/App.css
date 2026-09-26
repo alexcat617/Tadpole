@@ -29,12 +29,16 @@
   flex-direction: column;
 }
 
+.app-shell--site-footer {
+  --rr-site-footer-height: 3.35rem;
+}
+
 .app-shell--site-footer .app {
-  padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0));
+  padding-bottom: calc(var(--rr-site-footer-height) + env(safe-area-inset-bottom, 0));
 }
 
 .app-shell--site-footer.app-shell--bottom-fab .app {
-  padding-bottom: calc(7.25rem + env(safe-area-inset-bottom, 0));
+  padding-bottom: calc(var(--rr-site-footer-height) + 3.65rem + env(safe-area-inset-bottom, 0));
 }
 
 .site-footer {
@@ -49,10 +53,6 @@
   text-align: center;
   max-width: 32rem;
   margin: 0 auto;
-}
-
-.app-shell--bottom-fab .site-footer {
-  bottom: calc(3.35rem + env(safe-area-inset-bottom, 0));
 }
 
 .site-footer-updated {
@@ -736,6 +736,10 @@
 .bottom-fab:focus-visible {
   outline: 2px solid var(--rr-gold);
   outline-offset: 2px;
+}
+
+.app-shell--site-footer.app-shell--bottom-fab .bottom-fab {
+  bottom: calc(var(--rr-site-footer-height, 3.35rem) + 0.65rem + env(safe-area-inset-bottom, 0));
 }
 
 .schedules-drawer-hype {
