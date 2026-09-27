@@ -1006,7 +1006,16 @@ export default function App() {
       ) : (
         <span className="site-footer-updated">Schedule data loading…</span>
       )}
-      <p className="site-footer-trust">Schedules change — confirm with the rink before you go.</p>
+      <p className="site-footer-credit">
+        Designed and built by{' '}
+        <a
+          href="https://www.linkedin.com/in/alexfarrelldesigner"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Alex Farrell
+        </a>
+      </p>
     </footer>
   );
 
@@ -1468,6 +1477,9 @@ export default function App() {
                       >
                         Open in maps
                       </a>
+                    </p>
+                    <p className="session-details-trust muted small">
+                      Schedules change — confirm with the rink before you go.
                     </p>
                     <p>
                       <a href={session.source_url} target="_blank" rel="noreferrer">

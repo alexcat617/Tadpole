@@ -30,7 +30,7 @@
 }
 
 .app-shell--site-footer {
-  --rr-site-footer-height: 3.35rem;
+  --rr-site-footer-height: 3.85rem;
 }
 
 .app-shell--site-footer .app {
@@ -62,11 +62,22 @@
   color: #64748b;
 }
 
-.site-footer-trust {
-  margin: 0.15rem 0 0;
+.site-footer-credit {
+  margin: 0.2rem 0 0;
   font-size: 0.68rem;
   line-height: 1.35;
   color: #64748b;
+}
+
+.site-footer-credit a {
+  color: var(--rr-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.site-footer-credit a:hover {
+  color: var(--rr-action);
 }
 
 .top-bar {
@@ -1305,6 +1316,12 @@
 
 .session-details p {
   margin: 0 0 0.5rem;
+}
+
+.session-details-trust {
+  margin-top: 0.65rem !important;
+  margin-bottom: 0.35rem !important;
+  line-height: 1.35;
 }
 
 .session-details p:last-child {
