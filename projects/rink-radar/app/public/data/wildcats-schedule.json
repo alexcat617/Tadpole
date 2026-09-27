@@ -2,7 +2,7 @@
   "team_label": "UNH Wildcats men's hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-09-26T15:25:23.678-04:00",
+  "generated_at": "2026-09-27T08:44:07.629-04:00",
   "source_url": "https://unhwildcats.com/sports/mens-ice-hockey/schedule/text",
   "games": [
     {
@@ -272,6 +272,26 @@
       "opponent_name": "UMass",
       "is_home": true,
       "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-02-12T19:00:00.000-05:00-umass",
+      "starts_at": "2027-02-12T19:00:00.000-05:00",
+      "opponent_abbr": "UMAS",
+      "opponent_name": "UMass",
+      "is_home": false,
+      "venue": "Amherst, Mass. (Mullins Center)",
+      "game_state": "FUT",
+      "tv_networks": []
+    },
+    {
+      "id": "2027-02-13T19:00:00.000-05:00-umass",
+      "starts_at": "2027-02-13T19:00:00.000-05:00",
+      "opponent_abbr": "UMAS",
+      "opponent_name": "UMass",
+      "is_home": false,
+      "venue": "Amherst, Mass. (Mullins Center)",
       "game_state": "FUT",
       "tv_networks": []
     },
