@@ -2,14 +2,14 @@
   "team_label": "UNH Wildcats men's hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-09-27T11:57:57.900-04:00",
+  "generated_at": "2026-09-28T14:55:04.720-04:00",
   "source_url": "https://unhwildcats.com/sports/mens-ice-hockey/schedule/text",
   "games": [
     {
-      "id": "2026-10-02T19:00:00.000-04:00-quinnipiac",
+      "id": "2026-10-02T19:00:00.000-04:00-7-quinnipiac",
       "starts_at": "2026-10-02T19:00:00.000-04:00",
-      "opponent_abbr": "QU",
-      "opponent_name": "Quinnipiac",
+      "opponent_abbr": "#7 Q",
+      "opponent_name": "#7 Quinnipiac",
       "is_home": false,
       "venue": "Hamden, Conn. (M&T Bank Arena)",
       "game_state": "FUT",
