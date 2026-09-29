@@ -2,7 +2,7 @@
 
 Official schedule and fee source: [Stick Practice (City of Dover)](http://dover.nh.gov/government/city-operations/recreation/arena/stick-practice/)
 
-Times are posted in **monthly PDFs** linked from that page. Schedules change — call **603-516-6060** to confirm before you go.
+Times are posted in **monthly PDFs** linked from that page. The scraper merges the **two newest distinct months** on the stick-practice page (same as public skate). Schedules change — call **603-516-6060** to confirm before you go.
 
 Dover uses **“stick practice”** session names on the calendar (e.g. **Adult stick**, **Youth stick**, **Parent/tot**). Other rinks may say “stick & puck” or “skate & shoot”; Rink Radar groups these under the **Stick & puck** activity tab.
 

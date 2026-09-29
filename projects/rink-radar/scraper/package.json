@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "scrape": "node scrape.mjs",
-    "test": "node test/dover-pdf.test.mjs"
+    "test": "node --test test/discover-pdf.test.mjs test/dover-pdf.test.mjs test/dover-varsity-schedule.test.mjs"
   },
   "keywords": [],
   "author": "",

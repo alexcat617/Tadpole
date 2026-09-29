@@ -27,7 +27,7 @@ function resolveUrl(pageUrl, href) {
  * @param {string} filename
  * @returns {number}
  */
-function scorePdfFilename(filename) {
+export function scorePdfFilename(filename) {
   const lower = filename.toLowerCase();
   let score = 0;
   for (const [key, month] of Object.entries(MONTH_ORDER)) {
@@ -47,11 +47,36 @@ function scorePdfFilename(filename) {
 }
 
 /**
- * Find the best-matching PDF on a city page (e.g. latest month public skate or stick).
+ * Keep the newest PDFs for up to `maxMonths` distinct calendar months (by filename).
+ * @param {string[]} urls
+ * @param {number} maxMonths
+ */
+export function pickRecentMonthPdfUrls(urls, maxMonths = 2) {
+  const sorted = [...urls].sort((a, b) => {
+    const fa = a.split('/').pop() ?? '';
+    const fb = b.split('/').pop() ?? '';
+    return scorePdfFilename(fb) - scorePdfFilename(fa);
+  });
+  const picked = [];
+  const seenScores = new Set();
+  for (const url of sorted) {
+    const fn = url.split('/').pop() ?? '';
+    const score = scorePdfFilename(fn);
+    if (score <= 0) continue;
+    if (seenScores.has(score)) continue;
+    seenScores.add(score);
+    picked.push(url);
+    if (picked.length >= maxMonths) break;
+  }
+  return picked;
+}
+
+/**
  * @param {string} pageUrl
  * @param {RegExp} hrefPattern
+ * @param {number} [maxMonths]
  */
-export async function discoverLatestPdfUrl(pageUrl, hrefPattern) {
+export async function discoverRecentPdfUrls(pageUrl, hrefPattern, maxMonths = 2) {
   const res = await fetch(pageUrl, {
     headers: { 'User-Agent': 'RinkRadar/1.0 (+https://github.com/alexcat617/Tadpole)' },
   });
@@ -69,10 +94,19 @@ export async function discoverLatestPdfUrl(pageUrl, hrefPattern) {
   if (candidates.size === 0) {
     throw new Error(`No PDF found on ${pageUrl} matching ${hrefPattern}`);
   }
-  const sorted = [...candidates].sort((a, b) => {
-    const fa = a.split('/').pop() ?? '';
-    const fb = b.split('/').pop() ?? '';
-    return scorePdfFilename(fb) - scorePdfFilename(fa);
-  });
-  return sorted[0];
+  const picked = pickRecentMonthPdfUrls([...candidates], maxMonths);
+  if (picked.length === 0) {
+    throw new Error(`No scorable PDF on ${pageUrl} matching ${hrefPattern}`);
+  }
+  return picked;
+}
+
+/**
+ * Find the best-matching PDF on a city page (e.g. latest month public skate or stick).
+ * @param {string} pageUrl
+ * @param {RegExp} hrefPattern
+ */
+export async function discoverLatestPdfUrl(pageUrl, hrefPattern) {
+  const urls = await discoverRecentPdfUrls(pageUrl, hrefPattern, 1);
+  return urls[0];
 }
