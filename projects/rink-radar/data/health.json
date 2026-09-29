@@ -1,11 +1,19 @@
 {
-  "generated_at": "2026-09-29T13:13:03.978-04:00",
+  "generated_at": "2026-09-29T18:51:35.166-04:00",
   "rinks": {
     "dover-arena": {
       "ok": true,
       "public_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-PS-2026.pdf",
+      "public_pdfs": [
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-PS-2026.pdf",
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf"
+      ],
       "stick_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-Stick-26.pdf",
-      "session_count": 49
+      "stick_pdfs": [
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-Stick-26.pdf",
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Stick-26.pdf"
+      ],
+      "session_count": 109
     },
     "churchill-rink-durham": {
       "ok": true,
