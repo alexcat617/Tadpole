@@ -2,7 +2,7 @@
 
 Official schedule and fee source: [Public Skate (City of Dover)](http://dover.nh.gov/government/city-operations/recreation/arena/public-skate/)
 
-Times are posted in **monthly PDFs** linked from that page. Schedules change — call **603-516-6060** to confirm before you go.
+Times are posted in **monthly PDFs** linked from that page. The scraper merges the **two newest distinct months** on each page (e.g. September + October at month-end) so remaining days stay visible after the next calendar is posted. Schedules change — call **603-516-6060** to confirm before you go.
 
 ## Session types on the schedule
 

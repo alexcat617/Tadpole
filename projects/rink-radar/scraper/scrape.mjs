@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { DateTime } from 'luxon';
-import { discoverLatestPdfUrl } from './lib/discover-pdf.mjs';
+import { discoverRecentPdfUrls } from './lib/discover-pdf.mjs';
 import { parseDoverPdfBuffer } from './lib/dover-pdf.mjs';
 import { scrapeRecDeskProgram } from './lib/recdesk.mjs';
 import { scrapeChurchillPage } from './lib/churchill.mjs';
@@ -161,6 +161,26 @@ async function fetchPdfBuffer(url) {
   return Buffer.from(await res.arrayBuffer());
 }
 
+/** @param {Array<{ starts_at: string; activity: string; subtype?: string }>} rows */
+function dedupeDoverRows(rows) {
+  const byKey = new Map();
+  for (const row of rows) {
+    const key = `${row.starts_at}|${row.activity}|${row.subtype ?? ''}`;
+    byKey.set(key, row);
+  }
+  return [...byKey.values()];
+}
+
+/** @param {string[]} pdfUrls @param {'public' | 'stick'} kind */
+async function parseDoverPdfs(pdfUrls, kind) {
+  const merged = [];
+  for (const url of pdfUrls) {
+    const buf = await fetchPdfBuffer(url);
+    merged.push(...(await parseDoverPdfBuffer(buf, kind)));
+  }
+  return dedupeDoverRows(merged);
+}
+
 async function scrapeDover(rink) {
   const publicPage = rink.schedule_sources.find(
     (s) => s.url.includes('public-skate') && s.kind === 'html',
@@ -169,17 +189,15 @@ async function scrapeDover(rink) {
     (s) => s.url.includes('stick-practice') && s.kind === 'html',
   );
 
-  const publicPdf = await discoverLatestPdfUrl(
+  const publicPdfs = await discoverRecentPdfUrls(
     publicPage.url,
     /Ps-|PS-Schedule|public.skate/i,
+    2,
   );
-  const stickPdf = await discoverLatestPdfUrl(stickPage.url, /Stick-|stick/i);
+  const stickPdfs = await discoverRecentPdfUrls(stickPage.url, /Stick-|stick/i, 2);
 
-  const publicBuf = await fetchPdfBuffer(publicPdf);
-  const stickBuf = await fetchPdfBuffer(stickPdf);
-
-  const publicRows = await parseDoverPdfBuffer(publicBuf, 'public');
-  const stickRows = await parseDoverPdfBuffer(stickBuf, 'stick');
+  const publicRows = await parseDoverPdfs(publicPdfs, 'public');
+  const stickRows = await parseDoverPdfs(stickPdfs, 'stick');
 
   const publicPrice = {
     summary: 'Dover resident adult $9 / youth $7 (see rink)',
@@ -187,13 +205,17 @@ async function scrapeDover(rink) {
     currency: 'USD',
     is_free: false,
   };
-  addSessions(rink.id, publicPdf, publicRows, publicPrice);
-  addDoverStickSessions(rink.id, stickPdf, stickRows);
+  const publicSource = publicPdfs[0];
+  const stickSource = stickPdfs[0];
+  addSessions(rink.id, publicSource, publicRows, publicPrice);
+  addDoverStickSessions(rink.id, stickSource, stickRows);
 
   health.rinks[rink.id] = {
     ok: true,
-    public_pdf: publicPdf,
-    stick_pdf: stickPdf,
+    public_pdf: publicSource,
+    public_pdfs: publicPdfs,
+    stick_pdf: stickSource,
+    stick_pdfs: stickPdfs,
     session_count: publicRows.length + stickRows.length,
   };
 }
