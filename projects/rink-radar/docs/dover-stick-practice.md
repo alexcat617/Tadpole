@@ -18,26 +18,13 @@ Not every month lists all three types on the grid. If a type is missing from the
 
 ## Fees (from stick calendar PDF legend)
 
-| Type | Fee |
-| --- | --- |
-| Youth stick | $8.00 |
-| Parent/tot | $8.00 per skater |
-| Adult stick | $12.00 |
-| Adult stick punch pass | $65.00 (not modeled in session rows) |
+Fees are read from each PDF’s colored legend (**YOUTH –ORANGE**, **PARENT/TOT –RED**, **ADULT-BLUE**). They can change month to month (e.g. October 2026 lists **$6 / $6 / $10** where September listed **$8 / $8 / $12**). Punch passes on the PDF are not modeled on session rows.
 
 ## How Rink Radar uses this
 
-The scraper (`scraper/lib/dover-pdf.mjs`) reads each day cell for **Youth stick**, **Parent/tot**, and **Adult stick** lines plus times. The monthly grid often abbreviates **Adult stick** as **ADULT** (time on the next line). Parent/tot times may appear as **`9-1020a`** (hour without a colon on the end time).
+The scraper (`scraper/lib/dover-pdf.mjs`) reads each day cell for **Youth stick**, **Parent/tot**, and **Adult stick** lines plus times. The monthly grid often abbreviates **Adult stick** as **ADULT** (time on the next line). Parent/tot times may appear as **`9-1020a`** (hour without a colon on the end time). **`parseDoverStickFees`** sets per-session `price` and `stick_fee_legend` from that PDF’s legend (fallback: $8 / $8 / $12 if the legend is missing).
 
-Per-session card pricing in `sessions.generated.json`:
-
-| Subtype | Summary on card |
-| --- | --- |
-| `youth_stick` | Youth stick $8 |
-| `parent_tot` | Parent/tot $8 per skater |
-| `adult_stick` | Adult stick $12 |
-
-Expanded details for **youth stick** sessions at Dover also show the full fee line (youth vs parent/tot vs adult) for parents comparing options.
+Expanded session details at Dover show **`stick_fee_legend`** for the calendar month tied to that session’s PDF.
 
 Regenerate data after parser changes:
 

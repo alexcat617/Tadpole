@@ -36,6 +36,8 @@ export interface Session {
   source_url: string;
   fetched_at: string;
   confidence?: string;
+  /** Full fee legend from the Dover stick PDF for this session's calendar month. */
+  stick_fee_legend?: string;
 }
 
 export interface SessionsFile {

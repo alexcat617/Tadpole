@@ -141,6 +141,65 @@ function findLabeledPublicSessions(body, labelPattern, noLinePattern) {
   return found;
 }
 
+const DEFAULT_STICK_FEE_CENTS = {
+  youth_stick: 800,
+  parent_tot: 800,
+  adult_stick: 1200,
+};
+
+/**
+ * @param {string} summary
+ * @param {number} amount_cents
+ */
+function stickPriceObject(summary, amount_cents) {
+  return {
+    summary,
+    amount_cents,
+    currency: 'USD',
+    is_free: false,
+  };
+}
+
+/** @param {number} cents */
+function formatDoverStickDollars(cents) {
+  return cents % 100 === 0 ? String(cents / 100) : (cents / 100).toFixed(2);
+}
+
+/**
+ * Parse colored fee legend from Dover stick practice PDFs (YOUTH –ORANGE, etc.).
+ * @param {string} text
+ */
+export function parseDoverStickFees(text) {
+  const flat = collapsePdfWhitespace(text);
+  const parseCents = (pattern) => {
+    const m = flat.match(pattern);
+    if (!m) return null;
+    const dollars = parseFloat(m[1]);
+    if (!Number.isFinite(dollars)) return null;
+    return Math.round(dollars * 100);
+  };
+
+  const youthCents =
+    parseCents(/YOUTH\s*[–-]\s*ORANGE\s*\$?\s*([\d.]+)/i) ??
+    DEFAULT_STICK_FEE_CENTS.youth_stick;
+  const parentCents =
+    parseCents(/PARENT\s*\/?\s*TOT\s*[–-]\s*RED\s*\$?\s*([\d.]+)/i) ??
+    DEFAULT_STICK_FEE_CENTS.parent_tot;
+  const adultCents =
+    parseCents(/ADULT\s*-\s*BLUE\s*\$?\s*([\d.]+)/i) ?? DEFAULT_STICK_FEE_CENTS.adult_stick;
+
+  const y = formatDoverStickDollars(youthCents);
+  const p = formatDoverStickDollars(parentCents);
+  const a = formatDoverStickDollars(adultCents);
+
+  return {
+    youth_stick: stickPriceObject(`Youth stick $${y}`, youthCents),
+    parent_tot: stickPriceObject(`Parent/tot $${p} per skater`, parentCents),
+    adult_stick: stickPriceObject(`Adult stick $${a}`, adultCents),
+    legend_line: `Stick practice fees at Dover (this calendar): youth stick $${y}, parent/tot $${p} per skater, adult stick $${a}.`,
+  };
+}
+
 /**
  * @param {string} text
  * @param {'public' | 'stick'} calendarKind
@@ -261,5 +320,13 @@ export function parseDoverCalendarPdf(text, calendarKind) {
 /** @param {Buffer} buf @param {'public' | 'stick'} kind */
 export async function parseDoverPdfBuffer(buf, kind) {
   const data = await pdf(buf);
+  if (kind === 'stick') {
+    const fees = parseDoverStickFees(data.text);
+    return parseDoverCalendarPdf(data.text, 'stick').map((row) => ({
+      ...row,
+      price: fees[row.subtype],
+      stick_fee_legend: fees.legend_line,
+    }));
+  }
   return parseDoverCalendarPdf(data.text, kind);
 }

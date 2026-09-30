@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parseDoverCalendarPdf } from '../lib/dover-pdf.mjs';
+import { parseDoverCalendarPdf, parseDoverStickFees } from '../lib/dover-pdf.mjs';
 
 const sample = `
 September 2026
@@ -92,5 +92,24 @@ assert.ok(
   adultRows.some((r) => r.starts_at.includes('T11:30') && r.starts_at.includes('-10-10')),
   'adult on day 10 uses its own time',
 );
+
+const octoberFees = `
+YOUTH –ORANGE   $6.00
+PARENT/TOT –RED  $6.00 per skater
+ADULT-BLUE $10.00
+October 2026
+`;
+const octFees = parseDoverStickFees(octoberFees);
+assert.equal(octFees.adult_stick.amount_cents, 1000);
+assert.equal(octFees.youth_stick.amount_cents, 600);
+assert.equal(octFees.parent_tot.amount_cents, 600);
+assert.ok(octFees.adult_stick.summary.includes('$10'));
+
+const septFees = parseDoverStickFees(`
+YOUTH –ORANGE    $8.00
+PARENT/TOT –RED  $8.00 per skater
+ADULT-BLUE   $12.00
+`);
+assert.equal(septFees.adult_stick.amount_cents, 1200);
 
 console.log('dover-pdf.test.mjs: ok');

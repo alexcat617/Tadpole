@@ -20,7 +20,6 @@ import {
   companionBannerSepBefore,
   companionGameBannerAriaLabel,
   defaultSearchDateFromCoverage,
-  doverStickPracticeFeesLine,
   filterProgramsForView,
   findNextSessionWindow,
   formatBruinsGameDateTime,
@@ -1458,8 +1457,10 @@ export default function App() {
                 </button>
                 {isExpanded && (
                   <div className="session-details" id={detailsId}>
-                    {rink.id === 'dover-arena' && session.subtype === 'youth_stick' && (
-                      <p className="muted small">{doverStickPracticeFeesLine()}</p>
+                    {rink.id === 'dover-arena' &&
+                      session.activity === 'stick_puck' &&
+                      session.stick_fee_legend && (
+                      <p className="muted small">{session.stick_fee_legend}</p>
                     )}
                     <p>
                       {rink.address}, {rink.city}, {rink.region} {rink.postal_code}
