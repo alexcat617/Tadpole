@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { parseDoverCalendarPdf } from '../lib/dover-pdf.mjs';
+import { parseDoverCalendarPdf, parseDoverStickFees } from '../lib/dover-pdf.mjs';
 
 const sample = `
 September 2026
@@ -61,5 +61,55 @@ const rec27 = weekendRows.filter(
 assert.equal(rec26.length, 0, 'blank Sat 26 should have no rec');
 assert.equal(rec27.length, 1, 'Sun 27 rec should not attach to Sat 26');
 assert.ok(rec27[0].raw_label.includes('1:30-2:50pm'));
+
+const octoberStick = `
+Sun Mon Tue Wed Thu Fri Sat 
+  1 
+    ADULT  
+    11:30a-12:50pm 
+2 
+    ADULT  
+    11:30a-12:50pm 
+10 
+        PARENT/TOT 
+        9-1020a 
+        ADULT  
+        11:30a-12:50pm 
+YOUTH –ORANGE   $6.00 
+October 2026
+`;
+
+const stickRows = parseDoverCalendarPdf(octoberStick, 'stick');
+const adultRows = stickRows.filter((r) => r.subtype === 'adult_stick');
+const parentRows = stickRows.filter((r) => r.subtype === 'parent_tot');
+assert.ok(adultRows.length >= 3, 'expects ADULT label days (abbreviated on calendar)');
+assert.equal(parentRows.length, 1, 'one parent/tot block on day 10');
+assert.ok(
+  parentRows[0].raw_label.includes('9-1020a') || parentRows[0].starts_at.includes('T09:00'),
+  'parent/tot uses 9-1020a style time',
+);
+assert.ok(
+  adultRows.some((r) => r.starts_at.includes('T11:30') && r.starts_at.includes('-10-10')),
+  'adult on day 10 uses its own time',
+);
+
+const octoberFees = `
+YOUTH –ORANGE   $6.00
+PARENT/TOT –RED  $6.00 per skater
+ADULT-BLUE $10.00
+October 2026
+`;
+const octFees = parseDoverStickFees(octoberFees);
+assert.equal(octFees.adult_stick.amount_cents, 1000);
+assert.equal(octFees.youth_stick.amount_cents, 600);
+assert.equal(octFees.parent_tot.amount_cents, 600);
+assert.ok(octFees.adult_stick.summary.includes('$10'));
+
+const septFees = parseDoverStickFees(`
+YOUTH –ORANGE    $8.00
+PARENT/TOT –RED  $8.00 per skater
+ADULT-BLUE   $12.00
+`);
+assert.equal(septFees.adult_stick.amount_cents, 1200);
 
 console.log('dover-pdf.test.mjs: ok');

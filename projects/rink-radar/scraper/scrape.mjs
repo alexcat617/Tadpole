@@ -111,7 +111,7 @@ function addSessions(rinkId, sourceUrl, rows, price) {
   }
 }
 
-/** Dover stick practice PDF fee legend (per city stick calendar). */
+/** Fallback when a stick PDF has no parseable fee legend. */
 const DOVER_STICK_PRICE_BY_SUBTYPE = {
   adult_stick: {
     summary: 'Adult stick $12',
@@ -133,10 +133,12 @@ const DOVER_STICK_PRICE_BY_SUBTYPE = {
   },
 };
 
-function addDoverStickSessions(rinkId, sourceUrl, rows) {
+function addDoverStickSessions(rinkId, defaultSourceUrl, rows) {
   for (const row of rows) {
     const price =
-      DOVER_STICK_PRICE_BY_SUBTYPE[row.subtype] ?? DOVER_STICK_PRICE_BY_SUBTYPE.adult_stick;
+      row.price ??
+      DOVER_STICK_PRICE_BY_SUBTYPE[row.subtype] ??
+      DOVER_STICK_PRICE_BY_SUBTYPE.adult_stick;
     output.sessions.push({
       id: sessionId(rinkId, row.starts_at, row.activity, row.subtype),
       rink_id: rinkId,
@@ -146,9 +148,10 @@ function addDoverStickSessions(rinkId, sourceUrl, rows) {
       ends_at: row.ends_at,
       price,
       raw_label: row.raw_label,
-      source_url: sourceUrl,
+      source_url: row.source_url ?? defaultSourceUrl,
       fetched_at: fetchedAt,
       confidence: row.confidence ?? 'high',
+      ...(row.stick_fee_legend ? { stick_fee_legend: row.stick_fee_legend } : {}),
     });
   }
 }
@@ -176,7 +179,10 @@ async function parseDoverPdfs(pdfUrls, kind) {
   const merged = [];
   for (const url of pdfUrls) {
     const buf = await fetchPdfBuffer(url);
-    merged.push(...(await parseDoverPdfBuffer(buf, kind)));
+    const rows = await parseDoverPdfBuffer(buf, kind);
+    for (const row of rows) {
+      merged.push({ ...row, source_url: url });
+    }
   }
   return dedupeDoverRows(merged);
 }

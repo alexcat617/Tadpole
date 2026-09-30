@@ -66,9 +66,9 @@ export function sessionScanBadge(subtype?: string): SessionScanBadge | null {
   return null;
 }
 
-/** Shown in session details for Dover stick practice (monthly PDF fee legend). */
+/** @deprecated Prefer session.stick_fee_legend from scraped data. */
 export function doverStickPracticeFeesLine(): string {
-  return 'Stick practice fees at Dover: youth stick $8, parent/tot $8 per skater, adult stick $12.';
+  return 'Stick practice fees at Dover follow the monthly stick PDF (see session price and details).';
 }
 
 export function sessionDateInZone(startsAt: string): string {
