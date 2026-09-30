@@ -27,7 +27,7 @@ Not every month lists all three types on the grid. If a type is missing from the
 
 ## How Rink Radar uses this
 
-The scraper (`scraper/lib/dover-pdf.mjs`) reads each day cell for **Youth stick**, **Parent/tot**, and **Adult stick** lines plus times.
+The scraper (`scraper/lib/dover-pdf.mjs`) reads each day cell for **Youth stick**, **Parent/tot**, and **Adult stick** lines plus times. The monthly grid often abbreviates **Adult stick** as **ADULT** (time on the next line). Parent/tot times may appear as **`9-1020a`** (hour without a colon on the end time).
 
 Per-session card pricing in `sessions.generated.json`:
 

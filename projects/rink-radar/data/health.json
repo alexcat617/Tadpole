@@ -1,20 +1,31 @@
 {
-  "generated_at": "2026-09-29T13:13:03.978-04:00",
+  "generated_at": "2026-09-30T09:16:20.412-04:00",
   "rinks": {
     "dover-arena": {
       "ok": true,
       "public_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-PS-2026.pdf",
+      "public_pdfs": [
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-PS-2026.pdf",
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Ps-2026.pdf"
+      ],
       "stick_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-Stick-26.pdf",
-      "session_count": 49
+      "stick_pdfs": [
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-Stick-26.pdf",
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Sept-Stick-26.pdf"
+      ],
+      "session_count": 129
     },
     "churchill-rink-durham": {
-      "ok": true,
+      "ok": false,
+      "error": "fetch failed",
       "session_count": 0,
-      "rss_feed": "https://www.churchillrink.org/event_rss_feed?tags=1428237,1439579,1439831"
+      "retained_previous": false
     },
     "rochester-arena": {
-      "ok": true,
-      "session_count": 100
+      "ok": false,
+      "error": "fetch failed",
+      "session_count": 100,
+      "retained_previous": true
     }
   }
 }
