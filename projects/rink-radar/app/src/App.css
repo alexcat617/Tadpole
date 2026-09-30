@@ -762,6 +762,32 @@
   justify-content: flex-end;
 }
 
+#schedules-companion-panel .schedules-drawer-toolbar {
+  flex-shrink: 0;
+  padding: 0.35rem 1rem 0.65rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+#schedules-companion-panel .schedules-drawer-toolbar .companion-schedule-tabs {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+#schedules-companion-panel .schedules-drawer-toolbar .schedules-drawer-squad-tabs {
+  margin-top: 0.65rem;
+  margin-bottom: 0;
+}
+
+#schedules-companion-panel .schedules-drawer-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0.35rem 1rem 1.25rem;
+  text-align: left;
+}
+
 .hype-control {
   position: relative;
   display: inline-flex;

@@ -80,7 +80,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - **FAB:** Fixed bottom-right (`z-index: 28`), ink + gold label **Schedules**; hidden when all companion JSON files are empty, on Programs view, or when drawer open.
 - **Tabs:** Text tabs for each companion with data (Bruins, Wildcats, Dover Varsity); wrap on narrow widths; tab bar hidden when only one source has games.
 - **Drawer footer:** Minimal **Hype** pill plays `public/sounds/hype.wav` with burst animation; only visible while the schedules drawer is open.
-- **Right drawer:** Same **side drawer** pattern as My rinks (`z-index: 40`, ~80% width, backdrop, Escape, scroll lock).
+- **Right drawer:** Same **side drawer** pattern as My rinks (`z-index: 40`, ~80% width, backdrop, Escape, scroll lock). **Game schedules** title, team tabs, and Dover Boys/Girls toggle stay fixed; only the game list scrolls; **Hype** footer stays pinned at the bottom.
 - **Content:** Games grouped by month; home/away badge, venue, **TV · NESN / national** line when data exists (Bruins); past games muted. Dover tab: **Boys | Girls** toggle when both squads have data.
 - **Disclaimer:** Per source (NHL/Bruins, UNH/NCAA, NHIAA/Dover); links to official schedule pages.
 - **Exclusion:** Only one overlay at a time (My rinks, Search by date panel, Schedules drawer).

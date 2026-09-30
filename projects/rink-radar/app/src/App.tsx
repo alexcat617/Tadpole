@@ -793,47 +793,81 @@ export default function App() {
               ×
             </button>
           </header>
-          <div className="bruins-drawer-body side-drawer-body">
-            {showCompanionScheduleTabs ? (
-              <div className="companion-schedule-tabs" role="tablist" aria-label="Schedule team">
-                {hasBruinsSchedule ? (
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={effectiveCompanionTab === 'bruins'}
-                    className={`companion-schedule-tab${effectiveCompanionTab === 'bruins' ? ' active' : ''}`}
-                    onClick={() => setCompanionScheduleTab('bruins')}
-                  >
-                    Bruins
-                  </button>
-                ) : null}
-                {hasWildcatsSchedule ? (
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={effectiveCompanionTab === 'wildcats'}
-                    className={`companion-schedule-tab${effectiveCompanionTab === 'wildcats' ? ' active' : ''}`}
-                    onClick={() => setCompanionScheduleTab('wildcats')}
-                  >
-                    Wildcats
-                  </button>
-                ) : null}
-                {hasDoverVarsitySchedule ? (
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={effectiveCompanionTab === 'doverVarsity'}
-                    className={`companion-schedule-tab${effectiveCompanionTab === 'doverVarsity' ? ' active' : ''}`}
-                    onClick={() => {
-                      setCompanionScheduleTab('doverVarsity');
-                      setDoverSquadTab('boys');
-                    }}
-                  >
-                    Dover Varsity
-                  </button>
-                ) : null}
-              </div>
-            ) : null}
+          {showCompanionScheduleTabs ||
+          (effectiveCompanionTab === 'doverVarsity' &&
+            hasDoverVarsitySchedule &&
+            showDoverSquadTabs) ? (
+            <div className="schedules-drawer-toolbar">
+              {showCompanionScheduleTabs ? (
+                <div className="companion-schedule-tabs" role="tablist" aria-label="Schedule team">
+                  {hasBruinsSchedule ? (
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={effectiveCompanionTab === 'bruins'}
+                      className={`companion-schedule-tab${effectiveCompanionTab === 'bruins' ? ' active' : ''}`}
+                      onClick={() => setCompanionScheduleTab('bruins')}
+                    >
+                      Bruins
+                    </button>
+                  ) : null}
+                  {hasWildcatsSchedule ? (
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={effectiveCompanionTab === 'wildcats'}
+                      className={`companion-schedule-tab${effectiveCompanionTab === 'wildcats' ? ' active' : ''}`}
+                      onClick={() => setCompanionScheduleTab('wildcats')}
+                    >
+                      Wildcats
+                    </button>
+                  ) : null}
+                  {hasDoverVarsitySchedule ? (
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={effectiveCompanionTab === 'doverVarsity'}
+                      className={`companion-schedule-tab${effectiveCompanionTab === 'doverVarsity' ? ' active' : ''}`}
+                      onClick={() => {
+                        setCompanionScheduleTab('doverVarsity');
+                        setDoverSquadTab('boys');
+                      }}
+                    >
+                      Dover Varsity
+                    </button>
+                  ) : null}
+                </div>
+              ) : null}
+              {effectiveCompanionTab === 'doverVarsity' &&
+              hasDoverVarsitySchedule &&
+              showDoverSquadTabs ? (
+                <div
+                  className="program-audience-segmented companion-squad-audience schedules-drawer-squad-tabs"
+                  role="tablist"
+                  aria-label="Dover varsity squad"
+                >
+                  {(
+                    [
+                      ['boys', 'Boys'],
+                      ['girls', 'Girls'],
+                    ] as const
+                  ).map(([value, label]) => (
+                    <button
+                      key={value}
+                      type="button"
+                      role="tab"
+                      aria-selected={effectiveDoverSquadTab === value}
+                      className={`program-audience-btn${effectiveDoverSquadTab === value ? ' active' : ''}`}
+                      onClick={() => setDoverSquadTab(value)}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+          <div className="schedules-drawer-scroll">
             {effectiveCompanionTab === 'wildcats' && hasWildcatsSchedule && wildcatsScheduleFile ? (
               <section className="companion-schedule-section" aria-label="UNH Wildcats">
                 {!showCompanionScheduleTabs ? (
@@ -876,31 +910,7 @@ export default function App() {
                     {doverVarsityScheduleFile.season_label}
                   </h3>
                 ) : null}
-                {showDoverSquadTabs ? (
-                  <div
-                    className="program-audience-segmented companion-squad-audience"
-                    role="tablist"
-                    aria-label="Dover varsity squad"
-                  >
-                    {(
-                      [
-                        ['boys', 'Boys'],
-                        ['girls', 'Girls'],
-                      ] as const
-                    ).map(([value, label]) => (
-                      <button
-                        key={value}
-                        type="button"
-                        role="tab"
-                        aria-selected={effectiveDoverSquadTab === value}
-                        className={`program-audience-btn${effectiveDoverSquadTab === value ? ' active' : ''}`}
-                        onClick={() => setDoverSquadTab(value)}
-                      >
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-                ) : !showCompanionScheduleTabs ? (
+                {!showCompanionScheduleTabs && !showDoverSquadTabs ? (
                   <h4 className="companion-schedule-squad-title">
                     {effectiveDoverSquadTab === 'boys'
                       ? doverVarsityScheduleFile.squads.boys.label
@@ -1532,3 +1542,4 @@ export default function App() {
     </div>
   );
 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
