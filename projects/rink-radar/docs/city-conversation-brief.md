@@ -2,7 +2,7 @@
 
 **What it is:** A free, mobile-friendly web app that helps Seacoast residents find **public ice** and **adult hockey** sessions at nearby rinks—starting with **Dover Ice Arena** and a short list of regional facilities.
 
-**Live pilot:** https://alexcat617.github.io/Tadpole/  
+**Live pilot:** https://seacoastice.com/  
 **Maintainer:** Independent community project (not a city system, not a booking vendor).
 
 ---

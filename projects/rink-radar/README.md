@@ -76,10 +76,10 @@ npm run scrape
 | --- | --- |
 | Browser says **can’t connect** / blank | Dev server not running — run `npm run dev` in `projects/rink-radar/app` and use the printed URL. |
 | Stuck on **Loading…** | Check DevTools → Network: `data/rinks.json` should be **200**. If 404, you may be on the wrong URL or an old build. |
-| **GitHub Pages** blank or old UI | Pages deploys from **`main`** via Actions. Merge your branch and wait for the workflow; URL is `https://<user>.github.io/Tadpole/` (note the `/Tadpole/` path). |
+| **GitHub Pages** blank or old UI | Pages deploys from **`main`** via Actions. Merge and wait for the workflow. Live URL: **https://seacoastice.com/** (see [custom domain](./docs/custom-domain.md)). |
 
 Dover monthly PDFs are discovered from the city public-skate and stick-practice HTML pages.
 
 ## Live site
 
-Enable GitHub Pages (source: GitHub Actions). URL: `https://<user>.github.io/Tadpole/`
+**https://seacoastice.com/** — GitHub Pages (Actions deploy from `main`). Setup: [custom domain](./docs/custom-domain.md).
