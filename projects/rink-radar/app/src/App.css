@@ -1371,14 +1371,29 @@
 }
 
 .companion-game-banner-wrap {
-  margin: 0 0 0.65rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.35rem;
+  width: auto;
+  max-width: none;
+  margin: 0 -1rem 0.65rem;
+  padding: 0 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-inline: 1rem;
+  scrollbar-width: none;
+}
+
+.companion-game-banner-wrap::-webkit-scrollbar {
+  display: none;
 }
 
 .companion-game-banner {
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   width: fit-content;
-  max-width: 100%;
   padding: 0.28rem 0.6rem;
   border-radius: 999px;
   background: var(--rr-blue-muted);
@@ -1386,22 +1401,7 @@
   font-size: 0.75rem;
   line-height: 1.35;
   text-align: left;
-  vertical-align: top;
-}
-
-.companion-game-banner-inner {
-  display: inline-flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  max-width: 100%;
-  min-width: 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.companion-game-banner-inner::-webkit-scrollbar {
-  display: none;
+  white-space: nowrap;
 }
 
 .companion-game-banner-day {
@@ -1412,13 +1412,7 @@
 
 .companion-game-banner-chip {
   flex-shrink: 0;
-  white-space: nowrap;
   font-weight: 500;
-}
-
-.companion-game-banner-sep {
-  font-weight: 400;
-  color: var(--rr-muted);
 }
 
 .empty {

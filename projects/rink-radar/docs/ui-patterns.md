@@ -77,6 +77,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Bruins schedule (companion)
 
+- **Game-day banner (sessions view):** One pill per upcoming game (Today/Tomorrow + team + matchup + short time). Single horizontal row with side scroll so the next pill peeks at the column edge; hidden scrollbar on touch. No cap on how many games per day.
 - **FAB:** Fixed bottom-right (`z-index: 28`), ink + gold label **Schedules**; hidden when all companion JSON files are empty, on Programs view, or when drawer open.
 - **Tabs:** Text tabs for each companion with data (Bruins, Wildcats, Dover Varsity); wrap on narrow widths; tab bar hidden when only one source has games.
 - **Drawer footer:** Minimal **Hype** pill plays `public/sounds/hype.wav` with burst animation; only visible while the schedules drawer is open.
