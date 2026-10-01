@@ -41,7 +41,7 @@ jobs:
 
       - name: Build app
         env:
-          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_BASE_PATH: /
         run: |
           cd projects/rink-radar/app
           npm ci
