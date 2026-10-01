@@ -392,12 +392,14 @@ export function isBruinsGamePast(game: BruinsGame): boolean {
 
 export type CompanionBannerTeam = 'bruins' | 'wildcats' | 'dover';
 
-type CompanionBannerPart =
-  | { kind: 'day'; label: string }
-  | { kind: 'game'; team: CompanionBannerTeam; text: string };
+export interface CompanionGameBannerChip {
+  dayLabel: string;
+  text: string;
+  team: CompanionBannerTeam;
+}
 
 export interface CompanionGameDayBanner {
-  parts: CompanionBannerPart[];
+  chips: CompanionGameBannerChip[];
 }
 
 function gameDateIsoInEt(startsAt: string): string {
@@ -427,7 +429,7 @@ function companionGameChipText(teamLabel: string, game: BruinsGame): string {
 }
 
 export function companionGameBannerAriaLabel(banner: CompanionGameDayBanner): string {
-  return banner.parts.map((p) => (p.kind === 'day' ? p.label : p.text)).join(', ');
+  return banner.chips.map((c) => `${c.dayLabel} ${c.text}`).join(', ');
 }
 
 /** Upcoming Bruins + UNH + Dover varsity games today and tomorrow (ET), for a single-line banner. */
@@ -438,7 +440,6 @@ export function buildCompanionGameDayBanner(
   doverGames?: BruinsGame[] | undefined,
 ): CompanionGameDayBanner | null {
   const tomorrowIso = addCalendarDaysIso(todayIso, 1);
-  const maxListed = 2;
 
   type Tagged = { team: CompanionBannerTeam; teamLabel: string; game: BruinsGame };
   const tag = (team: CompanionBannerTeam, teamLabel: string, game: BruinsGame): Tagged => ({
@@ -469,45 +470,25 @@ export function buildCompanionGameDayBanner(
 
   const todayAll = forDay(todayIso);
   const tomorrowAll = forDay(tomorrowIso);
-  const todayListed = todayAll.slice(0, maxListed);
-  const tomorrowListed = tomorrowAll.slice(0, maxListed);
 
-  if (todayListed.length === 0 && tomorrowListed.length === 0) return null;
+  if (todayAll.length === 0 && tomorrowAll.length === 0) return null;
 
-  const parts: CompanionBannerPart[] = [];
+  const chips: CompanionGameBannerChip[] = [];
 
-  const appendDay = (label: string, listed: Tagged[], total: number) => {
-    if (listed.length === 0) return;
-    parts.push({ kind: 'day', label });
+  const appendDay = (label: string, listed: Tagged[]) => {
     for (const item of listed) {
-      parts.push({
-        kind: 'game',
+      chips.push({
+        dayLabel: label,
         team: item.team,
         text: companionGameChipText(item.teamLabel, item.game),
       });
     }
-    const extra = total - listed.length;
-    if (extra > 0) {
-      parts.push({ kind: 'game', team: listed[0].team, text: `+${extra} more` });
-    }
   };
 
-  appendDay('Today', todayListed, todayAll.length);
-  appendDay('Tomorrow', tomorrowListed, tomorrowAll.length);
+  appendDay('Today', todayAll);
+  appendDay('Tomorrow', tomorrowAll);
 
-  return { parts };
-}
-
-export function companionBannerSepBefore(
-  index: number,
-  parts: CompanionGameDayBanner['parts'],
-): boolean {
-  if (index === 0) return false;
-  const prev = parts[index - 1];
-  const curr = parts[index];
-  if (curr.kind === 'day') return true;
-  if (prev.kind === 'day') return false;
-  return true;
+  return { chips };
 }
 
 export function formatBruinsTvLine(networks: string[]): string {

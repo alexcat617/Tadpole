@@ -17,8 +17,6 @@ import {
   buildCompanionGameDayBanner,
   buildScheduleCoverage,
   buildSessionRowsForDay,
-  companionBannerSepBefore,
-  companionGameBannerAriaLabel,
   defaultSearchDateFromCoverage,
   filterProgramsForView,
   findNextSessionWindow,
@@ -1241,30 +1239,22 @@ export default function App() {
       ) : (
         <>
       {companionGameBanner ? (
-        <div className="companion-game-banner-wrap">
-          <div
-            className="companion-game-banner"
-            role="status"
-            aria-label={companionGameBannerAriaLabel(companionGameBanner)}
-          >
-            <span className="companion-game-banner-inner">
-            {companionGameBanner.parts.map((part, index) => (
-              <span
-                key={`${part.kind}-${index}`}
-                className={
-                  part.kind === 'day' ? 'companion-game-banner-day' : 'companion-game-banner-chip'
-                }
-              >
-                {companionBannerSepBefore(index, companionGameBanner.parts) ? (
-                  <span className="companion-game-banner-sep" aria-hidden="true">
-                    {' · '}
-                  </span>
-                ) : null}
-                {part.kind === 'day' ? part.label : part.text}
-              </span>
-            ))}
-          </span>
-        </div>
+        <div
+          className="companion-game-banner-wrap"
+          role="region"
+          aria-label="Games today and tomorrow"
+        >
+          {companionGameBanner.chips.map((chip, index) => (
+            <div
+              key={`${chip.team}-${chip.text}-${index}`}
+              className="companion-game-banner"
+              role="status"
+              aria-label={`${chip.dayLabel}, ${chip.text}`}
+            >
+              <span className="companion-game-banner-day">{chip.dayLabel}</span>
+              <span className="companion-game-banner-chip">{chip.text}</span>
+            </div>
+          ))}
         </div>
       ) : null}
       <section className="controls" aria-label="Find sessions">
