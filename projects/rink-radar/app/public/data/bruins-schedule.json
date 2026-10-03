@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-02T12:59:51.212-04:00",
+  "generated_at": "2026-10-03T11:24:36.672-04:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -72,7 +72,7 @@
       "opponent_name": "Jets",
       "is_home": false,
       "venue": "Canada Life Centre",
-      "game_state": "FUT",
+      "game_state": "OFF",
       "tv_networks": [
         "NESN"
       ]

@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-02T12:59:51.803-04:00",
+  "generated_at": "2026-10-03T11:24:36.956-04:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -25,7 +25,7 @@
         },
         {
           "id": "boys-102201442",
-          "starts_at": "2026-12-19T12:00:00.000-05:00",
+          "starts_at": "2026-12-19T13:30:00.000-05:00",
           "opponent_abbr": "WHS",
           "opponent_name": "Windham High School",
           "is_home": true,
@@ -419,7 +419,7 @@
     },
     {
       "id": "boys-102201442",
-      "starts_at": "2026-12-19T12:00:00.000-05:00",
+      "starts_at": "2026-12-19T13:30:00.000-05:00",
       "opponent_abbr": "WHS",
       "opponent_name": "Windham High School",
       "is_home": true,
