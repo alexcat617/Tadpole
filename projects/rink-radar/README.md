@@ -28,6 +28,7 @@ projects/rink-radar/
 
 | Document | Purpose |
 | --- | --- |
+| [Project overview](./docs/project-overview.md) | High-level synthesis, personas, architecture, and flows |
 | [PRD](./docs/PRD.md) | Vision, users, MVP flows |
 | [Requirements](./docs/requirements.md) | Functional & non-functional |
 | [Data model](./docs/data-model.md) | Rink + session schema |
