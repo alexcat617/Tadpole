@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-04T12:07:39.134-04:00",
+  "generated_at": "2026-10-06T09:18:18.229-04:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -14,11 +14,11 @@
       "games": [
         {
           "id": "boys-102201428",
-          "starts_at": "2026-12-16T12:00:00.000-05:00",
+          "starts_at": "2026-12-16T19:30:00.000-05:00",
           "opponent_abbr": "LHS",
           "opponent_name": "Londonderry High School",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -29,7 +29,7 @@
           "opponent_abbr": "WHS",
           "opponent_name": "Windham High School",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -58,7 +58,7 @@
         },
         {
           "id": "boys-102201463",
-          "starts_at": "2027-01-06T12:00:00.000-05:00",
+          "starts_at": "2027-01-06T19:30:00.000-05:00",
           "opponent_abbr": "SHS",
           "opponent_name": "Spaulding High School",
           "is_home": true,
@@ -80,11 +80,11 @@
         },
         {
           "id": "boys-102201488",
-          "starts_at": "2027-01-13T12:00:00.000-05:00",
+          "starts_at": "2027-01-13T18:30:00.000-05:00",
           "opponent_abbr": "BGHS",
           "opponent_name": "Bishop Guertin High School",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -113,11 +113,11 @@
         },
         {
           "id": "boys-102201519",
-          "starts_at": "2027-01-20T12:00:00.000-05:00",
+          "starts_at": "2027-01-20T18:30:00.000-05:00",
           "opponent_abbr": "KHS",
           "opponent_name": "Keene High School",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -135,22 +135,22 @@
         },
         {
           "id": "boys-102201555",
-          "starts_at": "2027-01-30T12:00:00.000-05:00",
+          "starts_at": "2027-01-30T17:15:00.000-05:00",
           "opponent_abbr": "HHSN",
           "opponent_name": "Hanover High School -NH",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
         },
         {
           "id": "boys-102201583",
-          "starts_at": "2027-02-06T12:00:00.000-05:00",
+          "starts_at": "2027-02-06T15:30:00.000-05:00",
           "opponent_abbr": "EHS",
           "opponent_name": "Exeter High School",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -190,11 +190,11 @@
         },
         {
           "id": "boys-102201656",
-          "starts_at": "2027-02-27T12:00:00.000-05:00",
+          "starts_at": "2027-02-27T17:00:00.000-05:00",
           "opponent_abbr": "BHSN",
           "opponent_name": "Bedford High School -NH",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -397,11 +397,11 @@
   "games": [
     {
       "id": "boys-102201428",
-      "starts_at": "2026-12-16T12:00:00.000-05:00",
+      "starts_at": "2026-12-16T19:30:00.000-05:00",
       "opponent_abbr": "LHS",
       "opponent_name": "Londonderry High School",
       "is_home": true,
-      "venue": "Dover - Dunaway",
+      "venue": "Dover Ice Arena Dover Ice Arena",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
@@ -423,7 +423,7 @@
       "opponent_abbr": "WHS",
       "opponent_name": "Windham High School",
       "is_home": true,
-      "venue": "Dover - Dunaway",
+      "venue": "Dover Ice Arena Dover Ice Arena",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
@@ -474,7 +474,7 @@
     },
     {
       "id": "boys-102201463",
-      "starts_at": "2027-01-06T12:00:00.000-05:00",
+      "starts_at": "2027-01-06T19:30:00.000-05:00",
       "opponent_abbr": "SHS",
       "opponent_name": "Spaulding High School",
       "is_home": true,
@@ -517,17 +517,6 @@
       "squad": "girls"
     },
     {
-      "id": "boys-102201488",
-      "starts_at": "2027-01-13T12:00:00.000-05:00",
-      "opponent_abbr": "BGHS",
-      "opponent_name": "Bishop Guertin High School",
-      "is_home": true,
-      "venue": "Dover - Dunaway",
-      "game_state": "FUT",
-      "tv_networks": [],
-      "squad": "boys"
-    },
-    {
       "id": "girls-102488735",
       "starts_at": "2027-01-13T12:00:00.000-05:00",
       "opponent_abbr": "MC",
@@ -537,6 +526,17 @@
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "girls"
+    },
+    {
+      "id": "boys-102201488",
+      "starts_at": "2027-01-13T18:30:00.000-05:00",
+      "opponent_abbr": "BGHS",
+      "opponent_name": "Bishop Guertin High School",
+      "is_home": true,
+      "venue": "Dover Ice Arena Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
     },
     {
       "id": "boys-102201503",
@@ -573,11 +573,11 @@
     },
     {
       "id": "boys-102201519",
-      "starts_at": "2027-01-20T12:00:00.000-05:00",
+      "starts_at": "2027-01-20T18:30:00.000-05:00",
       "opponent_abbr": "KHS",
       "opponent_name": "Keene High School",
       "is_home": true,
-      "venue": "Dover - Dunaway",
+      "venue": "Dover Ice Arena Dover Ice Arena",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
@@ -628,11 +628,11 @@
     },
     {
       "id": "boys-102201555",
-      "starts_at": "2027-01-30T12:00:00.000-05:00",
+      "starts_at": "2027-01-30T17:15:00.000-05:00",
       "opponent_abbr": "HHSN",
       "opponent_name": "Hanover High School -NH",
       "is_home": true,
-      "venue": "Dover - Dunaway",
+      "venue": "Dover Ice Arena Dover Ice Arena",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
@@ -660,17 +660,6 @@
       "squad": "girls"
     },
     {
-      "id": "boys-102201583",
-      "starts_at": "2027-02-06T12:00:00.000-05:00",
-      "opponent_abbr": "EHS",
-      "opponent_name": "Exeter High School",
-      "is_home": true,
-      "venue": "Dover - Dunaway",
-      "game_state": "FUT",
-      "tv_networks": [],
-      "squad": "boys"
-    },
-    {
       "id": "girls-102488788",
       "starts_at": "2027-02-06T13:00:00.000-05:00",
       "opponent_abbr": "KM",
@@ -680,6 +669,17 @@
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "girls"
+    },
+    {
+      "id": "boys-102201583",
+      "starts_at": "2027-02-06T15:30:00.000-05:00",
+      "opponent_abbr": "EHS",
+      "opponent_name": "Exeter High School",
+      "is_home": true,
+      "venue": "Dover Ice Arena Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
     },
     {
       "id": "girls-102488792",
@@ -760,11 +760,11 @@
     },
     {
       "id": "boys-102201656",
-      "starts_at": "2027-02-27T12:00:00.000-05:00",
+      "starts_at": "2027-02-27T17:00:00.000-05:00",
       "opponent_abbr": "BHSN",
       "opponent_name": "Bedford High School -NH",
       "is_home": true,
-      "venue": "Dover - Dunaway",
+      "venue": "Dover Ice Arena Dover Ice Arena",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
