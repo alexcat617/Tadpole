@@ -359,6 +359,33 @@
   outline: none;
 }
 
+/* Wide viewports / desktop web: native date control + calendar picker icon */
+@media (min-width: 640px) {
+  .search-date-facade {
+    display: none;
+  }
+
+  .search-date-input-native {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0.6rem 0.55rem;
+    opacity: 1;
+    color: #0f172a;
+    cursor: text;
+    -webkit-appearance: auto;
+    appearance: auto;
+  }
+
+  .search-date-input-native::-webkit-date-and-time-value {
+    min-width: 0;
+    text-align: left;
+  }
+}
+
 .search-date-helper {
   font-size: 0.75rem;
   line-height: 1.35;
