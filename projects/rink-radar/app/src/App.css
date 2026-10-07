@@ -548,20 +548,16 @@
   cursor: not-allowed;
 }
 
-.find-next-session,
-.search-by-date-cta {
+.find-next-session {
   width: 100%;
   min-height: var(--rr-control-min-height);
   padding: var(--rr-control-pad-y) var(--rr-control-pad-x);
   border-radius: var(--rr-control-radius);
   font-size: var(--rr-control-font-size);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.35;
   cursor: pointer;
   box-sizing: border-box;
-}
-
-.find-next-session {
   align-self: stretch;
   border: 2px solid var(--rr-gold);
   background: var(--rr-surface);
@@ -586,9 +582,18 @@
 }
 
 .search-by-date-cta {
-  border: 1px solid var(--rr-border);
-  background: var(--rr-surface);
-  color: var(--rr-ink);
+  width: 100%;
+  min-height: var(--rr-control-min-height);
+  padding: var(--rr-control-pad-y) var(--rr-control-pad-x);
+  border-radius: var(--rr-control-radius);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.35;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: var(--rr-control-border);
+  background: var(--rr-page);
+  color: #64748b;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -596,8 +601,9 @@
 }
 
 .search-by-date-cta:hover {
-  background: var(--rr-page);
-  border-color: #94a3b8;
+  background: #e8e8ec;
+  border-color: #cbd5e1;
+  color: var(--rr-ink);
 }
 
 .search-by-date-cta:focus-visible {
