@@ -1315,8 +1315,10 @@ export default function App() {
             </button>
           ) : (
             <div className="search-row">
-              <label className="search-date">
-                Date
+              <div className="search-date">
+                <label className="controls-label" htmlFor="search-date-input">
+                  Date
+                </label>
                 <span className="search-date-input-wrap">
                   <span
                     className={`search-date-facade${date ? '' : ' search-date-facade--empty'}`}
@@ -1325,6 +1327,7 @@ export default function App() {
                     {date ? formatSearchDateChoice(date) : 'Pick a date'}
                   </span>
                   <input
+                    id="search-date-input"
                     type="date"
                     className="search-date-input-native"
                     value={date}
@@ -1339,7 +1342,7 @@ export default function App() {
                     Pick a date to search.
                   </span>
                 ) : null}
-              </label>
+              </div>
               <button
                 type="button"
                 className="search-cta"

@@ -292,9 +292,11 @@
   min-width: 0;
   max-width: 100%;
   width: 100%;
-  font-size: 0.75rem;
-  color: #64748b;
   gap: 0.35rem;
+}
+
+.search-date .controls-label {
+  cursor: pointer;
 }
 
 .search-date-input-wrap {
