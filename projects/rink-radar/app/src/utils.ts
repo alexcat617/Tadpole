@@ -106,6 +106,18 @@ export function formatResultsDayHeader(dateIso: string, todayIso: string): Resul
   return { title, relative };
 }
 
+/** @param dateIso YYYY-MM-DD in America/New_York */
+export function formatSearchDateChoice(dateIso: string): string {
+  const anchor = new Date(`${dateIso}T12:00:00-04:00`);
+  return new Intl.DateTimeFormat('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'America/New_York',
+  }).format(anchor);
+}
+
 export function isUpcomingSession(session: Session, today: string, now = Date.now()): boolean {
   const date = sessionDateInZone(session.starts_at);
   if (date < today) return false;

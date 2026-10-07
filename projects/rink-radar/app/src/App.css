@@ -22,6 +22,13 @@
   box-sizing: border-box;
 }
 
+.app-shell button,
+.app-shell input,
+.app-shell select,
+.app-shell textarea {
+  font-family: inherit;
+}
+
 .app-shell {
   width: 100%;
   min-height: 100svh;
@@ -109,6 +116,7 @@
   padding: 1rem 1rem 2.75rem;
   text-align: left;
   flex: 1;
+  overflow-x: clip;
 }
 
 .app--programs {
@@ -221,6 +229,9 @@
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .controls-group {
@@ -260,25 +271,18 @@
 
 .search-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
   gap: 0.65rem;
-  align-items: flex-end;
   width: 100%;
   max-width: 100%;
   min-width: 0;
 }
 
-@media (max-width: 639px) {
-  .search-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-row .search-cta,
-  .search-row .clear-sessions {
-    width: 100%;
-    min-height: 3rem;
-  }
+.search-row .search-cta,
+.search-row .clear-sessions {
+  width: 100%;
+  min-height: 3rem;
 }
 
 .search-date {
@@ -293,24 +297,84 @@
   gap: 0.35rem;
 }
 
-.search-date input {
+.search-date-input-wrap {
+  position: relative;
   display: block;
-  box-sizing: border-box;
-  padding: 0.6rem 0.55rem;
-  border-radius: 0.4rem;
-  border: 1px solid #cbd5e1;
-  font-size: 1rem;
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.4rem;
   background: #fff;
-  color: #0f172a;
-  color-scheme: light;
 }
 
-.search-date input::-webkit-date-and-time-value {
-  min-width: 0;
-  text-align: left;
+.search-date-facade {
+  display: block;
+  padding: 0.6rem 0.55rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: inherit;
+  color: #0f172a;
+  pointer-events: none;
+  user-select: none;
+}
+
+.search-date-facade--empty {
+  color: #94a3b8;
+}
+
+.search-date-input-native {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  opacity: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color-scheme: light;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Wide viewports / desktop web: native date control + calendar picker icon */
+@media (min-width: 640px) {
+  .search-date-facade {
+    display: none;
+  }
+
+  .search-date-input-native {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0.6rem 0.55rem;
+    opacity: 1;
+    color: #0f172a;
+    cursor: text;
+    -webkit-appearance: auto;
+    appearance: auto;
+  }
+
+  .search-date-input-native::-webkit-date-and-time-value {
+    min-width: 0;
+    text-align: left;
+  }
 }
 
 .search-date-helper {
