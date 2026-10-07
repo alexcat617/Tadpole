@@ -23,6 +23,7 @@ import {
   formatBruinsGameDateTime,
   formatBruinsTvLine,
   formatResultsDayHeader,
+  formatSearchDateChoice,
   formatSessionShareText,
   formatTimeRange,
   groupBruinsGamesByMonth,
@@ -1316,14 +1317,23 @@ export default function App() {
             <div className="search-row">
               <label className="search-date">
                 Date
-                <input
-                  type="date"
-                  value={date}
-                  min={scheduleCoverage?.min}
-                  max={scheduleCoverage?.max}
-                  onChange={(e) => selectDate(e.target.value)}
-                  aria-describedby={!date ? 'search-date-helper' : undefined}
-                />
+                <span className="search-date-input-wrap">
+                  <span
+                    className={`search-date-facade${date ? '' : ' search-date-facade--empty'}`}
+                    aria-hidden="true"
+                  >
+                    {date ? formatSearchDateChoice(date) : 'Pick a date'}
+                  </span>
+                  <input
+                    type="date"
+                    className="search-date-input-native"
+                    value={date}
+                    min={scheduleCoverage?.min}
+                    max={scheduleCoverage?.max}
+                    onChange={(e) => selectDate(e.target.value)}
+                    aria-describedby={!date ? 'search-date-helper' : undefined}
+                  />
+                </span>
                 {!date ? (
                   <span id="search-date-helper" className="search-date-helper">
                     Pick a date to search.
