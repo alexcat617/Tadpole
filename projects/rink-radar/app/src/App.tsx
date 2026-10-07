@@ -264,11 +264,6 @@ export default function App() {
     clearSearchResults();
   }, [clearSearchResults]);
 
-  const selectAllRinksInSearch = useCallback(() => {
-    setSelectedRinkIds(new Set(rinksInSearch.map(({ rink }) => rink.id)));
-    clearSearchResults();
-  }, [clearSearchResults, rinksInSearch]);
-
   const runSearch = useCallback(async () => {
     if (isSearching || !date || noRinksSelected) return;
     setIsSearching(true);
@@ -664,12 +659,6 @@ export default function App() {
             </button>
           </header>
           <div className="rinks-drawer-body">
-            <p className="muted small rinks-drawer-lede">Choose rinks for search.</p>
-            <p className="rinks-drawer-actions">
-              <button type="button" className="rinks-select-all" onClick={selectAllRinksInSearch}>
-                Select all
-              </button>
-            </p>
             <ul className="rinks-in-search-list">
               {rinksInSearch.map(({ rink }) => {
                 const included = selectedRinkIds.has(rink.id);

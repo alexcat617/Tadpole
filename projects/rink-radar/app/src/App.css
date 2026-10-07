@@ -653,24 +653,6 @@
   flex-direction: column;
 }
 
-.rinks-drawer-body .rinks-drawer-lede {
-  margin: 0 0 0.5rem;
-}
-
-.rinks-drawer-actions {
-  margin: 0 0 0.75rem;
-}
-
-.rinks-select-all {
-  padding: 0.35rem 0.65rem;
-  border: 1px solid var(--rr-border);
-  border-radius: 0.4rem;
-  background: #fff;
-  color: var(--rr-ink);
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
 .rinks-in-search-toggle {
   display: flex;
   align-items: center;
