@@ -1315,8 +1315,10 @@ export default function App() {
             </button>
           ) : (
             <div className="search-row">
-              <label className="search-date">
-                Date
+              <div className="search-date">
+                <label className="controls-label" htmlFor="search-date-input">
+                  Date
+                </label>
                 <span className="search-date-input-wrap">
                   <span
                     className={`search-date-facade${date ? '' : ' search-date-facade--empty'}`}
@@ -1325,6 +1327,7 @@ export default function App() {
                     {date ? formatSearchDateChoice(date) : 'Pick a date'}
                   </span>
                   <input
+                    id="search-date-input"
                     type="date"
                     className="search-date-input-native"
                     value={date}
@@ -1339,7 +1342,7 @@ export default function App() {
                     Pick a date to search.
                   </span>
                 ) : null}
-              </label>
+              </div>
               <button
                 type="button"
                 className="search-cta"
@@ -1385,15 +1388,7 @@ export default function App() {
         ) : totalResultRows.length === 0 ? (
           <div className="empty results-empty">
             <p>No sessions for this day and filter.</p>
-            <p className="muted">Try another date, activity, or rinks.</p>
-            {filter === 'public_skate' && showProgramsNav ? (
-              <p className="muted">
-                Looking for classes?{' '}
-                <button type="button" className="text-link-btn" onClick={openProgramsView}>
-                  Programs → Kids
-                </button>
-              </p>
-            ) : null}
+            <p>Try another date, activity, or rinks.</p>
           </div>
         ) : (
           resultDayBlocks.map((block) => {

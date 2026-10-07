@@ -225,6 +225,13 @@
 
 
 .controls {
+  --rr-control-min-height: 3rem;
+  --rr-control-pad-y: 0.75rem;
+  --rr-control-pad-x: 0.85rem;
+  --rr-control-radius: 0.45rem;
+  --rr-control-font-size: 1rem;
+  --rr-control-border: 1px solid #cbd5e1;
+
   margin-top: 1.15rem;
   display: flex;
   flex-direction: column;
@@ -282,7 +289,22 @@
 .search-row .search-cta,
 .search-row .clear-sessions {
   width: 100%;
-  min-height: 3rem;
+  min-height: var(--rr-control-min-height);
+  padding: var(--rr-control-pad-y) var(--rr-control-pad-x);
+  border-radius: var(--rr-control-radius);
+  font-size: var(--rr-control-font-size);
+  line-height: 1.35;
+  box-sizing: border-box;
+}
+
+.search-row .search-cta {
+  font-weight: 600;
+}
+
+.search-row .clear-sessions {
+  font-weight: 400;
+  border: var(--rr-control-border);
+  color: #0f172a;
 }
 
 .search-date {
@@ -292,9 +314,11 @@
   min-width: 0;
   max-width: 100%;
   width: 100%;
-  font-size: 0.75rem;
-  color: #64748b;
   gap: 0.35rem;
+}
+
+.search-date .controls-label {
+  cursor: pointer;
 }
 
 .search-date-input-wrap {
@@ -303,20 +327,23 @@
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  min-height: var(--rr-control-min-height);
   box-sizing: border-box;
   overflow: hidden;
-  border: 1px solid #cbd5e1;
-  border-radius: 0.4rem;
+  border: var(--rr-control-border);
+  border-radius: var(--rr-control-radius);
   background: #fff;
 }
 
 .search-date-facade {
-  display: block;
-  padding: 0.6rem 0.55rem;
+  display: flex;
+  align-items: center;
+  min-height: var(--rr-control-min-height);
+  padding: var(--rr-control-pad-y) var(--rr-control-pad-x);
   font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: var(--rr-control-font-size);
+  font-weight: 400;
+  line-height: 1.35;
   letter-spacing: inherit;
   color: #0f172a;
   pointer-events: none;
@@ -342,9 +369,9 @@
   opacity: 0;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: var(--rr-control-font-size);
+  font-weight: 400;
+  line-height: 1.35;
   color-scheme: light;
   -webkit-appearance: none;
   appearance: none;
@@ -363,10 +390,14 @@
     max-width: 100%;
     min-width: 0;
     margin: 0;
-    padding: 0.6rem 0.55rem;
+    min-height: var(--rr-control-min-height);
+    padding: var(--rr-control-pad-y) var(--rr-control-pad-x);
+    font-size: var(--rr-control-font-size);
+    font-weight: 400;
     opacity: 1;
     color: #0f172a;
     cursor: text;
+    line-height: 1.35;
     -webkit-appearance: auto;
     appearance: auto;
   }
@@ -517,20 +548,16 @@
   cursor: not-allowed;
 }
 
-.find-next-session,
-.search-by-date-cta {
+.find-next-session {
   width: 100%;
-  min-height: 3rem;
-  padding: 0.75rem 0.85rem;
-  border-radius: 0.45rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.2;
+  min-height: var(--rr-control-min-height);
+  padding: var(--rr-control-pad-y) var(--rr-control-pad-x);
+  border-radius: var(--rr-control-radius);
+  font-size: var(--rr-control-font-size);
+  font-weight: 600;
+  line-height: 1.35;
   cursor: pointer;
   box-sizing: border-box;
-}
-
-.find-next-session {
   align-self: stretch;
   border: 2px solid var(--rr-gold);
   background: var(--rr-surface);
@@ -555,9 +582,18 @@
 }
 
 .search-by-date-cta {
-  border: 1px solid var(--rr-border);
-  background: var(--rr-surface);
-  color: var(--rr-ink);
+  width: 100%;
+  min-height: var(--rr-control-min-height);
+  padding: var(--rr-control-pad-y) var(--rr-control-pad-x);
+  border-radius: var(--rr-control-radius);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.35;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: var(--rr-control-border);
+  background: var(--rr-page);
+  color: #64748b;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -565,8 +601,9 @@
 }
 
 .search-by-date-cta:hover {
-  background: var(--rr-page);
-  border-color: #94a3b8;
+  background: #e8e8ec;
+  border-color: #cbd5e1;
+  color: var(--rr-ink);
 }
 
 .search-by-date-cta:focus-visible {
@@ -1169,6 +1206,15 @@
 
 .results-empty {
   margin-top: 0;
+}
+
+.results-empty p {
+  margin: 0;
+  color: var(--rr-ink);
+}
+
+.results-empty p + p {
+  margin-top: 0.35rem;
 }
 
 .disclaimer {
