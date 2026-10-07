@@ -285,6 +285,11 @@
   min-height: 3rem;
 }
 
+.search-row .clear-sessions {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 .search-date {
   display: flex;
   flex-direction: column;
