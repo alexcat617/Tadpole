@@ -1178,6 +1178,15 @@
   margin-top: 0;
 }
 
+.results-empty p {
+  margin: 0;
+  color: var(--rr-ink);
+}
+
+.results-empty p + p {
+  margin-top: 0.35rem;
+}
+
 .disclaimer {
   font-size: 0.72rem;
   line-height: 1.35;

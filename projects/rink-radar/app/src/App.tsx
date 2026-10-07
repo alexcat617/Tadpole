@@ -1388,15 +1388,7 @@ export default function App() {
         ) : totalResultRows.length === 0 ? (
           <div className="empty results-empty">
             <p>No sessions for this day and filter.</p>
-            <p className="muted">Try another date, activity, or rinks.</p>
-            {filter === 'public_skate' && showProgramsNav ? (
-              <p className="muted">
-                Looking for classes?{' '}
-                <button type="button" className="text-link-btn" onClick={openProgramsView}>
-                  Programs → Kids
-                </button>
-              </p>
-            ) : null}
+            <p>Try another date, activity, or rinks.</p>
           </div>
         ) : (
           resultDayBlocks.map((block) => {
