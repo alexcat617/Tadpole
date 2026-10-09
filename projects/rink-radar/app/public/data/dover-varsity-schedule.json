@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-08T14:07:54.620-04:00",
+  "generated_at": "2026-10-09T13:41:33.010-04:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -206,7 +206,7 @@
       "games": [
         {
           "id": "girls-102488691",
-          "starts_at": "2026-12-16T20:00:00.000-05:00",
+          "starts_at": "2026-12-16T17:00:00.000-05:00",
           "opponent_abbr": "BGHS",
           "opponent_name": "Bishop Guertin High School",
           "is_home": true,
@@ -239,7 +239,7 @@
         },
         {
           "id": "girls-102488721",
-          "starts_at": "2027-01-06T20:00:00.000-05:00",
+          "starts_at": "2027-01-06T18:00:00.000-05:00",
           "opponent_abbr": "PA",
           "opponent_name": "Pinkerton Academy",
           "is_home": true,
@@ -283,7 +283,7 @@
         },
         {
           "id": "girls-102488754",
-          "starts_at": "2027-01-20T20:30:00.000-05:00",
+          "starts_at": "2027-01-20T18:30:00.000-05:00",
           "opponent_abbr": "OR",
           "opponent_name": "Oyster River-Portsmouth",
           "is_home": true,
@@ -316,7 +316,7 @@
         },
         {
           "id": "girls-102488774",
-          "starts_at": "2027-01-30T19:15:00.000-05:00",
+          "starts_at": "2027-01-30T17:30:00.000-05:00",
           "opponent_abbr": "KM",
           "opponent_name": "Keene-Monadnock-Fall Mtn.",
           "is_home": true,
@@ -371,7 +371,7 @@
         },
         {
           "id": "girls-102488817",
-          "starts_at": "2027-02-20T18:00:00.000-05:00",
+          "starts_at": "2027-02-20T15:30:00.000-05:00",
           "opponent_abbr": "LEBA",
           "opponent_name": "Lebanon-Kearsarge-Mascoma",
           "is_home": true,
@@ -396,6 +396,17 @@
   },
   "games": [
     {
+      "id": "girls-102488691",
+      "starts_at": "2026-12-16T17:00:00.000-05:00",
+      "opponent_abbr": "BGHS",
+      "opponent_name": "Bishop Guertin High School",
+      "is_home": true,
+      "venue": "St Thomas High School Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
       "id": "boys-102201428",
       "starts_at": "2026-12-16T19:30:00.000-05:00",
       "opponent_abbr": "LHS",
@@ -405,17 +416,6 @@
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
-    },
-    {
-      "id": "girls-102488691",
-      "starts_at": "2026-12-16T20:00:00.000-05:00",
-      "opponent_abbr": "BGHS",
-      "opponent_name": "Bishop Guertin High School",
-      "is_home": true,
-      "venue": "St Thomas High School Ice Arena",
-      "game_state": "FUT",
-      "tv_networks": [],
-      "squad": "girls"
     },
     {
       "id": "boys-102201442",
@@ -473,6 +473,17 @@
       "squad": "boys"
     },
     {
+      "id": "girls-102488721",
+      "starts_at": "2027-01-06T18:00:00.000-05:00",
+      "opponent_abbr": "PA",
+      "opponent_name": "Pinkerton Academy",
+      "is_home": true,
+      "venue": "St Thomas High School Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "girls"
+    },
+    {
       "id": "boys-102201463",
       "starts_at": "2027-01-06T19:30:00.000-05:00",
       "opponent_abbr": "SHS",
@@ -482,17 +493,6 @@
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
-    },
-    {
-      "id": "girls-102488721",
-      "starts_at": "2027-01-06T20:00:00.000-05:00",
-      "opponent_abbr": "PA",
-      "opponent_name": "Pinkerton Academy",
-      "is_home": true,
-      "venue": "St Thomas High School Ice Arena",
-      "game_state": "FUT",
-      "tv_networks": [],
-      "squad": "girls"
     },
     {
       "id": "boys-102166125",
@@ -584,7 +584,7 @@
     },
     {
       "id": "girls-102488754",
-      "starts_at": "2027-01-20T20:30:00.000-05:00",
+      "starts_at": "2027-01-20T18:30:00.000-05:00",
       "opponent_abbr": "OR",
       "opponent_name": "Oyster River-Portsmouth",
       "is_home": true,
@@ -639,7 +639,7 @@
     },
     {
       "id": "girls-102488774",
-      "starts_at": "2027-01-30T19:15:00.000-05:00",
+      "starts_at": "2027-01-30T17:30:00.000-05:00",
       "opponent_abbr": "KM",
       "opponent_name": "Keene-Monadnock-Fall Mtn.",
       "is_home": true,
@@ -738,7 +738,7 @@
     },
     {
       "id": "girls-102488817",
-      "starts_at": "2027-02-20T18:00:00.000-05:00",
+      "starts_at": "2027-02-20T15:30:00.000-05:00",
       "opponent_abbr": "LEBA",
       "opponent_name": "Lebanon-Kearsarge-Mascoma",
       "is_home": true,
