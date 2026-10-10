@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T13:41:29.042-04:00",
+  "generated_at": "2026-10-10T12:33:01.604-04:00",
   "rinks": {
     "dover-arena": {
       "ok": true,
@@ -22,7 +22,7 @@
     },
     "rochester-arena": {
       "ok": true,
-      "session_count": 98
+      "session_count": 99
     }
   }
 }
