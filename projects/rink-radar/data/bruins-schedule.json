@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-13T14:38:07.687-04:00",
+  "generated_at": "2026-10-14T12:08:12.659-04:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -133,7 +133,7 @@
       "opponent_name": "Sharks",
       "is_home": false,
       "venue": "SAP Center at San Jose",
-      "game_state": "FUT",
+      "game_state": "OFF",
       "tv_networks": [
         "NESN",
         "ESPN"
