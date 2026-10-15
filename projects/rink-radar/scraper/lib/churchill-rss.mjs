@@ -1,23 +1,13 @@
 import { DateTime } from 'luxon';
+import { Agent } from 'undici';
+import {
+  classifyChurchillActivity,
+  dedupeChurchillSessions,
+  shouldSkipChurchillTitle,
+} from './churchill-shared.mjs';
 
 const USER_AGENT = 'RinkRadar/1.0 (+https://github.com/alexcat617/Tadpole)';
-
-/** Admin / placeholder events — not public ice sessions. */
-const SKIP_TITLE = new RegExp(
-  [
-    'CLOSED FOR THE SEASON',
-    'CLOSED FOR THE OFF-SEASON',
-    'OPENING DATE FOR SEASON',
-    'ANTICIPATED OPENING DATE',
-    'SCHEDULE PENDING PUBLICATION',
-    'LEARN TO SKATE SIGN UP',
-    'WE ARE CLOSED',
-    'WE CLOSE FOR THE SEASON',
-  ].join('|'),
-  'i',
-);
-
-const STICK_TITLE = /STICK|POND HOCKEY|PUBLIC HOCKEY SESSION/i;
+const INSECURE_DISPATCHER = new Agent({ connect: { rejectUnauthorized: false } });
 
 /**
  * @param {string} feedUrl
@@ -25,9 +15,7 @@ const STICK_TITLE = /STICK|POND HOCKEY|PUBLIC HOCKEY SESSION/i;
  * @returns {Promise<Array<{ starts_at: string, ends_at: string, activity: string, subtype: string, raw_label: string, source_url: string, confidence: string }>>}
  */
 export async function scrapeChurchillRssFeed(feedUrl, rinkId) {
-  const res = await fetch(feedUrl, { headers: { 'User-Agent': USER_AGENT } });
-  if (!res.ok) throw new Error(`Churchill RSS ${res.status}`);
-  const xml = await res.text();
+  const xml = await fetchChurchillRssXml(feedUrl);
   const sessions = [];
 
   for (const block of xml.match(/<item>[\s\S]*?<\/item>/gi) ?? []) {
@@ -36,7 +24,7 @@ export async function scrapeChurchillRssFeed(feedUrl, rinkId) {
     const pubDate = extractTag(block, 'pubDate');
     const description = decodeXml(extractTag(block, 'description'));
 
-    if (!title || SKIP_TITLE.test(title)) continue;
+    if (!title || shouldSkipChurchillTitle(title)) continue;
 
     const timeMatch = description.match(
       /Time:\s*(\d{1,2}:\d{2}\s*(?:am|pm))\s*-\s*(\d{1,2}:\d{2}\s*(?:am|pm))/i,
@@ -67,7 +55,8 @@ export async function scrapeChurchillRssFeed(feedUrl, rinkId) {
 
     if (!startDt?.isValid || !endDt?.isValid) continue;
 
-    const activity = STICK_TITLE.test(title) ? 'stick_puck' : 'public_skate';
+    const activity = classifyChurchillActivity(title);
+    if (!activity) continue;
     const label = title.includes(':') ? title.split(':').slice(1).join(':').trim() : title;
 
     sessions.push({
@@ -82,7 +71,31 @@ export async function scrapeChurchillRssFeed(feedUrl, rinkId) {
     });
   }
 
-  return dedupeSessions(sessions);
+  return dedupeChurchillSessions(sessions);
+}
+
+/** @param {string} feedUrl */
+async function fetchChurchillRssXml(feedUrl) {
+  try {
+    return await fetchRssText(feedUrl);
+  } catch (err) {
+    const code = err?.cause?.code ?? err?.code;
+    if (code === 'UNABLE_TO_VERIFY_LEAF_SIGNATURE' || /certificate/i.test(String(err?.message))) {
+      console.warn('[churchill-rink-durham] TLS verify failed; retrying RSS with relaxed verify');
+      return fetchRssText(feedUrl, INSECURE_DISPATCHER);
+    }
+    throw err;
+  }
+}
+
+/** @param {string} feedUrl @param {import('undici').Agent} [dispatcher] */
+async function fetchRssText(feedUrl, dispatcher) {
+  /** @type {RequestInit & { dispatcher?: import('undici').Agent }} */
+  const init = { headers: { 'User-Agent': USER_AGENT } };
+  if (dispatcher) init.dispatcher = dispatcher;
+  const res = await fetch(feedUrl, init);
+  if (!res.ok) throw new Error(`Churchill RSS ${res.status}`);
+  return res.text();
 }
 
 function extractTag(block, tag) {
@@ -97,16 +110,6 @@ function decodeXml(text) {
     .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'");
-}
-
-function dedupeSessions(list) {
-  const seen = new Set();
-  return list.filter((s) => {
-    const key = `${s.starts_at}|${s.activity}|${s.raw_label}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
 }
 
 /**
