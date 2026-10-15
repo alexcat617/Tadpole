@@ -1,80 +1,58 @@
 import * as cheerio from 'cheerio';
 import { DateTime } from 'luxon';
+import {
+  classifyChurchillActivity,
+  dedupeChurchillSessions,
+  shouldSkipChurchillTitle,
+} from './churchill-shared.mjs';
+import { discoverChurchillOverflowDayUrls, fetchChurchillHtml } from './churchill-fetch.mjs';
+/** SportsEngine often emits wrong fixed offsets; keep wall clock in America/New_York. */
+function churchillWallClockInEastern(isoTitle) {
+  const parsed = DateTime.fromISO(isoTitle, { setZone: true });
+  if (!parsed.isValid) return parsed;
+  return DateTime.fromObject(
+    {
+      year: parsed.year,
+      month: parsed.month,
+      day: parsed.day,
+      hour: parsed.hour,
+      minute: parsed.minute,
+      second: parsed.second,
+      millisecond: parsed.millisecond,
+    },
+    { zone: 'America/New_York' },
+  );
+}
 
-const SKIP = /CLOSED FOR THE SEASON - THANK YOU!/i;
-const PLACEHOLDER_HOURS = /9:00am EDT-5:00pm EDT/i;
 
 /**
- * @param {string} pageUrl
+ * Parse SportsEngine month or day calendar HTML (microformats vevent blocks).
+ * @param {string} html
  * @param {string} rinkId
- * @param {'public_skate' | 'adult_hockey' | 'stick_puck'} activityFilter
+ * @param {string} pageUrl
  */
-export async function scrapeChurchillPage(pageUrl, rinkId, activityFilter) {
-  const res = await fetch(pageUrl, {
-    headers: { 'User-Agent': 'RinkRadar/1.0 (+https://github.com/alexcat617/Tadpole)' },
-  });
-  if (!res.ok) throw new Error(`Churchill fetch failed: ${res.status}`);
-  const html = await res.text();
+export function parseChurchillCalendarHtml(html, rinkId, pageUrl) {
   const $ = cheerio.load(html);
   const sessions = [];
-  const text = $('body').text();
 
-  const tagNeedle =
-    activityFilter === 'public_skate'
-      ? 'PUBLIC SKATING'
-      : activityFilter === 'stick_puck' || activityFilter === 'adult_hockey'
-        ? 'PUBLIC HOCKEY'
-        : null;
+  $('div.vevent.scheduled').each((_, el) => {
+    const $ev = $(el);
+    const title = $ev.find('h5.summary a').first().text().trim();
+    if (!title || shouldSkipChurchillTitle(title)) return;
 
-  const eventRegex =
-    /(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday),\s*(\d{1,2}:\d{2}(?:am|pm))\s*(?:(?:EDT|EST)\s*)?-\s*(\d{1,2}:\d{2}(?:am|pm))\s*(?:EDT|EST)?/gi;
+    const tagsText = $ev.find('li.tags').text();
+    const activity = classifyChurchillActivity(title, tagsText);
+    if (!activity) return;
 
-  const chunks = text.split(/\d{1,2}\s/);
-  let m;
-  const full = text;
-  while ((m = eventRegex.exec(full)) !== null) {
-    const blockStart = Math.max(0, m.index - 120);
-    const block = full.slice(blockStart, m.index + 80);
-    if (SKIP.test(block) && PLACEHOLDER_HOURS.test(m[0])) continue;
-    if (/WE ARE CLOSED/i.test(block)) continue;
-    if (tagNeedle && !block.includes(tagNeedle) && !full.slice(m.index, m.index + 200).includes(tagNeedle)) {
-      continue;
-    }
+    const startTitle = $ev.find('abbr.dtstart[title]').first().attr('title');
+    const endTitle = $ev.find('abbr.dtend[title]').first().attr('title');
+    if (!startTitle || !endTitle) return;
 
-    const dayName = m[1];
-    const startT = m[2];
-    const endT = m[3];
+    const startDt = churchillWallClockInEastern(startTitle);
+    const endDt = churchillWallClockInEastern(endTitle);
+    if (!startDt.isValid || !endDt.isValid) return;
 
-    const contextBefore = full.slice(Math.max(0, m.index - 400), m.index);
-    const dayNumMatch = contextBefore.match(/(?:^|\s)(\d{1,2})\s+[^\d]*$/);
-    const monthMatch = full.match(/(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{4})/i);
-    if (!monthMatch) continue;
-    const monthName = monthMatch[1];
-    const year = parseInt(monthMatch[2], 10);
-
-    let day = dayNumMatch ? parseInt(dayNumMatch[1], 10) : null;
-    if (!day) {
-      const near = full.slice(m.index - 30, m.index);
-      const d2 = near.match(/(\d{1,2})\s+[A-Z]/);
-      day = d2 ? parseInt(d2[1], 10) : null;
-    }
-    if (!day) continue;
-
-    const dateStr = `${monthName} ${day}, ${year} ${startT}`;
-    const startDt = DateTime.fromFormat(dateStr, 'MMMM d, yyyy h:mma', { zone: 'America/New_York' });
-    const endDt = DateTime.fromFormat(
-      `${monthName} ${day}, ${year} ${endT}`,
-      'MMMM d, yyyy h:mma',
-      { zone: 'America/New_York' },
-    );
-    if (!startDt.isValid || !endDt.isValid) continue;
-
-    const activity =
-      activityFilter === 'public_skate'
-        ? 'public_skate'
-        : activityFilter === 'stick_puck'
-          ? 'stick_puck'
-          : 'adult_hockey';
+    const eventUrl = $ev.find('h5.summary a').first().attr('href') || pageUrl;
 
     sessions.push({
       rink_id: rinkId,
@@ -82,21 +60,45 @@ export async function scrapeChurchillPage(pageUrl, rinkId, activityFilter) {
       subtype: activity === 'public_skate' ? 'recreational' : 'drop_in',
       starts_at: startDt.toISO(),
       ends_at: endDt.toISO(),
-      raw_label: block.slice(0, 80).replace(/\s+/g, ' ').trim(),
-      source_url: pageUrl,
-      confidence: 'medium',
+      raw_label: title.slice(0, 120),
+      source_url: eventUrl.startsWith('http') ? eventUrl : new URL(eventUrl, pageUrl).href,
+      confidence: 'high',
     });
-  }
+  });
 
-  return dedupeSessions(sessions);
+  return sessions;
 }
 
-function dedupeSessions(list) {
-  const seen = new Set();
-  return list.filter((s) => {
-    const key = `${s.starts_at}|${s.activity}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+/**
+ * @param {string} pageUrl
+ * @param {string} rinkId
+ */
+export async function scrapeChurchillCalendar(pageUrl, rinkId) {
+  const html = await fetchChurchillHtml(pageUrl);
+  let sessions = parseChurchillCalendarHtml(html, rinkId, pageUrl);
+
+  const dayUrls = discoverChurchillOverflowDayUrls(html, pageUrl);
+  for (const dayUrl of dayUrls) {
+    const dayHtml = await fetchChurchillHtml(dayUrl);
+    sessions = dedupeChurchillSessions([
+      ...sessions,
+      ...parseChurchillCalendarHtml(dayHtml, rinkId, dayUrl),
+    ]);
+  }
+
+  return dedupeChurchillSessions(sessions);
+}
+
+/**
+ * @deprecated Prefer scrapeChurchillCalendar — kept for callers passing activity filter.
+ * @param {string} pageUrl
+ * @param {string} rinkId
+ * @param {'public_skate' | 'adult_hockey' | 'stick_puck'} activityFilter
+ */
+export async function scrapeChurchillPage(pageUrl, rinkId, activityFilter) {
+  const rows = await scrapeChurchillCalendar(pageUrl, rinkId);
+  if (activityFilter === 'public_skate') {
+    return rows.filter((r) => r.activity === 'public_skate');
+  }
+  return rows.filter((r) => r.activity === 'stick_puck');
 }

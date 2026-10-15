@@ -6,7 +6,8 @@ import { DateTime } from 'luxon';
 import { discoverRecentPdfUrls } from './lib/discover-pdf.mjs';
 import { parseDoverPdfBuffer } from './lib/dover-pdf.mjs';
 import { scrapeRecDeskProgram } from './lib/recdesk.mjs';
-import { scrapeChurchillPage } from './lib/churchill.mjs';
+import { scrapeChurchillCalendar } from './lib/churchill.mjs';
+import { dedupeChurchillSessions } from './lib/churchill-shared.mjs';
 import {
   churchillRowMatchesFilter,
   scrapeChurchillRssFeed,
@@ -104,7 +105,7 @@ function addSessions(rinkId, sourceUrl, rows, price) {
       ends_at: row.ends_at,
       price: row.price ?? price,
       raw_label: row.raw_label,
-      source_url: sourceUrl,
+      source_url: row.source_url ?? sourceUrl,
       fetched_at: fetchedAt,
       confidence: row.confidence ?? 'high',
     });
@@ -242,16 +243,22 @@ async function scrapeChurchill(rink) {
   const feedUrl = rink.churchill_rss_feed;
   let rows = [];
   if (feedUrl) {
-    rows = await scrapeChurchillRssFeed(feedUrl, rink.id);
-  } else {
-    for (const src of rink.schedule_sources) {
-      const activity = src.activity_hints.includes('public_skate')
-        ? 'public_skate'
-        : src.activity_hints.includes('stick_puck')
-          ? 'stick_puck'
-          : 'adult_hockey';
-      const pageRows = await scrapeChurchillPage(src.url, rink.id, activity);
-      rows.push(...pageRows);
+    try {
+      rows.push(...(await scrapeChurchillRssFeed(feedUrl, rink.id)));
+    } catch (err) {
+      console.warn(`[${rink.id}] RSS failed:`, err?.message ?? err);
+    }
+  }
+
+  const calendarUrl =
+    rink.schedule_sources?.find((s) => s.kind === 'html')?.url ??
+    rink.schedule_sources?.[0]?.url;
+  if (calendarUrl) {
+    try {
+      const calendarRows = await scrapeChurchillCalendar(calendarUrl, rink.id);
+      rows = dedupeChurchillSessions([...rows, ...calendarRows]);
+    } catch (err) {
+      console.warn(`[${rink.id}] calendar HTML failed:`, err?.message ?? err);
     }
   }
 
@@ -265,8 +272,14 @@ async function scrapeChurchill(rink) {
     const filtered = feedUrl
       ? rows.filter((row) => churchillRowMatchesFilter(row, activity))
       : rows.filter((row) => row.source_url === src.url);
-    const sourceUrl = feedUrl ?? src.url;
-    addSessions(rink.id, sourceUrl, filtered);
+    const withDisplayUrl = filtered.map((row) => ({
+      ...row,
+      source_url:
+        row.source_url && !row.source_url.includes('event_rss_feed')
+          ? row.source_url
+          : src.url,
+    }));
+    addSessions(rink.id, src.url, withDisplayUrl);
     count += filtered.length;
   }
 
