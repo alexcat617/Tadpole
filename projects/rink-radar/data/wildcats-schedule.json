@@ -2,7 +2,7 @@
   "team_label": "UNH Wildcats men's hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-18T11:03:31.137-04:00",
+  "generated_at": "2026-10-19T13:55:39.272-04:00",
   "source_url": "https://unhwildcats.com/sports/mens-ice-hockey/schedule/text",
   "games": [
     {
@@ -46,20 +46,20 @@
       "tv_networks": []
     },
     {
-      "id": "2026-10-23T19:00:00.000-04:00-michigan-state",
+      "id": "2026-10-23T19:00:00.000-04:00-2-michigan-state",
       "starts_at": "2026-10-23T19:00:00.000-04:00",
-      "opponent_abbr": "MSU",
-      "opponent_name": "Michigan State",
+      "opponent_abbr": "MS",
+      "opponent_name": "#2 Michigan State",
       "is_home": true,
       "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
       "game_state": "FUT",
       "tv_networks": []
     },
     {
-      "id": "2026-10-24T19:00:00.000-04:00-michigan-state",
+      "id": "2026-10-24T19:00:00.000-04:00-2-michigan-state",
       "starts_at": "2026-10-24T19:00:00.000-04:00",
-      "opponent_abbr": "MSU",
-      "opponent_name": "Michigan State",
+      "opponent_abbr": "MS",
+      "opponent_name": "#2 Michigan State",
       "is_home": true,
       "venue": "Durham, N.H. (Whittemore Center at Key Auto Group Complex)",
       "game_state": "FUT",
