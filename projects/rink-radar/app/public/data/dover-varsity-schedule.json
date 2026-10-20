@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-19T13:55:39.273-04:00",
+  "generated_at": "2026-10-20T11:59:25.781-04:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -128,7 +128,7 @@
           "opponent_abbr": "SHS",
           "opponent_name": "Salem High School",
           "is_home": false,
-          "venue": "Salem High School - NH Varsity Baseball Field",
+          "venue": "Salem High School - NH Salem Ice Center",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -632,7 +632,7 @@
       "opponent_abbr": "SHS",
       "opponent_name": "Salem High School",
       "is_home": false,
-      "venue": "Salem High School - NH Varsity Baseball Field",
+      "venue": "Salem High School - NH Salem Ice Center",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
