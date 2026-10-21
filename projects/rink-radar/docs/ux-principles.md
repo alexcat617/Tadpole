@@ -19,8 +19,8 @@ These reflect the current app behavior. The PRD still describes geolocation, rad
 | --- | --- |
 | Search | User picks activity + date, then taps **Find sessions** (no auto-run on filter change). |
 | Loading | Spinner + copy while schedule JSON is fetched; CTA shows **Searching…** and is disabled. |
-| Results lock | **Find sessions** disabled after a successful search with ≥1 result; use **Clear sessions** to reset. |
-| Clear | **Clear sessions** removes results and returns to the pre-search prompt; keeps draft filters. |
+| Results lock | After any search, **Find Ice** and **Search by date** are replaced by **Reset** until the user starts over. |
+| Reset | **Reset** removes results, closes the date panel, and restores **Find Ice** / **Search by date**; activity tab stays as selected. |
 | Deferred UI | **Within** (radius) and **Use my location** hidden until designed (fixed 40 km + Dover anchor). |
 | Session detail | Inline **accordion** on the card (not a modal). |
 | Card summary | Time, distance, rink name, activity/price line—no city/state on collapsed card. |

@@ -319,6 +319,7 @@ export default function App() {
   const clearSessions = useCallback(() => {
     clearSearchResults();
     resetDateDraft();
+    setDateSearchOpen(false);
   }, [clearSearchResults, resetDateDraft]);
 
   const noDateDataMessage = useCallback(
@@ -465,6 +466,7 @@ export default function App() {
   );
 
   const hasSearched = appliedFilter != null && appliedDate != null;
+  const showSearchReset = hasSearched && !isSearching;
 
   const schedulesUpdated = useMemo(() => {
     if (!sessionsFile) return null;
@@ -1279,90 +1281,96 @@ export default function App() {
           </div>
         </div>
 
-        <div className="controls-group controls-group--find-next">
-          <button
-            type="button"
-            className="find-next-session"
-            onClick={() => void runFindNext()}
-            disabled={isSearching || noRinksSelected}
-          >
-            Find Ice
-          </button>
-        </div>
-
-        <div className="controls-group controls-group--search">
-          {!dateSearchOpen ? (
+        {showSearchReset ? (
+          <div className="controls-group controls-group--reset">
             <button
               type="button"
-              className="search-by-date-cta"
-              onClick={openDateSearchPanel}
+              className="clear-sessions clear-sessions--primary-slot"
+              onClick={clearSessions}
             >
-              <svg
-                className="search-by-date-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <rect x="3" y="4" width="18" height="18" rx="2" />
-                <path d="M16 2v4M8 2v4M3 10h18" />
-              </svg>
-              Search by date
+              Reset
             </button>
-          ) : (
-            <div className="search-row">
-              <div className="search-date">
-                <label className="controls-label" htmlFor="search-date-input">
-                  Date
-                </label>
-                <span className="search-date-input-wrap">
-                  <span
-                    className={`search-date-facade${date ? '' : ' search-date-facade--empty'}`}
-                    aria-hidden="true"
-                  >
-                    {date ? formatSearchDateChoice(date) : 'Pick a date'}
-                  </span>
-                  <input
-                    id="search-date-input"
-                    type="date"
-                    className="search-date-input-native"
-                    value={date}
-                    min={scheduleCoverage?.min}
-                    max={scheduleCoverage?.max}
-                    onChange={(e) => selectDate(e.target.value)}
-                    aria-describedby={!date ? 'search-date-helper' : undefined}
-                  />
-                </span>
-                {!date ? (
-                  <span id="search-date-helper" className="search-date-helper">
-                    Pick a date to search.
-                  </span>
-                ) : null}
-              </div>
+          </div>
+        ) : (
+          <>
+            <div className="controls-group controls-group--find-next">
               <button
                 type="button"
-                className="search-cta"
-                onClick={() => void runSearch()}
-                disabled={isSearching || !date || noRinksSelected}
-                aria-busy={isSearching}
+                className="find-next-session"
+                onClick={() => void runFindNext()}
+                disabled={isSearching || noRinksSelected}
               >
-                {isSearching ? 'Searching…' : 'Search'}
-              </button>
-              <button
-                type="button"
-                className="secondary clear-sessions"
-                onClick={clearSessions}
-                disabled={!hasSearched || isSearching}
-              >
-                Clear
+                Find Ice
               </button>
             </div>
-          )}
-        </div>
+
+            <div className="controls-group controls-group--search">
+              {!dateSearchOpen ? (
+                <button
+                  type="button"
+                  className="search-by-date-cta"
+                  onClick={openDateSearchPanel}
+                >
+                  <svg
+                    className="search-by-date-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" />
+                    <path d="M16 2v4M8 2v4M3 10h18" />
+                  </svg>
+                  Search by date
+                </button>
+              ) : (
+                <div className="search-row">
+                  <div className="search-date">
+                    <label className="controls-label" htmlFor="search-date-input">
+                      Date
+                    </label>
+                    <span className="search-date-input-wrap">
+                      <span
+                        className={`search-date-facade${date ? '' : ' search-date-facade--empty'}`}
+                        aria-hidden="true"
+                      >
+                        {date ? formatSearchDateChoice(date) : 'Pick a date'}
+                      </span>
+                      <input
+                        id="search-date-input"
+                        type="date"
+                        className="search-date-input-native"
+                        value={date}
+                        min={scheduleCoverage?.min}
+                        max={scheduleCoverage?.max}
+                        onChange={(e) => selectDate(e.target.value)}
+                        aria-describedby={!date ? 'search-date-helper' : undefined}
+                      />
+                    </span>
+                    {!date ? (
+                      <span id="search-date-helper" className="search-date-helper">
+                        Pick a date to search.
+                      </span>
+                    ) : null}
+                  </div>
+                  <button
+                    type="button"
+                    className="search-cta"
+                    onClick={() => void runSearch()}
+                    disabled={isSearching || !date || noRinksSelected}
+                    aria-busy={isSearching}
+                  >
+                    {isSearching ? 'Searching…' : 'Search'}
+                  </button>
+                </div>
+              )}
+            </div>
+          </>
+        )}
 
         {noRinksSelected && (
           <p className="error search-error">Turn on at least one rink.</p>
