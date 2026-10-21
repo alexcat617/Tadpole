@@ -48,7 +48,8 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 
 ### Filter row (date)
 
-- **Progressive disclosure:** Default shows **Search by date** only; tap to reveal date input, **Search**, and **Clear**. Panel stays open after **Search** or **Clear** when the user opened it; **Find Ice** does not expand the date panel.
+- **Progressive disclosure:** Default shows **Search by date** only; tap to reveal date input and **Search**. Panel stays open after **Search** while results are not shown; **Find Ice** does not expand the date panel.
+- **After search:** **Find Ice** and **Search by date** are replaced by **Reset** until the user resets; collapses the date panel and restores the default controls.
 - Native date input uses **`min` / `max`** from scraped session dates for the current activity; gap days inside that range are rejected on pick with an **inline error** (not a modal).
 - Label above control (small caps tone via label styling).
 - Date input uses native `type="date"` for mobile pickers.
@@ -93,12 +94,12 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - Primary style: white surface, **ink** label (`--rr-ink`, medium weight), **gold** border; hover uses `--rr-gold-muted` fill.
 - **Compact secondary stack:** `0.875rem` type, `0.75rem` vertical padding, `min-height: 3rem` (~48px touch); full `.controls` gap between Find Ice and Search by date (no overlap).
 - **Search by date** trigger shares compact metrics; neutral 1px border distinguishes it from the primary control.
-- **States:** Default; disabled (searching or locked after results); label **Searching…** while loading.
+- **States:** Default; disabled while searching; label **Searching…** while loading. Hidden after a successful search until **Reset**.
 
-### Secondary — Clear sessions
+### Secondary — Reset
 
-- Full width outline button below CTA when results are showing.
-- Resets results only; does not reset activity/date drafts.
+- Full width **ghost** outline in place of **Find Ice** / **Search by date** when session results (or a post-search empty state) are showing: muted slate label, transparent fill; hover darkens label and adds a light page-tint fill (not gold primary).
+- Clears the results list, collapses the date panel, and restores **Find Ice** and **Search by date**; resets the date draft to the default pick for the current activity.
 
 ### Results region
 
