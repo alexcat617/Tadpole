@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-21T12:53:25.235-04:00",
+  "generated_at": "2026-10-22T12:15:06.734-04:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -62,7 +62,7 @@
           "opponent_abbr": "SHS",
           "opponent_name": "Spaulding High School",
           "is_home": true,
-          "venue": "Dover - Dunaway",
+          "venue": "Dover Ice Arena Dover Ice Arena",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -106,7 +106,7 @@
           "opponent_abbr": "STAH",
           "opponent_name": "St. Thomas Aquinas High School",
           "is_home": false,
-          "venue": "St Thomas High School Dover Ice Arena",
+          "venue": "Dover Ice Arena Dover Ice Arena - Holt Rink",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -124,7 +124,7 @@
         },
         {
           "id": "boys-102201543",
-          "starts_at": "2027-01-27T12:00:00.000-05:00",
+          "starts_at": "2027-01-27T14:50:00.000-05:00",
           "opponent_abbr": "SHS",
           "opponent_name": "Salem High School",
           "is_home": false,
@@ -146,7 +146,7 @@
         },
         {
           "id": "boys-102201583",
-          "starts_at": "2027-02-06T15:30:00.000-05:00",
+          "starts_at": "2027-02-06T17:30:00.000-05:00",
           "opponent_abbr": "EHS",
           "opponent_name": "Exeter High School",
           "is_home": true,
@@ -179,7 +179,7 @@
         },
         {
           "id": "boys-102201620",
-          "starts_at": "2027-02-17T12:00:00.000-05:00",
+          "starts_at": "2027-02-17T18:15:00.000-05:00",
           "opponent_abbr": "MC",
           "opponent_name": "Man. Central-West-Memorial",
           "is_home": false,
@@ -500,7 +500,7 @@
       "opponent_abbr": "SHS",
       "opponent_name": "Spaulding High School",
       "is_home": true,
-      "venue": "Dover - Dunaway",
+      "venue": "Dover Ice Arena Dover Ice Arena",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
@@ -577,7 +577,7 @@
       "opponent_abbr": "STAH",
       "opponent_name": "St. Thomas Aquinas High School",
       "is_home": false,
-      "venue": "St Thomas High School Dover Ice Arena",
+      "venue": "Dover Ice Arena Dover Ice Arena - Holt Rink",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
@@ -628,7 +628,7 @@
     },
     {
       "id": "boys-102201543",
-      "starts_at": "2027-01-27T12:00:00.000-05:00",
+      "starts_at": "2027-01-27T14:50:00.000-05:00",
       "opponent_abbr": "SHS",
       "opponent_name": "Salem High School",
       "is_home": false,
@@ -694,7 +694,7 @@
     },
     {
       "id": "boys-102201583",
-      "starts_at": "2027-02-06T15:30:00.000-05:00",
+      "starts_at": "2027-02-06T17:30:00.000-05:00",
       "opponent_abbr": "EHS",
       "opponent_name": "Exeter High School",
       "is_home": true,
@@ -749,7 +749,7 @@
     },
     {
       "id": "boys-102201620",
-      "starts_at": "2027-02-17T12:00:00.000-05:00",
+      "starts_at": "2027-02-17T18:15:00.000-05:00",
       "opponent_abbr": "MC",
       "opponent_name": "Man. Central-West-Memorial",
       "is_home": false,
