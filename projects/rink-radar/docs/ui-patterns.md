@@ -126,7 +126,7 @@ Before shipping UI changes, sanity-check at **320px**, **390px**, and **1280px**
 - Optional raw schedule label.
 - Full postal address.
 - Phone (tel link) when present.
-- Open in maps (external).
+- Open in maps (external) — Google Maps search for rink name + full postal address (not raw coordinates).
 - Official schedule source (external).
 - **Share with friend** — last in details; full-width blue **action** button (`--rr-action`, white label + icon); Web Share or copy; text opens with **Want to join me?**
 

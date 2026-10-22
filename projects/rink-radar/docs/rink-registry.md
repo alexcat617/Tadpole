@@ -39,6 +39,16 @@ Statuses below are **documentation only** — confirm URLs before scraping.
 
 **Your input needed:** Fill in rinks you actually visit; remove rows you do not care about.
 
+## Pilot rink locations (in search today)
+
+Use the **navigation address** in `rinks.json` (not mailing-only lines). Re-geocode `lat` / `lng` when you change the street address — the app uses them for distance sort; **Open in maps** uses name + postal address (see [data model](./data-model.md)).
+
+| id | Navigation address | Source |
+| --- | --- | --- |
+| `dover-arena` | 140 Portland Ave, Dover, NH 03820 | [City directions](https://www.dover.nh.gov/government/city-operations/recreation/arena/directions/) (mailing: 110 Portland Ave) |
+| `churchill-rink-durham` | 10 Old Piscataqua Rd, Durham, NH 03824 | [Churchill Rink contact](https://www.churchillrink.org/page/show/1442070-contact-churchill-ice-rink) |
+| `rochester-arena` | 45 Lowell St, Rochester, NH 03867 | [City recreation arena](https://www.rochesternh.gov/recreation-arena/pages/rochester-arena) |
+
 ## URL hygiene
 
 - Prefer **HTTPS** city or rink domains.
