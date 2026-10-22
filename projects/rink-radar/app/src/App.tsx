@@ -32,6 +32,8 @@ import {
   priceSummaryForCard,
   programKindLabel,
   programTeaser,
+  rinkMapsSearchUrl,
+  rinkPostalLine,
   sessionScanBadge,
   type ProgramAudienceFilter,
 } from './utils';
@@ -1464,9 +1466,7 @@ export default function App() {
                       session.stick_fee_legend && (
                       <p className="muted small">{session.stick_fee_legend}</p>
                     )}
-                    <p>
-                      {rink.address}, {rink.city}, {rink.region} {rink.postal_code}
-                    </p>
+                    <p>{rinkPostalLine(rink)}</p>
                     {rink.phone && (
                       <p>
                         <a href={`tel:${rink.phone.replace(/[^\d+]/g, '')}`}>{rink.phone}</a>
@@ -1474,7 +1474,7 @@ export default function App() {
                     )}
                     <p>
                       <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${rink.lat},${rink.lng}`}
+                        href={rinkMapsSearchUrl(rink)}
                         target="_blank"
                         rel="noreferrer"
                       >

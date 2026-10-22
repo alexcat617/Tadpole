@@ -167,7 +167,11 @@ Top-level:
 
 ## Distance calculation (client)
 
-Haversine from user `(lat, lng)` to rink `(lat, lng)`; round to 0.1 km for display.
+Haversine from user `(lat, lng)` to rink `(lat, lng)`; round to 0.1 km for display. Keep rink coordinates aligned with the navigation address in the registry (see [pilot rink locations](./rink-registry.md#pilot-rink-locations-in-search-today)).
+
+## Maps link (client)
+
+**Open in maps** opens Google Maps with a search query of `name` + street address + city + state + ZIP (`rinkMapsSearchUrl` in `app/src/utils.ts`). Do not link with raw `lat,lng` only — mobile apps often show coordinate pins instead of the venue name.
 
 ## Example
 

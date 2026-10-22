@@ -1,5 +1,16 @@
 import type { Session, Rink, RinkHealthEntry, BruinsGame, Program, ProgramKind } from './types';
 
+/** Single-line postal address for display and map search. */
+export function rinkPostalLine(rink: Rink): string {
+  return `${rink.address}, ${rink.city}, ${rink.region} ${rink.postal_code}`;
+}
+
+/** Google Maps search URL (name + address) so mobile shows a place label, not raw coordinates. */
+export function rinkMapsSearchUrl(rink: Rink): string {
+  const query = `${rink.name}, ${rinkPostalLine(rink)}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 export function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const r = 6371;
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
