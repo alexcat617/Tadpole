@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type {
-  Activity,
   BruinsScheduleFile,
   CompanionScheduleFile,
   DoverVarsityScheduleFile,
@@ -13,30 +12,31 @@ import type {
 import {
   activityLabel,
   addCalendarDaysIso,
-  bruinsMatchupLabel,
   buildCompanionGameDayBanner,
   buildScheduleCoverage,
   buildSessionRowsForDay,
   defaultSearchDateFromCoverage,
   filterProgramsForView,
   findNextSessionWindow,
-  formatBruinsGameDateTime,
-  formatBruinsTvLine,
-  formatResultsDayHeader,
-  formatSearchDateChoice,
   formatSessionShareText,
-  formatTimeRange,
   groupBruinsGamesByMonth,
   haversineKm,
-  isBruinsGamePast,
-  priceSummaryForCard,
-  programKindLabel,
-  programTeaser,
-  rinkMapsSearchUrl,
-  rinkPostalLine,
-  sessionScanBadge,
   type ProgramAudienceFilter,
 } from './utils';
+import type { ActivityFilter } from './components/ActivityTabs';
+import { GameDayBanner } from './components/GameDayBanner';
+import { HypeControl } from './components/HypeControl';
+import { ProgramsView } from './components/ProgramsView';
+import { ResultsSection } from './components/ResultsSection';
+import { RinksDrawer } from './components/RinksDrawer';
+import {
+  SchedulesDrawer,
+  type CompanionScheduleTab,
+  type DoverSquadTab,
+} from './components/SchedulesDrawer';
+import { SearchControls } from './components/SearchControls';
+import { SiteFooter } from './components/SiteFooter';
+import { TopBar } from './components/TopBar';
 import './App.css';
 
 const DATA_BASE = `${import.meta.env.BASE_URL}data`;
@@ -44,15 +44,7 @@ const HYPE_SOUND_URL = `${import.meta.env.BASE_URL}sounds/hype.wav`;
 
 const RINK_SELECTION_STORAGE_KEY = 'rink-radar-selected-rink-ids';
 
-type ActivityFilter = 'public_skate' | 'stick_puck';
-
-const ACTIVITY_FILTERS: ActivityFilter[] = ['public_skate', 'stick_puck'];
-
 type AppView = 'sessions' | 'programs';
-
-type CompanionScheduleTab = 'wildcats' | 'bruins' | 'doverVarsity';
-
-type DoverSquadTab = 'boys' | 'girls';
 
 function todayInZone(): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
@@ -636,345 +628,33 @@ export default function App() {
 
   const rinksDrawer =
     rinksSearchOpen && rinksFile ? (
-      <div className="rinks-drawer-root">
-        <button
-          type="button"
-          className="rinks-drawer-backdrop"
-          aria-label="Close rinks list"
-          onClick={closeRinksPanel}
-        />
-        <div
-          id="rinks-in-search-panel"
-          className="rinks-drawer"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="rinks-drawer-title"
-        >
-          <header className="rinks-drawer-header">
-            <h2 id="rinks-drawer-title" className="rinks-drawer-title">
-              Rinks in search
-            </h2>
-            <button
-              type="button"
-              className="rinks-drawer-close"
-              aria-label="Close"
-              onClick={closeRinksPanel}
-            >
-              ×
-            </button>
-          </header>
-          <div className="rinks-drawer-body">
-            <ul className="rinks-in-search-list">
-              {rinksInSearch.map(({ rink }) => {
-                const included = selectedRinkIds.has(rink.id);
-                const facilityNote =
-                  rink.operations?.status === 'closed_for_season'
-                    ? (rink.operations.label ?? 'Closed for the season')
-                    : null;
-                return (
-                  <li key={rink.id} className="rinks-in-search-item">
-                    <label className="rinks-in-search-toggle">
-                      <input
-                        type="checkbox"
-                        checked={included}
-                        onChange={() => toggleRinkInSearch(rink.id)}
-                      />
-                      <span className="rinks-in-search-name">{rink.name}</span>
-                    </label>
-                    <span className="rinks-in-search-city">{rink.city}</span>
-                    {facilityNote ? (
-                      <span className="rink-health-badge rink-health-badge--neutral">
-                        {facilityNote}
-                      </span>
-                    ) : null}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <RinksDrawer
+        rinks={rinksInSearch}
+        selectedRinkIds={selectedRinkIds}
+        onToggleRink={toggleRinkInSearch}
+        onClose={closeRinksPanel}
+      />
     ) : null;
-
-  const renderCompanionMonthGroups = (groups: ReturnType<typeof groupBruinsGamesByMonth>) =>
-    groups.map((group) => (
-      <section key={group.monthKey} className="bruins-schedule-month">
-        <h3 className="bruins-schedule-month-title">{group.monthLabel}</h3>
-        <ul className="bruins-schedule-list">
-          {group.games.map((game) => {
-            const past = isBruinsGamePast(game);
-            return (
-              <li
-                key={game.id}
-                className={`bruins-schedule-item${past ? ' bruins-schedule-item--past' : ''}`}
-              >
-                <p className="bruins-schedule-item-primary">
-                  <span className="bruins-schedule-datetime">
-                    {formatBruinsGameDateTime(game.starts_at)}
-                  </span>
-                  <span className="bruins-schedule-matchup">{bruinsMatchupLabel(game)}</span>
-                </p>
-                <p className="bruins-schedule-item-meta">
-                  <span className={`bruins-home-away${game.is_home ? ' bruins-home-away--home' : ''}`}>
-                    {game.is_home ? 'Home' : 'Away'}
-                  </span>
-                  <span className="bruins-schedule-venue">{game.venue}</span>
-                </p>
-                {game.tv_networks.length > 0 ? (
-                  <p className="bruins-schedule-tv muted small">
-                    {formatBruinsTvLine(game.tv_networks)}
-                  </p>
-                ) : null}
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-    ));
-
-  const hypeControl = (
-    <div className="hype-control">
-      <button
-        type="button"
-        className={`hype-fab${hypeMoment ? ' hype-fab--burst' : ''}`}
-        aria-label="Play hype sound"
-        onClick={(event) => {
-          event.stopPropagation();
-          playHype();
-        }}
-      >
-        Hype
-      </button>
-      <span
-        className={`hype-burst${hypeMoment ? ' hype-burst--active' : ''}`}
-        aria-hidden="true"
-      >
-        {Array.from({ length: 8 }, (_, i) => (
-          <span key={i} className="hype-burst-dot" />
-        ))}
-      </span>
-    </div>
-  );
 
   const schedulesDrawer =
     schedulesDrawerOpen && hasAnyCompanionSchedule ? (
-      <div className="bruins-drawer-root side-drawer-root">
-        <button
-          type="button"
-          className="bruins-drawer-backdrop side-drawer-backdrop"
-          aria-label="Close schedules"
-          onClick={closeSchedulesPanel}
-        />
-        <div
-          id="schedules-companion-panel"
-          className="bruins-drawer side-drawer"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="schedules-drawer-title"
-        >
-          <header className="bruins-drawer-header side-drawer-header">
-            <h2 id="schedules-drawer-title" className="bruins-drawer-title side-drawer-title">
-              Game schedules
-            </h2>
-            <button
-              type="button"
-              className="bruins-drawer-close side-drawer-close"
-              aria-label="Close"
-              onClick={closeSchedulesPanel}
-            >
-              ×
-            </button>
-          </header>
-          {showCompanionScheduleTabs ||
-          (effectiveCompanionTab === 'doverVarsity' &&
-            hasDoverVarsitySchedule &&
-            showDoverSquadTabs) ? (
-            <div className="schedules-drawer-toolbar">
-              {showCompanionScheduleTabs ? (
-                <div className="companion-schedule-tabs" role="tablist" aria-label="Schedule team">
-                  {hasBruinsSchedule ? (
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={effectiveCompanionTab === 'bruins'}
-                      className={`companion-schedule-tab${effectiveCompanionTab === 'bruins' ? ' active' : ''}`}
-                      onClick={() => setCompanionScheduleTab('bruins')}
-                    >
-                      Bruins
-                    </button>
-                  ) : null}
-                  {hasWildcatsSchedule ? (
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={effectiveCompanionTab === 'wildcats'}
-                      className={`companion-schedule-tab${effectiveCompanionTab === 'wildcats' ? ' active' : ''}`}
-                      onClick={() => setCompanionScheduleTab('wildcats')}
-                    >
-                      Wildcats
-                    </button>
-                  ) : null}
-                  {hasDoverVarsitySchedule ? (
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={effectiveCompanionTab === 'doverVarsity'}
-                      className={`companion-schedule-tab${effectiveCompanionTab === 'doverVarsity' ? ' active' : ''}`}
-                      onClick={() => {
-                        setCompanionScheduleTab('doverVarsity');
-                        setDoverSquadTab('boys');
-                      }}
-                    >
-                      Dover Varsity
-                    </button>
-                  ) : null}
-                </div>
-              ) : null}
-              {effectiveCompanionTab === 'doverVarsity' &&
-              hasDoverVarsitySchedule &&
-              showDoverSquadTabs ? (
-                <div
-                  className="program-audience-segmented companion-squad-audience schedules-drawer-squad-tabs"
-                  role="tablist"
-                  aria-label="Dover varsity squad"
-                >
-                  {(
-                    [
-                      ['boys', 'Boys'],
-                      ['girls', 'Girls'],
-                    ] as const
-                  ).map(([value, label]) => (
-                    <button
-                      key={value}
-                      type="button"
-                      role="tab"
-                      aria-selected={effectiveDoverSquadTab === value}
-                      className={`program-audience-btn${effectiveDoverSquadTab === value ? ' active' : ''}`}
-                      onClick={() => setDoverSquadTab(value)}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-          ) : null}
-          <div className="schedules-drawer-scroll">
-            {effectiveCompanionTab === 'wildcats' && hasWildcatsSchedule && wildcatsScheduleFile ? (
-              <section className="companion-schedule-section" aria-label="UNH Wildcats">
-                {!showCompanionScheduleTabs ? (
-                  <h3 className="companion-schedule-heading">
-                    {wildcatsScheduleFile.team_label ?? "UNH Wildcats men's hockey"}
-                  </h3>
-                ) : null}
-                {renderCompanionMonthGroups(wildcatsGamesByMonth)}
-                <p className="bruins-schedule-footer muted small">
-                  Not affiliated with UNH or NCAA.{' '}
-                  <a href={wildcatsScheduleFile.source_url} target="_blank" rel="noreferrer">
-                    Official UNH schedule
-                  </a>
-                </p>
-              </section>
-            ) : null}
-            {effectiveCompanionTab === 'bruins' && hasBruinsSchedule && bruinsScheduleFile ? (
-              <section className="companion-schedule-section" aria-label="Boston Bruins">
-                {!showCompanionScheduleTabs ? (
-                  <h3 className="companion-schedule-heading">
-                    Bruins {bruinsScheduleFile.season_label}
-                  </h3>
-                ) : null}
-                {renderCompanionMonthGroups(bruinsGamesByMonth)}
-                <p className="bruins-schedule-footer muted small">
-                  Not affiliated with the NHL or Boston Bruins.{' '}
-                  <a href={bruinsScheduleFile.source_url} target="_blank" rel="noreferrer">
-                    Official Bruins schedule
-                  </a>
-                </p>
-              </section>
-            ) : null}
-            {effectiveCompanionTab === 'doverVarsity' &&
-            hasDoverVarsitySchedule &&
-            doverVarsityScheduleFile ? (
-              <section className="companion-schedule-section" aria-label="Dover varsity hockey">
-                {!showCompanionScheduleTabs ? (
-                  <h3 className="companion-schedule-heading">
-                    {doverVarsityScheduleFile.team_label ?? 'Dover varsity hockey'}{' '}
-                    {doverVarsityScheduleFile.season_label}
-                  </h3>
-                ) : null}
-                {!showCompanionScheduleTabs && !showDoverSquadTabs ? (
-                  <h4 className="companion-schedule-squad-title">
-                    {effectiveDoverSquadTab === 'boys'
-                      ? doverVarsityScheduleFile.squads.boys.label
-                      : doverVarsityScheduleFile.squads.girls.label}
-                  </h4>
-                ) : null}
-                {effectiveDoverSquadTab === 'boys' ? (
-                  hasDoverBoysSchedule ? (
-                    renderCompanionMonthGroups(doverBoysGamesByMonth)
-                  ) : (
-                    <p className="muted small">
-                      Schedule unavailable.{' '}
-                      <a
-                        href={
-                          doverVarsityScheduleFile.source_urls?.boys ??
-                          doverVarsityScheduleFile.source_url
-                        }
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Check official boys schedule
-                      </a>
-                    </p>
-                  )
-                ) : hasDoverGirlsSchedule ? (
-                  renderCompanionMonthGroups(doverGirlsGamesByMonth)
-                ) : (
-                  <p className="muted small">
-                    Schedule unavailable.{' '}
-                    <a
-                      href={
-                        doverVarsityScheduleFile.source_urls?.girls ??
-                        doverVarsityScheduleFile.source_url
-                      }
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Check official girls schedule
-                    </a>
-                  </p>
-                )}
-                <p className="bruins-schedule-footer muted small">
-                  Not affiliated with NHIAA or Dover School District.{' '}
-                  {doverVarsityScheduleFile.source_urls?.boys ? (
-                    <a
-                      href={doverVarsityScheduleFile.source_urls.boys}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Boys schedule
-                    </a>
-                  ) : null}
-                  {doverVarsityScheduleFile.source_urls?.boys &&
-                  doverVarsityScheduleFile.source_urls?.girls ? (
-                    <span aria-hidden="true"> · </span>
-                  ) : null}
-                  {doverVarsityScheduleFile.source_urls?.girls ? (
-                    <a
-                      href={doverVarsityScheduleFile.source_urls.girls}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Girls schedule
-                    </a>
-                  ) : null}
-                </p>
-              </section>
-            ) : null}
-          </div>
-          <footer className="schedules-drawer-hype">{hypeControl}</footer>
-        </div>
-      </div>
+      <SchedulesDrawer
+        onClose={closeSchedulesPanel}
+        activeTab={effectiveCompanionTab}
+        onTabChange={setCompanionScheduleTab}
+        showTeamTabs={showCompanionScheduleTabs}
+        bruins={bruinsScheduleFile}
+        bruinsGroups={bruinsGamesByMonth}
+        wildcats={wildcatsScheduleFile}
+        wildcatsGroups={wildcatsGamesByMonth}
+        doverVarsity={doverVarsityScheduleFile}
+        doverBoysGroups={doverBoysGamesByMonth}
+        doverGirlsGroups={doverGirlsGamesByMonth}
+        doverSquad={effectiveDoverSquadTab}
+        onDoverSquadChange={setDoverSquadTab}
+        showDoverSquadTabs={showDoverSquadTabs}
+        footer={<HypeControl active={hypeMoment} onPlay={playHype} />}
+      />
     ) : null;
 
   const showSchedulesFabOnView = hasAnyCompanionSchedule && appView !== 'programs';
@@ -998,62 +678,18 @@ export default function App() {
     showSchedulesFabOnView && !schedulesDrawerOpen ? ' app-shell--bottom-fab' : ''
   }`;
 
-  const siteFooter = (
-    <footer className="site-footer" role="contentinfo">
-      {schedulesUpdated ? (
-        <time className="site-footer-updated" dateTime={schedulesUpdated.iso}>
-          Updated {schedulesUpdated.label}
-        </time>
-      ) : (
-        <span className="site-footer-updated">Schedule data loading…</span>
-      )}
-      <p className="site-footer-credit">
-        Designed and built by{' '}
-        <a
-          href="https://www.linkedin.com/in/alexfarrelldesigner"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Alex Farrell
-        </a>
-      </p>
-    </footer>
-  );
+  const siteFooter = <SiteFooter updated={schedulesUpdated} />;
 
   const topBar = (
-    <header className="top-bar" role="banner">
-      <div className="top-bar-inner">
-        <div className="header-titles">
-          <h1 className="header-region">Seacoast ice</h1>
-        </div>
-        <div className="header-actions">
-          {showProgramsNav ? (
-            <button
-              type="button"
-              className={`header-rinks-btn${appView === 'programs' ? ' header-rinks-btn--current' : ''}`}
-              aria-current={appView === 'programs' ? 'page' : undefined}
-              onClick={() => {
-                if (appView !== 'programs') openProgramsView();
-              }}
-            >
-              Programs
-            </button>
-          ) : null}
-          {rinksFile ? (
-            <button
-              type="button"
-              className="header-rinks-btn"
-              aria-expanded={rinksSearchOpen}
-              aria-controls="rinks-in-search-panel"
-              aria-label={`Rinks, ${selectedRinkIds.size} selected`}
-              onClick={toggleRinksPanel}
-            >
-              Rinks
-            </button>
-          ) : null}
-        </div>
-      </div>
-    </header>
+    <TopBar
+      showProgramsNav={showProgramsNav}
+      programsCurrent={appView === 'programs'}
+      onOpenPrograms={openProgramsView}
+      showRinksButton={rinksFile != null}
+      rinksOpen={rinksSearchOpen}
+      selectedRinkCount={selectedRinkIds.size}
+      onToggleRinks={toggleRinksPanel}
+    />
   );
 
   if (loadError) {
@@ -1090,442 +726,55 @@ export default function App() {
     <div className={shellClassName}>
       {topBar}
       <main className={appView === 'programs' ? 'app app--programs' : 'app'}>
-      {appView === 'programs' && programsFile ? (
-        <section className="programs-section" aria-label="Arena programs">
-          <header className="programs-intro">
-            <div className="programs-intro-header">
-              <h2 className="programs-heading">Programs</h2>
-              <button
-                type="button"
-                className="programs-close side-drawer-close"
-                aria-label="Close programs"
-                onClick={openSessionsView}
-              >
-                ×
-              </button>
-            </div>
-            <p className="muted small programs-lede">
-              Kids learn-to-skate, leagues, and drop-ins from your selected rinks.
-            </p>
-            <div
-              className="program-audience-segmented"
-              role="tablist"
-              aria-label="Program audience"
-            >
-              {(
-                [
-                  ['all', 'All'],
-                  ['kids', 'Kids'],
-                  ['adult', 'Adult'],
-                ] as const
-              ).map(([value, label]) => (
-                <button
-                  key={value}
-                  type="button"
-                  role="tab"
-                  aria-selected={programAudienceFilter === value}
-                  className={`program-audience-btn${programAudienceFilter === value ? ' active' : ''}`}
-                  onClick={() => setProgramAudienceFilter(value)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </header>
-          <div className="programs-body">
-          {visiblePrograms.length === 0 ? (
-            <div className="empty programs-empty">
-              <p>No programs for your filters.</p>
-              <p className="muted">
-                {programAudienceFilter === 'kids'
-                  ? 'No kids programs for your selected rinks — try Public skate or Stick & puck for open ice.'
-                  : 'Open rinks — turn on a rink that offers programs.'}
-              </p>
-            </div>
-          ) : (
-            <ul className="program-list">
-              {visiblePrograms.map((program) => {
-                const rink = rinkMap.get(program.rink_id);
-                const isExpanded = expandedProgramId === program.id;
-                const detailsId = `program-details-${program.id}`;
-                return (
-                  <li
-                    key={program.id}
-                    className={isExpanded ? 'program-item expanded' : 'program-item'}
-                  >
-                    <button
-                      type="button"
-                      className="program-card-toggle"
-                      aria-expanded={isExpanded}
-                      aria-controls={detailsId}
-                      onClick={() => setExpandedProgramId(isExpanded ? null : program.id)}
-                    >
-                      <span className="program-card-title">{program.title}</span>
-                      {rink ? <span className="program-card-rink muted small">{rink.name}</span> : null}
-                      <span className="program-meta">
-                        <span className={`program-kind-badge program-kind-badge--${program.kind}`}>
-                          {programKindLabel(program.kind)}
-                        </span>
-                        <span className="program-teaser muted small">{programTeaser(program)}</span>
-                      </span>
-                      <span className="program-chevron" aria-hidden="true" />
-                    </button>
-                    {isExpanded ? (
-                      <div className="program-details" id={detailsId}>
-                        {program.description.split('\n\n').map((para, i) => (
-                          <p key={i}>{para}</p>
-                        ))}
-                        <ul className="program-offerings">
-                          {program.offerings.map((offering) => (
-                            <li key={`${program.id}-${offering.label}`} className="program-offering">
-                              <h3 className="program-offering-label">{offering.label}</h3>
-                              <p>
-                                <strong>When:</strong> {offering.schedule_text}
-                              </p>
-                              {offering.exceptions && offering.exceptions.length > 0 ? (
-                                <p className="muted small">
-                                  <strong>Off:</strong> {offering.exceptions.join('; ')}
-                                </p>
-                              ) : null}
-                              <p>
-                                <strong>Times:</strong> {offering.times_text}
-                              </p>
-                              <p>
-                                <strong>Cost:</strong> {offering.cost_text}
-                              </p>
-                              <p>
-                                <strong>Registration:</strong> {offering.registration_text}
-                              </p>
-                            </li>
-                          ))}
-                        </ul>
-                        {program.links && program.links.length > 0 ? (
-                          <ul className="program-links">
-                            {program.links.map((link) => (
-                              <li key={link.url}>
-                                <a href={link.url} target="_blank" rel="noreferrer">
-                                  {link.label}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
-                        {rink?.phone ? (
-                          <p>
-                            <a href={`tel:${rink.phone.replace(/[^\d+]/g, '')}`}>{rink.phone}</a>
-                          </p>
-                        ) : null}
-                      </div>
-                    ) : null}
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-          <p className="programs-footer muted small">
-            Not affiliated with host facilities.{' '}
-            <a href={programsFile.source_url} target="_blank" rel="noreferrer">
-              Official program listings
-            </a>
-          </p>
-          </div>
-        </section>
-      ) : (
-        <>
-      {companionGameBanner ? (
-        <div
-          className="companion-game-banner-wrap"
-          role="region"
-          aria-label="Games today and tomorrow"
-        >
-          {companionGameBanner.chips.map((chip, index) => (
-            <div
-              key={`${chip.team}-${chip.text}-${index}`}
-              className="companion-game-banner"
-              role="status"
-              aria-label={`${chip.dayLabel}, ${chip.text}`}
-            >
-              <span className="companion-game-banner-day">{chip.dayLabel}</span>
-              <span className="companion-game-banner-chip">{chip.text}</span>
-            </div>
-          ))}
-        </div>
-      ) : null}
-      <section className="controls" aria-label="Find sessions">
-        <div className="controls-group controls-group--types">
-          <p className="controls-label" id="activity-label">
-            I want to…
-          </p>
-          <div
-            className="activity-segmented"
-            role="tablist"
-            aria-labelledby="activity-label"
-            style={
-              {
-                '--segment-index': ACTIVITY_FILTERS.indexOf(filter),
-                '--segment-count': ACTIVITY_FILTERS.length,
-              } as React.CSSProperties
+        {appView === 'programs' && programsFile ? (
+          <ProgramsView
+            programs={visiblePrograms}
+            sourceUrl={programsFile.source_url}
+            rinkMap={rinkMap}
+            audience={programAudienceFilter}
+            onAudienceChange={setProgramAudienceFilter}
+            expandedProgramId={expandedProgramId}
+            onToggleProgram={(programId) =>
+              setExpandedProgramId(expandedProgramId === programId ? null : programId)
             }
-          >
-            <span className="activity-segmented-thumb" aria-hidden="true" />
-            {ACTIVITY_FILTERS.map((a) => (
-              <button
-                key={a}
-                type="button"
-                role="tab"
-                aria-selected={filter === a}
-                className={`activity-segmented-btn${filter === a ? ' active' : ''}`}
-                onClick={() => selectActivity(a)}
-              >
-                {activityLabel(a as Activity)}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {showSearchReset ? (
-          <div className="controls-group controls-group--reset">
-            <button
-              type="button"
-              className="clear-sessions clear-sessions--primary-slot"
-              onClick={clearSessions}
-            >
-              Reset
-            </button>
-          </div>
+            onClose={openSessionsView}
+          />
         ) : (
           <>
-            <div className="controls-group controls-group--find-next">
-              <button
-                type="button"
-                className="find-next-session"
-                onClick={() => void runFindNext()}
-                disabled={isSearching || noRinksSelected}
-              >
-                Find Ice
-              </button>
-            </div>
-
-            <div className="controls-group controls-group--search">
-              {!dateSearchOpen ? (
-                <button
-                  type="button"
-                  className="search-by-date-cta"
-                  onClick={openDateSearchPanel}
-                >
-                  <svg
-                    className="search-by-date-icon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                    <path d="M16 2v4M8 2v4M3 10h18" />
-                  </svg>
-                  Search by date
-                </button>
-              ) : (
-                <div className="search-row">
-                  <div className="search-date">
-                    <label className="controls-label" htmlFor="search-date-input">
-                      Date
-                    </label>
-                    <span className="search-date-input-wrap">
-                      <span
-                        className={`search-date-facade${date ? '' : ' search-date-facade--empty'}`}
-                        aria-hidden="true"
-                      >
-                        {date ? formatSearchDateChoice(date) : 'Pick a date'}
-                      </span>
-                      <input
-                        id="search-date-input"
-                        type="date"
-                        className="search-date-input-native"
-                        value={date}
-                        min={scheduleCoverage?.min}
-                        max={scheduleCoverage?.max}
-                        onChange={(e) => selectDate(e.target.value)}
-                        aria-describedby={!date ? 'search-date-helper' : undefined}
-                      />
-                    </span>
-                    {!date ? (
-                      <span id="search-date-helper" className="search-date-helper">
-                        Pick a date to search.
-                      </span>
-                    ) : null}
-                  </div>
-                  <button
-                    type="button"
-                    className="search-cta"
-                    onClick={() => void runSearch()}
-                    disabled={isSearching || !date || noRinksSelected}
-                    aria-busy={isSearching}
-                  >
-                    {isSearching ? 'Searching…' : 'Search'}
-                  </button>
-                </div>
-              )}
-            </div>
+            {companionGameBanner ? <GameDayBanner banner={companionGameBanner} /> : null}
+            <SearchControls
+              activity={filter}
+              onActivityChange={selectActivity}
+              showReset={showSearchReset}
+              onReset={clearSessions}
+              onFindIce={() => void runFindNext()}
+              isSearching={isSearching}
+              noRinksSelected={noRinksSelected}
+              dateSearchOpen={dateSearchOpen}
+              onOpenDateSearch={openDateSearchPanel}
+              date={date}
+              dateMin={scheduleCoverage?.min}
+              dateMax={scheduleCoverage?.max}
+              onDateChange={selectDate}
+              onSearch={() => void runSearch()}
+              searchError={searchError}
+            />
+            <ResultsSection
+              isSearching={isSearching}
+              hasSearched={hasSearched}
+              totalResultCount={totalResultRows.length}
+              dayBlocks={resultDayBlocks}
+              showDayHeaders={appliedFilter != null}
+              today={todayInZone()}
+              shareNotice={shareNotice}
+              expandedSessionId={expandedSessionId}
+              onToggleSession={(sessionId) =>
+                setExpandedSessionId(expandedSessionId === sessionId ? null : sessionId)
+              }
+              onShareSession={(session, rink) => void shareSession(session, rink)}
+            />
           </>
         )}
-
-        {noRinksSelected && (
-          <p className="error search-error">Turn on at least one rink.</p>
-        )}
-        {searchError && <p className="error search-error">{searchError}</p>}
-      </section>
-
-      <section className="results" aria-live="polite" aria-busy={isSearching}>
-        {shareNotice ? (
-          <p className="share-notice" role="status">
-            {shareNotice}
-          </p>
-        ) : null}
-        {isSearching ? (
-          <div className="search-loading">
-            <span className="search-loading-spinner" aria-hidden="true" />
-            <p>Searching schedules…</p>
-          </div>
-        ) : !hasSearched ? (
-          <div className="empty empty--prompt">
-            <p>Use Find Ice or Search by date.</p>
-          </div>
-        ) : totalResultRows.length === 0 ? (
-          <div className="empty results-empty">
-            <p>No sessions for this day and filter.</p>
-            <p>Try another date, activity, or rinks.</p>
-          </div>
-        ) : (
-          resultDayBlocks.map((block) => {
-            if (block.rows.length === 0) return null;
-            const dayHeader = formatResultsDayHeader(block.day, todayInZone());
-            const isTodayBlock = dayHeader.relative === 'Today';
-            return (
-              <div
-                key={block.day}
-                className={
-                  isTodayBlock ? 'results-day-block results-day-block--today' : 'results-day-block'
-                }
-              >
-                {appliedFilter && (
-                  <header
-                    className={
-                      isTodayBlock
-                        ? 'results-day-header results-day-header--today'
-                        : 'results-day-header'
-                    }
-                  >
-                    <p className="results-day-kicker">
-                      {dayHeader.relative ?? 'Selected day'}
-                    </p>
-                    <h2 className="results-day-title">{dayHeader.title}</h2>
-                  </header>
-                )}
-                <ul className="session-list">
-                  {block.rows.map(({ session, rink }) => {
-            const isExpanded = expandedSessionId === session.id;
-            const detailsId = `session-details-${session.id}`;
-            const scanBadge = sessionScanBadge(session.subtype);
-            const priceText = session.price?.summary
-              ? priceSummaryForCard(session.price.summary)
-              : '';
-            return (
-              <li key={session.id} className={isExpanded ? 'session-item expanded' : 'session-item'}>
-                <button
-                  type="button"
-                  className="session-card-toggle"
-                  aria-expanded={isExpanded}
-                  aria-controls={detailsId}
-                  onClick={() => setExpandedSessionId(isExpanded ? null : session.id)}
-                >
-                  <span className="rink">{rink.name}</span>
-                  <span className="time">{formatTimeRange(session.starts_at, session.ends_at)}</span>
-                  <span className="session-meta">
-                    {scanBadge ? (
-                      <span className={`session-badge session-badge--${scanBadge.variant}`}>
-                        {scanBadge.label}
-                      </span>
-                    ) : (
-                      <span className="session-badge session-badge--neutral">
-                        {session.subtype?.replace(/_/g, ' ') ?? activityLabel(session.activity)}
-                      </span>
-                    )}
-                    {priceText ? <span className="session-price">{priceText}</span> : null}
-                  </span>
-                  <span className="session-chevron" aria-hidden="true" />
-                </button>
-                {isExpanded && (
-                  <div className="session-details" id={detailsId}>
-                    {rink.id === 'dover-arena' &&
-                      session.activity === 'stick_puck' &&
-                      session.stick_fee_legend && (
-                      <p className="muted small">{session.stick_fee_legend}</p>
-                    )}
-                    <p>{rinkPostalLine(rink)}</p>
-                    {rink.phone && (
-                      <p>
-                        <a href={`tel:${rink.phone.replace(/[^\d+]/g, '')}`}>{rink.phone}</a>
-                      </p>
-                    )}
-                    <p>
-                      <a
-                        href={rinkMapsSearchUrl(rink)}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Open in maps
-                      </a>
-                    </p>
-                    <p className="session-details-trust muted small">
-                      Schedules change — confirm with the rink before you go.
-                    </p>
-                    <p>
-                      <a href={session.source_url} target="_blank" rel="noreferrer">
-                        Official schedule source
-                      </a>
-                    </p>
-                    <p className="session-share-row">
-                      <button
-                        type="button"
-                        className="session-share-btn"
-                        onClick={() => void shareSession(session, rink)}
-                      >
-                        <svg
-                          className="session-share-icon"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          aria-hidden="true"
-                        >
-                          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                          <polyline points="16 6 12 2 8 6" />
-                          <line x1="12" y1="2" x2="12" y2="15" />
-                        </svg>
-                        Share with friend
-                      </button>
-                    </p>
-                  </div>
-                )}
-              </li>
-            );
-          })}
-                </ul>
-              </div>
-            );
-          })
-        )}
-      </section>
-        </>
-      )}
       </main>
       {rinksDrawer}
       {schedulesDrawer}
