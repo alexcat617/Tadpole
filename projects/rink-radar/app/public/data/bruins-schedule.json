@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-22T13:40:12.332-04:00",
+  "generated_at": "2026-10-23T12:04:53.155-04:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -182,7 +182,7 @@
       "opponent_name": "Predators",
       "is_home": true,
       "venue": "TD Garden",
-      "game_state": "FUT",
+      "game_state": "OFF",
       "tv_networks": [
         "NESN"
       ]
