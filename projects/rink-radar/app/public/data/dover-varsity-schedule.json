@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-27T12:59:47.862-04:00",
+  "generated_at": "2026-10-28T13:35:50.608-04:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -12,6 +12,17 @@
     "boys": {
       "label": "Boys varsity",
       "games": [
+        {
+          "id": "boys-105145069",
+          "starts_at": "2026-12-06T11:30:00.000-05:00",
+          "opponent_abbr": "TBA",
+          "opponent_name": "TBA",
+          "is_home": true,
+          "venue": "Dover Ice Arena Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
         {
           "id": "boys-102201428",
           "starts_at": "2026-12-16T19:30:00.000-05:00",
@@ -406,6 +417,17 @@
     }
   },
   "games": [
+    {
+      "id": "boys-105145069",
+      "starts_at": "2026-12-06T11:30:00.000-05:00",
+      "opponent_abbr": "TBA",
+      "opponent_name": "TBA",
+      "is_home": true,
+      "venue": "Dover Ice Arena Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
     {
       "id": "girls-102488691",
       "starts_at": "2026-12-16T17:00:00.000-05:00",
