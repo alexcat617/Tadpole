@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-29T13:45:27.043-04:00",
+  "generated_at": "2026-10-30T13:25:25.460-04:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -12,6 +12,17 @@
     "boys": {
       "label": "Boys varsity",
       "games": [
+        {
+          "id": "boys-105199516",
+          "starts_at": "2026-12-05T10:00:00.000-05:00",
+          "opponent_abbr": "TBA",
+          "opponent_name": "TBA",
+          "is_home": true,
+          "venue": "Dover Ice Arena Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
         {
           "id": "boys-105145069",
           "starts_at": "2026-12-06T11:30:00.000-05:00",
@@ -342,7 +353,7 @@
           "opponent_abbr": "KM",
           "opponent_name": "Keene-Monadnock-Fall Mtn.",
           "is_home": true,
-          "venue": "St Thomas High School Dover Ice Arena",
+          "venue": "Dover Ice Arena Dover Ice Arena - Foster Rink",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "girls"
@@ -417,6 +428,17 @@
     }
   },
   "games": [
+    {
+      "id": "boys-105199516",
+      "starts_at": "2026-12-05T10:00:00.000-05:00",
+      "opponent_abbr": "TBA",
+      "opponent_name": "TBA",
+      "is_home": true,
+      "venue": "Dover Ice Arena Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
     {
       "id": "boys-105145069",
       "starts_at": "2026-12-06T11:30:00.000-05:00",
@@ -687,7 +709,7 @@
       "opponent_abbr": "KM",
       "opponent_name": "Keene-Monadnock-Fall Mtn.",
       "is_home": true,
-      "venue": "St Thomas High School Dover Ice Arena",
+      "venue": "Dover Ice Arena Dover Ice Arena - Foster Rink",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "girls"
