@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T12:29:05.673-04:00",
+  "generated_at": "2026-11-01T12:23:19.299-05:00",
   "rinks": {
     "dover-arena": {
       "ok": true,
@@ -17,7 +17,7 @@
     },
     "churchill-rink-durham": {
       "ok": true,
-      "session_count": 79,
+      "session_count": 80,
       "rss_feed": "https://www.churchillrink.org/event_rss_feed?tags=1428237,1439579,1439831"
     },
     "rochester-arena": {
