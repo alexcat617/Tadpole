@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-11-02T12:31:14.725-05:00",
+  "generated_at": "2026-11-02T16:00:15.454-05:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -80,7 +80,7 @@
         },
         {
           "id": "boys-102201463",
-          "starts_at": "2027-01-06T19:30:00.000-05:00",
+          "starts_at": "2027-01-06T19:15:00.000-05:00",
           "opponent_abbr": "SHS",
           "opponent_name": "Spaulding High School",
           "is_home": true,
@@ -540,7 +540,7 @@
     },
     {
       "id": "boys-102201463",
-      "starts_at": "2027-01-06T19:30:00.000-05:00",
+      "starts_at": "2027-01-06T19:15:00.000-05:00",
       "opponent_abbr": "SHS",
       "opponent_name": "Spaulding High School",
       "is_home": true,
