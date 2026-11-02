@@ -20,9 +20,14 @@ interface SessionCardProps {
 
 export function SessionCard({ session, rink, isExpanded, onToggle, onShare }: SessionCardProps) {
   const detailsId = `session-details-${session.id}`;
-  const scanBadge = sessionScanBadge(session.subtype);
+  const scanBadge = sessionScanBadge(session.subtype, session.raw_label, rink.id);
   const priceText = session.price?.summary
-    ? sessionCardPriceLine(rink.id, session.price.summary)
+    ? sessionCardPriceLine(
+        rink.id,
+        session.price.summary,
+        session.subtype,
+        session.price.amount_cents,
+      )
     : '';
   const footerNote = sessionCardFooterNote(rink.id);
 

@@ -54,7 +54,12 @@ export function priceSummaryForCard(summary: string): string {
 }
 
 /** Header price on session cards (collapsed and expanded). */
-export function sessionCardPriceLine(rinkId: string, summary: string): string {
+export function sessionCardPriceLine(
+  rinkId: string,
+  summary: string,
+  subtype?: string,
+  amountCents?: number,
+): string {
   const cleaned = priceSummaryForCard(summary);
   if (rinkId !== 'dover-arena') {
     return cleaned;
@@ -64,6 +69,19 @@ export function sessionCardPriceLine(rinkId: string, summary: string): string {
   );
   if (residentMatch) {
     return `${residentMatch[1].toLowerCase()}*`;
+  }
+  if (subtype === 'adult_stick') {
+    if (amountCents != null) {
+      const price =
+        amountCents % 100 === 0
+          ? `$${amountCents / 100}`
+          : `$${(amountCents / 100).toFixed(2)}`;
+      return `${price} admission`;
+    }
+    const amountMatch = cleaned.match(/\$[\d.]+/);
+    if (amountMatch) {
+      return `${amountMatch[0].replace(/\.00$/, '')} admission`;
+    }
   }
   return cleaned;
 }
@@ -80,7 +98,11 @@ export type SessionScanBadge = {
   variant: 'recreational' | 'instructional' | 'adult_stick';
 };
 
-export function sessionScanBadge(subtype?: string): SessionScanBadge | null {
+export function sessionScanBadge(
+  subtype?: string,
+  rawLabel?: string,
+  rinkId?: string,
+): SessionScanBadge | null {
   if (subtype === 'recreational') {
     return { label: 'Recreational', variant: 'recreational' };
   }
@@ -91,10 +113,41 @@ export function sessionScanBadge(subtype?: string): SessionScanBadge | null {
     return { label: 'Youth stick', variant: 'instructional' };
   }
   if (subtype === 'adult_stick') {
-    return { label: 'Adult stick', variant: 'adult_stick' };
+    const label = rinkId === 'dover-arena' ? 'Adult' : 'Adult stick';
+    return { label, variant: 'adult_stick' };
+  }
+  if (subtype === 'all_ages') {
+    return { label: 'All ages', variant: 'adult_stick' };
+  }
+  if (subtype === 'grade_8_and_below') {
+    return { label: '8th grade & below', variant: 'instructional' };
+  }
+  if (subtype === 'hs_and_older') {
+    return { label: 'HS & older', variant: 'adult_stick' };
   }
   if (subtype === 'parent_tot') {
     return { label: 'Parent/tot', variant: 'recreational' };
+  }
+  if (subtype === 'drop_in') {
+    if (rawLabel) {
+      const t = rawLabel.toUpperCase();
+      if (/PICK\s*-?\s*UP/.test(t)) {
+        return {
+          label: rinkId === 'dover-arena' ? 'Adult' : 'Adult stick',
+          variant: 'adult_stick',
+        };
+      }
+      if (/8TH\s*GRADE\s*&\s*BELOW/.test(t)) {
+        return { label: '8th grade & below', variant: 'instructional' };
+      }
+      if (/HS\s*&\s*OLDER/.test(t)) {
+        return { label: 'HS & older', variant: 'adult_stick' };
+      }
+      if (/ALL AGES/.test(t)) {
+        return { label: 'All ages', variant: 'adult_stick' };
+      }
+    }
+    return { label: 'Drop in', variant: 'adult_stick' };
   }
   return null;
 }
@@ -358,7 +411,7 @@ export function searchRinkNamesSummary(rinks: { name: string }[]): string {
 }
 
 export function formatSessionShareText(session: Session, rink: Rink): string {
-  const badge = sessionScanBadge(session.subtype);
+  const badge = sessionScanBadge(session.subtype, session.raw_label, rink.id);
   const typeLine = badge
     ? `${activityLabel(session.activity)} · ${badge.label}`
     : session.subtype
@@ -544,7 +597,7 @@ export function formatBruinsTvLine(networks: string[]): string {
 export function programKindLabel(kind: ProgramKind): string {
   switch (kind) {
     case 'drop_in':
-      return 'Drop-in';
+      return 'Drop in';
     case 'league':
       return 'League';
     case 'skills':
