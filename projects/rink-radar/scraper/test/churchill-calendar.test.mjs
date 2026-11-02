@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { test } from 'node:test';
 import { parseChurchillCalendarHtml } from '../lib/churchill.mjs';
+import { churchillSessionSubtype } from '../lib/churchill-shared.mjs';
 import { discoverChurchillOverflowDayUrls } from '../lib/churchill-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -16,6 +17,17 @@ function sessionsOnDay(sessions, dayIso) {
   return sessions.filter((s) => s.starts_at.startsWith(dayIso));
 }
 
+test('churchill stick subtypes reflect grade splits in schedule titles', () => {
+  assert.equal(
+    churchillSessionSubtype('stick_puck', '8TH GRADE & BELOW STICK & PUCK'),
+    'grade_8_and_below',
+  );
+  assert.equal(
+    churchillSessionSubtype('stick_puck', 'HS & OLDER STICK & PUCK'),
+    'hs_and_older',
+  );
+});
+
 test('month calendar parses Oct 14 sessions from vevent blocks', () => {
   const html = fs.readFileSync(path.join(fixtures, 'churchill-public-sample.html'), 'utf8');
   const sessions = parseChurchillCalendarHtml(html, rinkId, monthUrl);
@@ -23,7 +35,12 @@ test('month calendar parses Oct 14 sessions from vevent blocks', () => {
 
   assert.ok(oct14.length >= 4, `expected at least 4 sessions on Oct 14, got ${oct14.length}`);
   assert.ok(
-    oct14.some((s) => s.activity === 'stick_puck' && /STICK & PUCK/i.test(s.raw_label)),
+    oct14.some(
+      (s) =>
+        s.activity === 'stick_puck' &&
+        /STICK & PUCK/i.test(s.raw_label) &&
+        s.subtype === 'all_ages',
+    ),
   );
   assert.ok(
     oct14.some((s) => s.activity === 'public_skate' && /PUBLIC SKATING/i.test(s.raw_label)),
@@ -48,6 +65,9 @@ test('day view includes overflow sessions hidden in month grid', () => {
   assert.equal(oct16.length, 6);
   assert.ok(
     oct16.some((s) => s.starts_at.includes('T20:00:00') && /FUN SKATE - TEEN/i.test(s.raw_label)),
+  );
+  assert.ok(
+    oct16.some((s) => s.activity === 'stick_puck' && s.subtype === 'all_ages' && /POND HOCKEY/i.test(s.raw_label)),
   );
 });
 

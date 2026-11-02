@@ -2,6 +2,7 @@ import * as cheerio from 'cheerio';
 import { DateTime } from 'luxon';
 import {
   classifyChurchillActivity,
+  churchillSessionSubtype,
   dedupeChurchillSessions,
   shouldSkipChurchillTitle,
 } from './churchill-shared.mjs';
@@ -57,7 +58,7 @@ export function parseChurchillCalendarHtml(html, rinkId, pageUrl) {
     sessions.push({
       rink_id: rinkId,
       activity,
-      subtype: activity === 'public_skate' ? 'recreational' : 'drop_in',
+      subtype: churchillSessionSubtype(activity, title),
       starts_at: startDt.toISO(),
       ends_at: endDt.toISO(),
       raw_label: title.slice(0, 120),

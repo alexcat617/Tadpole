@@ -2,6 +2,7 @@ import { DateTime } from 'luxon';
 import { Agent } from 'undici';
 import {
   classifyChurchillActivity,
+  churchillSessionSubtype,
   dedupeChurchillSessions,
   shouldSkipChurchillTitle,
 } from './churchill-shared.mjs';
@@ -62,7 +63,7 @@ export async function scrapeChurchillRssFeed(feedUrl, rinkId) {
     sessions.push({
       rink_id: rinkId,
       activity,
-      subtype: activity === 'public_skate' ? 'recreational' : 'drop_in',
+      subtype: churchillSessionSubtype(activity, label.slice(0, 120)),
       starts_at: startDt.toISO(),
       ends_at: endDt.toISO(),
       raw_label: label.slice(0, 120),

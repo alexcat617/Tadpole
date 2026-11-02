@@ -12,6 +12,22 @@
   --rr-action: #2563eb;
   --rr-action-hover: #1d4ed8;
 
+  /* Stick & puck session badges (AA contrast on badge text) */
+  --rr-stick-adult-bg: #e2e8f0;
+  --rr-stick-adult-fg: #334155;
+  --rr-stick-youth-bg: #dbeafe;
+  --rr-stick-youth-fg: #1e3a8a;
+  --rr-stick-parent-bg: #fef3c7;
+  --rr-stick-parent-fg: #92400e;
+  --rr-stick-all-ages-bg: #cffafe;
+  --rr-stick-all-ages-fg: #155e75;
+  --rr-stick-grade-bg: #d1fae5;
+  --rr-stick-grade-fg: #065f46;
+  --rr-stick-hs-bg: #e0e7ff;
+  --rr-stick-hs-fg: #3730a3;
+  --rr-stick-neutral-bg: #f1f5f9;
+  --rr-stick-neutral-fg: #64748b;
+
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.45;
   color: var(--rr-ink);
@@ -1380,9 +1396,40 @@
   color: #3730a3;
 }
 
-.session-badge--adult_stick {
-  background: #f1f5f9;
-  color: #475569;
+/* Stick & puck session badges — cool palette, 4.5:1+ text contrast */
+.session-badge--stick_adult {
+  background: var(--rr-stick-adult-bg);
+  color: var(--rr-stick-adult-fg);
+}
+
+.session-badge--stick_youth {
+  background: var(--rr-stick-youth-bg);
+  color: var(--rr-stick-youth-fg);
+}
+
+.session-badge--stick_parent {
+  background: var(--rr-stick-parent-bg);
+  color: var(--rr-stick-parent-fg);
+}
+
+.session-badge--stick_all_ages {
+  background: var(--rr-stick-all-ages-bg);
+  color: var(--rr-stick-all-ages-fg);
+}
+
+.session-badge--stick_grade_8 {
+  background: var(--rr-stick-grade-bg);
+  color: var(--rr-stick-grade-fg);
+}
+
+.session-badge--stick_hs {
+  background: var(--rr-stick-hs-bg);
+  color: var(--rr-stick-hs-fg);
+}
+
+.session-badge--stick_neutral {
+  background: var(--rr-stick-neutral-bg);
+  color: var(--rr-stick-neutral-fg);
 }
 
 .session-badge--neutral {

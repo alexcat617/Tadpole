@@ -38,6 +38,21 @@ export function classifyChurchillActivity(title, tagsText = '') {
   return null;
 }
 
+/**
+ * Stick/hockey session badge subtype from Churchill event titles (mirrors Dover PDF subtypes).
+ * @param {'public_skate' | 'stick_puck'} activity
+ * @param {string} rawLabel
+ */
+export function churchillSessionSubtype(activity, rawLabel) {
+  if (activity === 'public_skate') return 'recreational';
+  const t = rawLabel.toUpperCase();
+  if (/PICK\s*-?\s*UP/.test(t)) return 'adult_stick';
+  if (/8TH\s*GRADE\s*&\s*BELOW/.test(t)) return 'grade_8_and_below';
+  if (/HS\s*&\s*OLDER/.test(t)) return 'hs_and_older';
+  if (/ALL AGES/.test(t)) return 'all_ages';
+  return 'drop_in';
+}
+
 /** @param {Array<{ starts_at: string, activity: string, raw_label: string }>} list */
 export function dedupeChurchillSessions(list) {
   const seen = new Set();
