@@ -1424,6 +1424,23 @@
   margin: 0.65rem 0 0;
 }
 
+.session-action-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.session-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--rr-ink);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .session-share-btn {
   display: inline-flex;
   align-items: center;
@@ -1451,13 +1468,6 @@
   outline-offset: 2px;
 }
 
-.session-share-icon {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex-shrink: 0;
-  color: currentColor;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .session-chevron {
     transition: none;
@@ -1479,9 +1489,8 @@
   margin: 0 0 0.5rem;
 }
 
-.session-details-trust {
-  margin-top: 0.65rem !important;
-  margin-bottom: 0.35rem !important;
+.session-details-footer {
+  margin: 0.75rem 0 0 !important;
   line-height: 1.35;
 }
 

@@ -2,12 +2,13 @@ import type { Rink, Session } from '../types';
 import {
   activityLabel,
   formatTimeRange,
-  priceSummaryForCard,
   rinkMapsSearchUrl,
   rinkPostalLine,
+  sessionCardFooterNote,
+  sessionCardPriceLine,
   sessionScanBadge,
 } from '../utils';
-import { ShareIcon } from './icons';
+import { ExternalLinkIcon, MapPinIcon, ShareIcon } from './icons';
 
 interface SessionCardProps {
   session: Session;
@@ -20,7 +21,10 @@ interface SessionCardProps {
 export function SessionCard({ session, rink, isExpanded, onToggle, onShare }: SessionCardProps) {
   const detailsId = `session-details-${session.id}`;
   const scanBadge = sessionScanBadge(session.subtype);
-  const priceText = session.price?.summary ? priceSummaryForCard(session.price.summary) : '';
+  const priceText = session.price?.summary
+    ? sessionCardPriceLine(rink.id, session.price.summary)
+    : '';
+  const footerNote = sessionCardFooterNote(rink.id);
 
   return (
     <li className={isExpanded ? 'session-item expanded' : 'session-item'}>
@@ -49,9 +53,6 @@ export function SessionCard({ session, rink, isExpanded, onToggle, onShare }: Se
       </button>
       {isExpanded && (
         <div className="session-details" id={detailsId}>
-          {rink.id === 'dover-arena' &&
-            session.activity === 'stick_puck' &&
-            session.stick_fee_legend && <p className="muted small">{session.stick_fee_legend}</p>}
           <p>{rinkPostalLine(rink)}</p>
           {rink.phone && (
             <p>
@@ -59,24 +60,34 @@ export function SessionCard({ session, rink, isExpanded, onToggle, onShare }: Se
             </p>
           )}
           <p>
-            <a href={rinkMapsSearchUrl(rink)} target="_blank" rel="noreferrer">
+            <a
+              className="session-detail-link"
+              href={rinkMapsSearchUrl(rink)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <MapPinIcon className="session-action-icon" />
               Open in maps
             </a>
           </p>
-          <p className="session-details-trust muted small">
-            Schedules change — confirm with the rink before you go.
-          </p>
           <p>
-            <a href={session.source_url} target="_blank" rel="noreferrer">
-              Official schedule source
+            <a
+              className="session-detail-link"
+              href={session.source_url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <ExternalLinkIcon className="session-action-icon" />
+              View Schedule
             </a>
           </p>
           <p className="session-share-row">
             <button type="button" className="session-share-btn" onClick={onShare}>
-              <ShareIcon className="session-share-icon" />
+              <ShareIcon className="session-action-icon" />
               Share with friend
             </button>
           </p>
+          <p className="session-details-footer muted small">{footerNote}</p>
         </div>
       )}
     </li>
