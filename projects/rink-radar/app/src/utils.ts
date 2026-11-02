@@ -95,7 +95,16 @@ export function sessionCardFooterNote(rinkId: string): string {
 
 export type SessionScanBadge = {
   label: string;
-  variant: 'recreational' | 'instructional' | 'adult_stick';
+  variant:
+    | 'recreational'
+    | 'instructional'
+    | 'stick_adult'
+    | 'stick_youth'
+    | 'stick_parent'
+    | 'stick_all_ages'
+    | 'stick_grade_8'
+    | 'stick_hs'
+    | 'stick_neutral';
 };
 
 export function sessionScanBadge(
@@ -110,23 +119,23 @@ export function sessionScanBadge(
     return { label: 'Instructional', variant: 'instructional' };
   }
   if (subtype === 'youth_stick') {
-    return { label: 'Youth stick', variant: 'instructional' };
+    return { label: 'Youth stick', variant: 'stick_youth' };
   }
   if (subtype === 'adult_stick') {
     const label = rinkId === 'dover-arena' ? 'Adult' : 'Adult stick';
-    return { label, variant: 'adult_stick' };
+    return { label, variant: 'stick_adult' };
   }
   if (subtype === 'all_ages') {
-    return { label: 'All ages', variant: 'adult_stick' };
+    return { label: 'All ages', variant: 'stick_all_ages' };
   }
   if (subtype === 'grade_8_and_below') {
-    return { label: '8th grade & below', variant: 'instructional' };
+    return { label: '8th grade & below', variant: 'stick_grade_8' };
   }
   if (subtype === 'hs_and_older') {
-    return { label: 'HS & older', variant: 'adult_stick' };
+    return { label: 'HS & older', variant: 'stick_hs' };
   }
   if (subtype === 'parent_tot') {
-    return { label: 'Parent/tot', variant: 'recreational' };
+    return { label: 'Parent/tot', variant: 'stick_parent' };
   }
   if (subtype === 'drop_in') {
     if (rawLabel) {
@@ -134,20 +143,20 @@ export function sessionScanBadge(
       if (/PICK\s*-?\s*UP/.test(t)) {
         return {
           label: rinkId === 'dover-arena' ? 'Adult' : 'Adult stick',
-          variant: 'adult_stick',
+          variant: 'stick_adult',
         };
       }
       if (/8TH\s*GRADE\s*&\s*BELOW/.test(t)) {
-        return { label: '8th grade & below', variant: 'instructional' };
+        return { label: '8th grade & below', variant: 'stick_grade_8' };
       }
       if (/HS\s*&\s*OLDER/.test(t)) {
-        return { label: 'HS & older', variant: 'adult_stick' };
+        return { label: 'HS & older', variant: 'stick_hs' };
       }
       if (/ALL AGES/.test(t)) {
-        return { label: 'All ages', variant: 'adult_stick' };
+        return { label: 'All ages', variant: 'stick_all_ages' };
       }
     }
-    return { label: 'Drop in', variant: 'adult_stick' };
+    return { label: 'Drop in', variant: 'stick_neutral' };
   }
   return null;
 }
