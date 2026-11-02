@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-10-23T12:04:54.081-04:00",
+  "generated_at": "2026-11-01T12:23:22.518-05:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -12,6 +12,28 @@
     "boys": {
       "label": "Boys varsity",
       "games": [
+        {
+          "id": "boys-105199516",
+          "starts_at": "2026-12-05T10:00:00.000-05:00",
+          "opponent_abbr": "TBA",
+          "opponent_name": "TBA",
+          "is_home": true,
+          "venue": "Dover Ice Arena Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
+        {
+          "id": "boys-105145069",
+          "starts_at": "2026-12-06T11:30:00.000-05:00",
+          "opponent_abbr": "TBA",
+          "opponent_name": "TBA",
+          "is_home": true,
+          "venue": "Dover Ice Arena Dover Ice Arena",
+          "game_state": "FUT",
+          "tv_networks": [],
+          "squad": "boys"
+        },
         {
           "id": "boys-102201428",
           "starts_at": "2026-12-16T19:30:00.000-05:00",
@@ -217,7 +239,7 @@
         },
         {
           "id": "girls-102488698",
-          "starts_at": "2026-12-19T17:00:00.000-05:00",
+          "starts_at": "2026-12-19T15:30:00.000-05:00",
           "opponent_abbr": "BERL",
           "opponent_name": "Berlin-Gorham-Kennett",
           "is_home": false,
@@ -261,7 +283,7 @@
         },
         {
           "id": "girls-102488735",
-          "starts_at": "2027-01-13T12:00:00.000-05:00",
+          "starts_at": "2027-01-13T16:30:00.000-05:00",
           "opponent_abbr": "MC",
           "opponent_name": "Man. Central-West-Memorial",
           "is_home": false,
@@ -331,14 +353,14 @@
           "opponent_abbr": "KM",
           "opponent_name": "Keene-Monadnock-Fall Mtn.",
           "is_home": true,
-          "venue": "St Thomas High School Dover Ice Arena",
+          "venue": "Dover Ice Arena Dover Ice Arena - Foster Rink",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "girls"
         },
         {
           "id": "girls-102488780",
-          "starts_at": "2027-02-03T04:00:00.000-05:00",
+          "starts_at": "2027-02-03T18:00:00.000-05:00",
           "opponent_abbr": "EHS",
           "opponent_name": "Exeter High School",
           "is_home": false,
@@ -407,6 +429,28 @@
   },
   "games": [
     {
+      "id": "boys-105199516",
+      "starts_at": "2026-12-05T10:00:00.000-05:00",
+      "opponent_abbr": "TBA",
+      "opponent_name": "TBA",
+      "is_home": true,
+      "venue": "Dover Ice Arena Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
+      "id": "boys-105145069",
+      "starts_at": "2026-12-06T11:30:00.000-05:00",
+      "opponent_abbr": "TBA",
+      "opponent_name": "TBA",
+      "is_home": true,
+      "venue": "Dover Ice Arena Dover Ice Arena",
+      "game_state": "FUT",
+      "tv_networks": [],
+      "squad": "boys"
+    },
+    {
       "id": "girls-102488691",
       "starts_at": "2026-12-16T17:00:00.000-05:00",
       "opponent_abbr": "BGHS",
@@ -441,7 +485,7 @@
     },
     {
       "id": "girls-102488698",
-      "starts_at": "2026-12-19T17:00:00.000-05:00",
+      "starts_at": "2026-12-19T15:30:00.000-05:00",
       "opponent_abbr": "BERL",
       "opponent_name": "Berlin-Gorham-Kennett",
       "is_home": false,
@@ -529,7 +573,7 @@
     },
     {
       "id": "girls-102488735",
-      "starts_at": "2027-01-13T12:00:00.000-05:00",
+      "starts_at": "2027-01-13T16:30:00.000-05:00",
       "opponent_abbr": "MC",
       "opponent_name": "Man. Central-West-Memorial",
       "is_home": false,
@@ -665,14 +709,14 @@
       "opponent_abbr": "KM",
       "opponent_name": "Keene-Monadnock-Fall Mtn.",
       "is_home": true,
-      "venue": "St Thomas High School Dover Ice Arena",
+      "venue": "Dover Ice Arena Dover Ice Arena - Foster Rink",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "girls"
     },
     {
       "id": "girls-102488780",
-      "starts_at": "2027-02-03T04:00:00.000-05:00",
+      "starts_at": "2027-02-03T18:00:00.000-05:00",
       "opponent_abbr": "EHS",
       "opponent_name": "Exeter High School",
       "is_home": false,
