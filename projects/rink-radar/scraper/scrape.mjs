@@ -239,6 +239,35 @@ async function scrapeRochester(rink) {
   health.rinks[rink.id] = { ok: true, session_count: rows.length };
 }
 
+/** Flat fees from churchillrink.org/publicskating and the public hockey sessions page. */
+const CHURCHILL_PRICES = {
+  public_skate: {
+    summary: 'adult $9 / youth $7',
+    amount_cents: 900,
+    currency: 'USD',
+    is_free: false,
+  },
+  stick_puck: {
+    summary: '$10 admission',
+    amount_cents: 1000,
+    currency: 'USD',
+    is_free: false,
+  },
+  adult_pickup: {
+    summary: '$12 admission',
+    amount_cents: 1200,
+    currency: 'USD',
+    is_free: false,
+  },
+};
+
+function churchillPrice(row) {
+  if (row.activity === 'public_skate') return CHURCHILL_PRICES.public_skate;
+  if (/pick\s*-?\s*up/i.test(row.raw_label ?? '')) return CHURCHILL_PRICES.adult_pickup;
+  if (row.activity === 'stick_puck') return CHURCHILL_PRICES.stick_puck;
+  return undefined;
+}
+
 async function scrapeChurchill(rink) {
   const feedUrl = rink.churchill_rss_feed;
   let rows = [];
@@ -274,6 +303,7 @@ async function scrapeChurchill(rink) {
       : rows.filter((row) => row.source_url === src.url);
     const withDisplayUrl = filtered.map((row) => ({
       ...row,
+      price: row.price ?? churchillPrice(row),
       source_url:
         row.source_url && !row.source_url.includes('event_rss_feed')
           ? row.source_url

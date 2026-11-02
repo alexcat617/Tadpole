@@ -53,6 +53,28 @@ export function priceSummaryForCard(summary: string): string {
     .trim();
 }
 
+/** Header price on session cards (collapsed and expanded). */
+export function sessionCardPriceLine(rinkId: string, summary: string): string {
+  const cleaned = priceSummaryForCard(summary);
+  if (rinkId !== 'dover-arena') {
+    return cleaned;
+  }
+  const residentMatch = cleaned.match(
+    /(?:Dover resident\s+)?(adult\s+\$[\d.]+\s*\/\s*youth\s+\$[\d.]+)/i,
+  );
+  if (residentMatch) {
+    return `${residentMatch[1].toLowerCase()}*`;
+  }
+  return cleaned;
+}
+
+export function sessionCardFooterNote(rinkId: string): string {
+  if (rinkId === 'dover-arena') {
+    return '*Dover resident pricing shown. Schedules change — confirm with the rink before you go.';
+  }
+  return 'Schedules change — confirm with the rink before you go.';
+}
+
 export type SessionScanBadge = {
   label: string;
   variant: 'recreational' | 'instructional' | 'adult_stick';
