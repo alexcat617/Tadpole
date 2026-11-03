@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-11-02T16:00:14.908-05:00",
+  "generated_at": "2026-11-03T13:46:40.976-05:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -242,7 +242,7 @@
       "opponent_name": "Golden Knights",
       "is_home": true,
       "venue": "TD Garden",
-      "game_state": "FUT",
+      "game_state": "OFF",
       "tv_networks": [
         "NESN",
         "NHL Network"
