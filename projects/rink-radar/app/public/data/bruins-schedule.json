@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-11-06T13:39:16.533-05:00",
+  "generated_at": "2026-11-07T12:08:28.363-05:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -319,7 +319,6 @@
       "game_state": "FUT",
       "tv_networks": [
         "TNT",
-        "truTV",
         "HBO MAX"
       ]
     },
@@ -456,7 +455,6 @@
       "game_state": "FUT",
       "tv_networks": [
         "TNT",
-        "truTV",
         "HBO MAX"
       ]
     },
