@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-11-12T14:17:22.342-05:00",
+  "generated_at": "2026-11-13T13:54:37.859-05:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -280,7 +280,7 @@
       "opponent_name": "Canadiens",
       "is_home": true,
       "venue": "TD Garden",
-      "game_state": "FUT",
+      "game_state": "OFF",
       "tv_networks": [
         "NESN"
       ]
