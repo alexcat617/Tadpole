@@ -2,7 +2,7 @@
   "team_label": "Dover varsity hockey",
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-11-15T13:09:34.976-05:00",
+  "generated_at": "2026-11-16T16:24:12.978-05:00",
   "source_url": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
   "source_urls": {
     "boys": "https://arbiterlive.com/Teams/Schedule/8855637?activeEntityId=6087",
@@ -95,7 +95,7 @@
           "opponent_abbr": "PA",
           "opponent_name": "Pinkerton Academy",
           "is_home": false,
-          "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+          "venue": "Delta Dental Ice Arena Grappone-Frew Rink",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "boys"
@@ -309,7 +309,7 @@
           "opponent_abbr": "BB",
           "opponent_name": "Bishop Brady-Trinity-Bow",
           "is_home": false,
-          "venue": "Bishop Brady High School Delta Dental Arena",
+          "venue": "Delta Dental Ice Arena Grappone-Frew Rink",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "girls"
@@ -364,7 +364,7 @@
           "opponent_abbr": "PA",
           "opponent_name": "Pinkerton Academy",
           "is_home": false,
-          "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+          "venue": "Delta Dental Ice Arena Grappone-Frew Rink",
           "game_state": "FUT",
           "tv_networks": [],
           "squad": "girls"
@@ -577,7 +577,7 @@
       "opponent_abbr": "PA",
       "opponent_name": "Pinkerton Academy",
       "is_home": false,
-      "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+      "venue": "Delta Dental Ice Arena Grappone-Frew Rink",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "boys"
@@ -621,7 +621,7 @@
       "opponent_abbr": "BB",
       "opponent_name": "Bishop Brady-Trinity-Bow",
       "is_home": false,
-      "venue": "Bishop Brady High School Delta Dental Arena",
+      "venue": "Delta Dental Ice Arena Grappone-Frew Rink",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "girls"
@@ -720,7 +720,7 @@
       "opponent_abbr": "PA",
       "opponent_name": "Pinkerton Academy",
       "is_home": false,
-      "venue": "Delta Dental Ice Arena Delta Dental Ice Arena",
+      "venue": "Delta Dental Ice Arena Grappone-Frew Rink",
       "game_state": "FUT",
       "tv_networks": [],
       "squad": "girls"
