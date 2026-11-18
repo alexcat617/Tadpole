@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-11-17T15:11:50.415-05:00",
+  "generated_at": "2026-11-18T14:43:34.726-05:00",
   "rinks": {
     "dover-arena": {
       "ok": true,
-      "public_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
+      "public_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
       "public_pdfs": [
-        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-PS-2026.pdf"
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf"
       ],
-      "stick_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
+      "stick_pdf": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
       "stick_pdfs": [
-        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/October-Stick-26.pdf"
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
+        "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf"
       ],
-      "session_count": 129
+      "session_count": 125
     },
     "churchill-rink-durham": {
       "ok": true,
