@@ -1,7 +1,7 @@
 {
   "season_label": "2026–27",
   "season_slug": "20262027",
-  "generated_at": "2026-11-18T14:43:38.678-05:00",
+  "generated_at": "2026-11-19T14:43:37.562-05:00",
   "source_url": "https://www.nhl.com/bruins/schedule",
   "games": [
     {
@@ -316,7 +316,7 @@
       "opponent_name": "Red Wings",
       "is_home": false,
       "venue": "Little Caesars Arena",
-      "game_state": "FUT",
+      "game_state": "OFF",
       "tv_networks": [
         "TNT",
         "HBO MAX"
@@ -430,7 +430,8 @@
       "venue": "TD Garden",
       "game_state": "FUT",
       "tv_networks": [
-        "NESN"
+        "NESN",
+        "NHL Network"
       ]
     },
     {
@@ -442,7 +443,8 @@
       "venue": "Lenovo Center",
       "game_state": "FUT",
       "tv_networks": [
-        "NESN"
+        "NESN",
+        "NHL Network"
       ]
     },
     {
