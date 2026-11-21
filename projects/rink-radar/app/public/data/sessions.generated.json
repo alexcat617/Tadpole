@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T14:23:20.579-05:00",
+  "generated_at": "2026-11-21T13:26:05.839-05:00",
   "region_label": "Seacoast NH / southern ME (Dover pilot)",
   "sessions": [
     {
@@ -18,7 +18,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-15T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -36,7 +36,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-16T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -54,7 +54,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-17T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -72,7 +72,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-19T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -90,7 +90,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-20T153000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -108,7 +108,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-22T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -126,7 +126,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-23T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -144,7 +144,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-24T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -162,7 +162,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-26T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -180,7 +180,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-27T153000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -198,7 +198,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-29T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -216,7 +216,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-09-30T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -234,7 +234,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-01T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -252,7 +252,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-03T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -270,7 +270,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-04T153000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -288,7 +288,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-06T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -306,7 +306,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-07T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -324,7 +324,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-08T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -342,7 +342,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-10T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -360,7 +360,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-11T153000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -378,7 +378,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-12T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -396,7 +396,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-13T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -414,7 +414,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-14T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -432,7 +432,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-15T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -450,7 +450,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-20T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -468,7 +468,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-21T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -486,7 +486,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-22T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -504,7 +504,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-24T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -522,7 +522,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-25T153000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -540,7 +540,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-27T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -558,7 +558,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-28T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -576,7 +576,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-29T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -594,7 +594,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-10-31T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-01T090000000-0500-stick_puck-adult_stick",
@@ -611,7 +611,7 @@
       },
       "raw_label": "ADULT PICK UP HOCKEY",
       "source_url": "https://www.churchillrink.org/event/show/590923584?dy=1&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -629,7 +629,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923586?dy=1&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -647,7 +647,7 @@
       },
       "raw_label": "Rec Public Skate 2-3:20pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -665,7 +665,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923588?dy=1&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -684,7 +684,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-01T153000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-11-02T100000000-0500-public_skate-instructional",
@@ -701,7 +701,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -719,7 +719,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -737,7 +737,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=2&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -755,7 +755,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=2&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -773,7 +773,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923639?dy=2&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -791,7 +791,7 @@
       },
       "raw_label": "8TH GRADE & BELOW STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/590923086",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -809,7 +809,7 @@
       },
       "raw_label": "HS & OLDER STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/590923088",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -828,7 +828,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-03T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-03T133000000-0500-public_skate-recreational",
@@ -845,7 +845,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923091",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -863,7 +863,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -881,7 +881,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -900,7 +900,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -918,7 +918,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=4&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -937,7 +937,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-04T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-04T140000000-0500-public_skate-recreational",
@@ -954,7 +954,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=4&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -972,7 +972,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -990,7 +990,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1009,7 +1009,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1027,7 +1027,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923145?dy=5&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1046,7 +1046,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-05T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-05T140000000-0500-stick_puck-all_ages",
@@ -1063,7 +1063,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923199?dy=5&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1081,7 +1081,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1099,7 +1099,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1118,7 +1118,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1136,7 +1136,7 @@
       },
       "raw_label": "CXL'D**STICK & PUCK - ALL AGES**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057835",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1154,7 +1154,7 @@
       },
       "raw_label": "CXL'D**PUBLIC SKATING**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057849",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1172,7 +1172,7 @@
       },
       "raw_label": "CXL'D**STICK & PUCK - ALL AGES**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057852",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1190,7 +1190,7 @@
       },
       "raw_label": "CXL'D**FUN SKATE - TEEN**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057855",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1208,7 +1208,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1227,7 +1227,7 @@
       },
       "raw_label": "CXL'D**PUBLIC SKATING**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057866",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1245,7 +1245,7 @@
       },
       "raw_label": "CXL'D**FUN SKATE - FAMILY**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057867",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1263,7 +1263,7 @@
       },
       "raw_label": "CXL'D**POND HOCKEY, ALL AGES**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057870",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1281,7 +1281,7 @@
       },
       "raw_label": "CXL'D**FUN SKATE - ALL AGES**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057872",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1299,7 +1299,7 @@
       },
       "raw_label": "CXL'D**ADULT PICK UP HOCKEY**CXL'D",
       "source_url": "https://www.churchillrink.org/event/show/591057928",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1317,7 +1317,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923586?dy=8&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1335,7 +1335,7 @@
       },
       "raw_label": "Rec Public Skate 2-3:20pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1353,7 +1353,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923588?dy=8&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1372,7 +1372,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-08T153000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-11-09T100000000-0500-public_skate-instructional",
@@ -1389,7 +1389,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1407,7 +1407,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1425,7 +1425,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=9&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1443,7 +1443,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=9&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1461,7 +1461,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1479,7 +1479,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1498,7 +1498,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1516,7 +1516,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=10&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1535,7 +1535,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-10T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-10T140000000-0500-public_skate-recreational",
@@ -1552,7 +1552,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=10&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1570,7 +1570,7 @@
       },
       "raw_label": "PARENT/TOT 9-10:20am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1589,7 +1589,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1607,7 +1607,7 @@
       },
       "raw_label": "8TH GRADE & BELOW STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/591136044",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1625,7 +1625,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1644,7 +1644,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1662,7 +1662,7 @@
       },
       "raw_label": "HIGH SCHOOL & OLDER STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/591136047",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1681,7 +1681,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-11T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-11T133000000-0500-public_skate-recreational",
@@ -1698,7 +1698,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/591136110",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1716,7 +1716,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1734,7 +1734,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1753,7 +1753,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1771,7 +1771,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923145?dy=12&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1790,7 +1790,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-12T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-12T140000000-0500-stick_puck-all_ages",
@@ -1807,7 +1807,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923199?dy=12&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1825,7 +1825,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1843,7 +1843,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1862,7 +1862,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1880,7 +1880,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=13&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1898,7 +1898,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=13&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1916,7 +1916,7 @@
       },
       "raw_label": "FUN SKATE - TEEN",
       "source_url": "https://www.churchillrink.org/event/show/590923518?dy=13&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1934,7 +1934,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -1953,7 +1953,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923561?dy=14&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1971,7 +1971,7 @@
       },
       "raw_label": "FUN SKATE - FAMILY",
       "source_url": "https://www.churchillrink.org/event/show/590923567?dy=14&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -1990,7 +1990,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-14T180000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-14T190000000-0500-stick_puck-all_ages",
@@ -2007,7 +2007,7 @@
       },
       "raw_label": "POND HOCKEY, ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923569?dy=14&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2025,7 +2025,7 @@
       },
       "raw_label": "FUN SKATE - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923577?dy=14&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2043,7 +2043,7 @@
       },
       "raw_label": "ADULT PICK UP HOCKEY",
       "source_url": "https://www.churchillrink.org/event/show/590923584?dy=15&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2061,7 +2061,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923586?dy=15&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2079,7 +2079,7 @@
       },
       "raw_label": "Rec Public Skate 2-3:20pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2097,7 +2097,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923588?dy=15&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2115,7 +2115,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2133,7 +2133,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2151,7 +2151,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=16&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2169,7 +2169,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=16&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2187,7 +2187,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2205,7 +2205,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -2224,7 +2224,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2242,7 +2242,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=17&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2261,7 +2261,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-17T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-17T140000000-0500-public_skate-recreational",
@@ -2278,7 +2278,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=17&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2296,7 +2296,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2314,7 +2314,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -2333,7 +2333,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2351,7 +2351,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=18&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2370,7 +2370,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-18T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-18T140000000-0500-public_skate-recreational",
@@ -2387,7 +2387,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923079?dy=18&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2405,7 +2405,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2423,7 +2423,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -2442,7 +2442,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2461,7 +2461,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-19T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-19T140000000-0500-stick_puck-all_ages",
@@ -2478,7 +2478,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/591357505",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2496,7 +2496,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2514,7 +2514,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -2533,7 +2533,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2551,7 +2551,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=20&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2568,9 +2568,9 @@
         "is_free": false
       },
       "raw_label": "PUBLIC SKATING",
-      "source_url": "https://www.churchillrink.org/event/show/590923079",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
-      "confidence": "medium"
+      "source_url": "https://www.churchillrink.org/event/show/590923079?dy=20&mth=11&yr=2026",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
+      "confidence": "high"
     },
     {
       "id": "churchill-rink-durham-2026-11-20T200000000-0500-public_skate-recreational",
@@ -2587,7 +2587,7 @@
       },
       "raw_label": "FUN SKATE - TEEN",
       "source_url": "https://www.churchillrink.org/event/show/590923518?dy=20&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2605,7 +2605,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -2624,7 +2624,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923561?dy=21&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2642,7 +2642,7 @@
       },
       "raw_label": "FUN SKATE - FAMILY",
       "source_url": "https://www.churchillrink.org/event/show/590923567?dy=21&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2661,7 +2661,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-21T180000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-21T190000000-0500-stick_puck-all_ages",
@@ -2678,7 +2678,7 @@
       },
       "raw_label": "POND HOCKEY, ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923569",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -2696,7 +2696,7 @@
       },
       "raw_label": "FUN SKATE - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923577?dy=21&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2714,7 +2714,7 @@
       },
       "raw_label": "ADULT PICK UP HOCKEY",
       "source_url": "https://www.churchillrink.org/event/show/590923584?dy=22&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2733,7 +2733,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-22T130000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-22T134500000-0500-public_skate-recreational",
@@ -2750,7 +2750,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923586?dy=22&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2768,7 +2768,7 @@
       },
       "raw_label": "Rec Public Skate 2-3:20pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2786,7 +2786,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923588?dy=22&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2804,7 +2804,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2822,7 +2822,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2840,7 +2840,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=23&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2858,7 +2858,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923592?dy=23&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2876,7 +2876,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2894,7 +2894,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -2913,7 +2913,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2931,7 +2931,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074?dy=24&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2950,7 +2950,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-24T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-24T140000000-0500-public_skate-recreational",
@@ -2967,7 +2967,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923592?dy=24&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -2985,7 +2985,7 @@
       },
       "raw_label": "PARENT/TOT 9-10:20am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3004,7 +3004,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3022,7 +3022,7 @@
       },
       "raw_label": "8TH GRADE & BELOW STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/591357488",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3040,7 +3040,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3059,7 +3059,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3077,7 +3077,7 @@
       },
       "raw_label": "HIGH SCHOOL & OLDER STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/591357490",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3096,7 +3096,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-25T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-25T133000000-0500-public_skate-recreational",
@@ -3113,7 +3113,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/591357493",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3132,7 +3132,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-25T193000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-25T194000000-0500-stick_puck-drop_in",
@@ -3149,7 +3149,7 @@
       },
       "raw_label": "POND HOCKEY",
       "source_url": "https://www.churchillrink.org/event/show/591358989",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3167,7 +3167,7 @@
       },
       "raw_label": "CLOSED - HAPPY THANKSGIVING",
       "source_url": "https://www.churchillrink.org/event/show/591357508",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3185,7 +3185,7 @@
       },
       "raw_label": "8TH GRADE & BELOW STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/591357512",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3203,7 +3203,7 @@
       },
       "raw_label": "HIGH SCHOOL & OLDER STICK & PUCK",
       "source_url": "https://www.churchillrink.org/event/show/591357513",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3222,7 +3222,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-27T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-27T133000000-0500-public_skate-recreational",
@@ -3239,7 +3239,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/591357516",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3257,7 +3257,7 @@
       },
       "raw_label": "POND HOCKEY",
       "source_url": "https://www.churchillrink.org/event/show/591359060",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3275,7 +3275,7 @@
       },
       "raw_label": "FUN SKATE - TEEN",
       "source_url": "https://www.churchillrink.org/event/show/590923518",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3293,7 +3293,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923561",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3311,7 +3311,7 @@
       },
       "raw_label": "FUN SKATE - FAMILY",
       "source_url": "https://www.churchillrink.org/event/show/590923567",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3330,7 +3330,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-28T180000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-28T201500000-0500-public_skate-recreational",
@@ -3347,7 +3347,7 @@
       },
       "raw_label": "FUN SKATE - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923577",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3365,7 +3365,7 @@
       },
       "raw_label": "ADULT PICK UP HOCKEY",
       "source_url": "https://www.churchillrink.org/event/show/590923584?dy=29&mth=11&yr=2026",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3384,7 +3384,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-11-29T130000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "churchill-rink-durham-2026-11-29T134500000-0500-public_skate-recreational",
@@ -3401,7 +3401,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923586",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3419,7 +3419,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923588",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3437,7 +3437,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3455,7 +3455,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/November-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3473,7 +3473,7 @@
       },
       "raw_label": "STICK & PUCK - ALL AGES",
       "source_url": "https://www.churchillrink.org/event/show/590923074",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3491,7 +3491,7 @@
       },
       "raw_label": "PUBLIC SKATING",
       "source_url": "https://www.churchillrink.org/event/show/590923592",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "medium"
     },
     {
@@ -3509,7 +3509,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3527,7 +3527,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3546,7 +3546,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3565,7 +3565,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-01T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-02T100000000-0500-public_skate-instructional",
@@ -3582,7 +3582,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3600,7 +3600,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3619,7 +3619,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3638,7 +3638,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-02T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-03T100000000-0500-public_skate-instructional",
@@ -3655,7 +3655,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3673,7 +3673,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3692,7 +3692,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3711,7 +3711,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-03T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-04T100000000-0500-public_skate-instructional",
@@ -3728,7 +3728,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3746,7 +3746,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3765,7 +3765,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3783,7 +3783,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3803,7 +3803,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-05T180000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -3821,7 +3821,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-06T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-06T140000000-0500-public_skate-recreational",
@@ -3838,7 +3838,7 @@
       },
       "raw_label": "Rec Public Skate 2-3:20pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3856,7 +3856,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3874,7 +3874,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3892,7 +3892,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3910,7 +3910,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -3929,7 +3929,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3948,7 +3948,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-08T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-09T100000000-0500-public_skate-instructional",
@@ -3965,7 +3965,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -3983,7 +3983,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4002,7 +4002,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4021,7 +4021,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-09T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-10T100000000-0500-public_skate-instructional",
@@ -4038,7 +4038,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4056,7 +4056,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4075,7 +4075,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4094,7 +4094,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-10T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-11T100000000-0500-public_skate-instructional",
@@ -4111,7 +4111,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4129,7 +4129,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4148,7 +4148,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4166,7 +4166,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4186,7 +4186,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-12T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -4204,7 +4204,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-13T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-14T100000000-0500-public_skate-instructional",
@@ -4221,7 +4221,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4239,7 +4239,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4257,7 +4257,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4275,7 +4275,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4294,7 +4294,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4313,7 +4313,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-15T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-16T100000000-0500-public_skate-instructional",
@@ -4330,7 +4330,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4348,7 +4348,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4367,7 +4367,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4386,7 +4386,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-16T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-17T100000000-0500-public_skate-instructional",
@@ -4403,7 +4403,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4421,7 +4421,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4440,7 +4440,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4459,7 +4459,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-17T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-18T100000000-0500-public_skate-instructional",
@@ -4476,7 +4476,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4494,7 +4494,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4513,7 +4513,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4531,7 +4531,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4551,7 +4551,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-19T193000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -4569,7 +4569,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-20T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-20T140000000-0500-public_skate-recreational",
@@ -4586,7 +4586,7 @@
       },
       "raw_label": "Rec Public Skate 2-3:20pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4604,7 +4604,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4622,7 +4622,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4640,7 +4640,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4658,7 +4658,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4677,7 +4677,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4696,7 +4696,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-22T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-23T100000000-0500-public_skate-instructional",
@@ -4713,7 +4713,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4731,7 +4731,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4750,7 +4750,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4769,7 +4769,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-23T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-24T100000000-0500-public_skate-instructional",
@@ -4786,7 +4786,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4804,7 +4804,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4823,7 +4823,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4842,7 +4842,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-24T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -4860,7 +4860,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-26T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-27T140000000-0500-public_skate-recreational",
@@ -4877,7 +4877,7 @@
       },
       "raw_label": "Rec Public Skate 2-3:20pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4895,7 +4895,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4913,7 +4913,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4931,7 +4931,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4949,7 +4949,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -4968,7 +4968,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -4987,7 +4987,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-29T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-30T100000000-0500-public_skate-instructional",
@@ -5004,7 +5004,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -5022,7 +5022,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -5041,7 +5041,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-30T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "id": "dover-arena-2026-12-31T100000000-0500-public_skate-instructional",
@@ -5058,7 +5058,7 @@
       },
       "raw_label": "Instructional PS 10-11:50am",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -5076,7 +5076,7 @@
       },
       "raw_label": "ADULT STICK 11:30a-12:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-Stick-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high",
       "stick_fee_legend": "Stick practice fees at Dover (this calendar): youth stick $8, parent/tot $8 per skater, adult stick $12."
     },
@@ -5095,7 +5095,7 @@
       },
       "raw_label": "Rec Public Skate 12-1:50pm",
       "source_url": "http://dover.nh.gov/Assets/government/city-operations/2document/recreation/ice-arena/Dec-PS-26.pdf",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00",
+      "fetched_at": "2026-11-21T13:26:05.839-05:00",
       "confidence": "high"
     },
     {
@@ -5114,7 +5114,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2026-12-31T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5132,7 +5132,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-02T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5150,7 +5150,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-02T180000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5168,7 +5168,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-03T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5186,7 +5186,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-05T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5204,7 +5204,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-06T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5222,7 +5222,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-07T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5240,7 +5240,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-09T130000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5258,7 +5258,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-10T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5276,7 +5276,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-12T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5294,7 +5294,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-13T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5312,7 +5312,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-14T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5330,7 +5330,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-16T163000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5348,7 +5348,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-17T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5366,7 +5366,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-19T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5384,7 +5384,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-20T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5402,7 +5402,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-21T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5420,7 +5420,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-23T130000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5438,7 +5438,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-24T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5456,7 +5456,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-26T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5474,7 +5474,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-27T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5492,7 +5492,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-28T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5510,7 +5510,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-30T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5528,7 +5528,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-01-31T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5546,7 +5546,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-02T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5564,7 +5564,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-03T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5582,7 +5582,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-04T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5600,7 +5600,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-06T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5618,7 +5618,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-07T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5636,7 +5636,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-09T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5654,7 +5654,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-10T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5672,7 +5672,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-11T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5690,7 +5690,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-13T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5708,7 +5708,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-13T190000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5726,7 +5726,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-14T123000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5744,7 +5744,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-16T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5762,7 +5762,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-17T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5780,7 +5780,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-18T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5798,7 +5798,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-23T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5816,7 +5816,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-24T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5834,7 +5834,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-02-25T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5852,7 +5852,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-02T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5870,7 +5870,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-03T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5888,7 +5888,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-04T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5906,7 +5906,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-09T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5924,7 +5924,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-10T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5942,7 +5942,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-11T120000000-0500-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5960,7 +5960,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-16T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5978,7 +5978,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-17T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     },
     {
       "rink_id": "rochester-arena",
@@ -5996,7 +5996,7 @@
       "source_url": "https://rochesterrec.recdesk.com/Community/Program/Detail?programId=2479",
       "confidence": "high",
       "id": "rochester-arena-2027-03-18T120000000-0400-public_skate-recreational",
-      "fetched_at": "2026-11-20T14:23:20.579-05:00"
+      "fetched_at": "2026-11-21T13:26:05.839-05:00"
     }
   ]
 }
